@@ -106,9 +106,29 @@ nav ul{
 	clear: both;
 }
 
+/* Contenedor para las imágenes */
+.container {
+  background-image: url('./images/metaverse-7241611_1280.jpg'); /* Establece el fondo */
+  background-size: cover;
+  width: 200px; /* Ancho de la tarjeta */
+  padding: 20px;
+  text-align: center;
+  border-radius: 10px; /* Redondea los bordes */
+  margin: 20px;
+}
+
+.container img{
+  max-width: 100%;
+  border-radius: 50%; /* Redondea la imagen */
+}
+
+/* Estilo para la imagen superior */
 #portada{
-    width: 873px;
-    margin-top: 1%; 
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 30%;
+  border-radius: 12px;
 }
 
 article{
