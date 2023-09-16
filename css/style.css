@@ -4,155 +4,91 @@
     box-sizing: border-box;
 }
 
-html, body{
-    height: auto;
-    width: auto;
-    margin: 0% 3%;
-}
-
-header{
-    font-size: 200%;
-    margin-top: 3%;
-    text-shadow: 2px 2px 1px grey;
-}
-
-nav {
-	background: -webkit-gradient(linear, center top, center bottom, from(#fff), to(#ccc));
-	background-image: linear-gradient(#fff, #ccc);
-	border-radius: 6px;
-	box-shadow: 0px 0px 4px 2px rgba(0,0,0,0.4);
-	padding: 0% 1%;
-	position: relative;
-}
-
-nav ul{
-    list-style: none;
-    
-}
-
-.menu li {
-	float: left;
-	position: relative;
-}
-
-.menu li a {
-	color: #444;
-	display: block;
-	font-size: 14px;
-	line-height: 20px;
-	padding: 3px 12px;
-	margin: 4px 8px;
-	vertical-align: middle;
-	text-decoration: none;
-}
-
-.menu li a:hover {
-	background: -webkit-gradient(linear, center top, center bottom, from(#ededed), to(#fff));
-	background-image: linear-gradient(#ededed, #fff);
-	border-radius: 12px;
-	box-shadow: inset 0px 0px 1px 1px rgba(0,0,0,0.1);
-	color: #222;
-}
-
-/* Dropdown styles */
-
-.menu ul {
-	position: absolute;
-	left: -9999px;
-	opacity: 0;
-	transition: opacity 1s ease;
-}
-
-.menu ul li {
-	float: none;
-}
-
-.menu ul a {
-	white-space: nowrap;
-}
-
-/* Displays the dropdown on hover and moves back into position */
-.menu li:hover ul {
-	background: rgba(255,255,255,0.7);
-	border-radius: 0 0 6px 6px;
-	box-shadow: inset 0px 2px 4px rgba(0,0,0,0.4);
-	left: 5px;
-	opacity: 1;
-}
-
-/* Persistant Hover State */
-.menu li:hover a {
-	background: -webkit-gradient(linear, center top, center bottom, from(#ccc), to(#ededed));
-	background-image: linear-gradient(#ccc, #ededed);
-	border-radius: 12px;
-	box-shadow: inset 0px 0px 1px 1px rgba(0,0,0,0.1);
-	color: #222;
-}
-
-.menu li:hover ul a {
-	background: none;
-	border-radius: 0;
-	box-shadow: none;
-}
-
-.menu li:hover ul li a:hover {
-	background: -webkit-gradient(linear, center top, center bottom, from(#eee), to(#fff));
-	background-image: linear-gradient(#ededed, #fff);
-	border-radius: 12px;
-	box-shadow: inset 0px 0px 4px 2px rgba(0,0,0,0.3);
-}
-
 .clearfix {
 	clear: both;
 }
 
-/* Contenedor para las imágenes */
-.container {
-  background-image: url('./images/metaverse-7241611_1280.jpg'); /* Establece el fondo */
-  background-size: cover;
-  width: 200px; /* Ancho de la tarjeta */
-  padding: 20px;
-  text-align: center;
-  border-radius: 10px; /* Redondea los bordes */
-  margin: 20px;
+html, body{
+    height: auto;
+    width: auto;
 }
 
-.container img{
-  max-width: 100%;
-  border-radius: 50%; /* Redondea la imagen */
+.presentation {
+	background-color: hsla( 204.39,79.49%,38.24% ,1);
+	background-size: cover;
+	position: absolute;
+	display: block;
+    object-fit: cover;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+	color: white;
 }
 
-/* Estilo para la imagen superior */
-#portada{
-  position: absolute;
-  top: 0;
-  left: 0;
-  margin: 30%;
-  border-radius: 12px;
+.header-links{
+    padding-top: 3%;
+    padding-right: 3%;
+    margin-bottom: 3%;
+    text-align: right;
 }
 
-article{
-    float: left;
-    width: 73%;
+.header-links a img{
+    max-width: 1.5%;
 }
 
-article h1{
-    font-size: 250%;
-    margin: 2% 0%;
+#x-com, #itch-io{
+	margin-right: 10px;
 }
 
-article h2{
+section h1{
+	font-family: 'Tomorrow', sans-serif;
+    font-size: 300%;
+    margin-top: 5%;
+    margin-left: 6%;
+}
+
+section p{
+	font-family: 'Tomorrow', sans-serif;
+    font-size: 100%;
     margin-top: 3%;
+    margin-left: 6%;
+    margin-bottom: 2%;
+    width: 25%;
 }
 
-article p{
-    margin-bottom: 1%;
+.images{
+	display: block;
+	position: relative;
+    width: 100%;
 }
 
-aside {
-    float: right;
+#presentation-background{
+	float: right;
+	width: 30%;
+	margin-right: 18%;
 }
 
-#radio{
-    float: top;
+#avatar{
+	float: right;
+	width: 14%;
+	border-radius: 40%;
+	margin-top: 3.2%;
+	margin-right: -22%;
+}
+
+.boton-curriculum{
+	background-color: #3498db; /* Color de fondo inicial del botón */
+	color: #fff; /* Color de texto del botón */
+	border: none; /* Sin borde */
+	padding: 20px 40px; /* Espaciado interno para el botón */
+	border-radius: 40px; /* Radio de la pastilla */
+	transition: background-color 0.3s ease; /* Transición suave para el color de fondo */
+	text-decoration: none;
+	font-size: 120%;
+    margin-left: 6%;
+}
+
+.boton-curriculum:hover{
+	background-color: #2980b9; /* Color de fondo cuando se pasa el ratón por encima */
 }
