@@ -1,0 +1,122 @@
+{
+    "Map/SizeTest": {
+        "height": 4300,
+        "width": 2
+    },
+    "activeFile": "J:/Mi unidad/Universidad/Contenidos digitales interactivos/CDI3 (2022-23)/Semestre 1/Metodologías ágiles de producción/Examenes pasados/Plantillas/Examen2021/assets/maps/mapExam.tmx",
+    "expandedProjectPaths": [
+        ".",
+        "E:/Area de trabajo/Phaser/GhostNGoblins/assets"
+    ],
+    "fileStates": {
+        "": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "J:/Mi unidad/Universidad/Contenidos digitales interactivos/CDI3 (2022-23)/Semestre 1/Metodologías ágiles de producción/Examenes pasados/Plantillas/Examen2021/assets/maps/mapExam.tmx": {
+            "scale": 2.0726273148148144,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 432.3015496300433,
+                "y": 112.17646237609944
+            }
+        },
+        "J:/Mi unidad/Universidad/Contenidos digitales interactivos/CDI3 (2022-23)/Semestre 1/Metodologías ágiles de producción/Examenes pasados/Plantillas/Examen2021/assets/maps/mapExam.tmx#decor": {
+            "scaleInDock": 1
+        },
+        "J:/Mi unidad/Universidad/Contenidos digitales interactivos/CDI3 (2022-23)/Semestre 1/Metodologías ágiles de producción/Examenes pasados/Plantillas/Examen2021/assets/maps/mapExam.tmx#walls": {
+            "scaleInDock": 1
+        },
+        "stage1.json": {
+            "scale": 0.41482979910714285,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 1793.506642004372,
+                "y": 114.50479233226838
+            }
+        },
+        "stage1.json#Graveyard Terrain": {
+            "scaleInDock": 1
+        },
+        "stage1.json#Mountain01": {
+            "scaleInDock": 1
+        },
+        "stage1.json#Tombs": {
+            "scaleInDock": 1
+        },
+        "stage1.tmx": {
+            "scale": 3,
+            "selectedLayer": 20,
+            "viewCenter": {
+                "x": 1800,
+                "y": 120.16666666666666
+            }
+        },
+        "stage1.tmx#2FLadders": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "stage1.tmx#2FTerrain": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "stage1.tmx#Background": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "stage1.tmx#Fences": {
+            "scaleInDock": 1
+        },
+        "stage1.tmx#Fortress": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "stage1.tmx#Grass": {
+            "scaleInDock": 1
+        },
+        "stage1.tmx#Graveyard Terrain": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "stage1.tmx#GraveyardTrees": {
+            "scaleInDock": 1
+        },
+        "stage1.tmx#Mountain01": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "stage1.tmx#Mountain02": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "stage1.tmx#Tombs": {
+            "scaleInDock": 1
+        },
+        "stage1.tmx#Water": {
+            "scaleInDock": 1
+        }
+    },
+    "last.exportedFilePath": "E:/Area de trabajo/Phaser/GhostNGoblins/assets/map",
+    "last.imagePath": "E:/Area de trabajo/Phaser/GhostNGoblins/assets/tilesets",
+    "map.height": 6,
+    "map.lastUsedExportFilter": "JSON map files (*.tmj *.json)",
+    "map.lastUsedFormat": "tmx",
+    "map.renderOrder": null,
+    "map.width": 112,
+    "openFiles": [
+        "stage1.tmx",
+        "J:/Mi unidad/Universidad/Contenidos digitales interactivos/CDI3 (2022-23)/Semestre 1/Metodologías ágiles de producción/Examenes pasados/Plantillas/Examen2021/assets/maps/mapExam.tmx"
+    ],
+    "project": "Ghost and goblins lvl1.tiled-project",
+    "property.type": "string",
+    "recentFiles": [
+        "stage1.tmx",
+        "J:/Mi unidad/Universidad/Contenidos digitales interactivos/CDI3 (2022-23)/Semestre 1/Metodologías ágiles de producción/Examenes pasados/Plantillas/Examen2021/assets/maps/mapExam.tmx",
+        "stage1.json"
+    ],
+    "tileset.embedInMap": true,
+    "tileset.tileSize": {
+        "height": 32,
+        "width": 32
+    }
+}
