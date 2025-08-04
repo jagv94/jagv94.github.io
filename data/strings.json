@@ -5,15 +5,17 @@
     "intro": "Developer of video games, serious games and experiences for research purposes, in Unreal Engine (C++/Blueprints) or Unity (C#) with great interest in VR/XR development.\nSelf-taught student of animation and 3D modeling, and Japanese language and culture.",
     "projects": "Projects",
     "play": "Play Now",
-    "contact": "Contact: jagv94@gmail.com"
+    "contact": "Contact: jagv94@gmail.com",
+    "GNGDescription": "Recreation of the classic arcade game Ghosts'N Goblins created during the course of a game development career, using Phaser."
   },
   "es": {
     "title": "Mi Portafolio",
     "welcome": "Portafolio de Adrian Guerra",
     "intro": "Desarrollador de videojuegos, serious games y experiencias para investigación, en Unreal Engine (C++/Blueprints) o Unity (C#), con gran interés en el desarrollo VR/XR.\nAutodidacta en animación, modelado 3D, y cultura e idioma japonés.",
     "projects": "Proyectos",
-    "play": "Jugar ahora",
-    "contact": "Contacto: jagv94@gmail.com"
+    "play": "Jugar",
+    "contact": "Contacto: jagv94@gmail.com",
+    "GNGDescription": "Recreación del clásico juego de arcade Ghosts'N Goblins creado durante la realización de la carrera de desarrollo de juegos, utilizando Phaser."
   },
   "jp": {
     "title": "ポートフォリオ",
@@ -21,6 +23,7 @@
     "intro": "Unreal Engine（C++/Blueprints）やUnity（C#）を使用した、ゲーム、シリアスゲーム、研究目的の体験を開発。\nアニメーションと3Dモデリング、日本語と日本文化を独学中。",
     "projects": "プロジェクト",
     "play": "プレイする",
-    "contact": "連絡先：jagv94@gmail.com"
+    "contact": "連絡先：jagv94@gmail.com",
+    "GNGDescription": "ゲーム開発のキャリアの中で作成したクラシックなアーケード ゲーム Ghosts'N Goblins を Phaser を使用して再現しました。"
   }
 }
