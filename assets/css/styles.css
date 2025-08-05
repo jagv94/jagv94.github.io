@@ -34,7 +34,7 @@
 :root {
   --bg-dark: #121212;
   --text-light: #f2f2f2;
-  --accent: #c084fc;     /* pastel violet */
+  --accent: #c084fc;
   --accent-light: #e9d5ff;
   --font-primary: 'Sawarabi Gothic', sans-serif;
   --font-secondary: 'Zen Maru Gothic', sans-serif;
@@ -48,6 +48,7 @@ body {
   color: var(--text-light);
   line-height: 1.6;
   font-size: 16px;
+  padding-bottom: 4rem; /* espacio para footer fijo */
 }
 
 .container {
@@ -77,13 +78,14 @@ p {
   color: var(--text-light);
 }
 
-/* ==== MAIN ==== */
+/* ==== SECTION TITLES ==== */
 
 h2 {
   font-family: var(--font-secondary);
   font-size: 1.8rem;
   color: var(--accent-light);
   margin-bottom: 1rem;
+  text-align: center;
 }
 
 /* ==== BOTONES GENERALES ==== */
@@ -109,10 +111,34 @@ h2 {
 /* ==== FOOTER ==== */
 
 footer {
-  text-align: center;
-  padding: 2rem 0;
-  font-size: 0.9rem;
-  color: #aaa;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: #121212;
+  border-top: 1px solid var(--accent);
+  padding: 0.25rem 0.5rem;      /* antes: 0.5rem 1rem */
+  font-size: 0.75rem;           /* antes: 0.85rem */
+  z-index: 100;
+  line-height: 1.2;
+}
+
+footer .container {
+  max-width: 960px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+footer a {
+  color: var(--accent-light);
+  margin-left: 0.5rem;
+  transition: color 0.3s;
+}
+
+footer a:hover {
+  color: var(--accent);
 }
 
 /* ==== LANG SELECTOR ==== */
@@ -167,4 +193,42 @@ footer {
 
 .border-accent {
   border-color: var(--accent) !important;
+}
+
+/* ==== PORTFOLIO ==== */
+
+.portfolio-item {
+  margin-bottom: 20px; /* más aire entre tarjetas */
+}
+
+/* ==== PORTFOLIO FILTER BUTTONS ==== */
+
+#portfolio-filters {
+  list-style: none;
+  padding: 0;
+}
+
+#portfolio-filters li {
+  cursor: pointer;
+  margin: 0.25rem;
+  font-weight: 500;
+  border: 1px solid var(--accent);
+  padding: 0.3rem 0.8rem;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+  display: inline-block;
+  color: var(--text-light);
+}
+
+#portfolio-filters li.active,
+#portfolio-filters li:hover {
+  background-color: var(--accent);
+  color: #121212;
+}
+
+/* ==== SOCIAL ICONS ==== */
+
+footer .fa-brands {
+  font-size: 1.2rem;
+  vertical-align: middle;
 }

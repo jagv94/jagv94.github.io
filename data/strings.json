@@ -2,28 +2,49 @@
   "en": {
     "title": "My Portfolio",
     "welcome": "Adrian Guerra's Portfolio",
-    "intro": "Developer of video games, serious games and experiences for research purposes, in Unreal Engine (C++/Blueprints) or Unity (C#) with great interest in VR/XR development.\nSelf-taught student of animation and 3D modeling, and Japanese language and culture.",
+    "intro": "Developer specialized in VR/XR experiences and serious games. Passionate about technology, Japanese culture, and continuous learning.<br/><br/>Expert in Unreal Engine (C++/Blueprints) and Unity (C#), with skills in game design, production, and 3D modeling. Currently focused on improving my skills in Japanese, 3D animation, and artificial intelligence.",
+    "about_title": "About Me",
+    "about_text": "I'm Adrián Guerra, a game designer and developer from Barcelona specialized in VR/XR. Passionate about Japanese culture, AI, and learning new technologies.",
     "projects": "Projects",
     "play": "Play Now",
+    "visit": "Visit Page",
     "contact": "Contact: jagv94@gmail.com",
-    "GNGDescription": "Recreation of the classic arcade game Ghosts'N Goblins created during the course of a game development career, using Phaser."
+    "GNGDescription": "Recreation of the classic arcade game Ghosts'N Goblins created during the course of a game development career, using Phaser.",
+    "looking_for": "Looking for opportunities as:",
+    "roles": "Game Designer | Producer | Researcher | Programmer",
+    "focus": "Especially interested in Virtual Reality and small to mid-sized companies",
+    "work_preferences": "Prefer remote work with flexible hours"
   },
   "es": {
     "title": "Mi Portafolio",
     "welcome": "Portafolio de Adrian Guerra",
-    "intro": "Desarrollador de videojuegos, serious games y experiencias para investigación, en Unreal Engine (C++/Blueprints) o Unity (C#), con gran interés en el desarrollo VR/XR.\nAutodidacta en animación, modelado 3D, y cultura e idioma japonés.",
+    "intro": "Desarrollador especializado en experiencias VR/XR y serious games. Apasionado por la tecnología, la cultura japonesa y el aprendizaje continuo.<br/><br/>Experto en Unreal Engine (C++/Blueprints) y Unity (C#), con habilidades en diseño de juegos, producción y modelado 3D. Actualmente enfocado en mejorar mis habilidades en japonés, animación 3D e inteligencia artificial.",
+    "about_title": "Sobre mí",
+    "about_text": "Soy Adrián Guerra, diseñador y desarrollador de videojuegos de Barcelona especializado en VR/XR. Apasionado por la cultura japonesa, la inteligencia artificial y el aprendizaje de nuevas tecnologías.",
     "projects": "Proyectos",
     "play": "Jugar",
+    "visit": "Visitar página",
     "contact": "Contacto: jagv94@gmail.com",
-    "GNGDescription": "Recreación del clásico juego de arcade Ghosts'N Goblins creado durante la realización de la carrera de desarrollo de juegos, utilizando Phaser."
+    "GNGDescription": "Recreación del clásico juego de arcade Ghosts'N Goblins creado durante la realización de la carrera de desarrollo de juegos, utilizando Phaser.",
+    "looking_for": "Busco oportunidades como:",
+    "roles": "Diseñador de Juegos | Productor | Investigador | Programador",
+    "focus": "Especial interés en Realidad Virtual y empresas pequeñas/medianas",
+    "work_preferences": "Prefiero trabajo remoto con horario flexible"
   },
   "jp": {
     "title": "ポートフォリオ",
     "welcome": "[Adrian Guerra] アドリアン・グエッラのポートフォリオ",
-    "intro": "Unreal Engine（C++/Blueprints）やUnity（C#）を使用した、ゲーム、シリアスゲーム、研究目的の体験を開発。\nアニメーションと3Dモデリング、日本語と日本文化を独学中。",
+    "intro": "VR/XR体験とシリアスゲームを専門とする開発者。技術、日本文化、そして継続的な学習に情熱を持っています。<br/><br/>Unreal Engine（C++／Blueprints）とUnity（C#）のエキスパートであり、ゲームデザイン、プロデュース、3Dモデリングのスキルも備えています。現在は、日本語、3Dアニメーション、人工知能のスキル向上に取り組んでいます。",
+    "about_title": "自己紹介",
+    "about_text": "私はアドリアン・グエッラ、バルセロナ出身のゲームデザイナー兼開発者です。VR/XRに特化し、日本文化、AI、新しい技術の学習に情熱を持っています。",
     "projects": "プロジェクト",
     "play": "プレイする",
+    "visit": "ページを見る",
     "contact": "連絡先：jagv94@gmail.com",
-    "GNGDescription": "ゲーム開発のキャリアの中で作成したクラシックなアーケード ゲーム Ghosts'N Goblins を Phaser を使用して再現しました。"
+    "GNGDescription": "ゲーム開発のキャリアの中で作成したクラシックなアーケード ゲーム Ghosts'N Goblins を Phaser を使用して再現しました。",
+    "looking_for": "以下のポジションを探しています：",
+    "roles": "ゲームデザイナー｜プロデューサー｜リサーチャー｜プログラマー",
+    "focus": "特にVR（バーチャルリアリティ）と中小規模の企業に関心があります",
+    "work_preferences": "リモートワークと柔軟な勤務時間を希望しています"
   }
 }

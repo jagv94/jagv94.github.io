@@ -1,3 +1,23 @@
+Estoy creando un porfolio profesional en una página web alojada en Github Pages y actualmente tengo lo siguiente:
+Estructura de carpetas:
+```
+/portfolio-site/
+│
+├── index.html             ← Página principal con JS de carga multilingüe
+├── /assets/
+│   ├── /css/              ← estilos globales
+│   ├── /img/              ← logos, screenshots, etc.
+│   └── /fonts/            ← si usas alguna personalizada o anime-style
+├── /js/
+│   ├── language-switch.js ← manejo de idiomas
+│   └── main.js            ← lógica de la página
+├── /data/
+│   └── strings.json       ← textos traducidos
+└── /GhostNGoblins/
+    ├── GhostNGoblins.html
+    └── ...                ← assets del juego
+```
+
 index.html:
 ```
 <!DOCTYPE html>
@@ -9,56 +29,158 @@ index.html:
 
   <!-- Bootstrap 5 -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
-
-  <!-- Tu estilo personalizado -->
+  <!-- Font Awesome (para iconos sociales) -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
+  <!-- Estilos personalizados -->
   <link rel="stylesheet" href="assets/css/styles.css" />
 </head>
 <body>
   <header class="text-center py-5">
     <div class="container">
       <nav class="lang-selector mb-3">
-		<button class="btn btn-outline-light btn-sm me-1" data-lang="en">🇬🇧 EN</button>
-		<button class="btn btn-outline-light btn-sm me-1" data-lang="es">🇪🇸 ES</button>
-		<button class="btn btn-outline-light btn-sm" data-lang="jp">🇯🇵 日本語</button>
-	  </nav>
+        <button class="btn btn-outline-light btn-sm me-1" data-lang="en">🇬🇧 EN</button>
+        <button class="btn btn-outline-light btn-sm me-1" data-lang="es">🇪🇸 ES</button>
+        <button class="btn btn-outline-light btn-sm" data-lang="jp">🇯🇵 日本語</button>
+      </nav>
 
       <h1 data-i18n="welcome">Adrian Guerra's Portfolio</h1>
       <p data-i18n="intro">
-        Developer of video games, serious games and experiences for research purposes, in Unreal Engine (C++/Blueprints) or Unity (C#) with great interest in VR/XR development.<br />
-        Self-taught student of animation and 3D modeling, and Japanese language and culture.
+        Developer specialized in VR/XR experiences and serious games. Passionate about technology, Japanese culture, and continuous learning.<br/><br/>
+        Expert in Unreal Engine (C++/Blueprints) and Unity (C#), with skills in game design, production, and 3D modeling. Currently focused on improving my skills in Japanese, 3D animation, and artificial intelligence.
       </p>
     </div>
   </header>
 
-  <main>
-    <section class="container my-5">
-      <h2 class="mb-4" data-i18n="projects">Projects</h2>
-      <div class="row g-4">
+  <main class="pb-5"> <!-- espacio inferior para el footer fijo -->
+    <!-- About -->
+    <section class="container my-5 text-center">
+      <h2 data-i18n="about_title">About Me</h2>
+      <p data-i18n="about_text">
+        I'm Adrián Guerra, a game designer and developer from Barcelona specialized in VR/XR. Passionate about Japanese culture, AI, and learning new technologies.
+      </p>
+    </section>
 
-        <!-- Ghost'N Goblins Card -->
-        <div class="col-md-6 col-lg-4">
+    <!-- Career Info -->
+    <section class="container text-center my-5">
+      <h2 data-i18n="looking_for">Looking for opportunities as:</h2>
+      <p data-i18n="roles">Game Designer | Producer | Researcher | Programmer</p>
+      <p data-i18n="focus">Especially interested in Virtual Reality and small to mid-sized companies</p>
+      <p data-i18n="work_preferences">Prefer remote work with flexible hours</p>
+    </section>
+
+    <!-- Portfolio -->
+    <section id="portfolio" class="container my-5">
+      <h2 class="text-center mb-4" data-i18n="projects">Projects</h2>
+
+      <div class="text-center mb-4">
+        <ul id="portfolio-filters" class="list-inline">
+          <li class="list-inline-item btn btn-sm btn-outline-light active" data-filter="*">All</li>
+          <li class="list-inline-item btn btn-sm btn-outline-light" data-filter=".filter-action">Action</li>
+          <li class="list-inline-item btn btn-sm btn-outline-light" data-filter=".filter-simulation">Simulation</li>
+          <li class="list-inline-item btn btn-sm btn-outline-light" data-filter=".filter-puzzle">Puzzle</li>
+          <li class="list-inline-item btn btn-sm btn-outline-light" data-filter=".filter-turnBased">Turn-Based</li>
+        </ul>
+      </div>
+
+      <div class="row portfolio-container">
+        <!-- Cada tarjeta usa Bootstrap grid y clases de filtro -->
+        <div class="col-md-6 col-lg-4 portfolio-item filter-action">
           <div class="card h-100 shadow-sm bg-dark text-light border border-accent">
-            <img src="assets/img/portfolio/ghostngoblins.png" class="card-img-top" alt="Ghost'N Goblins Project" />
+            <img src="assets/img/portfolio/portfolio-1.png" class="card-img-top" alt="Godly Thief" />
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title">Godly Thief</h5>
+              <a href="https://marcd419.itch.io/godly-thief" class="btn mt-auto" target="_blank" data-i18n="play">Play Now</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 portfolio-item filter-action">
+          <div class="card h-100 shadow-sm bg-dark text-light border border-accent">
+            <img src="assets/img/portfolio/ghostngoblins.png" class="card-img-top" alt="Ghost'N Goblins" />
             <div class="card-body d-flex flex-column">
               <h5 class="card-title">Ghost'N Goblins</h5>
-              <p class="card-text" data-i18n="GNGDescription">Recreation of the classic arcade game Ghosts'N Goblins created during the course of a game development career, using Phaser.</p>
+              <p class="card-text" data-i18n="GNGDescription"></p>
               <a href="GhostNGoblins/GhostNGoblins.html" class="btn mt-auto" target="_blank" data-i18n="play">Play Now</a>
             </div>
           </div>
         </div>
 
+        <div class="col-md-6 col-lg-4 portfolio-item filter-action">
+          <div class="card h-100 shadow-sm bg-dark text-light border border-accent">
+            <img src="assets/img/portfolio/portfolio-5.png" class="card-img-top" alt="Towers of Clickanium" />
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title">Towers of Clickanium</h5>
+              <a href="https://youtu.be/mW7iOPUotSM" class="btn mt-auto" target="_blank" data-i18n="play">Play Now</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 portfolio-item filter-simulation">
+          <div class="card h-100 shadow-sm bg-dark text-light border border-accent">
+            <img src="assets/img/portfolio/portfolio-2.png" class="card-img-top" alt="Restaurant Extravaganzza" />
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title">Restaurant Extravaganzza</h5>
+              <a href="https://dojap.itch.io/restaurant-extravaganzza" class="btn mt-auto" target="_blank" data-i18n="play">Play Now</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 portfolio-item filter-puzzle">
+          <div class="card h-100 shadow-sm bg-dark text-light border border-accent">
+            <img src="assets/img/portfolio/portfolio-3.png" class="card-img-top" alt="Twisted Tail" />
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title">Twisted Tail</h5>
+              <a href="https://marcd419.itch.io/twisted-tail" class="btn mt-auto" target="_blank" data-i18n="play">Play Now</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 portfolio-item filter-turnBased">
+          <div class="card h-100 shadow-sm bg-dark text-light border border-accent">
+            <img src="assets/img/portfolio/portfolio-6.png" class="card-img-top" alt="Playern't Fantasy" />
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title">Playern't Fantasy</h5>
+              <a href="https://nhos.itch.io/playernt-fantasy" class="btn mt-auto" target="_blank" data-i18n="play">Play Now</a>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   </main>
 
-  <footer class="text-center py-4">
-    <div class="container">
-      <p data-i18n="contact">Contact: jagv94@gmail.com</p>
+  <!-- Footer -->
+  <footer class="text-center py-3 fixed-bottom bg-dark text-light border-top border-accent">
+    <div class="container d-flex justify-content-between align-items-center flex-wrap small">
+      <p class="mb-0" data-i18n="contact">Contact: jagv94@gmail.com</p>
+      <div>
+        <a href="https://twitter.com/jagv94" target="_blank" class="text-light me-3"><i class="fab fa-twitter"></i></a>
+        <a href="https://www.linkedin.com/in/jagv94/" target="_blank" class="text-light"><i class="fab fa-linkedin"></i></a>
+      </div>
     </div>
   </footer>
 
-  <!-- Bootstrap JS (opcional) -->
+  <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Filtrado de proyectos -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const filters = document.querySelectorAll("#portfolio-filters li");
+      const items = document.querySelectorAll(".portfolio-item");
+
+      filters.forEach(filter => {
+        filter.addEventListener("click", () => {
+          filters.forEach(f => f.classList.remove("active"));
+          filter.classList.add("active");
+
+          const value = filter.getAttribute("data-filter");
+          items.forEach(item => {
+            item.style.display = value === "*" || item.classList.contains(value.slice(1)) ? "block" : "none";
+          });
+        });
+      });
+    });
+  </script>
+  <!-- Traducción -->
   <script src="js/main.js"></script>
 </body>
 </html>
@@ -153,7 +275,7 @@ style.css:
 :root {
   --bg-dark: #121212;
   --text-light: #f2f2f2;
-  --accent: #c084fc;     /* pastel violet */
+  --accent: #c084fc;
   --accent-light: #e9d5ff;
   --font-primary: 'Sawarabi Gothic', sans-serif;
   --font-secondary: 'Zen Maru Gothic', sans-serif;
@@ -167,6 +289,7 @@ body {
   color: var(--text-light);
   line-height: 1.6;
   font-size: 16px;
+  padding-bottom: 4rem; /* espacio para footer fijo */
 }
 
 .container {
@@ -196,13 +319,14 @@ p {
   color: var(--text-light);
 }
 
-/* ==== MAIN ==== */
+/* ==== SECTION TITLES ==== */
 
 h2 {
   font-family: var(--font-secondary);
   font-size: 1.8rem;
   color: var(--accent-light);
   margin-bottom: 1rem;
+  text-align: center;
 }
 
 /* ==== BOTONES GENERALES ==== */
@@ -228,10 +352,34 @@ h2 {
 /* ==== FOOTER ==== */
 
 footer {
-  text-align: center;
-  padding: 2rem 0;
-  font-size: 0.9rem;
-  color: #aaa;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: #121212;
+  border-top: 1px solid var(--accent);
+  padding: 0.25rem 0.5rem;      /* antes: 0.5rem 1rem */
+  font-size: 0.75rem;           /* antes: 0.85rem */
+  z-index: 100;
+  line-height: 1.2;
+}
+
+footer .container {
+  max-width: 960px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+footer a {
+  color: var(--accent-light);
+  margin-left: 0.5rem;
+  transition: color 0.3s;
+}
+
+footer a:hover {
+  color: var(--accent);
 }
 
 /* ==== LANG SELECTOR ==== */
@@ -287,6 +435,38 @@ footer {
 .border-accent {
   border-color: var(--accent) !important;
 }
+
+/* ==== PORTFOLIO FILTER BUTTONS ==== */
+
+#portfolio-filters {
+  list-style: none;
+  padding: 0;
+}
+
+#portfolio-filters li {
+  cursor: pointer;
+  margin: 0.25rem;
+  font-weight: 500;
+  border: 1px solid var(--accent);
+  padding: 0.3rem 0.8rem;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+  display: inline-block;
+  color: var(--text-light);
+}
+
+#portfolio-filters li.active,
+#portfolio-filters li:hover {
+  background-color: var(--accent);
+  color: #121212;
+}
+
+/* ==== SOCIAL ICONS ==== */
+
+footer .fa-brands {
+  font-size: 1.2rem;
+  vertical-align: middle;
+}
 ```.
 
 strings.json:
@@ -295,29 +475,62 @@ strings.json:
   "en": {
     "title": "My Portfolio",
     "welcome": "Adrian Guerra's Portfolio",
-    "intro": "Developer of video games, serious games and experiences for research purposes, in Unreal Engine (C++/Blueprints) or Unity (C#) with great interest in VR/XR development.\nSelf-taught student of animation and 3D modeling, and Japanese language and culture.",
+    "intro": "Developer specialized in VR/XR experiences and serious games. Passionate about technology, Japanese culture, and continuous learning.<br/><br/>Expert in Unreal Engine (C++/Blueprints) and Unity (C#), with skills in game design, production, and 3D modeling. Currently focused on improving my skills in Japanese, 3D animation, and artificial intelligence.",
+    "about_title": "About Me",
+    "about_text": "I'm Adrián Guerra, a game designer and developer from Barcelona specialized in VR/XR. Passionate about Japanese culture, AI, and learning new technologies.",
     "projects": "Projects",
     "play": "Play Now",
     "contact": "Contact: jagv94@gmail.com",
-    "GNGDescription": "Recreation of the classic arcade game Ghosts'N Goblins created during the course of a game development career, using Phaser."
+    "GNGDescription": "Recreation of the classic arcade game Ghosts'N Goblins created during the course of a game development career, using Phaser.",
+    "looking_for": "Looking for opportunities as:",
+    "roles": "Game Designer | Producer | Researcher | Programmer",
+    "focus": "Especially interested in Virtual Reality and small to mid-sized companies",
+    "work_preferences": "Prefer remote work with flexible hours"
   },
   "es": {
     "title": "Mi Portafolio",
     "welcome": "Portafolio de Adrian Guerra",
-    "intro": "Desarrollador de videojuegos, serious games y experiencias para investigación, en Unreal Engine (C++/Blueprints) o Unity (C#), con gran interés en el desarrollo VR/XR.\nAutodidacta en animación, modelado 3D, y cultura e idioma japonés.",
+    "intro": "Desarrollador especializado en experiencias VR/XR y serious games. Apasionado por la tecnología, la cultura japonesa y el aprendizaje continuo.<br/><br/>Experto en Unreal Engine (C++/Blueprints) y Unity (C#), con habilidades en diseño de juegos, producción y modelado 3D. Actualmente enfocado en mejorar mis habilidades en japonés, animación 3D e inteligencia artificial.",
+    "about_title": "Sobre mí",
+    "about_text": "Soy Adrián Guerra, diseñador y desarrollador de videojuegos de Barcelona especializado en VR/XR. Apasionado por la cultura japonesa, la inteligencia artificial y el aprendizaje de nuevas tecnologías.",
     "projects": "Proyectos",
     "play": "Jugar",
     "contact": "Contacto: jagv94@gmail.com",
-    "GNGDescription": "Recreación del clásico juego de arcade Ghosts'N Goblins creado durante la realización de la carrera de desarrollo de juegos, utilizando Phaser."
+    "GNGDescription": "Recreación del clásico juego de arcade Ghosts'N Goblins creado durante la realización de la carrera de desarrollo de juegos, utilizando Phaser.",
+    "looking_for": "Busco oportunidades como:",
+    "roles": "Diseñador de Juegos | Productor | Investigador | Programador",
+    "focus": "Especial interés en Realidad Virtual y empresas pequeñas/medianas",
+    "work_preferences": "Prefiero trabajo remoto con horario flexible"
   },
   "jp": {
     "title": "ポートフォリオ",
     "welcome": "[Adrian Guerra] アドリアン・グエッラのポートフォリオ",
-    "intro": "Unreal Engine（C++/Blueprints）やUnity（C#）を使用した、ゲーム、シリアスゲーム、研究目的の体験を開発。\nアニメーションと3Dモデリング、日本語と日本文化を独学中。",
+    "intro": "VR/XR体験とシリアスゲームを専門とする開発者。技術、日本文化、そして継続的な学習に情熱を持っています。<br/><br/>Unreal Engine（C++／Blueprints）とUnity（C#）のエキスパートであり、ゲームデザイン、プロデュース、3Dモデリングのスキルも備えています。現在は、日本語、3Dアニメーション、人工知能のスキル向上に取り組んでいます。",
+    "about_title": "自己紹介",
+    "about_text": "私はアドリアン・グエッラ、バルセロナ出身のゲームデザイナー兼開発者です。VR/XRに特化し、日本文化、AI、新しい技術の学習に情熱を持っています。",
     "projects": "プロジェクト",
     "play": "プレイする",
     "contact": "連絡先：jagv94@gmail.com",
-    "GNGDescription": "ゲーム開発のキャリアの中で作成したクラシックなアーケード ゲーム Ghosts'N Goblins を Phaser を使用して再現しました。"
+    "GNGDescription": "ゲーム開発のキャリアの中で作成したクラシックなアーケード ゲーム Ghosts'N Goblins を Phaser を使用して再現しました。",
+    "looking_for": "以下のポジションを探しています：",
+    "roles": "ゲームデザイナー｜プロデューサー｜リサーチャー｜プログラマー",
+    "focus": "特にVR（バーチャルリアリティ）と中小規模の企業に関心があります",
+    "work_preferences": "リモートワークと柔軟な勤務時間を希望しています"
   }
 }
 ```.
+
+Por ahora la estoy creando usando Visual Studio Code con Live Server.
+Junto al código de la página también incluyo una recreación del juego Ghosts'N Goblins creada en phaser durante la carrera universitaria junto a compañeros.
+
+A continuación doy información mía para sugerencias de personalización de la página:
+Nombre: Adrián Guerra.
+De: España, Barcelona.
+Graduado en diseño y desarrollo de videojuegos.
+En busqueda de empleo (no activa) de un puesto como: Game Designer, Productor, Investigador o Programador, esto enfocado en Realidad Virtual o videojuegos en una empresa pequeña-mediana.
+Interes en trabajo remoto y flexibilidad en el horario.
+Entusiasta de la tecnología, especialmente IA y Realidad Virtual. Me formarmo en ello cuando puedo.
+Suelo formarme en aquello que atrae mi interés.
+Objetivos: aprender a leer y escribir en japonés, saber más sobre su cultura, desarrollar un juego estilo anime, desarrollar un juego VR, aprender más sobre IA (como automatización e IA generativa), aprender a modelar y animar personajes en Blender y entornos del estilo que yo quiera (cambiando de aires y no solo dedicarme a la programación, también por interesarme de igual forma la parte artística), mantener actualizado mi ordenador si es económicamente posible, mejorando así también mi herramienta de trabajo, estudio y ocio, y (sin mucha motivación, pero necesario y prioritario tras la carrera) aprender inglés. Nivel actual: A2 - B1.
+En la carrera aprendí a modelar escenarios y animar personajes en 3DS Max (sin mucha experiencia).
+Música: me gustan los géneros metal, punk, experimental rock, post-rock, alternative rock, j-rock, j-pop, j-dance, j-core, EDM, kawaii EDM, Lo-Fi, future bass speedrun, melodic bass, anison, soundtracks, entre otros.

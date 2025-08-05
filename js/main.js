@@ -2,10 +2,12 @@ document.addEventListener("DOMContentLoaded", () => {
   const defaultLang = "en";
   const supportedLangs = ["en", "es", "jp"];
 
+  let urlParams = new URLSearchParams(window.location.search);
+  let langParam = urlParams.get("lang");
+
   let lang = localStorage.getItem("lang");
   if (!lang) {
-    const browserLang = navigator.language.slice(0, 2).toLowerCase();
-    lang = supportedLangs.includes(browserLang) ? browserLang : defaultLang;
+    lang = supportedLangs.includes(langParam) ? langParam : defaultLang;
   }
 
   fetch("data/strings.json")
@@ -14,13 +16,19 @@ document.addEventListener("DOMContentLoaded", () => {
       applyTranslations(strings, lang);
 
       document.querySelectorAll(".lang-selector button").forEach(button => {
+        button.classList.toggle("active", button.dataset.lang === lang);
+
         button.addEventListener("click", () => {
           const selectedLang = button.dataset.lang;
-          console.log("Idioma seleccionado:", selectedLang);
           if (supportedLangs.includes(selectedLang)) {
             localStorage.setItem("lang", selectedLang);
             applyTranslations(strings, selectedLang);
-            history.replaceState(null, "", `?lang=${selectedLang}`); // opcional
+            history.replaceState(null, "", `?lang=${selectedLang}`);
+
+            // Cambiar el botón activo
+            document.querySelectorAll(".lang-selector button").forEach(btn =>
+              btn.classList.toggle("active", btn.dataset.lang === selectedLang)
+            );
           }
         });
       });
@@ -36,11 +44,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
     document.documentElement.lang = lang;
 
+    const htmlKeys = ["intro"]; // claves que permiten HTML
+
     document.querySelectorAll("[data-i18n]").forEach(el => {
       const key = el.getAttribute("data-i18n");
       const translation = translations[key];
       if (translation) {
-        el.innerHTML = translation.replace(/\n/g, "<br>");
+        if (htmlKeys.includes(key)) {
+          el.innerHTML = translation.replace(/\n/g, "<br>");
+        } else {
+          el.textContent = translation;
+        }
       }
     });
   }
