@@ -195,6 +195,11 @@ footer a:hover {
   border-color: var(--accent) !important;
 }
 
+/* ==== RESUME ==== */
+.resume-item {
+  margin-bottom: 2rem;
+}
+
 /* ==== PORTFOLIO ==== */
 
 .portfolio-item {
@@ -231,4 +236,72 @@ footer a:hover {
 footer .fa-brands {
   font-size: 1.2rem;
   vertical-align: middle;
+}
+
+/* ==== ACCESSIBILITY & FOCUS ==== */
+
+a:focus,
+button:focus {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.resume-item ul {
+  padding-left: 1.25rem;
+  list-style-type: disc;
+}
+
+.resume-item ul li {
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--text-light);
+}
+
+/* ==== LANGUAGE SELECTOR IMPROVEMENT ==== */
+
+.lang-selector button:focus {
+  background-color: var(--accent);
+  color: #121212;
+  outline: none;
+}
+
+/* ==== FOOTER FIXES ==== */
+
+footer {
+  box-sizing: border-box;
+}
+
+/* ==== UNITS CONSISTENCY (overwrite px) ==== */
+
+.resume-item {
+  margin-bottom: 2rem;
+}
+
+.portfolio-item {
+  margin-bottom: 1.25rem;
+}
+
+/* ==== MEDIA QUERIES FOR RESPONSIVE DESIGN ==== */
+
+@media (max-width: 768px) {
+  .resume .row {
+    flex-direction: column;
+  }
+
+  .resume .col-lg-6 {
+    width: 100%;
+  }
+
+  .lang-selector {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1rem;
+  }
+
+  footer .container {
+    flex-direction: column;
+    text-align: center;
+    gap: 0.5rem;
+  }
 }

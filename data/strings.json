@@ -9,11 +9,57 @@
     "play": "Play Now",
     "visit": "Visit Page",
     "contact": "Contact: jagv94@gmail.com",
-    "GNGDescription": "Recreation of the classic arcade game Ghosts'N Goblins created during the course of a game development career, using Phaser.",
+    "gng-title": "Ghosts'N Goblins (Educational Project)",
+    "gng-desc": "Unofficial recreation of the classic arcade game Ghosts'N Goblins, developed for educational purposes during a game development degree. All rights to the original game belong to Capcom. Project created using Phaser.",
     "looking_for": "Looking for opportunities as:",
     "roles": "Game Designer | Producer | Researcher | Programmer",
     "focus": "Especially interested in Virtual Reality and small to mid-sized companies",
-    "work_preferences": "Prefer remote work with flexible hours"
+    "work_preferences": "Prefer remote work with flexible hours",
+
+    "resume-title-experience": "Professional Experience",
+    "resume-title-education": "Education",
+
+    "resume-vr-intern-title": "VR Developer Intern",
+    "resume-vr-intern-dates": "Jan/2025 - May/2025",
+    "resume-vr-intern-place": "Faculty of Earth Sciences, University of Barcelona, Spain",
+    "resume-vr-intern-li-1": "Defined goals and functionalities for a 3D model viewer and drafted the design document.",
+    "resume-vr-intern-li-2": "Compared game engines and development tools for VR model visualization.",
+    "resume-vr-intern-li-3": "Developed a point cloud to .fbx model converter.",
+    "resume-vr-intern-li-4": "Created an export plugin for Nanite models to .pak format and runtime import support.",
+    "resume-vr-intern-li-5": "Evaluated and documented both proprietary and third-party plugins.",
+    "resume-vr-intern-li-6": "Designed an ergonomic user interface for immersive interaction.",
+
+    "resume-vr-tech-title": "Virtual Reality Laboratory Technician",
+    "resume-vr-tech-dates": "Nov/2022 - Jul/2024",
+    "resume-vr-tech-place": "ENTI, Barcelona, Spain",
+    "resume-vr-tech-li-1": "Inventory, care and maintenance of equipment.",
+    "resume-vr-tech-li-2": "Reserve and loan management.",
+    "resume-vr-tech-li-3": "Documentation of peripherals and demonstrators/testers.",
+
+    "resume-jr-prog-title": "Jr. Programmer",
+    "resume-jr-prog-dates": "May/2019 - Sep/2019",
+    "resume-jr-prog-place": "ConsultiaIT, Barcelona, Spain",
+    "resume-jr-prog-li-1": "Helpdesk and incident resolution for Baxi technicians.",
+    "resume-jr-prog-li-2": "Testing and debugging web apps and PDAs used by company staff.",
+
+    "resume-tech-title": "Computer Technician",
+    "resume-tech-dates": "Jan/2018 - May/2018",
+    "resume-tech-place": "Everis BPO, Barcelona, Spain",
+    "resume-tech-li-1": "On-site technical support and software installations.",
+    "resume-tech-li-2": "Macro development with Visual Basic 6.0.",
+    "resume-tech-li-3": "Access database creation and documentation writing.",
+
+    "resume-enti-degree-title": "University Degree, Interactive Digital Content Creation",
+    "resume-enti-degree-dates": "2019 - Currently",
+    "resume-enti-degree-place": "ENTI, Barcelona, Spain",
+
+    "resume-app-dev-title": "Certificate of Higher Education, Multiplatform App Development",
+    "resume-app-dev-dates": "2016 - 2019",
+    "resume-app-dev-place": "Institut Marianao, Sant Boi de Llobregat, Spain",
+
+    "resume-vet-title": "Vocational Training, Microcomputer and Network Technician",
+    "resume-vet-dates": "2012 - 2015",
+    "resume-vet-place": "Institut Marianao, Sant Boi de Llobregat, Spain"
   },
   "es": {
     "title": "Mi Portafolio",
@@ -25,11 +71,57 @@
     "play": "Jugar",
     "visit": "Visitar página",
     "contact": "Contacto: jagv94@gmail.com",
-    "GNGDescription": "Recreación del clásico juego de arcade Ghosts'N Goblins creado durante la realización de la carrera de desarrollo de juegos, utilizando Phaser.",
+    "gng-title": "Ghosts'N Goblins (Proyecto educativo)",
+    "gng-desc": "Recreación no oficial del clásico juego de arcade Ghosts'N Goblins, desarrollada con fines educativos durante la carrera de desarrollo de videojuegos. Todos los derechos del juego original pertenecen a Capcom. Proyecto creado utilizando Phaser.",
     "looking_for": "Busco oportunidades como:",
     "roles": "Diseñador de Juegos | Productor | Investigador | Programador",
     "focus": "Especial interés en Realidad Virtual y empresas pequeñas/medianas",
-    "work_preferences": "Prefiero trabajo remoto con horario flexible"
+    "work_preferences": "Prefiero trabajo remoto con horario flexible",
+
+    "resume-title-experience": "Experiencia Profesional",
+    "resume-title-education": "Formación Académica",
+
+    "resume-vr-intern-title": "Prácticas como Desarrollador VR",
+    "resume-vr-intern-dates": "Ene/2025 - May/2025",
+    "resume-vr-intern-place": "Facultad de Ciencias de la Tierra, Universidad de Barcelona, España",
+    "resume-vr-intern-li-1": "Definición de objetivos y funcionalidades de un visor de modelos 3D y redacción del documento de diseño.",
+    "resume-vr-intern-li-2": "Comparativa de motores de juego y herramientas para visualización de modelos en VR.",
+    "resume-vr-intern-li-3": "Desarrollo de conversor de nubes de puntos (fotogrametría) a modelos .fbx.",
+    "resume-vr-intern-li-4": "Creación de plugin de exportación de modelos Nanite a formato .pak y soporte de importación en tiempo de ejecución.",
+    "resume-vr-intern-li-5": "Evaluación y documentación de plugins propios y de terceros.",
+    "resume-vr-intern-li-6": "Diseño de interfaz ergonómica para interacción inmersiva.",
+
+    "resume-vr-tech-title": "Técnico de Laboratorio de Realidad Virtual",
+    "resume-vr-tech-dates": "Nov/2022 - Jul/2024",
+    "resume-vr-tech-place": "ENTI, Barcelona, España",
+    "resume-vr-tech-li-1": "Inventario, cuidado y mantenimiento del equipo.",
+    "resume-vr-tech-li-2": "Gestión de reservas y préstamos.",
+    "resume-vr-tech-li-3": "Documentación de periféricos y demostradores/prototipos.",
+
+    "resume-jr-prog-title": "Programador Junior",
+    "resume-jr-prog-dates": "May/2019 - Sep/2019",
+    "resume-jr-prog-place": "ConsultiaIT, Barcelona, España",
+    "resume-jr-prog-li-1": "Atención al cliente y resolución de incidencias para técnicos de Baxi.",
+    "resume-jr-prog-li-2": "Testeo y detección de errores en apps web y PDAs de la empresa.",
+
+    "resume-tech-title": "Técnico Informático",
+    "resume-tech-dates": "Ene/2018 - May/2018",
+    "resume-tech-place": "Everis BPO, Barcelona, España",
+    "resume-tech-li-1": "Soporte técnico presencial e instalación de software.",
+    "resume-tech-li-2": "Desarrollo de macros en Visual Basic 6.0.",
+    "resume-tech-li-3": "Creación de bases de datos Access y documentación.",
+
+    "resume-enti-degree-title": "Grado Universitario en Creación de Contenidos Digitales Interactivos",
+    "resume-enti-degree-dates": "2019 - Actualidad",
+    "resume-enti-degree-place": "ENTI, Barcelona, España",
+
+    "resume-app-dev-title": "Técnico Superior en Desarrollo de Aplicaciones Multiplataforma",
+    "resume-app-dev-dates": "2016 - 2019",
+    "resume-app-dev-place": "Institut Marianao, Sant Boi de Llobregat, España",
+
+    "resume-vet-title": "Formación Profesional en Microinformática y Redes",
+    "resume-vet-dates": "2012 - 2015",
+    "resume-vet-place": "Institut Marianao, Sant Boi de Llobregat, España"
   },
   "jp": {
     "title": "ポートフォリオ",
@@ -41,10 +133,56 @@
     "play": "プレイする",
     "visit": "ページを見る",
     "contact": "連絡先：jagv94@gmail.com",
-    "GNGDescription": "ゲーム開発のキャリアの中で作成したクラシックなアーケード ゲーム Ghosts'N Goblins を Phaser を使用して再現しました。",
+    "gng-title": "Ghosts'N Goblins（教育プロジェクト）",
+    "gng-desc": "アーケードのクラシックゲーム「Ghosts'N Goblins」の非公式リメイク。ゲーム開発の学位取得中に教育目的で制作されました。オリジナルゲームのすべての権利はカプコンに帰属します。Phaserを使用して開発されました。",
     "looking_for": "以下のポジションを探しています：",
     "roles": "ゲームデザイナー｜プロデューサー｜リサーチャー｜プログラマー",
     "focus": "特にVR（バーチャルリアリティ）と中小規模の企業に関心があります",
-    "work_preferences": "リモートワークと柔軟な勤務時間を希望しています"
+    "work_preferences": "リモートワークと柔軟な勤務時間を希望しています",
+
+    "resume-title-experience": "職務経験",
+    "resume-title-education": "学歴",
+
+    "resume-vr-intern-title": "VR開発インターン",
+    "resume-vr-intern-dates": "2025年1月 - 2025年5月",
+    "resume-vr-intern-place": "バルセロナ大学 地球科学部（スペイン）",
+    "resume-vr-intern-li-1": "3Dモデルビューアの機能と目標を定義し、設計書を作成。",
+    "resume-vr-intern-li-2": "VRモデルの視覚化のためのゲームエンジンとツールの比較。",
+    "resume-vr-intern-li-3": "点群データを.fbx形式に変換するツールを開発。",
+    "resume-vr-intern-li-4": "Naniteモデルを.pak形式にエクスポートするプラグインを作成し、実行時インポートに対応。",
+    "resume-vr-intern-li-5": "自作およびサードパーティ製プラグインの評価とドキュメント作成。",
+    "resume-vr-intern-li-6": "没入型インタラクションのための人間工学に基づいたUIを設計。",
+
+    "resume-vr-tech-title": "VRラボ技術者",
+    "resume-vr-tech-dates": "2022年11月 - 2024年7月",
+    "resume-vr-tech-place": "ENTI（スペイン・バルセロナ）",
+    "resume-vr-tech-li-1": "機材の在庫管理、保守、メンテナンス。",
+    "resume-vr-tech-li-2": "予約と貸出管理。",
+    "resume-vr-tech-li-3": "周辺機器とデモ装置のドキュメント作成。",
+
+    "resume-jr-prog-title": "ジュニアプログラマー",
+    "resume-jr-prog-dates": "2019年5月 - 2019年9月",
+    "resume-jr-prog-place": "ConsultiaIT（スペイン・バルセロナ）",
+    "resume-jr-prog-li-1": "Baxi技術者向けのヘルプデスクとトラブル対応。",
+    "resume-jr-prog-li-2": "社内アプリケーションおよびPDAのテストとデバッグ。",
+
+    "resume-tech-title": "IT技術者",
+    "resume-tech-dates": "2018年1月 - 2018年5月",
+    "resume-tech-place": "Everis BPO（スペイン・バルセロナ）",
+    "resume-tech-li-1": "現地での技術サポートおよびソフトウェアインストール。",
+    "resume-tech-li-2": "Visual Basic 6.0でのマクロ開発。",
+    "resume-tech-li-3": "Accessデータベース作成とガイド作成。",
+
+    "resume-enti-degree-title": "インタラクティブデジタルコンテンツ制作（学士）",
+    "resume-enti-degree-dates": "2019年 - 現在",
+    "resume-enti-degree-place": "ENTI（スペイン・バルセロナ）",
+
+    "resume-app-dev-title": "高等職業教育：マルチプラットフォームアプリ開発",
+    "resume-app-dev-dates": "2016年 - 2019年",
+    "resume-app-dev-place": "Institut Marianao（スペイン・サンボイ）",
+
+    "resume-vet-title": "職業訓練：マイクロコンピュータとネットワーク技術者",
+    "resume-vet-dates": "2012年 - 2015年",
+    "resume-vet-place": "Institut Marianao（スペイン・サンボイ）"
   }
 }
