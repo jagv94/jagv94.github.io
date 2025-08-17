@@ -1,40 +1,17 @@
 document.addEventListener("DOMContentLoaded", () => {
   const defaultLang = "en";
   const supportedLangs = ["en", "es", "jp"];
+  
+  // Obtener el idioma de localStorage o de la URL
+  let lang = localStorage.getItem("lang") || 
+             (new URLSearchParams(window.location.search).get("lang") || 
+             defaultLang);
 
-  let urlParams = new URLSearchParams(window.location.search);
-  let langParam = urlParams.get("lang");
+  // Precargar traducciones desde sessionStorage si están disponibles
+  const stringsCache = sessionStorage.getItem("strings");
+  const strings = stringsCache ? JSON.parse(stringsCache) : null;
 
-  let lang = localStorage.getItem("lang");
-  if (!lang) {
-    lang = supportedLangs.includes(langParam) ? langParam : defaultLang;
-  }
-
-  fetch("data/strings.json")
-    .then(res => res.json())
-    .then(strings => {
-      applyTranslations(strings, lang);
-
-      document.querySelectorAll(".lang-selector button").forEach(button => {
-        button.classList.toggle("active", button.dataset.lang === lang);
-
-        button.addEventListener("click", () => {
-          const selectedLang = button.dataset.lang;
-          if (supportedLangs.includes(selectedLang)) {
-            localStorage.setItem("lang", selectedLang);
-            applyTranslations(strings, selectedLang);
-            history.replaceState(null, "", `?lang=${selectedLang}`);
-
-            // Cambiar el botón activo
-            document.querySelectorAll(".lang-selector button").forEach(btn =>
-              btn.classList.toggle("active", btn.dataset.lang === selectedLang)
-            );
-          }
-        });
-      });
-    })
-    .catch(err => console.error("Error loading translations:", err));
-
+  // Función para aplicar traducciones
   function applyTranslations(strings, lang) {
     const translations = strings[lang];
     if (!translations) {
@@ -44,7 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     document.documentElement.lang = lang;
 
-    const htmlKeys = ["intro"]; // claves que permiten HTML
+    const htmlKeys = ["intro", "footer_quote"]; // claves que permiten HTML
 
     document.querySelectorAll("[data-i18n]").forEach(el => {
       const key = el.getAttribute("data-i18n");
@@ -56,6 +33,112 @@ document.addEventListener("DOMContentLoaded", () => {
           el.textContent = translation;
         }
       }
+    });
+  }
+
+  // Si tenemos traducciones en caché, aplicarlas inmediatamente
+  if (strings) {
+    applyTranslations(strings, lang);
+    
+    // Configurar botones de idioma después de aplicar traducciones
+    setupLanguageButtons();
+  }
+
+  // Cargar las traducciones desde el archivo JSON
+  fetch("data/strings.json")
+    .then(res => res.json())
+    .then(data => {
+      // Guardar en sessionStorage para futuras visitas
+      sessionStorage.setItem("strings", JSON.stringify(data));
+      
+      // Aplicar solo si no se aplicaron desde caché
+      if (!strings) {
+        applyTranslations(data, lang);
+        setupLanguageButtons();
+      }
+    })
+    .catch(err => console.error("Error loading translations:", err));
+
+  // Configurar botones de idioma
+  function setupLanguageButtons() {
+    document.querySelectorAll(".lang-selector button").forEach(button => {
+      // Marcar el botón activo
+      if (button.dataset.lang === lang) {
+        button.classList.add("active");
+      }
+      
+      button.addEventListener("click", () => {
+        const selectedLang = button.dataset.lang;
+        if (selectedLang === lang) return; // ya está activo
+        
+        // Guardar el idioma seleccionado
+        localStorage.setItem("lang", selectedLang);
+        lang = selectedLang;
+        
+        // Actualizar la URL
+        const url = new URL(window.location);
+        url.searchParams.set("lang", selectedLang);
+        history.replaceState(null, "", url);
+        
+        // Recargar la página para aplicar el idioma
+        location.reload();
+      });
+    });
+  }
+
+  // Script para el loader
+  const loader = document.getElementById('loader');
+  if(loader) {
+    window.addEventListener('load', function() {
+      setTimeout(() => {
+        loader.classList.add('loader-hidden');
+        
+        loader.addEventListener('transitionend', () => {
+          if(loader.parentNode) {
+            loader.parentNode.removeChild(loader);
+          }
+        }, { once: true });
+      }, 800);
+    });
+  }
+  
+  // Script para filtrado de portfolio con animaciones
+  const portfolioFilters = document.querySelectorAll("#portfolio-filters li");
+  const portfolioItems = document.querySelectorAll(".portfolio-item");
+  
+  if(portfolioFilters.length > 0 && portfolioItems.length > 0) {
+    portfolioFilters.forEach(filter => {
+      filter.addEventListener("click", function() {
+        if(this.classList.contains('active')) return;
+        
+        // Actualizar filtro activo
+        portfolioFilters.forEach(f => f.classList.remove("active"));
+        this.classList.add("active");
+        
+        const filterValue = this.getAttribute("data-filter");
+        
+        // Animación de transición
+        portfolioItems.forEach(item => {
+          item.style.transition = "opacity 0.3s ease, transform 0.3s ease";
+          
+          if(filterValue === '*' || item.classList.contains(filterValue.slice(1))) {
+            item.style.opacity = "0";
+            item.style.transform = "scale(0.8)";
+            
+            setTimeout(() => {
+              item.style.display = "block";
+              setTimeout(() => {
+                item.style.opacity = "1";
+                item.style.transform = "scale(1)";
+              }, 50);
+            }, 300);
+          } else {
+            item.style.opacity = "0";
+            item.style.transform = "scale(0.8)";
+            setTimeout(() => item.style.display = "none", 300);
+          }
+        });
+      });
     });
   }
 });
