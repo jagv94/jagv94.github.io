@@ -192,12 +192,32 @@ footer .container {
 
 footer a {
   color: var(--accent-light);
-  margin-left: 0.5rem;
   transition: color 0.3s;
 }
 
 footer a:hover {
   color: var(--accent);
+}
+
+/* ==== SOCIAL ICONS IN FOOTER ==== */
+footer .social-icons a {
+  display: inline-block;
+  margin-left: 0.75rem;
+  transition: all 0.3s ease;
+}
+
+footer .social-icons .fa-brands {
+  font-size: 1.8rem; /* Tamaño aumentado */
+  vertical-align: middle;
+  padding: 5px;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+footer .social-icons a:hover .fa-brands {
+  transform: scale(1.2);
+  color: var(--accent);
+  background: rgba(255, 255, 255, 0.1);
 }
 
 /* ==== LANG SELECTOR ==== */
@@ -314,13 +334,6 @@ footer a:hover {
   color: #121212;
 }
 
-/* ==== SOCIAL ICONS ==== */
-
-footer .fa-brands {
-  font-size: 1.2rem;
-  vertical-align: middle;
-}
-
 /* ==== ACCESSIBILITY & FOCUS ==== */
 
 a:focus,
@@ -387,6 +400,15 @@ footer {
     text-align: center;
     gap: 0.5rem;
   }
+
+  /* Ajustes para iconos en móviles */
+  footer .social-icons .fa-brands {
+    font-size: 1.5rem;
+  }
+  
+  footer .social-icons a {
+    margin: 0 0.5rem;
+  }
 }
 
 /* ==== LOADER ==== */
@@ -422,6 +444,23 @@ footer {
 @keyframes spin {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
+}
+
+/* ==== SKILLS SECTION ICONS ==== */
+.skill-card .fa-brands,
+.skill-card .fas,
+.skill-card .fab {
+  font-size: 3rem; /* Tamaño para iconos de habilidades */
+  color: var(--accent);
+  margin-bottom: 0.5rem;
+  transition: transform 0.3s ease;
+}
+
+.skill-card:hover .fa-brands,
+.skill-card:hover .fas,
+.skill-card:hover .fab {
+  transform: scale(1.1);
+  color: var(--accent-light);
 }
 
 /* ==== SKILL BARS ==== */
