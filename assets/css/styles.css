@@ -44,11 +44,25 @@
 
 body {
   font-family: var(--font-primary);
-  background-color: var(--bg-dark);
+  background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+  background-attachment: fixed;
   color: var(--text-light);
   line-height: 1.6;
   font-size: 16px;
   padding-bottom: 4rem; /* espacio para footer fijo */
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><path d="M30,30 Q50,20 70,30 T90,50 Q80,70 70,70 T50,90 Q20,80 30,70 T10,50 Q20,30 30,30 Z" fill="none" stroke="%23c084fc" stroke-width="0.5" opacity="0.07"/></svg>');
+  opacity: 0.05;
+  pointer-events: none;
+  z-index: -1;
 }
 
 .container {
@@ -63,6 +77,9 @@ header {
   text-align: center;
   padding-top: 4rem;
   padding-bottom: 2rem;
+  background: rgba(18, 18, 18, 0.85);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--accent);
 }
 
 h1 {
@@ -71,6 +88,26 @@ h1 {
   font-weight: 700;
   color: var(--accent);
   margin-bottom: 1rem;
+  position: relative;
+  display: inline-block;
+}
+
+h1::after, h2::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: var(--accent);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.5s ease;
+}
+
+h1:hover::after, h2:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
 }
 
 p {
@@ -86,6 +123,8 @@ h2 {
   color: var(--accent-light);
   margin-bottom: 1rem;
   text-align: center;
+  position: relative;
+  display: inline-block;
 }
 
 /* ==== BOTONES GENERALES ==== */
@@ -101,11 +140,30 @@ h2 {
   font-weight: bold;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.7);
   transition: background-color 0.3s ease, color 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
 }
 
 .btn:hover {
   background-color: #a855f7;
   color: #121212;
+}
+
+.btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  transition: 0.5s;
+  z-index: -1;
+}
+
+.btn:hover::before {
+  left: 100%;
 }
 
 /* ==== FOOTER ==== */
@@ -120,6 +178,7 @@ footer {
   font-size: 0.75rem;           /* antes: 0.85rem */
   z-index: 100;
   line-height: 1.2;
+  box-shadow: 0 -5px 15px rgba(192, 132, 252, 0.2);
 }
 
 footer .container {
@@ -158,11 +217,32 @@ footer a:hover {
   border-radius: 6px;
   cursor: pointer;
   transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  font-weight: bold;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.7);
 }
 
 .lang-selector button:hover {
   background-color: var(--accent);
   color: #121212;
+}
+
+.lang-selector button::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: var(--accent);
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.lang-selector button.active::after,
+.lang-selector button:hover::after {
+  transform: scaleX(1);
 }
 
 /* ==== BOOTSTRAP OVERRIDES ==== */
@@ -172,11 +252,14 @@ footer a:hover {
   color: var(--text-light);
   border-radius: 1rem;
   border: 1px solid var(--accent);
-  transition: transform 0.2s ease;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
 }
 
 .card:hover {
-  transform: translateY(-5px);
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 12px 25px rgba(192, 132, 252, 0.25);
 }
 
 .card-title {
@@ -304,4 +387,71 @@ footer {
     text-align: center;
     gap: 0.5rem;
   }
+}
+
+/* ==== LOADER ==== */
+
+#loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--bg-dark);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  transition: opacity 0.5s, visibility 0.5s;
+}
+
+.loader-hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.loader-animation {
+  width: 80px;
+  height: 80px;
+  border: 5px solid rgba(192, 132, 252, 0.3);
+  border-top: 5px solid var(--accent);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* ==== SKILL BARS ==== */
+
+.skill-bar {
+  height: 8px;
+  background: #333;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.skill-level {
+  height: 100%;
+  background: var(--accent);
+  border-radius: 4px;
+  animation: fillBar 1.5s ease-out forwards;
+}
+
+@keyframes fillBar {
+  from { width: 0; }
+}
+
+.skill-card {
+  background: rgba(30, 30, 30, 0.7);
+  border-radius: 10px;
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--accent);
+  transition: transform 0.3s ease;
+}
+
+.skill-card:hover {
+  transform: translateY(-5px);
 }
