@@ -51,13 +51,41 @@
     <div class="loader-animation"></div>
   </div>
   
-  <header class="text-center py-5">
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
     <div class="container">
-      <nav class="lang-selector mb-3" aria-label="Language selector">
-        <button class="btn btn-outline-light btn-sm me-1" data-lang="en">🇬🇧 EN</button>
-        <button class="btn btn-outline-light btn-sm me-1" data-lang="es">🇪🇸 ES</button>
-        <button class="btn btn-outline-light btn-sm" data-lang="jp">🇯🇵 日本語</button>
-      </nav>
+      <a class="navbar-brand" href="#">
+        <span>Adrian Guerra</span>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="#home">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#skills">Skills</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#resume">Resume</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#portfolio">Projects</a>
+          </li>
+          <li class="nav-item lang-selector-nav">
+            <button class="btn btn-outline-light btn-sm me-1" data-lang="en">🇬🇧 EN</button>
+            <button class="btn btn-outline-light btn-sm me-1" data-lang="es">🇪🇸 ES</button>
+            <button class="btn btn-outline-light btn-sm" data-lang="jp">🇯🇵 日本語</button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <header id="home" class="text-center py-5">
+    <div class="container">
 
       <!-- Avatar personal
       <div class="avatar-container mb-4">
@@ -74,7 +102,7 @@
 
   <main class="pb-5">
     <!-- Technical Skills -->
-    <section class="container my-5">
+    <section id="skills" class="container my-5">
       <h2 class="text-center mb-4" data-i18n="skills_title">Technical Skills</h2>
       
       <div class="row skills-container">
@@ -354,7 +382,7 @@
   </main>
 
   <!-- Footer -->
-  <footer class="text-center py-3 fixed-bottom bg-dark text-light border-top border-accent">
+  <footer class="text-center py-3 bg-dark text-light border-top border-accent">
     <div class="container d-flex justify-content-between align-items-center flex-wrap small">
       <p class="mb-0" data-i18n="footer_quote">Creating immersive experiences between reality and dreams</p>
       

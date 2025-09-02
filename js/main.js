@@ -61,7 +61,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Configurar botones de idioma
   function setupLanguageButtons() {
-    document.querySelectorAll(".lang-selector button").forEach(button => {
+    document.querySelectorAll(".lang-selector button, .lang-selector-nav button").forEach(button => {
       // Marcar el botón activo
       if (button.dataset.lang === lang) {
         button.classList.add("active");
@@ -141,4 +141,32 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     });
   }
+
+  // Smooth scrolling para enlaces de navegación
+  document.querySelectorAll('.navbar-nav .nav-link').forEach(link => {
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
+      
+      const targetId = this.getAttribute('href');
+      const targetElement = document.querySelector(targetId);
+      
+      if (targetElement) {
+        // Calcular la posición considerando la navbar fija
+        const targetPosition = targetElement.offsetTop - 75;
+        
+        window.scrollTo({
+          top: targetPosition,
+          behavior: 'smooth'
+        });
+        
+        // Cerrar el menú colapsable en dispositivos móviles
+        const navbarToggler = document.querySelector('.navbar-toggler');
+        const navbarCollapse = document.querySelector('.navbar-collapse');
+        
+        if (navbarToggler && !navbarToggler.classList.contains('collapsed')) {
+          navbarToggler.click();
+        }
+      }
+    });
+  });
 });

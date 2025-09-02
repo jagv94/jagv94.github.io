@@ -73,13 +73,41 @@ index.html:
     <div class="loader-animation"></div>
   </div>
   
-  <header class="text-center py-5">
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
     <div class="container">
-      <nav class="lang-selector mb-3" aria-label="Language selector">
-        <button class="btn btn-outline-light btn-sm me-1" data-lang="en">🇬🇧 EN</button>
-        <button class="btn btn-outline-light btn-sm me-1" data-lang="es">🇪🇸 ES</button>
-        <button class="btn btn-outline-light btn-sm" data-lang="jp">🇯🇵 日本語</button>
-      </nav>
+      <a class="navbar-brand" href="#">
+        <span>Adrian Guerra</span>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="#home">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#skills">Skills</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#resume">Resume</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#portfolio">Projects</a>
+          </li>
+          <li class="nav-item lang-selector-nav">
+            <button class="btn btn-outline-light btn-sm me-1" data-lang="en">🇬🇧 EN</button>
+            <button class="btn btn-outline-light btn-sm me-1" data-lang="es">🇪🇸 ES</button>
+            <button class="btn btn-outline-light btn-sm" data-lang="jp">🇯🇵 日本語</button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <header id="home" class="text-center py-5">
+    <div class="container">
 
       <!-- Avatar personal
       <div class="avatar-container mb-4">
@@ -96,7 +124,7 @@ index.html:
 
   <main class="pb-5">
     <!-- Technical Skills -->
-    <section class="container my-5">
+    <section id="skills" class="container my-5">
       <h2 class="text-center mb-4" data-i18n="skills_title">Technical Skills</h2>
       
       <div class="row skills-container">
@@ -376,7 +404,7 @@ index.html:
   </main>
 
   <!-- Footer -->
-  <footer class="text-center py-3 fixed-bottom bg-dark text-light border-top border-accent">
+  <footer class="text-center py-3 bg-dark text-light border-top border-accent">
     <div class="container d-flex justify-content-between align-items-center flex-wrap small">
       <p class="mb-0" data-i18n="footer_quote">Creating immersive experiences between reality and dreams</p>
       
@@ -466,7 +494,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Configurar botones de idioma
   function setupLanguageButtons() {
-    document.querySelectorAll(".lang-selector button").forEach(button => {
+    document.querySelectorAll(".lang-selector button, .lang-selector-nav button").forEach(button => {
       // Marcar el botón activo
       if (button.dataset.lang === lang) {
         button.classList.add("active");
@@ -546,13 +574,40 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     });
   }
+
+  // Smooth scrolling para enlaces de navegación
+  document.querySelectorAll('.navbar-nav .nav-link').forEach(link => {
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
+      
+      const targetId = this.getAttribute('href');
+      const targetElement = document.querySelector(targetId);
+      
+      if (targetElement) {
+        // Calcular la posición considerando la navbar fija
+        const targetPosition = targetElement.offsetTop - 75;
+        
+        window.scrollTo({
+          top: targetPosition,
+          behavior: 'smooth'
+        });
+        
+        // Cerrar el menú colapsable en dispositivos móviles
+        const navbarToggler = document.querySelector('.navbar-toggler');
+        const navbarCollapse = document.querySelector('.navbar-collapse');
+        
+        if (navbarToggler && !navbarToggler.classList.contains('collapsed')) {
+          navbarToggler.click();
+        }
+      }
+    });
+  });
 });
 ```.
 
 style.css:
 ```
 /* ==== FONT FACES ==== */
-
 @font-face {
   font-family: 'Sawarabi Gothic';
   src: url('../fonts/Sawarabi/SawarabiGothic-Regular.ttf') format('truetype');
@@ -575,7 +630,6 @@ style.css:
 }
 
 /* ==== RESET ==== */
-
 * {
   margin: 0;
   padding: 0;
@@ -583,7 +637,6 @@ style.css:
 }
 
 /* ==== VARIABLES ==== */
-
 :root {
   --bg-dark: #121212;
   --text-light: #f2f2f2;
@@ -595,7 +648,6 @@ style.css:
 }
 
 /* ==== GLOBAL ==== */
-
 body {
   font-family: var(--font-primary);
   background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
@@ -603,7 +655,7 @@ body {
   color: var(--text-light);
   line-height: 1.6;
   font-size: 16px;
-  padding-bottom: 4rem; /* espacio para footer fijo */
+  padding-top: 76px; /* Añadido para compensar la navbar fija */
 }
 
 body::before {
@@ -625,15 +677,110 @@ body::before {
   padding: 2rem;
 }
 
-/* ==== HEADER ==== */
+/* ==== NAVBAR ==== */
+.navbar {
+  background: rgba(18, 18, 18, 0.95);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  padding: 0.8rem 0;
+  transition: all 0.3s ease;
+  border-bottom: 1px solid var(--accent);
+}
 
+.navbar-brand {
+  font-family: var(--font-secondary);
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: var(--text-light);
+  display: flex;
+  align-items: center;
+}
+
+.brand-icon {
+  margin-right: 0.5rem;
+  color: var(--accent);
+}
+
+.navbar-nav .nav-link {
+  color: var(--text-light);
+  font-weight: 500;
+  margin: 0 0.5rem;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.navbar-nav .nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--accent);
+  transition: width 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover {
+  color: var(--accent-light);
+}
+
+.navbar-nav .nav-link:hover::after {
+  width: 100%;
+}
+
+/* Selector de idioma en navbar */
+.navbar .lang-selector-nav {
+  margin-left: 1rem;
+  display: flex;
+}
+
+.navbar .lang-selector-nav button {
+  background-color: rgba(30, 30, 30, 0.7);
+  border: 2px solid var(--accent);
+  color: var(--text-light);
+  font-family: var(--font-primary);
+  font-size: 0.9rem;
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  font-weight: bold;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.7);
+  backdrop-filter: blur(5px);
+}
+
+.navbar .lang-selector-nav button:hover {
+  background-color: var(--accent);
+  color: #121212;
+}
+
+.navbar .lang-selector-nav button::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: var(--accent);
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.navbar .lang-selector-nav button.active,
+.navbar .lang-selector-nav button:hover::after {
+  transform: scaleX(1);
+}
+
+/* ==== HEADER ==== */
 header {
   text-align: center;
-  padding-top: 2rem; /* Reducido para mejor equilibrio con avatar */
+  padding-top: 2rem;
   padding-bottom: 2rem;
-  background: rgba(18, 18, 18, 0.7); /* Más transparente */
+  background: rgba(18, 18, 18, 0.7);
   backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px); /* Soporte para Safari */
+  -webkit-backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--accent);
 }
 
@@ -691,12 +838,11 @@ p {
 }
 
 /* ==== SECTION TITLES ==== */
-
 h2 {
   font-family: var(--font-secondary);
   font-size: 1.8rem;
   color: var(--accent-light);
-  margin-bottom: 1.5rem; /* Más espacio debajo de títulos */
+  margin-bottom: 1.5rem;
   text-align: center;
   position: relative;
   display: inline-block;
@@ -726,11 +872,10 @@ section:nth-child(2) { animation-delay: 0.4s; }
 section:nth-child(3) { animation-delay: 0.6s; }
 
 /* ==== BOTONES GENERALES ==== */
-
 .btn {
   display: inline-block;
   margin-top: 1rem;
-  padding: 0.75rem 1.75rem; /* Más padding horizontal */
+  padding: 0.75rem 1.75rem;
   background: linear-gradient(135deg, var(--accent), var(--accent-dark));
   color: #121212;
   text-decoration: none;
@@ -757,18 +902,13 @@ section:nth-child(3) { animation-delay: 0.6s; }
 }
 
 /* ==== FOOTER ==== */
-
 footer {
-  position: fixed;
-  bottom: 0;
-  width: 100%;
   background-color: rgba(18, 18, 18, 0.9);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   border-top: 1px solid var(--accent);
   padding: 0.5rem 0;
   font-size: 0.85rem;
-  z-index: 100;
   line-height: 1.4;
   box-shadow: 0 -5px 15px rgba(192, 132, 252, 0.2);
 }
@@ -818,7 +958,6 @@ footer .social-icons a:hover .fa-brands {
 }
 
 /* ==== LANG SELECTOR ==== */
-
 .lang-selector {
   margin-bottom: 1.5rem;
   display: flex;
@@ -871,7 +1010,6 @@ footer .social-icons a:hover .fa-brands {
 }
 
 /* ==== BOOTSTRAP OVERRIDES ==== */
-
 .card {
   background-color: rgba(30, 30, 30, 0.8);
   color: var(--text-light);
@@ -932,14 +1070,12 @@ footer .social-icons a:hover .fa-brands {
 }
 
 /* ==== PORTFOLIO ==== */
-
 .portfolio-item {
   margin-bottom: 25px;
   animation: fadeInUp 0.6s ease-out;
 }
 
 /* ==== PORTFOLIO FILTER BUTTONS ==== */
-
 #portfolio-filters {
   list-style: none;
   padding: 0;
@@ -954,7 +1090,7 @@ footer .social-icons a:hover .fa-brands {
   font-weight: 500;
   border: 1px solid var(--accent);
   padding: 0.4rem 1rem;
-  border-radius: 30px; /* Más redondeado */
+  border-radius: 30px;
   transition: all 0.3s ease;
   display: inline-block;
   color: var(--text-light);
@@ -970,7 +1106,6 @@ footer .social-icons a:hover .fa-brands {
 }
 
 /* ==== ACCESSIBILITY & FOCUS ==== */
-
 a:focus,
 button:focus {
   outline: 2px solid var(--accent);
@@ -990,7 +1125,6 @@ button:focus {
 }
 
 /* ==== LANGUAGE SELECTOR IMPROVEMENT ==== */
-
 .lang-selector button:focus {
   background-color: var(--accent);
   color: #121212;
@@ -998,7 +1132,6 @@ button:focus {
 }
 
 /* ==== SKILLS SECTION ==== */
-
 .skills-container {
   display: flex;
   flex-wrap: wrap;
@@ -1053,7 +1186,6 @@ button:focus {
 }
 
 /* ==== SKILL BARS ==== */
-
 .skill-bar {
   height: 8px;
   background: #333;
@@ -1074,7 +1206,6 @@ button:focus {
 }
 
 /* ==== MEDIA QUERIES FOR RESPONSIVE DESIGN ==== */
-
 @media (max-width: 992px) {
   .container {
     padding: 1.5rem;
@@ -1126,6 +1257,22 @@ button:focus {
     padding: 0.8rem 1.5rem;
     font-size: 1rem;
   }
+
+  .navbar .lang-selector-nav {
+    margin-left: 0;
+    margin-top: 1rem;
+    justify-content: center;
+    width: 100%;
+  }
+  
+  .navbar .lang-selector-nav button {
+    margin: 0.2rem;
+  }
+
+  /* Mejorar la visualización del colapso de navbar */
+  .navbar-collapse {
+    padding: 1rem 0;
+  }
 }
 
 @media (max-width: 576px) {
@@ -1153,10 +1300,13 @@ button:focus {
   footer .social-icons .fa-brands {
     font-size: 1.3rem;
   }
+
+  .navbar .lang-selector-nav {
+    flex-wrap: wrap;
+  }
 }
 
 /* ==== LOADER ==== */
-
 #loader {
   position: fixed;
   top: 0;
@@ -1191,7 +1341,6 @@ button:focus {
 }
 
 /* ==== ANIMACIONES ADICIONALES ==== */
-
 @keyframes float {
   0% { transform: translateY(0px); }
   50% { transform: translateY(-10px); }
@@ -1432,3 +1581,15 @@ Suelo formarme en aquello que atrae mi interés.
 Objetivos: aprender japonés (lectura, escritura, habla, cultura), desarrollar un juego estilo anime y/o VR, aprender más sobre IA (como automatización e IA generativa), aprender a modelar y animar personajes y entornos en Blender del estilo que yo quiera (cambiando de aires y distanciándome de la programación, al interesarme de igual forma la parte artística), mantener actualizado mi ordenador si es económicamente posible, mejorando así también mi herramienta de trabajo, estudio y ocio, y (sin mucha motivación, pero necesario y prioritario tras la carrera) aprender inglés (nivel actual: A2 - B1).
 En la carrera aprendí a modelar escenarios y animar personajes en 3DS Max (sin mucha experiencia).
 Música: me gustan los géneros metal, punk, experimental rock, post-rock, alternative rock, j-rock, j-pop, j-dance, j-core, EDM, kawaii EDM, Lo-Fi, future bass speedrun, melodic bass, anison, soundtracks, entre otros.
+
+
+Se puede eliminar el selector de idioma del header, ya que aparece en el nav.
+Dentro del nav podemos eliminar ```
+<a class="navbar-brand" href="#">
+        <span class="brand-icon"><i class="fas fa-dragon"></i></span>
+        <span>Adrian Guerra</span>
+      </a>
+``` por que se repite en el header, o eliminarlo del header para que el nombre siempre acompañe al lector.
+No quiero el icono de un dragón y no creo que exista un icono de un lobo, así que podemos omitir el icono por ahora.
+En el selector de idioma del nav, debe indicarse el idioma seleccionado.
+El nav debe ocupar menos espacio en vertical.
