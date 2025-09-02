@@ -31,11 +31,30 @@ index.html:
   <meta name="description" content="Portfolio of Adrian Guerra - VR/XR Developer & Game Designer specializing in immersive experiences">
   <meta name="keywords" content="game developer, VR, XR, Unreal Engine, Unity, portfolio, Japan, anime">
   <meta name="author" content="Adrián Guerra">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://jagv94.github.io">
   
   <!-- Open Graph -->
   <meta property="og:title" content="Adrian Guerra - Game Developer Portfolio">
   <meta property="og:description" content="VR/XR Developer & Game Designer specializing in immersive experiences">
   <meta property="og:type" content="website">
+  
+  <!-- Schema.org para perfil profesional -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Adrián Guerra",
+    "jobTitle": "VR/XR Developer & Game Designer",
+    "url": "https://jagv94.github.io",
+    "sameAs": [
+      "https://linkedin.com/in/jagv94",
+      "https://github.com/jagv94",
+      "https://twitter.com/jagv94",
+      "https://shiroi-ookami.itch.io/"
+    ]
+  }
+  </script>
   
   <!-- Bootstrap 5 -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
@@ -61,6 +80,11 @@ index.html:
         <button class="btn btn-outline-light btn-sm me-1" data-lang="es">🇪🇸 ES</button>
         <button class="btn btn-outline-light btn-sm" data-lang="jp">🇯🇵 日本語</button>
       </nav>
+
+      <!-- Avatar personal
+      <div class="avatar-container mb-4">
+        <img src="assets/img/avatar.jpg" alt="Adrian Guerra" class="avatar" loading="lazy">
+      </div> -->
 
       <h1 data-i18n="welcome">Adrian Guerra's Portfolio</h1>
       <p data-i18n="intro">
@@ -146,25 +170,25 @@ index.html:
         <div class="col-md-3 col-6 mb-4">
           <div class="skill-card text-center p-3">
             <i class="fas fa-language fa-3x mb-3"></i>
-            <h5>English (B1)</h5>
-            <div class="skill-bar mt-2">
-              <div class="skill-level" style="width: 50%"></div>
+            <h5>English</h5>
+            <div class="d-flex align-items-center justify-content-center mt-2">
+              <span class="badge bg-accent">B1</span>
             </div>
           </div>
         </div>
         
-        <!-- Japanese Language -->
+        <!-- Japanese Language
         <div class="col-md-3 col-6 mb-4">
           <div class="skill-card text-center p-3">
             <i class="fas fa-language fa-3x mb-3"></i>
-            <h5>Japanese (N4)</h5>
-            <div class="skill-bar mt-2">
-              <div class="skill-level" style="width: 15%"></div>
+            <h5>Japanese</h5>
+            <div class="d-flex align-items-center justify-content-center mt-2">
+              <span class="badge bg-accent">N4</span>
             </div>
           </div>
         </div>
       </div>
-    </section>
+    </section> -->
 
     <!-- ======= Resume Section ======= -->
     <section id="resume" class="resume py-5">
@@ -256,6 +280,14 @@ index.html:
       <p data-i18n="roles">Game Designer | Producer | Researcher | Programmer</p>
       <p data-i18n="focus">Especially interested in Virtual Reality and small to mid-sized companies</p>
       <p data-i18n="work_preferences">Prefer remote work with flexible hours</p>
+      
+      <!-- Botón para descargar CV -->
+      <div class="mt-4">
+        <a href="assets/docs/Adrian_Guerra_CV.pdf" class="btn btn-lg" target="_blank">
+          <i class="fas fa-download me-2"></i>
+          <span data-i18n="view_resume">View Full Resume</span>
+        </a>
+      </div>
     </section>
 
     <!-- Portfolio -->
@@ -279,7 +311,7 @@ index.html:
             <img src="assets/img/portfolio/portfolio-1.png" loading="lazy" class="card-img-top" alt="Godly Thief" />
             <div class="card-body d-flex flex-column">
               <h5 class="card-title">Godly Thief</h5>
-              <p class="card-text">Stealth action game where you play as a divine thief stealing artifacts from ancient temples.</p>
+              <p class="card-text" data-i18n="godlythief-desc">2D Hack ’n’ Slash Roguelite where you steal enemy abilities to escape Thanatos’ prison. I handled UI, menus, maps, music selection, wave system logic, Slime design, plus debugging and optimization to ensure smoother gameplay.</p>
               <a href="https://marcd419.itch.io/godly-thief" class="btn mt-auto" target="_blank" data-i18n="visit">Visit Page</a>
             </div>
           </div>
@@ -290,7 +322,7 @@ index.html:
             <img src="assets/img/portfolio/ghostngoblins.png" loading="lazy" class="card-img-top" alt="Ghost'N Goblins" />
             <div class="card-body d-flex flex-column">
               <h5 class="card-title"  data-i18n="gng-title">Ghost'N Goblins</h5>
-              <p class="card-text" data-i18n="gng-desc">Unofficial recreation of the classic arcade game.</p>
+              <p class="card-text" data-i18n="gng-desc">Unofficial recreation of the classic arcade game Ghosts'N Goblins, developed for educational purposes during a game development degree. All rights to the original game belong to Capcom. Project created using Phaser.</p>
               <a href="GhostNGoblins/GhostNGoblins.html" class="btn mt-auto" target="_blank" data-i18n="play">Play Now</a>
             </div>
           </div>
@@ -301,7 +333,7 @@ index.html:
             <img src="assets/img/portfolio/portfolio-5.png" loading="lazy" class="card-img-top" alt="Towers of Clickanium" />
             <div class="card-body d-flex flex-column">
               <h5 class="card-title">Towers of Clickanium</h5>
-              <p class="card-text">Action tower defense game with unique clicking mechanics and strategic elements.</p>
+              <p class="card-text" data-i18n="clickanium-desc">A side-scrolling Tower Defense where archaeologists, military, and aliens clash to dominate vital resources. Strategy and fast decisions are key. I worked on UI/UX, music, credits, game balancing, lore, and Scrum management.</p>
               <a href="https://youtu.be/mW7iOPUotSM" class="btn mt-auto" target="_blank" data-i18n="visit">Visit Page</a>
             </div>
           </div>
@@ -312,7 +344,7 @@ index.html:
             <img src="assets/img/portfolio/portfolio-2.png" loading="lazy" class="card-img-top" alt="Restaurant Extravaganzza" />
             <div class="card-body d-flex flex-column">
               <h5 class="card-title">Restaurant Extravaganzza</h5>
-              <p class="card-text">Restaurant management simulation with a focus on customer satisfaction and efficiency.</p>
+              <p class="card-text" data-i18n="restaurant-desc">Run your grandfather’s restaurant and grow it into a success! Fulfill online orders fast, upgrade the place, and manage stock wisely. I worked on level design, mechanics, store system, assets, music selection, and Scrum Master duties.</p>
               <a href="https://dojap.itch.io/restaurant-extravaganzza" class="btn mt-auto" target="_blank" data-i18n="visit">Visit Page</a>
             </div>
           </div>
@@ -323,7 +355,7 @@ index.html:
             <img src="assets/img/portfolio/portfolio-3.png" loading="lazy" class="card-img-top" alt="Twisted Tail" />
             <div class="card-body d-flex flex-column">
               <h5 class="card-title">Twisted Tail</h5>
-              <p class="card-text">Puzzle adventure game where you control a fox with a magical tail to solve environmental puzzles.</p>
+              <p class="card-text" data-i18n="twistedtail-desc">Escape the castle by outsmarting guards and solving puzzles! Blend into the environment to stay unseen and trigger mechanisms to move on. Made in 2 days for Zeno Game Jam. I designed the core mechanic, puzzles, and music selection.</p>
               <a href="https://marcd419.itch.io/twisted-tail" class="btn mt-auto" target="_blank" data-i18n="visit">Visit Page</a>
             </div>
           </div>
@@ -334,7 +366,7 @@ index.html:
             <img src="assets/img/portfolio/portfolio-6.png" loading="lazy" class="card-img-top" alt="Playern't Fantasy" />
             <div class="card-body d-flex flex-column">
               <h5 class="card-title">Playern't Fantasy</h5>
-              <p class="card-text">Turn-based RPG with a comedic twist where you play as NPCs rebelling against the hero.</p>
+              <p class="card-text" data-i18n="playerent-desc">Two factions are at war, but you rise as a third force to claim the glory, pushing enemies to unite against you. Made in 21 days for GameArtopia Jam. I worked on mechanics, abilities, map, music adjustment & implementation, and game balancing.</p>
               <a href="https://nhos.itch.io/playernt-fantasy" class="btn mt-auto" target="_blank" data-i18n="visit">Visit Page</a>
             </div>
           </div>
@@ -346,13 +378,16 @@ index.html:
   <!-- Footer -->
   <footer class="text-center py-3 fixed-bottom bg-dark text-light border-top border-accent">
     <div class="container d-flex justify-content-between align-items-center flex-wrap small">
-      <p class="mb-0" data-i18n="contact">Contact: jagv94@gmail.com</p>
+      <p class="mb-0" data-i18n="footer_quote">Creating immersive experiences between reality and dreams</p>
       
-      <div class="social-icons">
-        <a href="https://twitter.com/jagv94" target="_blank" class="text-light"><i class="fab fa-twitter"></i></a>
-        <a href="https://www.linkedin.com/in/jagv94/" target="_blank" class="text-light ms-3"><i class="fab fa-linkedin"></i></a>
-        <a href="https://github.com/jagv94" target="_blank" class="text-light ms-3"><i class="fab fa-github"></i></a>
-        <a href="https://shiroi-ookami.itch.io/" target="_blank" class="text-light ms-3"><i class="fab fa-itch-io"></i></a>
+      <div class="d-flex align-items-center">
+        <p class="mb-0 me-3" data-i18n="contact">Contact: jagv94@gmail.com</p>
+        <div class="social-icons">
+          <a href="https://twitter.com/jagv94" target="_blank" class="text-light"><i class="fab fa-twitter"></i></a>
+          <a href="https://www.linkedin.com/in/jagv94/" target="_blank" class="text-light ms-3"><i class="fab fa-linkedin"></i></a>
+          <a href="https://github.com/jagv94" target="_blank" class="text-light ms-3"><i class="fab fa-github"></i></a>
+          <a href="https://shiroi-ookami.itch.io/" target="_blank" class="text-light ms-3"><i class="fab fa-itch-io"></i></a>
+        </div>
       </div>
     </div>
   </footer>
@@ -360,128 +395,8 @@ index.html:
   <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   
-  <!-- Scripts -->
-  <script>
-    // Script para manejar el loader
-    window.addEventListener('load', function() {
-      const loader = document.getElementById('loader');
-      if(loader) {
-        setTimeout(() => {
-          loader.classList.add('loader-hidden');
-          
-          // Eliminar completamente después de la animación
-          loader.addEventListener('transitionend', () => {
-            if(loader.parentNode) {
-              loader.parentNode.removeChild(loader);
-            }
-          }, { once: true });
-        }, 800);  // Tiempo mínimo de visualización
-      }
-    });
-    
-    // Script para filtrado de portfolio con animaciones
-    document.addEventListener("DOMContentLoaded", () => {
-      const filters = document.querySelectorAll("#portfolio-filters li");
-      const items = document.querySelectorAll(".portfolio-item");
-      
-      filters.forEach(filter => {
-        filter.addEventListener("click", function() {
-          if(this.classList.contains('active')) return;
-          
-          // Actualizar filtro activo
-          filters.forEach(f => f.classList.remove("active"));
-          this.classList.add("active");
-          
-          const filterValue = this.getAttribute("data-filter");
-          
-          // Animación de transición
-          items.forEach(item => {
-            item.style.transition = "opacity 0.3s ease, transform 0.3s ease";
-            
-            if(filterValue === '*' || item.classList.contains(filterValue.slice(1))) {
-              item.style.opacity = "0";
-              item.style.transform = "scale(0.8)";
-              
-              setTimeout(() => {
-                item.style.display = "block";
-                setTimeout(() => {
-                  item.style.opacity = "1";
-                  item.style.transform = "scale(1)";
-                }, 50);
-              }, 300);
-            } else {
-              item.style.opacity = "0";
-              item.style.transform = "scale(0.8)";
-              setTimeout(() => item.style.display = "none", 300);
-            }
-          });
-        });
-      });
-    });
-    
-    // Traducción
-    document.addEventListener("DOMContentLoaded", () => {
-      const defaultLang = "en";
-      const supportedLangs = ["en", "es", "jp"];
-    
-      let urlParams = new URLSearchParams(window.location.search);
-      let langParam = urlParams.get("lang");
-    
-      let lang = localStorage.getItem("lang");
-      if (!lang) {
-        lang = supportedLangs.includes(langParam) ? langParam : defaultLang;
-      }
-    
-      fetch("data/strings.json")
-        .then(res => res.json())
-        .then(strings => {
-          applyTranslations(strings, lang);
-    
-          document.querySelectorAll(".lang-selector button").forEach(button => {
-            button.classList.toggle("active", button.dataset.lang === lang);
-    
-            button.addEventListener("click", () => {
-              const selectedLang = button.dataset.lang;
-              if (supportedLangs.includes(selectedLang)) {
-                localStorage.setItem("lang", selectedLang);
-                applyTranslations(strings, selectedLang);
-                history.replaceState(null, "", `?lang=${selectedLang}`);
-    
-                // Cambiar el botón activo
-                document.querySelectorAll(".lang-selector button").forEach(btn =>
-                  btn.classList.toggle("active", btn.dataset.lang === selectedLang)
-                );
-              }
-            });
-          });
-        })
-        .catch(err => console.error("Error loading translations:", err));
-    
-      function applyTranslations(strings, lang) {
-        const translations = strings[lang];
-        if (!translations) {
-          console.warn("Idioma no encontrado:", lang);
-          return;
-        }
-    
-        document.documentElement.lang = lang;
-    
-        const htmlKeys = ["intro"]; // claves que permiten HTML
-    
-        document.querySelectorAll("[data-i18n]").forEach(el => {
-          const key = el.getAttribute("data-i18n");
-          const translation = translations[key];
-          if (translation) {
-            if (htmlKeys.includes(key)) {
-              el.innerHTML = translation.replace(/\n/g, "<br>");
-            } else {
-              el.textContent = translation;
-            }
-          }
-        });
-      }
-    });
-  </script>
+  <!-- Scripts personalizados -->
+  <script src="js/main.js"></script>
 </body>
 </html>
 ```.
@@ -491,40 +406,17 @@ main.js:
 document.addEventListener("DOMContentLoaded", () => {
   const defaultLang = "en";
   const supportedLangs = ["en", "es", "jp"];
+  
+  // Obtener el idioma de localStorage o de la URL
+  let lang = localStorage.getItem("lang") || 
+             (new URLSearchParams(window.location.search).get("lang") || 
+             defaultLang);
 
-  let urlParams = new URLSearchParams(window.location.search);
-  let langParam = urlParams.get("lang");
+  // Precargar traducciones desde sessionStorage si están disponibles
+  const stringsCache = sessionStorage.getItem("strings");
+  const strings = stringsCache ? JSON.parse(stringsCache) : null;
 
-  let lang = localStorage.getItem("lang");
-  if (!lang) {
-    lang = supportedLangs.includes(langParam) ? langParam : defaultLang;
-  }
-
-  fetch("data/strings.json")
-    .then(res => res.json())
-    .then(strings => {
-      applyTranslations(strings, lang);
-
-      document.querySelectorAll(".lang-selector button").forEach(button => {
-        button.classList.toggle("active", button.dataset.lang === lang);
-
-        button.addEventListener("click", () => {
-          const selectedLang = button.dataset.lang;
-          if (supportedLangs.includes(selectedLang)) {
-            localStorage.setItem("lang", selectedLang);
-            applyTranslations(strings, selectedLang);
-            history.replaceState(null, "", `?lang=${selectedLang}`);
-
-            // Cambiar el botón activo
-            document.querySelectorAll(".lang-selector button").forEach(btn =>
-              btn.classList.toggle("active", btn.dataset.lang === selectedLang)
-            );
-          }
-        });
-      });
-    })
-    .catch(err => console.error("Error loading translations:", err));
-
+  // Función para aplicar traducciones
   function applyTranslations(strings, lang) {
     const translations = strings[lang];
     if (!translations) {
@@ -534,7 +426,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     document.documentElement.lang = lang;
 
-    const htmlKeys = ["intro"]; // claves que permiten HTML
+    const htmlKeys = ["intro", "footer_quote"]; // claves que permiten HTML
 
     document.querySelectorAll("[data-i18n]").forEach(el => {
       const key = el.getAttribute("data-i18n");
@@ -546,6 +438,112 @@ document.addEventListener("DOMContentLoaded", () => {
           el.textContent = translation;
         }
       }
+    });
+  }
+
+  // Si tenemos traducciones en caché, aplicarlas inmediatamente
+  if (strings) {
+    applyTranslations(strings, lang);
+    
+    // Configurar botones de idioma después de aplicar traducciones
+    setupLanguageButtons();
+  }
+
+  // Cargar las traducciones desde el archivo JSON
+  fetch("data/strings.json")
+    .then(res => res.json())
+    .then(data => {
+      // Guardar en sessionStorage para futuras visitas
+      sessionStorage.setItem("strings", JSON.stringify(data));
+      
+      // Aplicar solo si no se aplicaron desde caché
+      if (!strings) {
+        applyTranslations(data, lang);
+        setupLanguageButtons();
+      }
+    })
+    .catch(err => console.error("Error loading translations:", err));
+
+  // Configurar botones de idioma
+  function setupLanguageButtons() {
+    document.querySelectorAll(".lang-selector button").forEach(button => {
+      // Marcar el botón activo
+      if (button.dataset.lang === lang) {
+        button.classList.add("active");
+      }
+      
+      button.addEventListener("click", () => {
+        const selectedLang = button.dataset.lang;
+        if (selectedLang === lang) return; // ya está activo
+        
+        // Guardar el idioma seleccionado
+        localStorage.setItem("lang", selectedLang);
+        lang = selectedLang;
+        
+        // Actualizar la URL
+        const url = new URL(window.location);
+        url.searchParams.set("lang", selectedLang);
+        history.replaceState(null, "", url);
+        
+        // Recargar la página para aplicar el idioma
+        location.reload();
+      });
+    });
+  }
+
+  // Script para el loader
+  const loader = document.getElementById('loader');
+  if(loader) {
+    window.addEventListener('load', function() {
+      setTimeout(() => {
+        loader.classList.add('loader-hidden');
+        
+        loader.addEventListener('transitionend', () => {
+          if(loader.parentNode) {
+            loader.parentNode.removeChild(loader);
+          }
+        }, { once: true });
+      }, 800);
+    });
+  }
+  
+  // Script para filtrado de portfolio con animaciones
+  const portfolioFilters = document.querySelectorAll("#portfolio-filters li");
+  const portfolioItems = document.querySelectorAll(".portfolio-item");
+  
+  if(portfolioFilters.length > 0 && portfolioItems.length > 0) {
+    portfolioFilters.forEach(filter => {
+      filter.addEventListener("click", function() {
+        if(this.classList.contains('active')) return;
+        
+        // Actualizar filtro activo
+        portfolioFilters.forEach(f => f.classList.remove("active"));
+        this.classList.add("active");
+        
+        const filterValue = this.getAttribute("data-filter");
+        
+        // Animación de transición
+        portfolioItems.forEach(item => {
+          item.style.transition = "opacity 0.3s ease, transform 0.3s ease";
+          
+          if(filterValue === '*' || item.classList.contains(filterValue.slice(1))) {
+            item.style.opacity = "0";
+            item.style.transform = "scale(0.8)";
+            
+            setTimeout(() => {
+              item.style.display = "block";
+              setTimeout(() => {
+                item.style.opacity = "1";
+                item.style.transform = "scale(1)";
+              }, 50);
+            }, 300);
+          } else {
+            item.style.opacity = "0";
+            item.style.transform = "scale(0.8)";
+            setTimeout(() => item.style.display = "none", 300);
+          }
+        });
+      });
     });
   }
 });
@@ -591,6 +589,7 @@ style.css:
   --text-light: #f2f2f2;
   --accent: #c084fc;
   --accent-light: #e9d5ff;
+  --accent-dark: #8e6dc5;
   --font-primary: 'Sawarabi Gothic', sans-serif;
   --font-secondary: 'Zen Maru Gothic', sans-serif;
 }
@@ -630,11 +629,32 @@ body::before {
 
 header {
   text-align: center;
-  padding-top: 4rem;
+  padding-top: 2rem; /* Reducido para mejor equilibrio con avatar */
   padding-bottom: 2rem;
-  background: rgba(18, 18, 18, 0.85);
-  backdrop-filter: blur(10px);
+  background: rgba(18, 18, 18, 0.7); /* Más transparente */
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px); /* Soporte para Safari */
   border-bottom: 1px solid var(--accent);
+}
+
+/* Estilos para el avatar */
+.avatar-container {
+  margin: 0 auto 1.5rem;
+}
+
+.avatar {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  border: 3px solid var(--accent);
+  object-fit: cover;
+  box-shadow: 0 5px 15px rgba(192, 132, 252, 0.3);
+  transition: all 0.3s ease;
+}
+
+.avatar:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(192, 132, 252, 0.5);
 }
 
 h1 {
@@ -676,49 +696,64 @@ h2 {
   font-family: var(--font-secondary);
   font-size: 1.8rem;
   color: var(--accent-light);
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem; /* Más espacio debajo de títulos */
   text-align: center;
   position: relative;
   display: inline-block;
+  width: 100%;
 }
+
+/* Animación de aparición para secciones */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+section {
+  animation: fadeInUp 0.8s ease-out forwards;
+  opacity: 0;
+}
+
+/* Retrasos para cada sección */
+section:nth-child(1) { animation-delay: 0.2s; }
+section:nth-child(2) { animation-delay: 0.4s; }
+section:nth-child(3) { animation-delay: 0.6s; }
 
 /* ==== BOTONES GENERALES ==== */
 
 .btn {
   display: inline-block;
   margin-top: 1rem;
-  padding: 0.75rem 1.5rem;
-  background-color: var(--accent);
+  padding: 0.75rem 1.75rem; /* Más padding horizontal */
+  background: linear-gradient(135deg, var(--accent), var(--accent-dark));
   color: #121212;
   text-decoration: none;
   border-radius: 8px;
   font-weight: bold;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.7);
-  transition: background-color 0.3s ease, color 0.3s ease;
+  transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
   z-index: 1;
+  border: none;
+  box-shadow: 0 4px 10px rgba(192, 132, 252, 0.3);
 }
 
 .btn:hover {
-  background-color: #a855f7;
-  color: #121212;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 15px rgba(192, 132, 252, 0.4);
+  background: linear-gradient(135deg, var(--accent-light), var(--accent));
 }
 
-.btn::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-  transition: 0.5s;
-  z-index: -1;
-}
-
-.btn:hover::before {
-  left: 100%;
+.btn-lg {
+  padding: 0.9rem 2rem;
+  font-size: 1.1rem;
 }
 
 /* ==== FOOTER ==== */
@@ -727,12 +762,14 @@ footer {
   position: fixed;
   bottom: 0;
   width: 100%;
-  background-color: #121212;
+  background-color: rgba(18, 18, 18, 0.9);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   border-top: 1px solid var(--accent);
-  padding: 0.25rem 0.5rem;      /* antes: 0.5rem 1rem */
-  font-size: 0.75rem;           /* antes: 0.85rem */
+  padding: 0.5rem 0;
+  font-size: 0.85rem;
   z-index: 100;
-  line-height: 1.2;
+  line-height: 1.4;
   box-shadow: 0 -5px 15px rgba(192, 132, 252, 0.2);
 }
 
@@ -743,6 +780,7 @@ footer .container {
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
+  gap: 1rem;
 }
 
 footer a {
@@ -755,14 +793,18 @@ footer a:hover {
 }
 
 /* ==== SOCIAL ICONS IN FOOTER ==== */
+footer .social-icons {
+  display: flex;
+  gap: 0.75rem;
+}
+
 footer .social-icons a {
   display: inline-block;
-  margin-left: 0.75rem;
   transition: all 0.3s ease;
 }
 
 footer .social-icons .fa-brands {
-  font-size: 1.8rem; /* Tamaño aumentado */
+  font-size: 1.5rem;
   vertical-align: middle;
   padding: 5px;
   border-radius: 50%;
@@ -779,15 +821,17 @@ footer .social-icons a:hover .fa-brands {
 
 .lang-selector {
   margin-bottom: 1.5rem;
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
 }
 
 .lang-selector button {
-  background-color: #1e1e1e;
+  background-color: rgba(30, 30, 30, 0.7);
   border: 2px solid var(--accent);
   color: var(--text-light);
   font-family: var(--font-primary);
   font-size: 0.9rem;
-  margin: 0 0.3rem;
   padding: 0.4rem 0.8rem;
   border-radius: 6px;
   cursor: pointer;
@@ -796,6 +840,7 @@ footer .social-icons a:hover .fa-brands {
   overflow: hidden;
   font-weight: bold;
   text-shadow: 1px 1px 2px rgba(0,0,0,0.7);
+  backdrop-filter: blur(5px);
 }
 
 .lang-selector button:hover {
@@ -815,6 +860,11 @@ footer .social-icons a:hover .fa-brands {
   transition: transform 0.3s ease;
 }
 
+.lang-selector button.active {
+  background-color: var(--accent);
+  color: #121212;
+}
+
 .lang-selector button.active::after,
 .lang-selector button:hover::after {
   transform: scaleX(1);
@@ -823,18 +873,19 @@ footer .social-icons a:hover .fa-brands {
 /* ==== BOOTSTRAP OVERRIDES ==== */
 
 .card {
-  background-color: #1e1e1e;
+  background-color: rgba(30, 30, 30, 0.8);
   color: var(--text-light);
   border-radius: 1rem;
   border: 1px solid var(--accent);
   transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   overflow: hidden;
   box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  backdrop-filter: blur(5px);
 }
 
 .card:hover {
-  transform: translateY(-10px) scale(1.02);
-  box-shadow: 0 12px 25px rgba(192, 132, 252, 0.25);
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 0 15px 30px rgba(192, 132, 252, 0.35);
 }
 
 .card-title {
@@ -853,15 +904,38 @@ footer .social-icons a:hover .fa-brands {
   border-color: var(--accent) !important;
 }
 
+.badge {
+  font-weight: 600;
+  padding: 0.4em 0.8em;
+}
+
+.bg-accent {
+  background: linear-gradient(135deg, var(--accent), var(--accent-dark)) !important;
+}
+
 /* ==== RESUME ==== */
 .resume-item {
   margin-bottom: 2rem;
+  background: rgba(30, 30, 30, 0.4);
+  padding: 1.5rem;
+  border-radius: 10px;
+  backdrop-filter: blur(5px);
+  border-left: 3px solid var(--accent);
+}
+
+.resume-title {
+  margin-bottom: 1.5rem;
+  color: var(--accent-light);
+  border-bottom: 2px solid var(--accent);
+  padding-bottom: 0.5rem;
+  display: inline-block;
 }
 
 /* ==== PORTFOLIO ==== */
 
 .portfolio-item {
-  margin-bottom: 20px; /* más aire entre tarjetas */
+  margin-bottom: 25px;
+  animation: fadeInUp 0.6s ease-out;
 }
 
 /* ==== PORTFOLIO FILTER BUTTONS ==== */
@@ -869,24 +943,30 @@ footer .social-icons a:hover .fa-brands {
 #portfolio-filters {
   list-style: none;
   padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
 }
 
 #portfolio-filters li {
   cursor: pointer;
-  margin: 0.25rem;
   font-weight: 500;
   border: 1px solid var(--accent);
-  padding: 0.3rem 0.8rem;
-  border-radius: 6px;
+  padding: 0.4rem 1rem;
+  border-radius: 30px; /* Más redondeado */
   transition: all 0.3s ease;
   display: inline-block;
   color: var(--text-light);
+  background: rgba(30, 30, 30, 0.5);
+  backdrop-filter: blur(5px);
 }
 
 #portfolio-filters li.active,
 #portfolio-filters li:hover {
-  background-color: var(--accent);
+  background: linear-gradient(135deg, var(--accent), var(--accent-dark));
   color: #121212;
+  box-shadow: 0 4px 10px rgba(192, 132, 252, 0.3);
 }
 
 /* ==== ACCESSIBILITY & FOCUS ==== */
@@ -894,7 +974,7 @@ footer .social-icons a:hover .fa-brands {
 a:focus,
 button:focus {
   outline: 2px solid var(--accent);
-  outline-offset: 2px;
+  outline-offset: 3px;
 }
 
 .resume-item ul {
@@ -917,23 +997,93 @@ button:focus {
   outline: none;
 }
 
-/* ==== FOOTER FIXES ==== */
+/* ==== SKILLS SECTION ==== */
 
-footer {
-  box-sizing: border-box;
+.skills-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
 }
 
-/* ==== UNITS CONSISTENCY (overwrite px) ==== */
-
-.resume-item {
-  margin-bottom: 2rem;
+.skill-card {
+  background: rgba(30, 30, 30, 0.5);
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--accent);
+  transition: all 0.3s ease;
+  padding: 1.5rem 1rem;
+  width: 100%;
+  max-width: 220px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
 }
 
-.portfolio-item {
-  margin-bottom: 1.25rem;
+.skill-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, rgba(192,132,252,0.1), transparent);
+  z-index: -1;
+}
+
+.skill-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 25px rgba(192, 132, 252, 0.25);
+}
+
+.skill-card .fa-brands,
+.skill-card .fas,
+.skill-card .fab {
+  font-size: 2.5rem;
+  color: var(--accent);
+  margin-bottom: 0.75rem;
+  transition: transform 0.3s ease;
+}
+
+.skill-card:hover .fa-brands,
+.skill-card:hover .fas,
+.skill-card:hover .fab {
+  transform: scale(1.15);
+  color: var(--accent-light);
+}
+
+/* ==== SKILL BARS ==== */
+
+.skill-bar {
+  height: 8px;
+  background: #333;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-top: 0.5rem;
+}
+
+.skill-level {
+  height: 100%;
+  background: linear-gradient(90deg, var(--accent), var(--accent-dark));
+  border-radius: 4px;
+  animation: fillBar 1.5s ease-out forwards;
+}
+
+@keyframes fillBar {
+  from { width: 0; }
 }
 
 /* ==== MEDIA QUERIES FOR RESPONSIVE DESIGN ==== */
+
+@media (max-width: 992px) {
+  .container {
+    padding: 1.5rem;
+  }
+  
+  .skill-card {
+    max-width: calc(50% - 0.5rem);
+  }
+}
 
 @media (max-width: 768px) {
   .resume .row {
@@ -945,24 +1095,63 @@ footer {
   }
 
   .lang-selector {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 1rem;
+    flex-wrap: wrap;
   }
 
   footer .container {
     flex-direction: column;
     text-align: center;
-    gap: 0.5rem;
-  }
-
-  /* Ajustes para iconos en móviles */
-  footer .social-icons .fa-brands {
-    font-size: 1.5rem;
+    gap: 0.8rem;
   }
   
-  footer .social-icons a {
-    margin: 0 0.5rem;
+  footer .social-icons {
+    justify-content: center;
+    margin-top: 0.5rem;
+  }
+  
+  .avatar {
+    width: 120px;
+    height: 120px;
+  }
+  
+  h1 {
+    font-size: 2rem;
+  }
+  
+  h2 {
+    font-size: 1.6rem;
+  }
+  
+  .btn-lg {
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .container {
+    padding: 1rem;
+  }
+  
+  .skill-card {
+    max-width: 100%;
+  }
+  
+  .avatar {
+    width: 100px;
+    height: 100px;
+  }
+  
+  h1 {
+    font-size: 1.8rem;
+  }
+  
+  footer {
+    font-size: 0.75rem;
+  }
+  
+  footer .social-icons .fa-brands {
+    font-size: 1.3rem;
   }
 }
 
@@ -1001,53 +1190,17 @@ footer {
   100% { transform: rotate(360deg); }
 }
 
-/* ==== SKILLS SECTION ICONS ==== */
-.skill-card .fa-brands,
-.skill-card .fas,
-.skill-card .fab {
-  font-size: 3rem; /* Tamaño para iconos de habilidades */
-  color: var(--accent);
-  margin-bottom: 0.5rem;
-  transition: transform 0.3s ease;
+/* ==== ANIMACIONES ADICIONALES ==== */
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
 }
 
-.skill-card:hover .fa-brands,
-.skill-card:hover .fas,
-.skill-card:hover .fab {
-  transform: scale(1.1);
-  color: var(--accent-light);
-}
-
-/* ==== SKILL BARS ==== */
-
-.skill-bar {
-  height: 8px;
-  background: #333;
-  border-radius: 4px;
-  overflow: hidden;
-}
-
-.skill-level {
-  height: 100%;
-  background: var(--accent);
-  border-radius: 4px;
-  animation: fillBar 1.5s ease-out forwards;
-}
-
-@keyframes fillBar {
-  from { width: 0; }
-}
-
-.skill-card {
-  background: rgba(30, 30, 30, 0.7);
-  border-radius: 10px;
-  backdrop-filter: blur(10px);
-  border: 1px solid var(--accent);
-  transition: transform 0.3s ease;
-}
-
-.skill-card:hover {
-  transform: translateY(-5px);
+/* Efecto flotante para tarjetas */
+.card:hover {
+  animation: float 3s ease-in-out infinite;
 }
 ```.
 
@@ -1064,12 +1217,19 @@ strings.json:
     "play": "Play Now",
     "visit": "Visit Page",
     "contact": "Contact: jagv94@gmail.com",
+    "clickanium-desc": "A side-scrolling Tower Defense where archaeologists, military, and aliens clash to dominate vital resources. Strategy and fast decisions are key. I worked on UI/UX, music, credits, game balancing, lore, and Scrum management.",
     "gng-title": "Ghosts'N Goblins (Educational Project)",
     "gng-desc": "Unofficial recreation of the classic arcade game Ghosts'N Goblins, developed for educational purposes during a game development degree. All rights to the original game belong to Capcom. Project created using Phaser.",
+    "godlythief-desc": "2D Hack ’n’ Slash Roguelite where you steal enemy abilities to escape Thanatos’ prison. I handled UI, menus, maps, music selection, wave system logic, Slime design, plus debugging and optimization to ensure smoother gameplay.",
+    "restaurant-desc": "Run your grandfather’s restaurant and make it thrive! Fulfill online orders fast, upgrade the place, and manage stock wisely. I worked on scenario design & optimization, mechanics, store system, assets, music, and Scrum Master tasks.",
+    "twistedtail-desc": "Escape the castle by outsmarting guards and solving puzzles! Blend into the environment to stay unseen and trigger mechanisms to move on. Made in 2 days for Zeno Game Jam. I designed the core mechanic, puzzles, and music selection.",
+    "playerent-desc": "Two factions are at war, but you rise as a third force to claim the glory, pushing enemies to unite against you. Made in 21 days for GameArtopia Jam. I worked on mechanics, abilities, map, music adjustment & implementation, and game balancing.",
     "looking_for": "Looking for opportunities as:",
     "roles": "Game Designer | Producer | Researcher | Programmer",
     "focus": "Especially interested in Virtual Reality and small to mid-sized companies",
     "work_preferences": "Prefer remote work with flexible hours",
+    "footer_quote": "Creating immersive experiences between reality and dreams",
+    "view_resume": "View Full Resume",
 
     "resume-title-experience": "Professional Experience",
     "resume-title-education": "Education",
@@ -1126,12 +1286,19 @@ strings.json:
     "play": "Jugar",
     "visit": "Visitar página",
     "contact": "Contacto: jagv94@gmail.com",
+    "clickanium-desc": "Tower Defense con scroll lateral donde arqueólogos, militares y alienígenas luchan por monopolizar un recurso vital. Estrategia, gestión de unidades y torres en batallas dinámicas. Contribuí en UI/UX, música, créditos, balanceo, lore y Scrum.",
     "gng-title": "Ghosts'N Goblins (Proyecto educativo)",
     "gng-desc": "Recreación no oficial del clásico juego de arcade Ghosts'N Goblins, desarrollada con fines educativos durante la carrera de desarrollo de videojuegos. Todos los derechos del juego original pertenecen a Capcom. Proyecto creado utilizando Phaser.",
+    "godlythief-desc": "Roguelite Hack ’n’ Slash 2D donde robas habilidades a tus enemigos para escapar de la prisión de Thanatos. Me encargué de la UI, menús, mapas, selección de música, sistema de oleadas, diseño del Slime, además de depuración y optimización.",
+    "restaurant-desc": "¡Gestiona el restaurante heredado de tu abuelo y hazlo prosperar! Atiende pedidos online rápido, mejora el local y controla el stock. Contribuí en el diseño y optimización del escenario, mecánicas, tienda, assets, música y Scrum Master.",
+    "twistedtail-desc": "¡Escapa del castillo superando guardias y puzles! Camúflate con los colores del entorno y activa mecanismos para avanzar. Creado en 2 días para la Zeno Game Jam. Diseñé la mecánica principal, los puzles e implementé la música.",
+    "playerent-desc": "En plena guerra entre dos facciones, el jugador irrumpe como tercer poder para reclamar la gloria, obligando a sus enemigos a unirse contra él. Creado en 21 días para la GameArtopia Jam. Contribuí en mecánicas, habilidades, mapa, ajuste e implementación de música y balanceo.",
     "looking_for": "Busco oportunidades como:",
     "roles": "Diseñador de Juegos | Productor | Investigador | Programador",
     "focus": "Especial interés en Realidad Virtual y empresas pequeñas/medianas",
     "work_preferences": "Prefiero trabajo remoto con horario flexible",
+    "footer_quote": "Creando experiencias inmersivas entre la realidad y los sueños",
+    "view_resume": "Ver CV completo",
 
     "resume-title-experience": "Experiencia Profesional",
     "resume-title-education": "Formación Académica",
@@ -1188,12 +1355,19 @@ strings.json:
     "play": "プレイする",
     "visit": "ページを見る",
     "contact": "連絡先：jagv94@gmail.com",
+    "clickanium-desc": "横スクロール型タワーディフェンス！考古学者、軍隊、エイリアンが資源を巡って激突。戦略と瞬時の判断が勝敗を決める。UI/UX、音楽、クレジット、バランス調整、世界観設定、Scrum管理を担当しました。",
     "gng-title": "Ghosts'N Goblins（教育プロジェクト）",
     "gng-desc": "アーケードのクラシックゲーム「Ghosts'N Goblins」の非公式リメイク。ゲーム開発の学位取得中に教育目的で制作されました。オリジナルゲームのすべての権利はカプコンに帰属します。Phaserを使用して開発されました。",
+    "godlythief-desc": "2Dハクスラ系ローグライト。敵の力を奪い、タナトスの牢獄から脱出せよ。UIやメニュー、マップ、音楽選定、ウェーブシステムの実装、スライムのデザイン、デバッグと最適化を担当しました。",
+    "restaurant-desc": "祖父から受け継いだレストランを経営し、繁盛させよう！オンライン注文を素早く処理し、店を改良し、在庫を管理。シナリオ設計と最適化、メカニクス、ショップ実装、アセット制作、音楽、Scrum Masterを担当しました。",
+    "twistedtail-desc": "城からの脱出！ガードをかわし、パズルを解き、環境の色に溶け込んで進め。仕掛けを作動させて道を開こう。Zeno Game Jam（2日間）制作。メインメカニクス、パズル設計、音楽選定を担当しました。",
+    "playerent-desc": "二つの勢力が戦争中、その中でプレイヤーが第三の力として介入し、栄光を奪おうとする。敵は団結して立ちはだかる。GameArtopia Jam（21日間）制作。メカニクス、スキル、マップ構築、音楽の調整と実装、バランス調整を担当しました。",
     "looking_for": "以下のポジションを探しています：",
     "roles": "ゲームデザイナー｜プロデューサー｜リサーチャー｜プログラマー",
     "focus": "特にVR（バーチャルリアリティ）と中小規模の企業に関心があります",
     "work_preferences": "リモートワークと柔軟な勤務時間を希望しています",
+    "footer_quote": "現実と夢の間に没入型体験を創造する",
+    "view_resume": "履歴書を見る",
 
     "resume-title-experience": "職務経験",
     "resume-title-education": "学歴",
@@ -1249,11 +1423,12 @@ Junto al código de la página también incluyo una recreación del juego Ghosts
 A continuación doy información mía para sugerencias de personalización de la página:
 Nombre: Adrián Guerra.
 De: España, Barcelona.
-Graduado en diseño y desarrollo de videojuegos.
-En busqueda de empleo (no activa) de un puesto como: Game Designer, Productor, Investigador o Programador, esto enfocado en Realidad Virtual o videojuegos en una empresa pequeña-mediana.
+Graduado en diseño y desarrollo de videojuegos (Contenidos digitales interactivos).
+Más de 10 años estudiando programación en mi formación.
+En busqueda de empleo de un puesto como: Game Designer, preferiblemente en Realidad Virtual o videojuegos en una empresa pequeña-mediana.
 Interes en trabajo remoto y flexibilidad en el horario.
-Entusiasta de la tecnología, especialmente IA y Realidad Virtual. Me formarmo en ello cuando puedo.
+Entusiasta de la tecnología, especialmente IA y Realidad Virtual. Me formo en ello cuando puedo.
 Suelo formarme en aquello que atrae mi interés.
-Objetivos: aprender a leer y escribir en japonés, saber más sobre su cultura, desarrollar un juego estilo anime, desarrollar un juego VR, aprender más sobre IA (como automatización e IA generativa), aprender a modelar y animar personajes en Blender y entornos del estilo que yo quiera (cambiando de aires y no solo dedicarme a la programación, también por interesarme de igual forma la parte artística), mantener actualizado mi ordenador si es económicamente posible, mejorando así también mi herramienta de trabajo, estudio y ocio, y (sin mucha motivación, pero necesario y prioritario tras la carrera) aprender inglés. Nivel actual: A2 - B1.
+Objetivos: aprender japonés (lectura, escritura, habla, cultura), desarrollar un juego estilo anime y/o VR, aprender más sobre IA (como automatización e IA generativa), aprender a modelar y animar personajes y entornos en Blender del estilo que yo quiera (cambiando de aires y distanciándome de la programación, al interesarme de igual forma la parte artística), mantener actualizado mi ordenador si es económicamente posible, mejorando así también mi herramienta de trabajo, estudio y ocio, y (sin mucha motivación, pero necesario y prioritario tras la carrera) aprender inglés (nivel actual: A2 - B1).
 En la carrera aprendí a modelar escenarios y animar personajes en 3DS Max (sin mucha experiencia).
 Música: me gustan los géneros metal, punk, experimental rock, post-rock, alternative rock, j-rock, j-pop, j-dance, j-core, EDM, kawaii EDM, Lo-Fi, future bass speedrun, melodic bass, anison, soundtracks, entre otros.
