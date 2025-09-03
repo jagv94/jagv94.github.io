@@ -1,8 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
   const defaultLang = "en";
-  const supportedLangs = ["en", "es", "jp"];
-  
-  // Obtener el idioma de localStorage o de la URL
   let lang = localStorage.getItem("lang") || 
              (new URLSearchParams(window.location.search).get("lang") || 
              defaultLang);
@@ -21,7 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     document.documentElement.lang = lang;
 
-    const htmlKeys = ["intro", "footer_quote"]; // claves que permiten HTML
+    const htmlKeys = ["intro", "footer_quote"];
 
     document.querySelectorAll("[data-i18n]").forEach(el => {
       const key = el.getAttribute("data-i18n");
@@ -39,8 +36,6 @@ document.addEventListener("DOMContentLoaded", () => {
   // Si tenemos traducciones en caché, aplicarlas inmediatamente
   if (strings) {
     applyTranslations(strings, lang);
-    
-    // Configurar botones de idioma después de aplicar traducciones
     setupLanguageButtons();
   }
 
@@ -48,10 +43,8 @@ document.addEventListener("DOMContentLoaded", () => {
   fetch("data/strings.json")
     .then(res => res.json())
     .then(data => {
-      // Guardar en sessionStorage para futuras visitas
       sessionStorage.setItem("strings", JSON.stringify(data));
       
-      // Aplicar solo si no se aplicaron desde caché
       if (!strings) {
         applyTranslations(data, lang);
         setupLanguageButtons();
@@ -61,26 +54,22 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Configurar botones de idioma
   function setupLanguageButtons() {
-    document.querySelectorAll(".lang-selector button, .lang-selector-nav button").forEach(button => {
-      // Marcar el botón activo
+    document.querySelectorAll(".lang-selector-nav button").forEach(button => {
       if (button.dataset.lang === lang) {
         button.classList.add("active");
       }
       
       button.addEventListener("click", () => {
         const selectedLang = button.dataset.lang;
-        if (selectedLang === lang) return; // ya está activo
+        if (selectedLang === lang) return;
         
-        // Guardar el idioma seleccionado
         localStorage.setItem("lang", selectedLang);
         lang = selectedLang;
         
-        // Actualizar la URL
         const url = new URL(window.location);
         url.searchParams.set("lang", selectedLang);
         history.replaceState(null, "", url);
         
-        // Recargar la página para aplicar el idioma
         location.reload();
       });
     });
@@ -111,13 +100,11 @@ document.addEventListener("DOMContentLoaded", () => {
       filter.addEventListener("click", function() {
         if(this.classList.contains('active')) return;
         
-        // Actualizar filtro activo
         portfolioFilters.forEach(f => f.classList.remove("active"));
         this.classList.add("active");
         
         const filterValue = this.getAttribute("data-filter");
         
-        // Animación de transición
         portfolioItems.forEach(item => {
           item.style.transition = "opacity 0.3s ease, transform 0.3s ease";
           
@@ -151,7 +138,6 @@ document.addEventListener("DOMContentLoaded", () => {
       const targetElement = document.querySelector(targetId);
       
       if (targetElement) {
-        // Calcular la posición considerando la navbar fija
         const targetPosition = targetElement.offsetTop - 75;
         
         window.scrollTo({
@@ -159,9 +145,7 @@ document.addEventListener("DOMContentLoaded", () => {
           behavior: 'smooth'
         });
         
-        // Cerrar el menú colapsable en dispositivos móviles
         const navbarToggler = document.querySelector('.navbar-toggler');
-        const navbarCollapse = document.querySelector('.navbar-collapse');
         
         if (navbarToggler && !navbarToggler.classList.contains('collapsed')) {
           navbarToggler.click();
