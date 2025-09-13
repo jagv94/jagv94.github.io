@@ -4,11 +4,38 @@ document.addEventListener("DOMContentLoaded", () => {
              (new URLSearchParams(window.location.search).get("lang") || 
              defaultLang);
 
-  // Precargar traducciones desde sessionStorage si están disponibles
-  const stringsCache = sessionStorage.getItem("strings");
-  const strings = stringsCache ? JSON.parse(stringsCache) : null;
+  // Elementos de la navegación lateral
+  const sidebar = document.getElementById('sidebar');
+  const sidebarToggle = document.getElementById('sidebarToggle');
+  const sidebarOverlay = document.getElementById('sidebarOverlay');
 
-  // Función para aplicar traducciones
+  // Toggle sidebar en móviles
+  if (sidebarToggle && sidebar && sidebarOverlay) {
+    sidebarToggle.addEventListener('click', () => {
+      sidebar.classList.toggle('active');
+      sidebarOverlay.classList.toggle('active');
+      document.body.style.overflow = sidebar.classList.contains('active') ? 'hidden' : '';
+    });
+
+    sidebarOverlay.addEventListener('click', () => {
+      sidebar.classList.remove('active');
+      sidebarOverlay.classList.remove('active');
+      document.body.style.overflow = '';
+    });
+  }
+
+  // Cerrar sidebar al hacer clic en un enlace (en móviles)
+  document.querySelectorAll('.sidebar-link').forEach(link => {
+    link.addEventListener('click', () => {
+      if (window.innerWidth < 1200) {
+        sidebar.classList.remove('active');
+        sidebarOverlay.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+    });
+  });
+
+  // Función para aplicar traducciones con animación suave
   function applyTranslations(strings, lang) {
     const translations = strings[lang];
     if (!translations) {
@@ -18,20 +45,70 @@ document.addEventListener("DOMContentLoaded", () => {
 
     document.documentElement.lang = lang;
 
-    const htmlKeys = ["intro", "footer_quote"];
-
+    // Añadir clase de transición a todos los elementos traducibles
     document.querySelectorAll("[data-i18n]").forEach(el => {
-      const key = el.getAttribute("data-i18n");
-      const translation = translations[key];
-      if (translation) {
-        if (htmlKeys.includes(key)) {
-          el.innerHTML = translation.replace(/\n/g, "<br>");
-        } else {
-          el.textContent = translation;
+      el.classList.add("i18n-changing");
+    });
+
+    setTimeout(() => {
+      const htmlKeys = ["intro", "footer_quote"];
+
+      document.querySelectorAll("[data-i18n]").forEach(el => {
+        const key = el.getAttribute("data-i18n");
+        const translation = translations[key];
+        if (translation) {
+          if (htmlKeys.includes(key)) {
+            el.innerHTML = translation.replace(/\n/g, "<br>");
+          } else {
+            el.textContent = translation;
+          }
         }
+        el.classList.remove("i18n-changing");
+      });
+    }, 150);
+  }
+
+  // Configurar botones de idioma
+  function setupLanguageButtons() {
+    document.querySelectorAll(".lang-btn").forEach(button => {
+      if (button.dataset.lang === lang) {
+        button.classList.add("active");
+      } else {
+        button.classList.remove("active");
       }
+      
+      button.addEventListener("click", () => {
+        const selectedLang = button.dataset.lang;
+        if (selectedLang === lang) return;
+        
+        // Actualizar botones activos
+        document.querySelectorAll(".lang-btn").forEach(btn => {
+          btn.classList.remove("active");
+        });
+        button.classList.add("active");
+        
+        localStorage.setItem("lang", selectedLang);
+        lang = selectedLang;
+        
+        const url = new URL(window.location);
+        url.searchParams.set("lang", selectedLang);
+        history.replaceState(null, "", url);
+        
+        // Aplicar traducciones sin recargar
+        const strings = JSON.parse(sessionStorage.getItem("strings"));
+        if (strings) {
+          applyTranslations(strings, lang);
+        } else {
+          // Si no hay cached, recargar
+          location.reload();
+        }
+      });
     });
   }
+
+  // Precargar traducciones desde sessionStorage si están disponibles
+  const stringsCache = sessionStorage.getItem("strings");
+  const strings = stringsCache ? JSON.parse(stringsCache) : null;
 
   // Si tenemos traducciones en caché, aplicarlas inmediatamente
   if (strings) {
@@ -51,29 +128,6 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     })
     .catch(err => console.error("Error loading translations:", err));
-
-  // Configurar botones de idioma
-  function setupLanguageButtons() {
-    document.querySelectorAll(".lang-selector-nav button").forEach(button => {
-      if (button.dataset.lang === lang) {
-        button.classList.add("active");
-      }
-      
-      button.addEventListener("click", () => {
-        const selectedLang = button.dataset.lang;
-        if (selectedLang === lang) return;
-        
-        localStorage.setItem("lang", selectedLang);
-        lang = selectedLang;
-        
-        const url = new URL(window.location);
-        url.searchParams.set("lang", selectedLang);
-        history.replaceState(null, "", url);
-        
-        location.reload();
-      });
-    });
-  }
 
   // Script para el loader
   const loader = document.getElementById('loader');
@@ -130,7 +184,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // Smooth scrolling para enlaces de navegación
-  document.querySelectorAll('.navbar-nav .nav-link').forEach(link => {
+  document.querySelectorAll('.sidebar-link, .navbar-nav .nav-link').forEach(link => {
     link.addEventListener('click', function(e) {
       e.preventDefault();
       
@@ -138,18 +192,12 @@ document.addEventListener("DOMContentLoaded", () => {
       const targetElement = document.querySelector(targetId);
       
       if (targetElement) {
-        const targetPosition = targetElement.offsetTop - 75;
+        const targetPosition = targetElement.offsetTop - (window.innerWidth >= 992 ? 0 : 75);
         
         window.scrollTo({
           top: targetPosition,
           behavior: 'smooth'
         });
-        
-        const navbarToggler = document.querySelector('.navbar-toggler');
-        
-        if (navbarToggler && !navbarToggler.classList.contains('collapsed')) {
-          navbarToggler.click();
-        }
       }
     });
   });

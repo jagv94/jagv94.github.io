@@ -1,5 +1,10 @@
 {
   "en": {
+    "language": "Language",
+    "nav_home": "Home",
+    "nav_skills": "Skills",
+    "nav_resume": "Resume",
+    "nav_projects": "Projects",
     "title": "My Portfolio",
     "welcome": "Adrian Guerra's Portfolio",
     "intro": "Developer specialized in VR/XR experiences and serious games. Passionate about technology, Japanese culture, and continuous learning.<br/><br/>Expert in Unreal Engine (C++/Blueprints) and Unity (C#), with skills in game design, production, and 3D modeling. Currently focused on improving my skills in Japanese, 3D animation, and artificial intelligence.",
@@ -22,6 +27,8 @@
     "work_preferences": "Prefer remote work with flexible hours",
     "footer_quote": "Creating immersive experiences between reality and dreams",
     "view_resume": "View Full Resume",
+    "english_level": "B1 (learning)",
+    "japanese_level": "N4 (learning)",
 
     "resume-title-experience": "Professional Experience",
     "resume-title-education": "Education",
@@ -69,6 +76,11 @@
     "resume-vet-place": "Institut Marianao, Sant Boi de Llobregat, Spain"
   },
   "es": {
+    "language": "Idioma",
+    "nav_home": "Inicio",
+    "nav_skills": "Habilidades",
+    "nav_resume": "Currículum",
+    "nav_projects": "Proyectos",
     "title": "Mi Portafolio",
     "welcome": "Portafolio de Adrian Guerra",
     "intro": "Desarrollador especializado en experiencias VR/XR y serious games. Apasionado por la tecnología, la cultura japonesa y el aprendizaje continuo.<br/><br/>Experto en Unreal Engine (C++/Blueprints) y Unity (C#), con habilidades en diseño de juegos, producción y modelado 3D. Actualmente enfocado en mejorar mis habilidades en japonés, animación 3D e inteligencia artificial.",
@@ -91,6 +103,8 @@
     "work_preferences": "Prefiero trabajo remoto con horario flexible",
     "footer_quote": "Creando experiencias inmersivas entre la realidad y los sueños",
     "view_resume": "Ver CV completo",
+    "english_level": "B1 (en curso)",
+    "japanese_level": "N4 (en curso)",
 
     "resume-title-experience": "Experiencia Profesional",
     "resume-title-education": "Formación Académica",
@@ -138,6 +152,11 @@
     "resume-vet-place": "Institut Marianao, Sant Boi de Llobregat, España"
   },
   "jp": {
+    "language": "言語",
+    "nav_home": "ホーム",
+    "nav_skills": "スキル",
+    "nav_resume": "履歴書",
+    "nav_projects": "プロジェクト",
     "title": "ポートフォリオ",
     "welcome": "[Adrian Guerra] アドリアン・グエッラのポートフォリオ",
     "intro": "VR/XR体験とシリアスゲームを専門とする開発者。技術、日本文化、そして継続的な学習に情熱を持っています。<br/><br/>Unreal Engine（C++／Blueprints）とUnity（C#）のエキスパートであり、ゲームデザイン、プロデュース、3Dモデリングのスキルも備えています。現在は、日本語、3Dアニメーション、人工知能のスキル向上に取り組んでいます。",
@@ -160,6 +179,8 @@
     "work_preferences": "リモートワークと柔軟な勤務時間を希望しています",
     "footer_quote": "現実と夢の間に没入型体験を創造する",
     "view_resume": "履歴書を見る",
+    "english_level": "B1 (学習中)",
+    "japanese_level": "N4 (学習中)",
 
     "resume-title-experience": "職務経験",
     "resume-title-education": "学歴",
