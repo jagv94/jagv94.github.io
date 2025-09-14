@@ -1,296 +1,467 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-
-  <title>J. Adrián Guerra V. - Index</title>
-  <meta content="" name="description">
-  <meta content="" name="keywords">
-
-  <!-- Favicons -->
-  <link href="assets/img/favicon.png" rel="icon">
-  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title data-i18n="title">Adrian Guerra - Portfolio</title>
+  
+  <!-- Meta tags para SEO -->
+  <meta name="description" content="Portfolio of Adrian Guerra - VR/XR Developer & Game Designer specializing in immersive experiences">
+  <meta name="keywords" content="game developer, VR, XR, Unreal Engine, Unity, portfolio, Japan, anime">
+  <meta name="author" content="Adrián Guerra">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://jagv94.github.io">
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="Adrian Guerra - Game Developer Portfolio">
+  <meta property="og:description" content="VR/XR Developer & Game Designer specializing in immersive experiences">
+  <meta property="og:type" content="website">
+  
+  <!-- Schema.org para perfil profesional -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Adrián Guerra",
+    "jobTitle": "VR/XR Developer & Game Designer",
+    "url": "https://jagv94.github.io",
+    "sameAs": [
+      "https://linkedin.com/in/jagv94",
+      "https://github.com/jagv94",
+      "https://twitter.com/jagv94",
+      "https://shiroi-ookami.itch.io/"
+    ]
+  }
+  </script>
+  
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <!-- Font Awesome (para iconos sociales) -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
-
-  <!-- Vendor CSS Files -->
-  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
-  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-
-  <!-- Template Main CSS File -->
-  <link href="assets/css/style.css" rel="stylesheet">
-
-  <!-- =======================================================
-  * Template Name: iPortfolio
-  * Updated: Jul 27 2023 with Bootstrap v5.3.1
-  * Template URL: https://bootstrapmade.com/iportfolio-bootstrap-portfolio-websites-template/
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
+  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Zen+Maru+Gothic:wght@400;500;700&display=swap" rel="stylesheet">
+  <!-- Particles.js -->
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+  <!-- Estilos personalizados -->
+  <link rel="stylesheet" href="assets/css/styles.css" />
+  
+  <!-- Precarga de fuentes -->
+  <link rel="preload" href="assets/fonts/Sawarabi/SawarabiGothic-Regular.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="preload" href="assets/fonts/ZenMaru/ZenMaruGothic-Regular.ttf" as="font" type="font/ttf" crossorigin>
 </head>
-
 <body>
+  <!-- Loader -->
+  <div id="loader">
+    <div class="loader-animation"></div>
+  </div>
+  
+  <!-- Particle Background -->
+  <div id="particles-js"></div>
+  
+  <!-- Botón hamburguesa para móviles -->
+  <button id="sidebarToggle" class="sidebar-toggle d-lg-none">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+  
+  <!-- Navigation Aside -->
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-content">
+      <a class="sidebar-brand" href="#home">
+        <span>Adrian Guerra</span>
+      </a>
+      
+      <ul class="sidebar-nav">
+        <li class="sidebar-item">
+          <a class="sidebar-link" href="#home">
+            <i class="fas fa-home me-2"></i>
+            <span data-i18n="nav_home">Home</span>
+          </a>
+        </li>
+        <li class="sidebar-item">
+          <a class="sidebar-link" href="#skills">
+            <i class="fas fa-code me-2"></i>
+            <span data-i18n="nav_skills">Skills</span>
+          </a>
+        </li>
+        <li class="sidebar-item">
+          <a class="sidebar-link" href="#resume">
+            <i class="fas fa-file-alt me-2"></i>
+            <span data-i18n="nav_resume">Resume</span>
+          </a>
+        </li>
+        <li class="sidebar-item">
+          <a class="sidebar-link" href="#portfolio">
+            <i class="fas fa-briefcase me-2"></i>
+            <span data-i18n="nav_projects">Projects</span>
+          </a>
+        </li>
+        <li class="sidebar-item">
+          <a class="sidebar-link" href="#contact">
+            <i class="fas fa-envelope me-2"></i>
+            <span data-i18n="nav_contact">Contact</span>
+          </a>
+        </li>
+      </ul>
 
-  <!-- ======= Mobile nav toggle button ======= -->
-  <i class="bi bi-list mobile-nav-toggle d-xl-none"></i>
-
-  <!-- ======= Header ======= -->
-  <header id="header">
-    <div class="d-flex flex-column">
-
-      <div class="profile">
-        <img src="assets/img/profile-img.jpg" alt="" class="img-fluid rounded-circle">
-        <h1 class="text-light"><a href="index.html">Adrián Guerra</a></h1>
-        <div class="social-links mt-3 text-center">
-          <a href="https://twitter.com/jagv94" class="twitter" target="_blank"><i class="bx bxl-twitter"></i></a>
-          <a href="https://www.linkedin.com/in/jagv94/" class="linkedin" target="_blank"><i class="bx bxl-linkedin"></i></a>
+      <!-- Selector de idiomas en el header - NUEVO DISEÑO -->
+      <div class="lang-selector-container">
+        <h3 class="lang-title" data-i18n="language">Language</h3>
+        <div class="lang-selector">
+          <button class="lang-btn active" data-lang="en">
+            <span class="lang-flag">🇬🇧</span>
+            <span class="lang-code">EN</span>
+            <span class="lang-tooltip">English</span>
+          </button>
+          <button class="lang-btn" data-lang="es">
+            <span class="lang-flag">🇪🇸</span>
+            <span class="lang-code">ES</span>
+            <span class="lang-tooltip">Español</span>
+          </button>
+          <button class="lang-btn" data-lang="jp">
+            <span class="lang-flag">🇯🇵</span>
+            <span class="lang-code">JP</span>
+            <span class="lang-tooltip">日本語</span>
+          </button>
         </div>
       </div>
-
-      <nav id="navbar" class="nav-menu navbar">
-        <ul>
-          <li><a href="#hero" class="nav-link scrollto active"><i class="bx bx-home"></i> <span>Home</span></a></li>
-          <li><a href="#about" class="nav-link scrollto"><i class="bx bx-user"></i> <span>About</span></a></li>
-          <li><a href="#resume" class="nav-link scrollto"><i class="bx bx-file-blank"></i> <span>Resume</span></a></li>
-          <li><a href="#portfolio" class="nav-link scrollto"><i class="bx bx-book-content"></i> <span>Portfolio</span></a></li>
-          <li><span>_____________________</span></a></li>
-          <li><a href="https://enticat-my.sharepoint.com/:b:/g/personal/joseadrian_guerra_enti_cat/ERnlD3xB9UVDi6h1s-QQ8Z0Btl4yF5wFbD70HUUVpBePCg?e=e2Gszb" target="_blank" class="nav-link scrollto"><i class="bx bx-file-blank"></i> <span>Full Resume</span></a></li>
-        </ul>
-      </nav><!-- .nav-menu -->
-    </div>
-  </header><!-- End Header -->
-
-  <!-- ======= Hero Section ======= -->
-  <section id="hero" class="d-flex flex-column justify-content-center align-items-center">
-    <div class="hero-container" data-aos="fade-in">
-      <h1>Adrián Guerra</h1>
-      <p>I'm a game <span class="typed" data-typed-items="Programmer, Designer, Tester, VR Developer"></span></p>
-    </div>
-  </section><!-- End Hero -->
-
-  <main id="main">
-
-    <!-- ======= About Section ======= -->
-    <section id="about" class="about">
-      <div class="container">
-
-        <div class="section-title">
-          <h2>About</h2>
+      
+      <div class="sidebar-footer">
+        <div class="social-icons">
+          <a href="https://twitter.com/jagv94" target="_blank"><i class="fab fa-twitter"></i></a>
+          <a href="https://www.linkedin.com/in/jagv94/" target="_blank"><i class="fab fa-linkedin"></i></a>
+          <a href="https://github.com/jagv94" target="_blank"><i class="fab fa-github"></i></a>
+          <a href="https://shiroi-ookami.itch.io/" target="_blank"><i class="fab fa-itch-io"></i></a>
         </div>
+        
+        <p class="sidebar-contact" data-i18n="contact">Contact: jagv94@gmail.com</p>
+      </div>
+    </div>
+  </aside>
+  
+  <!-- Overlay para móviles -->
+  <div id="sidebarOverlay" class="sidebar-overlay"></div>
 
-        <div class="row">
-          <div class="col-lg-4" data-aos="fade-right">
-            <img src="assets/img/profile-img.jpg" class="img-fluid" alt="">
+  <!-- Contenido principal -->
+  <div class="main-content">
+    <!-- Hero Section -->
+    <header id="home" class="hero-section">
+      <div class="hero-content">
+        <h1 data-i18n="welcome">Adrian Guerra's Portfolio</h1>
+        <p class="hero-subtitle" data-i18n="hero_subtitle">VR/XR Developer & Game Designer</p>
+        <p class="hero-description" data-i18n="intro">
+          Developer specialized in VR/XR experiences and serious games. Passionate about technology, Japanese culture, and continuous learning.<br/><br/>
+          Expert in Unreal Engine (C++/Blueprints) and Unity (C#), with skills in game design, production, and 3D modeling. Currently focused on improving my skills in Japanese, 3D animation, and artificial intelligence.
+        </p>
+        <a href="#portfolio" class="hero-btn" data-i18n="view_work">View My Work</a>
+      </div>
+    </header>
+
+    <main class="pb-5">
+      <!-- Technical Skills -->
+      <section id="skills" class="skills-section">
+        <div class="container">
+          <h2 class="section-title" data-i18n="skills_title">Technical Skills</h2>
+          
+          <div class="skills-grid">
+            <!-- Unity -->
+            <div class="skill-card">
+              <div class="skill-icon">
+                <i class="fab fa-unity"></i>
+              </div>
+              <h5>Unity Engine</h5>
+              <div class="skill-bar">
+                <div class="skill-level" style="width: 85%"></div>
+              </div>
+            </div>
+            
+            <!-- Unreal Engine -->
+            <div class="skill-card">
+              <div class="skill-icon">
+                <i class="fas fa-gamepad"></i>
+              </div>
+              <h5>Unreal Engine</h5>
+              <div class="skill-bar">
+                <div class="skill-level" style="width: 85%"></div>
+              </div>
+            </div>
+            
+            <!-- VR Development -->
+            <div class="skill-card">
+              <div class="skill-icon">
+                <i class="fas fa-vr-cardboard"></i>
+              </div>
+              <h5 data-i18n="vr_skills">VR Development</h5>
+              <div class="skill-bar">
+                <div class="skill-level" style="width: 65%"></div>
+              </div>
+            </div>
+            
+            <!-- 3D Modeling -->
+            <div class="skill-card">
+              <div class="skill-icon">
+                <i class="fas fa-cube"></i>
+              </div>
+              <h5 data-i18n="3d_modeling">3D Modeling</h5>
+              <div class="skill-bar">
+                <div class="skill-level" style="width: 55%"></div>
+              </div>
+            </div>
+            
+            <!-- Programming -->
+            <div class="skill-card">
+              <div class="skill-icon">
+                <i class="fas fa-code"></i>
+              </div>
+              <h5>Programming</h5>
+              <div class="skill-bar">
+                <div class="skill-level" style="width: 92%"></div>
+              </div>
+            </div>
+            
+            <!-- Game Design -->
+            <div class="skill-card">
+              <div class="skill-icon">
+                <i class="fas fa-dice-d20"></i>
+              </div>
+              <h5 data-i18n="game_design">Game Design</h5>
+              <div class="skill-bar">
+                <div class="skill-level" style="width: 70%"></div>
+              </div>
+            </div>
+            
+            <!-- English Language -->
+            <div class="skill-card">
+              <div class="skill-icon">
+                <i class="fas fa-language"></i>
+              </div>
+              <h5>English</h5>
+              <div class="skill-level-text">
+                <span data-i18n="english_level" class="badge bg-accent">B1 (learning)</span>
+              </div>
+            </div>
+            
+            <!-- Japanese Language
+            <div class="skill-card">
+              <div class="skill-icon">
+                <i class="fas fa-language"></i>
+              </div>
+              <h5>Japanese</h5>
+              <div class="skill-level-text">
+                <span data-i18n="japanese_level" class="badge bg-accent">N4 (learning)</span>
+              </div>
+            </div> -->
           </div>
-          <div class="col-lg-8 pt-4 pt-lg-0 content" data-aos="fade-left">
-            <h3>Game Designer &amp; Developer.</h3>
-            <div class="row">
-              <div class="col-lg-6">
+        </div>
+      </section>
+
+      <!-- ======= Resume Section ======= -->
+      <section id="resume" class="resume-section">
+        <div class="container">
+          <h2 class="section-title" data-i18n="nav_resume">Resume</h2>
+
+          <section class="career-section text-center">
+              <!-- Botón para descargar CV -->
+              <div class="mt-4">
+                <a href="assets/docs/Adrian_Guerra_CV.pdf" class="btn btn-accent" target="_blank">
+                  <i class="fas fa-download me-2"></i>
+                  <span data-i18n="view_resume">View Full Resume</span>
+                </a>
+              </div>
+          </section>
+
+          <div class="row">
+
+            <!-- Professional Experience -->
+            <div class="col-lg-6">
+              <h3 class="resume-category-title" data-i18n="resume-title-experience">Professional Experience</h3>
+
+              <div class="resume-item">
+                <h4 data-i18n="resume-vr-intern-title">VR Developer Intern</h4>
+                <h5 data-i18n="resume-vr-intern-dates">Jan/2025 - May/2025</h5>
+                <p><em data-i18n="resume-vr-intern-place">Faculty of Earth Sciences, University of Barcelona, Spain</em></p>
                 <ul>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Birthday:</strong> <span>22 Aug 1994</span></li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Degree:</strong> <span>Interactive digital content</span></li>
+                  <li data-i18n="resume-vr-intern-li-1">Defined goals and functionalities for a 3D model viewer and drafted the design document.</li>
+                  <li data-i18n="resume-vr-intern-li-2">Compared game engines and development tools for VR model visualization.</li>
+                  <li data-i18n="resume-vr-intern-li-3">Developed a point cloud to .fbx model converter.</li>
+                  <li data-i18n="resume-vr-intern-li-4">Created an export plugin for Nanite models to .pak format and runtime import support.</li>
+                  <li data-i18n="resume-vr-intern-li-5">Evaluated and documented both proprietary and third-party plugins.</li>
+                  <li data-i18n="resume-vr-intern-li-6">Designed an ergonomic user interface for immersive interaction.</li>
                 </ul>
               </div>
-              <div class="col-lg-6">
+
+              <div class="resume-item">
+                <h4 data-i18n="resume-vr-tech-title">Virtual Reality Laboratory Technician</h4>
+                <h5 data-i18n="resume-vr-tech-dates">Nov/2022 - Jul/2024</h5>
+                <p><em data-i18n="resume-vr-tech-place">ENTI, Barcelona, Spain</em></p>
                 <ul>
-                  <li><i class="bi bi-chevron-right"></i> <strong>City:</strong> <span>Barcelona, Spain</span></li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Email:</strong> <span>jagv94@gmail.com</span></li>
+                  <li data-i18n="resume-vr-tech-li-1">Inventory, care and maintenance of equipment.</li>
+                  <li data-i18n="resume-vr-tech-li-2">Reserve and loan management.</li>
+                  <li data-i18n="resume-vr-tech-li-3">Documentation of peripherals and demonstrators/testers.</li>
+                </ul>
+              </div>
+
+              <div class="resume-item">
+                <h4 data-i18n="resume-jr-prog-title">Jr. Programmer</h4>
+                <h5 data-i18n="resume-jr-prog-dates">May/2019 - Sep/2019</h5>
+                <p><em data-i18n="resume-jr-prog-place">ConsultiaIT, Barcelona, Spain</em></p>
+                <ul>
+                  <li data-i18n="resume-jr-prog-li-1">Helpdesk and incident resolution for Baxi technicians.</li>
+                  <li data-i18n="resume-jr-prog-li-2">Testing and debugging web apps and PDAs used by company staff.</li>
+                </ul>
+              </div>
+
+              <div class="resume-item">
+                <h4 data-i18n="resume-tech-title">Computer Technician</h4>
+                <h5 data-i18n="resume-tech-dates">Jan/2018 - May/2018</h5>
+                <p><em data-i18n="resume-tech-place">Everis BPO, Barcelona, Spain</em></p>
+                <ul>
+                  <li data-i18n="resume-tech-li-1">On-site technical support and software installations.</li>
+                  <li data-i18n="resume-tech-li-2">Macro development with Visual Basic 6.0.</li>
+                  <li data-i18n="resume-tech-li-3">Access database creation and documentation writing.</li>
                 </ul>
               </div>
             </div>
-            <p>
-              I'm a developer of video games, serious games, and interactive experiences for research and entertainment, using Unreal Engine (C++/Blueprints) and Unity (C#). I’m especially passionate about VR/XR development.<BR>
-              I'm currently expanding my skills as a self-taught learner in 3D animation, modeling, and Japanese culture.
-            </p>
+
+            <!-- Education -->
+            <div class="col-lg-6">
+              <h3 class="resume-category-title" data-i18n="resume-title-education">Education</h3>
+
+              <div class="resume-item">
+                <h4 data-i18n="resume-enti-degree-title">University Degree, Interactive Digital Content Creation</h4>
+                <h5 data-i18n="resume-enti-degree-dates">2019 - Currently</h5>
+                <p><em data-i18n="resume-enti-degree-place">ENTI, Barcelona, Spain</em></p>
+              </div>
+
+              <div class="resume-item">
+                <h4 data-i18n="resume-app-dev-title">Certificate of Higher Education, Multiplatform App Development</h4>
+                <h5 data-i18n="resume-app-dev-dates">2016 - 2019</h5>
+                <p><em data-i18n="resume-app-dev-place">Institut Marianao, Sant Boi de Llobregat, Spain</em></p>
+              </div>
+
+              <div class="resume-item">
+                <h4 data-i18n="resume-vet-title">Vocational Training, Microcomputer and Network Technician</h4>
+                <h5 data-i18n="resume-vet-dates">2012 - 2015</h5>
+                <p><em data-i18n="resume-vet-place">Institut Marianao, Sant Boi de Llobregat, Spain</em></p>
+              </div>
+            </div>
           </div>
         </div>
+      </section>
+      <!-- ======= End Resume Section ======= -->
 
-      </div>
-    </section><!-- End About Section -->
+      <!-- Portfolio -->
+      <section id="portfolio" class="portfolio-section">
+        <div class="container">
+          <h2 class="section-title" data-i18n="projects">Projects</h2>
 
-    <!-- ======= Resume Section ======= -->
-    <section id="resume" class="resume">
+          <div class="portfolio-filters">
+            <button class="filter-btn active" data-filter="*">All</button>
+            <button class="filter-btn" data-filter=".filter-action">Action</button>
+            <button class="filter-btn" data-filter=".filter-simulation">Simulation</button>
+            <button class="filter-btn" data-filter=".filter-puzzle">Puzzle</button>
+            <button class="filter-btn" data-filter=".filter-turnBased">Turn-Based</button>
+          </div>
+
+          <div class="portfolio-grid">
+            <!-- Cada tarjeta usa Bootstrap grid y clases de filtro -->
+            <div class="portfolio-item filter-action">
+              <div class="portfolio-card">
+                <img src="assets/img/portfolio/portfolio-1.png" loading="lazy" class="portfolio-img" alt="Godly Thief" />
+                <div class="portfolio-overlay">
+                  <h5 class="portfolio-title">Godly Thief</h5>
+                  <p class="portfolio-desc" data-i18n="godlythief-desc">2D Hack 'n' Slash Roguelite where you steal enemy abilities to escape Thanatos' prison. I handled UI, menus, maps, music selection, wave system logic, Slime design, plus debugging and optimization to ensure smoother gameplay.</p>
+                  <a href="https://marcd419.itch.io/godly-thief" class="portfolio-link" target="_blank" data-i18n="visit">Visit Page</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="portfolio-item filter-action">
+              <div class="portfolio-card">
+                <img src="assets/img/portfolio/ghostngoblins.png" loading="lazy" class="portfolio-img" alt="Ghost'N Goblins" />
+                <div class="portfolio-overlay">
+                  <h5 class="portfolio-title" data-i18n="gng-title">Ghost'N Goblins</h5>
+                  <p class="portfolio-desc" data-i18n="gng-desc">Unofficial recreation of the classic arcade game Ghosts'N Goblins, developed for educational purposes during a game development degree. All rights to the original game belong to Capcom. Project created using Phaser.</p>
+                  <a href="GhostNGoblins/GhostNGoblins.html" class="portfolio-link" target="_blank" data-i18n="play">Play Now</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="portfolio-item filter-action">
+              <div class="portfolio-card">
+                <img src="assets/img/portfolio/portfolio-5.png" loading="lazy" class="portfolio-img" alt="Towers of Clickanium" />
+                <div class="portfolio-overlay">
+                  <h5 class="portfolio-title">Towers of Clickanium</h5>
+                  <p class="portfolio-desc" data-i18n="clickanium-desc">A side-scrolling Tower Defense where archaeologists, military, and aliens clash to dominate vital resources. Strategy and fast decisions are key. I worked on UI/UX, music, credits, game balancing, lore, and Scrum management.</p>
+                  <a href="https://youtu.be/mW7iOPUotSM" class="portfolio-link" target="_blank" data-i18n="visit">Visit Page</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="portfolio-item filter-simulation">
+              <div class="portfolio-card">
+                <img src="assets/img/portfolio/portfolio-2.png" loading="lazy" class="portfolio-img" alt="Restaurant Extravaganzza" />
+                <div class="portfolio-overlay">
+                  <h5 class="portfolio-title">Restaurant Extravaganzza</h5>
+                  <p class="portfolio-desc" data-i18n="restaurant-desc">Run your grandfather's restaurant and grow it into a success! Fulfill online orders fast, upgrade the place, and manage stock wisely. I worked on level design, mechanics, store system, assets, music selection, and Scrum Master duties.</p>
+                  <a href="https://dojap.itch.io/restaurant-extravaganzza" class="portfolio-link" target="_blank" data-i18n="visit">Visit Page</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="portfolio-item filter-puzzle">
+              <div class="portfolio-card">
+                <img src="assets/img/portfolio/portfolio-3.png" loading="lazy" class="portfolio-img" alt="Twisted Tail" />
+                <div class="portfolio-overlay">
+                  <h5 class="portfolio-title">Twisted Tail</h5>
+                  <p class="portfolio-desc" data-i18n="twistedtail-desc">Escape the castle by outsmarting guards and solving puzzles! Blend into the environment to stay unseen and trigger mechanisms to move on. Made in 2 days for Zeno Game Jam. I designed the core mechanic, puzzles, and music selection.</p>
+                  <a href="https://marcd419.itch.io/twisted-tail" class="portfolio-link" target="_blank" data-i18n="visit">Visit Page</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="portfolio-item filter-turnBased">
+              <div class="portfolio-card">
+                <img src="assets/img/portfolio/portfolio-6.png" loading="lazy" class="portfolio-img" alt="Playern't Fantasy" />
+                <div class="portfolio-overlay">
+                  <h5 class="portfolio-title">Playern't Fantasy</h5>
+                  <p class="portfolio-desc" data-i18n="playerent-desc">Two factions are at war, but you rise as a third force to claim the glory, pushing enemies to unite against you. Made in 21 days for GameArtopia Jam. I worked on mechanics, abilities, map, music adjustment & implementation, and game balancing.</p>
+                  <a href="https://nhos.itch.io/playernt-fantasy" class="portfolio-link" target="_blank" data-i18n="visit">Visit Page</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact Section -->
+      <section id="contact" class="contact-section">
+        <div class="container">
+          <div class="contact-content">
+            <h2 class="section-title" data-i18n="nav_contact">Contact</h2>
+            <p class="contact-text" data-i18n="contact_text">I'm currently looking for new opportunities as a Game Designer, especially in VR and small to mid-sized companies. Prefer remote work with flexible hours.</p>
+            <a href="mailto:jagv94@gmail.com" class="contact-btn">
+              <i class="fas fa-envelope me-2"></i>
+              <span data-i18n="contact_btn">Get In Touch</span>
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
       <div class="container">
-        <div class="row">
-          <div class="col-lg-6" data-aos="fade-up">
-            <h3 class="resume-title">Professional Experience</h3>
-            <div class="resume-item">
-              <h4>VR Developer Intern</h4>
-              <h5>Jan/2025 - May/2025</h5>
-              <p><em>Faculty of Earth Sciences, University of Barcelona, Spain</em></p>
-              <ul>
-                <li>Functions performed: Defined goals and functionalities for a 3D model viewer and drafted the design document. Compared game engines and development tools for VR model visualization. Developed a point cloud (photogrammetry) to .fbx model converter. Created an export plugin for Nanite models to .pak format and runtime import support. Evaluated and documented both proprietary and third-party plugins. Designed an ergonomic user interface for immersive interaction.</li>
-              </ul>
-            </div>
-			<div class="resume-item">
-              <h4>Virtual Reality Laboratory Technician</h4>
-              <h5>Nov/2022 - Jul/2024</h5>
-              <p><em>ENTI, Barcelona, Spain</em></p>
-              <ul>
-                <li>Functions performed: Inventory, care and maintenance, reserve management, equipment loan management, documentation of peripherals and demonstrators/testers.</li>
-              </ul>
-            </div>
-            <div class="resume-item">
-              <h4>Jr. Programmer</h4>
-              <h5>May/2019 - Sep/2019</h5>
-              <p><em>ConsultiaIT, Barcelona, Spain</em></p>
-              <ul>
-                <li>Functions performed: Helpdesk, incident resolution and support for Baxi technicians and offices. Testing and error detection in updates to the web application and PDAs used by the company's offices and technicians.</li>
-              </ul>
-            </div>
-            <div class="resume-item">
-              <h4>Computer technician</h4>
-              <h5>Jan/2018 - May/2018</h5>
-              <p><em>Everis BPO (Business Process Outsourcing), Barcelona, Spain</em></p>
-              <ul>
-                <li>Functions performed: Resolution of on-site issues, software installation, development of macros with visual basic 6.0, creation of Access database, creation of documentation and guides.</li>
-              </ul>
-            </div>
-          </div>
-          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
-            <h3 class="resume-title">Education</h3>
-            <div class="resume-item">
-              <h4>University degree, creation of interactive digital content</h4>
-              <h5>2019 - Currently</h5>
-              <p><em>ENTI, Barcelona, Spain</em></p>
-            </div>
-            <div class="resume-item">
-              <h4>Certificate of Higher Education, cross-platform application development technique Multiplatform application development technician</h4>
-              <h5>2016 - 2019</h5>
-              <p><em>Institut Marianao, Sant Boi de Llobregat, Spain</em></p>
-            </div>
-            <div class="resume-item">
-              <h4>Vocational Education and Training, microcomputer and network technician.</h4>
-              <h5>2012 - 2015</h5>
-              <p><em>Institut Marianao, Sant Boi de Llobregat, Spain</em></p>
-            </div>
-          </div>
-        </div>
+        <!-- <p class="footer-text">© 2025 Adrian Guerra. <span data-i18n="footer_rights">All rights reserved.</span></p> -->
       </div>
-    </section><!-- End Resume Section -->
+    </footer>
+  </div>
 
-    <!-- ======= Portfolio Section ======= -->
-    <section id="portfolio" class="portfolio section-bg">
-      <div class="container">
-
-        <div class="section-title">
-          <h2>Portfolio</h2>
-          <p>Some games developed during my time at university and participation in a game jam.</p>
-        </div>
-
-        <div class="row" data-aos="fade-up">
-          <div class="col-lg-12 d-flex justify-content-center">
-            <ul id="portfolio-flters">
-              <li data-filter="*" class="filter-active">All</li>
-              <li data-filter=".filter-action">Action</li>
-              <li data-filter=".filter-simulation">Simulation</li>
-              <li data-filter=".filter-puzzle">Puzzle</li>
-              <li data-filter=".filter-turnBased">Turn-Based Combat</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="100">
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-action">
-            <div class="portfolio-wrap">
-              <img src="assets/img/portfolio/portfolio-1.png" class="img-fluid" alt="">
-              <div class="portfolio-links">
-                <a href="https://marcd419.itch.io/godly-thief" title="Godly Thief" target="_blank">Godly Thief<i class="bx bx-link"></i></a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-action">
-            <div class="portfolio-wrap">
-              <img src="assets/img/portfolio/portfolio-4.png" class="img-fluid" alt="">
-              <div class="portfolio-links">
-                <a href="GhostNGoblins/GhostNGoblins.html" title="Ghost'N Goblins" target="_blank">Ghost'N Goblins<i class="bx bx-link"></i></a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-action">
-            <div class="portfolio-wrap">
-              <img src="assets/img/portfolio/portfolio-5.png" class="img-fluid" alt="">
-              <div class="portfolio-links">
-                <a href="https://youtu.be/mW7iOPUotSM" title="Towers of Clickanium" target="_blank">Towers of Clickanium<i class="bx bx-link"></i></a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-simulation">
-            <div class="portfolio-wrap">
-              <img src="assets/img/portfolio/portfolio-2.png" class="img-fluid" alt="">
-              <div class="portfolio-links">
-                <a href="https://dojap.itch.io/restaurant-extravaganzza" title="Restaurant Extravaganzza" target="_blank">Restaurant Extravaganzza<i class="bx bx-link"></i></a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-puzzle">
-            <div class="portfolio-wrap">
-              <img src="assets/img/portfolio/portfolio-3.png" class="img-fluid" alt="">
-              <div class="portfolio-links">
-                <a href="https://marcd419.itch.io/twisted-tail" title="Twisted Tail" target="_blank">Twisted Tail<i class="bx bx-link"></i></a>
-              </div>
-            </div>
-          </div>
-		  
-		  <div class="col-lg-4 col-md-6 portfolio-item filter-turnBased">
-            <div class="portfolio-wrap">
-              <img src="assets/img/portfolio/portfolio-6.png" class="img-fluid" alt="">
-              <div class="portfolio-links">
-                <a href="https://nhos.itch.io/playernt-fantasy" title="Playern't Fantasy" target="_blank">Playern't Fantasy<i class="bx bx-link"></i></a>
-              </div>
-            </div>
-          </div>
-
-        </div>
-
-      </div>
-    </section><!-- End Portfolio Section -->
-
-  </main><!-- End #main -->
-
-  <!-- ======= Footer ======= -->
-  <footer id="footer">
-    <div class="container">
-      <div class="copyright">
-        &copy; Copyright <strong><span>iPortfolio</span></strong>
-      </div>
-      <div class="credits">
-        <!-- All the links in the footer should remain intact. -->
-        <!-- You can delete the links only if you purchased the pro version. -->
-        <!-- Licensing information: https://bootstrapmade.com/license/ -->
-        <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/iportfolio-bootstrap-portfolio-websites-template/ -->
-        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
-      </div>
-    </div>
-  </footer><!-- End  Footer -->
-
-  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
-
-  <!-- Vendor JS Files -->
-  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
-  <script src="assets/vendor/aos/aos.js"></script>
-  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-  <script src="assets/vendor/typed.js/typed.umd.js"></script>
-  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
-
-  <!-- Template Main JS File -->
-  <script src="assets/js/main.js"></script>
-
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  
+  <!-- Scripts personalizados -->
+  <script src="js/main.js"></script>
 </body>
-
 </html>

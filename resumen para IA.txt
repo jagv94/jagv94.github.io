@@ -1,0 +1,1965 @@
+Estoy creando un porfolio profesional en una página web alojada en Github Pages y actualmente tengo lo siguiente:
+index.html:
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title data-i18n="title">Adrian Guerra - Portfolio</title>
+  
+  <!-- Meta tags para SEO -->
+  <meta name="description" content="Portfolio of Adrian Guerra - VR/XR Developer & Game Designer specializing in immersive experiences">
+  <meta name="keywords" content="game developer, VR, XR, Unreal Engine, Unity, portfolio, Japan, anime">
+  <meta name="author" content="Adrián Guerra">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://jagv94.github.io">
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="Adrian Guerra - Game Developer Portfolio">
+  <meta property="og:description" content="VR/XR Developer & Game Designer specializing in immersive experiences">
+  <meta property="og:type" content="website">
+  
+  <!-- Schema.org para perfil profesional -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Adrián Guerra",
+    "jobTitle": "VR/XR Developer & Game Designer",
+    "url": "https://jagv94.github.io",
+    "sameAs": [
+      "https://linkedin.com/in/jagv94",
+      "https://github.com/jagv94",
+      "https://twitter.com/jagv94",
+      "https://shiroi-ookami.itch.io/"
+    ]
+  }
+  </script>
+  
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <!-- Font Awesome (para iconos sociales) -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Zen+Maru+Gothic:wght@400;500;700&display=swap" rel="stylesheet">
+  <!-- Particles.js -->
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+  <!-- Estilos personalizados -->
+  <link rel="stylesheet" href="assets/css/styles.css" />
+  
+  <!-- Precarga de fuentes -->
+  <link rel="preload" href="assets/fonts/Sawarabi/SawarabiGothic-Regular.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="preload" href="assets/fonts/ZenMaru/ZenMaruGothic-Regular.ttf" as="font" type="font/ttf" crossorigin>
+</head>
+<body>
+  <!-- Loader -->
+  <div id="loader">
+    <div class="loader-animation"></div>
+  </div>
+  
+  <!-- Particle Background -->
+  <div id="particles-js"></div>
+  
+  <!-- Botón hamburguesa para móviles -->
+  <button id="sidebarToggle" class="sidebar-toggle d-lg-none">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+  
+  <!-- Navigation Aside -->
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-content">
+      <a class="sidebar-brand" href="#home">
+        <span>Adrian Guerra</span>
+      </a>
+      
+      <ul class="sidebar-nav">
+        <li class="sidebar-item">
+          <a class="sidebar-link" href="#home">
+            <i class="fas fa-home me-2"></i>
+            <span data-i18n="nav_home">Home</span>
+          </a>
+        </li>
+        <li class="sidebar-item">
+          <a class="sidebar-link" href="#skills">
+            <i class="fas fa-code me-2"></i>
+            <span data-i18n="nav_skills">Skills</span>
+          </a>
+        </li>
+        <li class="sidebar-item">
+          <a class="sidebar-link" href="#resume">
+            <i class="fas fa-file-alt me-2"></i>
+            <span data-i18n="nav_resume">Resume</span>
+          </a>
+        </li>
+        <li class="sidebar-item">
+          <a class="sidebar-link" href="#portfolio">
+            <i class="fas fa-briefcase me-2"></i>
+            <span data-i18n="nav_projects">Projects</span>
+          </a>
+        </li>
+        <li class="sidebar-item">
+          <a class="sidebar-link" href="#contact">
+            <i class="fas fa-envelope me-2"></i>
+            <span data-i18n="nav_contact">Contact</span>
+          </a>
+        </li>
+      </ul>
+
+      <!-- Selector de idiomas en el header - NUEVO DISEÑO -->
+      <div class="lang-selector-container">
+        <h3 class="lang-title" data-i18n="language">Language</h3>
+        <div class="lang-selector">
+          <button class="lang-btn active" data-lang="en">
+            <span class="lang-flag">🇬🇧</span>
+            <span class="lang-code">EN</span>
+            <span class="lang-tooltip">English</span>
+          </button>
+          <button class="lang-btn" data-lang="es">
+            <span class="lang-flag">🇪🇸</span>
+            <span class="lang-code">ES</span>
+            <span class="lang-tooltip">Español</span>
+          </button>
+          <button class="lang-btn" data-lang="jp">
+            <span class="lang-flag">🇯🇵</span>
+            <span class="lang-code">JP</span>
+            <span class="lang-tooltip">日本語</span>
+          </button>
+        </div>
+      </div>
+      
+      <div class="sidebar-footer">
+        <div class="social-icons">
+          <a href="https://twitter.com/jagv94" target="_blank"><i class="fab fa-twitter"></i></a>
+          <a href="https://www.linkedin.com/in/jagv94/" target="_blank"><i class="fab fa-linkedin"></i></a>
+          <a href="https://github.com/jagv94" target="_blank"><i class="fab fa-github"></i></a>
+          <a href="https://shiroi-ookami.itch.io/" target="_blank"><i class="fab fa-itch-io"></i></a>
+        </div>
+        
+        <p class="sidebar-contact" data-i18n="contact">Contact: jagv94@gmail.com</p>
+      </div>
+    </div>
+  </aside>
+  
+  <!-- Overlay para móviles -->
+  <div id="sidebarOverlay" class="sidebar-overlay"></div>
+
+  <!-- Contenido principal -->
+  <div class="main-content">
+    <!-- Hero Section -->
+    <header id="home" class="hero-section">
+      <div class="hero-content">
+        <h1 data-i18n="welcome">Adrian Guerra's Portfolio</h1>
+        <p class="hero-subtitle" data-i18n="hero_subtitle">VR/XR Developer & Game Designer</p>
+        <p class="hero-description" data-i18n="intro">
+          Developer specialized in VR/XR experiences and serious games. Passionate about technology, Japanese culture, and continuous learning.<br/><br/>
+          Expert in Unreal Engine (C++/Blueprints) and Unity (C#), with skills in game design, production, and 3D modeling. Currently focused on improving my skills in Japanese, 3D animation, and artificial intelligence.
+        </p>
+        <a href="#portfolio" class="hero-btn" data-i18n="view_work">View My Work</a>
+      </div>
+    </header>
+
+    <main class="pb-5">
+      <!-- Technical Skills -->
+      <section id="skills" class="skills-section">
+        <div class="container">
+          <h2 class="section-title" data-i18n="skills_title">Technical Skills</h2>
+          
+          <div class="skills-grid">
+            <!-- Unity -->
+            <div class="skill-card">
+              <div class="skill-icon">
+                <i class="fab fa-unity"></i>
+              </div>
+              <h5>Unity Engine</h5>
+              <div class="skill-bar">
+                <div class="skill-level" style="width: 85%"></div>
+              </div>
+            </div>
+            
+            <!-- Unreal Engine -->
+            <div class="skill-card">
+              <div class="skill-icon">
+                <i class="fas fa-gamepad"></i>
+              </div>
+              <h5>Unreal Engine</h5>
+              <div class="skill-bar">
+                <div class="skill-level" style="width: 85%"></div>
+              </div>
+            </div>
+            
+            <!-- VR Development -->
+            <div class="skill-card">
+              <div class="skill-icon">
+                <i class="fas fa-vr-cardboard"></i>
+              </div>
+              <h5 data-i18n="vr_skills">VR Development</h5>
+              <div class="skill-bar">
+                <div class="skill-level" style="width: 65%"></div>
+              </div>
+            </div>
+            
+            <!-- 3D Modeling -->
+            <div class="skill-card">
+              <div class="skill-icon">
+                <i class="fas fa-cube"></i>
+              </div>
+              <h5 data-i18n="3d_modeling">3D Modeling</h5>
+              <div class="skill-bar">
+                <div class="skill-level" style="width: 55%"></div>
+              </div>
+            </div>
+            
+            <!-- Programming -->
+            <div class="skill-card">
+              <div class="skill-icon">
+                <i class="fas fa-code"></i>
+              </div>
+              <h5>Programming</h5>
+              <div class="skill-bar">
+                <div class="skill-level" style="width: 92%"></div>
+              </div>
+            </div>
+            
+            <!-- Game Design -->
+            <div class="skill-card">
+              <div class="skill-icon">
+                <i class="fas fa-dice-d20"></i>
+              </div>
+              <h5 data-i18n="game_design">Game Design</h5>
+              <div class="skill-bar">
+                <div class="skill-level" style="width: 70%"></div>
+              </div>
+            </div>
+            
+            <!-- English Language -->
+            <div class="skill-card">
+              <div class="skill-icon">
+                <i class="fas fa-language"></i>
+              </div>
+              <h5>English</h5>
+              <div class="skill-level-text">
+                <span data-i18n="english_level" class="badge bg-accent">B1 (learning)</span>
+              </div>
+            </div>
+            
+            <!-- Japanese Language
+            <div class="skill-card">
+              <div class="skill-icon">
+                <i class="fas fa-language"></i>
+              </div>
+              <h5>Japanese</h5>
+              <div class="skill-level-text">
+                <span data-i18n="japanese_level" class="badge bg-accent">N4 (learning)</span>
+              </div>
+            </div> -->
+          </div>
+        </div>
+      </section>
+
+      <!-- ======= Resume Section ======= -->
+      <section id="resume" class="resume-section">
+        <div class="container">
+          <h2 class="section-title" data-i18n="nav_resume">Resume</h2>
+
+          <section class="career-section text-center">
+              <!-- Botón para descargar CV -->
+              <div class="mt-4">
+                <a href="assets/docs/Adrian_Guerra_CV.pdf" class="btn btn-accent" target="_blank">
+                  <i class="fas fa-download me-2"></i>
+                  <span data-i18n="view_resume">View Full Resume</span>
+                </a>
+              </div>
+          </section>
+
+          <div class="row">
+
+            <!-- Professional Experience -->
+            <div class="col-lg-6">
+              <h3 class="resume-category-title" data-i18n="resume-title-experience">Professional Experience</h3>
+
+              <div class="resume-item">
+                <h4 data-i18n="resume-vr-intern-title">VR Developer Intern</h4>
+                <h5 data-i18n="resume-vr-intern-dates">Jan/2025 - May/2025</h5>
+                <p><em data-i18n="resume-vr-intern-place">Faculty of Earth Sciences, University of Barcelona, Spain</em></p>
+                <ul>
+                  <li data-i18n="resume-vr-intern-li-1">Defined goals and functionalities for a 3D model viewer and drafted the design document.</li>
+                  <li data-i18n="resume-vr-intern-li-2">Compared game engines and development tools for VR model visualization.</li>
+                  <li data-i18n="resume-vr-intern-li-3">Developed a point cloud to .fbx model converter.</li>
+                  <li data-i18n="resume-vr-intern-li-4">Created an export plugin for Nanite models to .pak format and runtime import support.</li>
+                  <li data-i18n="resume-vr-intern-li-5">Evaluated and documented both proprietary and third-party plugins.</li>
+                  <li data-i18n="resume-vr-intern-li-6">Designed an ergonomic user interface for immersive interaction.</li>
+                </ul>
+              </div>
+
+              <div class="resume-item">
+                <h4 data-i18n="resume-vr-tech-title">Virtual Reality Laboratory Technician</h4>
+                <h5 data-i18n="resume-vr-tech-dates">Nov/2022 - Jul/2024</h5>
+                <p><em data-i18n="resume-vr-tech-place">ENTI, Barcelona, Spain</em></p>
+                <ul>
+                  <li data-i18n="resume-vr-tech-li-1">Inventory, care and maintenance of equipment.</li>
+                  <li data-i18n="resume-vr-tech-li-2">Reserve and loan management.</li>
+                  <li data-i18n="resume-vr-tech-li-3">Documentation of peripherals and demonstrators/testers.</li>
+                </ul>
+              </div>
+
+              <div class="resume-item">
+                <h4 data-i18n="resume-jr-prog-title">Jr. Programmer</h4>
+                <h5 data-i18n="resume-jr-prog-dates">May/2019 - Sep/2019</h5>
+                <p><em data-i18n="resume-jr-prog-place">ConsultiaIT, Barcelona, Spain</em></p>
+                <ul>
+                  <li data-i18n="resume-jr-prog-li-1">Helpdesk and incident resolution for Baxi technicians.</li>
+                  <li data-i18n="resume-jr-prog-li-2">Testing and debugging web apps and PDAs used by company staff.</li>
+                </ul>
+              </div>
+
+              <div class="resume-item">
+                <h4 data-i18n="resume-tech-title">Computer Technician</h4>
+                <h5 data-i18n="resume-tech-dates">Jan/2018 - May/2018</h5>
+                <p><em data-i18n="resume-tech-place">Everis BPO, Barcelona, Spain</em></p>
+                <ul>
+                  <li data-i18n="resume-tech-li-1">On-site technical support and software installations.</li>
+                  <li data-i18n="resume-tech-li-2">Macro development with Visual Basic 6.0.</li>
+                  <li data-i18n="resume-tech-li-3">Access database creation and documentation writing.</li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Education -->
+            <div class="col-lg-6">
+              <h3 class="resume-category-title" data-i18n="resume-title-education">Education</h3>
+
+              <div class="resume-item">
+                <h4 data-i18n="resume-enti-degree-title">University Degree, Interactive Digital Content Creation</h4>
+                <h5 data-i18n="resume-enti-degree-dates">2019 - Currently</h5>
+                <p><em data-i18n="resume-enti-degree-place">ENTI, Barcelona, Spain</em></p>
+              </div>
+
+              <div class="resume-item">
+                <h4 data-i18n="resume-app-dev-title">Certificate of Higher Education, Multiplatform App Development</h4>
+                <h5 data-i18n="resume-app-dev-dates">2016 - 2019</h5>
+                <p><em data-i18n="resume-app-dev-place">Institut Marianao, Sant Boi de Llobregat, Spain</em></p>
+              </div>
+
+              <div class="resume-item">
+                <h4 data-i18n="resume-vet-title">Vocational Training, Microcomputer and Network Technician</h4>
+                <h5 data-i18n="resume-vet-dates">2012 - 2015</h5>
+                <p><em data-i18n="resume-vet-place">Institut Marianao, Sant Boi de Llobregat, Spain</em></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- ======= End Resume Section ======= -->
+
+      <!-- Portfolio -->
+      <section id="portfolio" class="portfolio-section">
+        <div class="container">
+          <h2 class="section-title" data-i18n="projects">Projects</h2>
+
+          <div class="portfolio-filters">
+            <button class="filter-btn active" data-filter="*">All</button>
+            <button class="filter-btn" data-filter=".filter-action">Action</button>
+            <button class="filter-btn" data-filter=".filter-simulation">Simulation</button>
+            <button class="filter-btn" data-filter=".filter-puzzle">Puzzle</button>
+            <button class="filter-btn" data-filter=".filter-turnBased">Turn-Based</button>
+          </div>
+
+          <div class="portfolio-grid">
+            <!-- Cada tarjeta usa Bootstrap grid y clases de filtro -->
+            <div class="portfolio-item filter-action">
+              <div class="portfolio-card">
+                <img src="assets/img/portfolio/portfolio-1.png" loading="lazy" class="portfolio-img" alt="Godly Thief" />
+                <div class="portfolio-overlay">
+                  <h5 class="portfolio-title">Godly Thief</h5>
+                  <p class="portfolio-desc" data-i18n="godlythief-desc">2D Hack 'n' Slash Roguelite where you steal enemy abilities to escape Thanatos' prison. I handled UI, menus, maps, music selection, wave system logic, Slime design, plus debugging and optimization to ensure smoother gameplay.</p>
+                  <a href="https://marcd419.itch.io/godly-thief" class="portfolio-link" target="_blank" data-i18n="visit">Visit Page</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="portfolio-item filter-action">
+              <div class="portfolio-card">
+                <img src="assets/img/portfolio/ghostngoblins.png" loading="lazy" class="portfolio-img" alt="Ghost'N Goblins" />
+                <div class="portfolio-overlay">
+                  <h5 class="portfolio-title" data-i18n="gng-title">Ghost'N Goblins</h5>
+                  <p class="portfolio-desc" data-i18n="gng-desc">Unofficial recreation of the classic arcade game Ghosts'N Goblins, developed for educational purposes during a game development degree. All rights to the original game belong to Capcom. Project created using Phaser.</p>
+                  <a href="GhostNGoblins/GhostNGoblins.html" class="portfolio-link" target="_blank" data-i18n="play">Play Now</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="portfolio-item filter-action">
+              <div class="portfolio-card">
+                <img src="assets/img/portfolio/portfolio-5.png" loading="lazy" class="portfolio-img" alt="Towers of Clickanium" />
+                <div class="portfolio-overlay">
+                  <h5 class="portfolio-title">Towers of Clickanium</h5>
+                  <p class="portfolio-desc" data-i18n="clickanium-desc">A side-scrolling Tower Defense where archaeologists, military, and aliens clash to dominate vital resources. Strategy and fast decisions are key. I worked on UI/UX, music, credits, game balancing, lore, and Scrum management.</p>
+                  <a href="https://youtu.be/mW7iOPUotSM" class="portfolio-link" target="_blank" data-i18n="visit">Visit Page</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="portfolio-item filter-simulation">
+              <div class="portfolio-card">
+                <img src="assets/img/portfolio/portfolio-2.png" loading="lazy" class="portfolio-img" alt="Restaurant Extravaganzza" />
+                <div class="portfolio-overlay">
+                  <h5 class="portfolio-title">Restaurant Extravaganzza</h5>
+                  <p class="portfolio-desc" data-i18n="restaurant-desc">Run your grandfather's restaurant and grow it into a success! Fulfill online orders fast, upgrade the place, and manage stock wisely. I worked on level design, mechanics, store system, assets, music selection, and Scrum Master duties.</p>
+                  <a href="https://dojap.itch.io/restaurant-extravaganzza" class="portfolio-link" target="_blank" data-i18n="visit">Visit Page</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="portfolio-item filter-puzzle">
+              <div class="portfolio-card">
+                <img src="assets/img/portfolio/portfolio-3.png" loading="lazy" class="portfolio-img" alt="Twisted Tail" />
+                <div class="portfolio-overlay">
+                  <h5 class="portfolio-title">Twisted Tail</h5>
+                  <p class="portfolio-desc" data-i18n="twistedtail-desc">Escape the castle by outsmarting guards and solving puzzles! Blend into the environment to stay unseen and trigger mechanisms to move on. Made in 2 days for Zeno Game Jam. I designed the core mechanic, puzzles, and music selection.</p>
+                  <a href="https://marcd419.itch.io/twisted-tail" class="portfolio-link" target="_blank" data-i18n="visit">Visit Page</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="portfolio-item filter-turnBased">
+              <div class="portfolio-card">
+                <img src="assets/img/portfolio/portfolio-6.png" loading="lazy" class="portfolio-img" alt="Playern't Fantasy" />
+                <div class="portfolio-overlay">
+                  <h5 class="portfolio-title">Playern't Fantasy</h5>
+                  <p class="portfolio-desc" data-i18n="playerent-desc">Two factions are at war, but you rise as a third force to claim the glory, pushing enemies to unite against you. Made in 21 days for GameArtopia Jam. I worked on mechanics, abilities, map, music adjustment & implementation, and game balancing.</p>
+                  <a href="https://nhos.itch.io/playernt-fantasy" class="portfolio-link" target="_blank" data-i18n="visit">Visit Page</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact Section -->
+      <section id="contact" class="contact-section">
+        <div class="container">
+          <div class="contact-content">
+            <h2 class="section-title" data-i18n="nav_contact">Contact</h2>
+            <p class="contact-text" data-i18n="contact_text">I'm currently looking for new opportunities as a Game Designer, especially in VR and small to mid-sized companies. Prefer remote work with flexible hours.</p>
+            <a href="mailto:jagv94@gmail.com" class="contact-btn">
+              <i class="fas fa-envelope me-2"></i>
+              <span data-i18n="contact_btn">Get In Touch</span>
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <!-- <p class="footer-text">© 2025 Adrian Guerra. <span data-i18n="footer_rights">All rights reserved.</span></p> -->
+      </div>
+    </footer>
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  
+  <!-- Scripts personalizados -->
+  <script src="js/main.js"></script>
+</body>
+</html>
+```.
+
+main.js:
+```
+document.addEventListener("DOMContentLoaded", () => {
+  const defaultLang = "en";
+  let lang = localStorage.getItem("lang") || 
+             (new URLSearchParams(window.location.search).get("lang") || 
+             defaultLang);
+
+  // Initialize particles.js
+  particlesJS('particles-js', {
+    particles: {
+      number: { value: 80, density: { enable: true, value_area: 800 } },
+      color: { value: "#c084fc" },
+      shape: { type: "circle" },
+      opacity: { value: 0.5, random: true },
+      size: { value: 3, random: true },
+      line_linked: {
+        enable: true,
+        distance: 150,
+        color: "#8e6dc5",
+        opacity: 0.4,
+        width: 1
+      },
+      move: {
+        enable: true,
+        speed: 2,
+        direction: "none",
+        random: true,
+        straight: false,
+        out_mode: "out",
+        bounce: false
+      }
+    },
+    interactivity: {
+      detect_on: "canvas",
+      events: {
+        onhover: { enable: true, mode: "repulse" },
+        onclick: { enable: true, mode: "push" },
+        resize: true
+      }
+    },
+    retina_detect: true
+  });
+
+  // Elementos de la navegación lateral
+  const sidebar = document.getElementById('sidebar');
+  const sidebarToggle = document.getElementById('sidebarToggle');
+  const sidebarOverlay = document.getElementById('sidebarOverlay');
+
+  // Toggle sidebar en móviles
+  if (sidebarToggle && sidebar && sidebarOverlay) {
+    sidebarToggle.addEventListener('click', () => {
+      sidebar.classList.toggle('active');
+      sidebarOverlay.classList.toggle('active');
+      document.body.style.overflow = sidebar.classList.contains('active') ? 'hidden' : '';
+    });
+
+    sidebarOverlay.addEventListener('click', () => {
+      sidebar.classList.remove('active');
+      sidebarOverlay.classList.remove('active');
+      document.body.style.overflow = '';
+    });
+  }
+
+  // Cerrar sidebar al hacer clic en un enlace (en móviles)
+  document.querySelectorAll('.sidebar-link').forEach(link => {
+    link.addEventListener('click', () => {
+      if (window.innerWidth < 1200) {
+        sidebar.classList.remove('active');
+        sidebarOverlay.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+    });
+  });
+
+  // Función para aplicar traducciones con animación suave
+  function applyTranslations(strings, lang) {
+    const translations = strings[lang];
+    if (!translations) {
+      console.warn("Idioma no encontrado:", lang);
+      return;
+    }
+
+    document.documentElement.lang = lang;
+
+    // Añadir clase de transición a todos los elementos traducibles
+    document.querySelectorAll("[data-i18n]").forEach(el => {
+      el.classList.add("i18n-changing");
+    });
+
+    setTimeout(() => {
+      const htmlKeys = ["intro", "footer_quote", "hero_description"];
+
+      document.querySelectorAll("[data-i18n]").forEach(el => {
+        const key = el.getAttribute("data-i18n");
+        const translation = translations[key];
+        if (translation) {
+          if (htmlKeys.includes(key)) {
+            el.innerHTML = translation.replace(/\n/g, "<br>");
+          } else {
+            el.textContent = translation;
+          }
+        }
+        el.classList.remove("i18n-changing");
+      });
+    }, 150);
+  }
+
+  // Configurar botones de idioma
+  function setupLanguageButtons() {
+    document.querySelectorAll(".lang-btn").forEach(button => {
+      if (button.dataset.lang === lang) {
+        button.classList.add("active");
+      } else {
+        button.classList.remove("active");
+      }
+      
+      button.addEventListener("click", () => {
+        const selectedLang = button.dataset.lang;
+        if (selectedLang === lang) return;
+        
+        // Actualizar botones activos
+        document.querySelectorAll(".lang-btn").forEach(btn => {
+          btn.classList.remove("active");
+        });
+        button.classList.add("active");
+        
+        localStorage.setItem("lang", selectedLang);
+        lang = selectedLang;
+        
+        const url = new URL(window.location);
+        url.searchParams.set("lang", selectedLang);
+        history.replaceState(null, "", url);
+        
+        // Aplicar traducciones sin recargar
+        const strings = JSON.parse(sessionStorage.getItem("strings"));
+        if (strings) {
+          applyTranslations(strings, lang);
+        } else {
+          // Si no hay cached, recargar
+          location.reload();
+        }
+      });
+    });
+  }
+
+  // Precargar traducciones desde sessionStorage si están disponibles
+  const stringsCache = sessionStorage.getItem("strings");
+  const strings = stringsCache ? JSON.parse(stringsCache) : null;
+
+  // Si tenemos traducciones en caché, aplicarlas inmediatamente
+  if (strings) {
+    applyTranslations(strings, lang);
+    setupLanguageButtons();
+  }
+
+  // Cargar las traducciones desde el archivo JSON
+  fetch("data/strings.json")
+    .then(res => res.json())
+    .then(data => {
+      sessionStorage.setItem("strings", JSON.stringify(data));
+      
+      if (!strings) {
+        applyTranslations(data, lang);
+        setupLanguageButtons();
+      }
+    })
+    .catch(err => console.error("Error loading translations:", err));
+
+  // Script para el loader
+  const loader = document.getElementById('loader');
+  if(loader) {
+    window.addEventListener('load', function() {
+      setTimeout(() => {
+        loader.classList.add('loader-hidden');
+        
+        loader.addEventListener('transitionend', () => {
+          if(loader.parentNode) {
+            loader.parentNode.removeChild(loader);
+          }
+        }, { once: true });
+      }, 1000);
+    });
+  }
+  
+  // Scroll animations
+  const fadeElements = document.querySelectorAll('.fade-in');
+  
+  const fadeInObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1 });
+  
+  fadeElements.forEach(el => {
+    fadeInObserver.observe(el);
+  });
+
+  // Script para filtrado de portfolio con animaciones
+  const portfolioFilters = document.querySelectorAll(".filter-btn");
+  const portfolioItems = document.querySelectorAll(".portfolio-item");
+  
+  if(portfolioFilters.length > 0 && portfolioItems.length > 0) {
+    portfolioFilters.forEach(filter => {
+      filter.addEventListener("click", function() {
+        if(this.classList.contains('active')) return;
+        
+        portfolioFilters.forEach(f => f.classList.remove("active"));
+        this.classList.add("active");
+        
+        const filterValue = this.getAttribute("data-filter");
+        
+        portfolioItems.forEach(item => {
+          item.style.transition = "opacity 0.3s ease, transform 0.3s ease";
+          
+          if(filterValue === '*' || item.classList.contains(filterValue.slice(1))) {
+            item.style.opacity = "0";
+            item.style.transform = "scale(0.8)";
+            
+            setTimeout(() => {
+              item.style.display = "block";
+              setTimeout(() => {
+                item.style.opacity = "1";
+                item.style.transform = "scale(1)";
+              }, 50);
+            }, 300);
+          } else {
+            item.style.opacity = "0";
+            item.style.transform = "scale(0.8)";
+            setTimeout(() => item.style.display = "none", 300);
+          }
+        });
+      });
+    });
+  }
+
+  // Smooth scrolling para enlaces de navegación
+  document.querySelectorAll('.sidebar-link').forEach(link => {
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
+      
+      const targetId = this.getAttribute('href');
+      const targetElement = document.querySelector(targetId);
+      
+      if (targetElement) {
+        const targetPosition = targetElement.offsetTop - (window.innerWidth >= 992 ? 0 : 75);
+        
+        window.scrollTo({
+          top: targetPosition,
+          behavior: 'smooth'
+        });
+      }
+    });
+  });
+});
+```.
+
+style.css:
+```
+/* ==== VARIABLES ==== */
+:root {
+  --bg-dark: #0a0a14;
+  --bg-darker: #050510;
+  --text-light: #f0f0ff;
+  --accent: #c084fc;
+  --accent-light: #e9d5ff;
+  --accent-dark: #8e6dc5;
+  --accent-glow: 0 0 15px rgba(192, 132, 252, 0.6);
+  --neon-border: 1px solid rgba(192, 132, 252, 0.5);
+  --font-primary: 'Rajdhani', sans-serif;
+  --font-secondary: 'Zen Maru Gothic', sans-serif;
+  --sidebar-width: 280px;
+  --transition-slow: 0.5s ease;
+  --transition-fast: 0.3s ease;
+}
+
+/* ==== GLOBAL ==== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-primary);
+  background: linear-gradient(135deg, var(--bg-darker), var(--bg-dark));
+  background-attachment: fixed;
+  color: var(--text-light);
+  line-height: 1.6;
+  overflow-x: hidden;
+  position: relative;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    radial-gradient(circle at 20% 30%, rgba(192, 132, 252, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 70%, rgba(142, 109, 197, 0.1) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Particle canvas background */
+#particles-js {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: -2;
+}
+
+/* Loader */
+#loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--bg-darker);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  transition: opacity 0.5s, visibility 0.5s;
+}
+
+.loader-hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.loader-animation {
+  width: 80px;
+  height: 80px;
+  border: 5px solid rgba(192, 132, 252, 0.3);
+  border-top: 5px solid var(--accent);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* ==== SIDEBAR NAVIGATION ==== */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: var(--sidebar-width);
+  height: 100%;
+  background: rgba(10, 10, 20, 0.95);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-right: var(--neon-border);
+  padding: 1.5rem 1rem;
+  z-index: 1000;
+  transition: all var(--transition-fast);
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  box-shadow: var(--accent-glow);
+}
+
+.sidebar-content {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.sidebar-brand {
+  font-family: var(--font-secondary);
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: var(--text-light);
+  margin-bottom: 1.5rem;
+  text-align: center;
+  padding: 0.5rem;
+  border-bottom: var(--neon-border);
+  text-shadow: 0 0 10px rgba(192, 132, 252, 0.8);
+}
+
+/* Language Selector */
+.lang-selector-container {
+  margin: 1.5rem 0;
+  padding: 1rem;
+  border-radius: 12px;
+  background: rgba(20, 20, 30, 0.6);
+  border: var(--neon-border);
+  position: relative;
+  overflow: hidden;
+}
+
+.lang-selector-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-light), var(--accent));
+  animation: shimmer 3s infinite linear;
+  background-size: 200% auto;
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.lang-title {
+  font-family: var(--font-secondary);
+  font-size: 1rem;
+  text-align: center;
+  margin-bottom: 1rem;
+  color: var(--accent-light);
+  font-weight: 500;
+}
+
+.lang-selector {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.lang-btn {
+  position: relative;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: rgba(30, 30, 40, 0.8);
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.lang-btn::before {
+  content: "";
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  right: -5px;
+  bottom: -5px;
+  background: linear-gradient(45deg, var(--accent), var(--accent-light), var(--accent-dark), var(--accent));
+  z-index: -1;
+  border-radius: 50%;
+  opacity: 0;
+  transition: opacity var(--transition-fast);
+}
+
+.lang-btn:hover::before {
+  opacity: 0.3;
+}
+
+.lang-btn.active {
+  border-color: var(--accent);
+  transform: scale(1.1);
+  box-shadow: 0 0 15px var(--accent);
+}
+
+.lang-btn.active::before {
+  opacity: 0.5;
+}
+
+.lang-flag {
+  font-size: 20px;
+  margin-bottom: 3px;
+  transition: transform var(--transition-fast);
+}
+
+.lang-btn:hover .lang-flag {
+  transform: scale(1.2);
+}
+
+.lang-code {
+  font-size: 11px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: var(--text-light);
+  transition: color var(--transition-fast);
+}
+
+.lang-btn.active .lang-code {
+  color: var(--accent-light);
+  text-shadow: 0 0 5px rgba(192, 132, 252, 0.5);
+}
+
+.lang-tooltip {
+  position: absolute;
+  bottom: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--accent);
+  color: #121212;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 10px;
+  opacity: 0;
+  transition: opacity var(--transition-fast), bottom var(--transition-fast);
+  pointer-events: none;
+  white-space: nowrap;
+  font-weight: bold;
+  z-index: 10;
+}
+
+.lang-btn:hover .lang-tooltip {
+  opacity: 1;
+  bottom: -25px;
+}
+
+.sidebar-nav {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  flex-grow: 1;
+}
+
+.sidebar-item {
+  margin-bottom: 0.5rem;
+}
+
+.sidebar-link {
+  display: flex;
+  align-items: center;
+  color: var(--text-light);
+  padding: 0.75rem 1rem;
+  text-decoration: none;
+  border-radius: 6px;
+  transition: all var(--transition-fast);
+  position: relative;
+}
+
+.sidebar-link:hover {
+  background: rgba(192, 132, 252, 0.1);
+  color: var(--accent-light);
+}
+
+.sidebar-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--accent);
+  transition: width var(--transition-fast);
+}
+
+.sidebar-link:hover::after {
+  width: 100%;
+}
+
+.sidebar-footer {
+  margin-top: auto;
+  padding-top: 1rem;
+  border-top: var(--neon-border);
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.social-icons a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(30, 30, 40, 0.8);
+  color: var(--text-light);
+  transition: all var(--transition-fast);
+  border: 1px solid transparent;
+}
+
+.social-icons a:hover {
+  background: var(--accent);
+  color: var(--bg-dark);
+  transform: translateY(-3px);
+  box-shadow: var(--accent-glow);
+}
+
+.sidebar-contact {
+  color: var(--accent-light);
+  text-align: center;
+  margin-top: 1rem;
+  font-size: 0.9rem;
+}
+
+/* Botón hamburguesa para móviles */
+.sidebar-toggle {
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  z-index: 1100;
+  background: rgba(18, 18, 18, 0.8);
+  border: 1px solid var(--accent);
+  border-radius: 6px;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.sidebar-toggle span {
+  display: block;
+  width: 24px;
+  height: 3px;
+  background: var(--text-light);
+  margin: 2px 0;
+  transition: all 0.3s ease;
+}
+
+/* Overlay para móviles */
+.sidebar-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 999;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+}
+
+.sidebar-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Contenido principal */
+.main-content {
+  margin-left: var(--sidebar-width);
+  transition: margin-left var(--transition-fast);
+  width: calc(100% - var(--sidebar-width));
+}
+
+/* ==== HERO SECTION ==== */
+.hero-section {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem;
+  overflow: hidden;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+}
+
+.hero-section h1 {
+  font-family: var(--font-secondary);
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: var(--accent-light);
+  margin-bottom: 1.5rem;
+  text-shadow: 0 0 20px rgba(192, 132, 252, 0.8);
+  animation: glow 2s infinite alternate;
+}
+
+@keyframes glow {
+  from {
+    text-shadow: 0 0 10px rgba(192, 132, 252, 0.6);
+  }
+  to {
+    text-shadow: 0 0 20px rgba(192, 132, 252, 0.8), 0 0 30px rgba(192, 132, 252, 0.6);
+  }
+}
+
+.hero-subtitle {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+  color: var(--text-light);
+  opacity: 0.9;
+}
+
+.hero-description {
+  font-size: 1.2rem;
+  margin-bottom: 2.5rem;
+  color: var(--text-light);
+  opacity: 0.8;
+  line-height: 1.8;
+}
+
+.hero-btn {
+  display: inline-block;
+  padding: 1rem 2rem;
+  background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+  color: var(--bg-dark);
+  text-decoration: none;
+  border-radius: 30px;
+  font-weight: 600;
+  transition: all var(--transition-fast);
+  border: none;
+  cursor: pointer;
+  box-shadow: var(--accent-glow);
+}
+
+.hero-btn:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(192, 132, 252, 0.4);
+}
+
+/* ==== SECTION STYLES ==== */
+.section-title {
+  font-family: var(--font-secondary);
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--accent-light);
+  margin-bottom: 3rem;
+  text-align: center;
+  position: relative;
+  padding-bottom: 1rem;
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, var(--accent), transparent);
+}
+
+.skills-section,
+.resume-section,
+.portfolio-section,
+.contact-section {
+  padding: 5rem 0;
+}
+
+.career-section {
+  padding: 0 0 2.5rem 0;
+}
+
+/* ==== SKILLS SECTION ==== */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.skill-card {
+  background: rgba(20, 20, 30, 0.7);
+  border-radius: 15px;
+  padding: 2rem;
+  text-align: center;
+  transition: all var(--transition-fast);
+  border: var(--neon-border);
+  backdrop-filter: blur(10px);
+  position: relative;
+  overflow: hidden;
+}
+
+.skill-card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(45deg, transparent, rgba(192, 132, 252, 0.1), transparent);
+  transform: rotate(45deg);
+  transition: all var(--transition-slow);
+  z-index: 0;
+}
+
+.skill-card:hover::before {
+  animation: shine 1.5s linear;
+}
+
+@keyframes shine {
+  0% { transform: translateX(-100%) rotate(45deg); }
+  100% { transform: translateX(100%) rotate(45deg); }
+}
+
+.skill-card:hover {
+  transform: translateY(-10px);
+  box-shadow: var(--accent-glow);
+}
+
+.skill-icon {
+  font-size: 3rem;
+  color: var(--accent);
+  margin-bottom: 1.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+.skill-card h5 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: var(--text-light);
+  position: relative;
+  z-index: 1;
+}
+
+.skill-bar {
+  height: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 1rem;
+  position: relative;
+  z-index: 1;
+}
+
+.skill-level {
+  height: 100%;
+  background: linear-gradient(90deg, var(--accent), var(--accent-dark));
+  border-radius: 4px;
+  position: relative;
+  overflow: hidden;
+}
+
+.skill-level::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  animation: shimmer 2s infinite;
+}
+
+.skill-level-text {
+  margin-top: 0.5rem;
+}
+
+/* ==== RESUME SECTION ==== */
+.resume-category-title {
+  font-size: 1.8rem;
+  color: var(--accent-light);
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid var(--accent);
+  display: inline-block;
+}
+
+.resume-item {
+  background: rgba(20, 20, 30, 0.7);
+  border-radius: 15px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  border: var(--neon-border);
+  transition: all var(--transition-fast);
+}
+
+.resume-item:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--accent-glow);
+}
+
+.resume-item h4 {
+  font-size: 1.3rem;
+  color: var(--accent-light);
+  margin-bottom: 0.5rem;
+}
+
+.resume-item h5 {
+  font-size: 1.1rem;
+  color: var(--text-light);
+  opacity: 0.8;
+  margin-bottom: 0.5rem;
+}
+
+.resume-item p {
+  margin-bottom: 1rem;
+  font-style: italic;
+  color: var(--accent-light);
+}
+
+.resume-item ul {
+  padding-left: 1.25rem;
+  list-style-type: disc;
+}
+
+.resume-item ul li {
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--text-light);
+}
+
+/* ==== CAREER SECTION ==== */
+.btn-accent {
+  display: inline-block;
+  padding: 0.75rem 1.75rem;
+  background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+  color: #121212;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: bold;
+  transition: all var(--transition-fast);
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  border: none;
+  box-shadow: 0 4px 10px rgba(192, 132, 252, 0.3);
+}
+
+.btn-accent:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 15px rgba(192, 132, 252, 0.4);
+  background: linear-gradient(135deg, var(--accent-light), var(--accent));
+}
+
+/* ==== PORTFOLIO SECTION - MEJORADO ==== */
+.portfolio-filters {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 3rem;
+}
+
+.filter-btn {
+  padding: 0.5rem 1.5rem;
+  background: transparent;
+  color: var(--text-light);
+  border: var(--neon-border);
+  border-radius: 30px;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.filter-btn.active, .filter-btn:hover {
+  background: var(--accent);
+  color: var(--bg-dark);
+  box-shadow: var(--accent-glow);
+}
+
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.portfolio-item {
+  border-radius: 15px;
+  overflow: hidden;
+  position: relative;
+  transition: all var(--transition-fast);
+}
+
+.portfolio-item:hover {
+  transform: translateY(-10px);
+  box-shadow: var(--accent-glow);
+}
+
+.portfolio-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 15px;
+  border: var(--neon-border);
+}
+
+.portfolio-img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  transition: transform var(--transition-slow);
+}
+
+.portfolio-item:hover .portfolio-img {
+  transform: scale(1.1);
+}
+
+.portfolio-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(10, 10, 20, 0.9); /* Fondo más oscuro para mejor contraste */
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* Alinear al inicio */
+  opacity: 0;
+  transition: opacity var(--transition-fast);
+  overflow-y: auto; /* Permitir scroll si el contenido es largo */
+}
+
+.portfolio-item:hover .portfolio-overlay {
+  opacity: 1;
+}
+
+.portfolio-title {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: var(--accent-light);
+  text-shadow: 0 0 5px rgba(0, 0, 0, 0.7); /* Sombra de texto para mejor legibilidad */
+}
+
+.portfolio-desc {
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+  opacity: 0.9;
+  line-height: 1.5;
+  text-shadow: 0 0 5px rgba(0, 0, 0, 0.7); /* Sombra de texto para mejor legibilidad */
+  flex-grow: 1; /* Permitir que la descripción ocupe espacio disponible */
+}
+
+.portfolio-link {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background: var(--accent);
+  color: var(--bg-dark);
+  text-decoration: none;
+  border-radius: 4px;
+  font-weight: 600;
+  transition: all var(--transition-fast);
+  align-self: flex-start; /* Alinear a la izquierda */
+}
+
+.portfolio-link:hover {
+  background: var(--accent-light);
+  transform: translateY(-3px);
+  box-shadow: var(--accent-glow);
+}
+
+/* ==== CONTACT SECTION ==== */
+.contact-section {
+  background: rgba(20, 20, 30, 0.7);
+  border-top: var(--neon-border);
+}
+
+.contact-content {
+  text-align: center;
+}
+
+.contact-text {
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+  opacity: 0.9;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.contact-btn {
+  display: inline-block;
+  padding: 1rem 2rem;
+  background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+  color: var(--bg-dark);
+  text-decoration: none;
+  border-radius: 30px;
+  font-weight: 600;
+  transition: all var(--transition-fast);
+  border: none;
+  cursor: pointer;
+  box-shadow: var(--accent-glow);
+}
+
+.contact-btn:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(192, 132, 252, 0.4);
+}
+
+/* ==== FOOTER ==== */
+.footer {
+  background: rgba(10, 10, 20, 0.9);
+  padding: 2rem 0;
+  text-align: center;
+  border-top: var(--neon-border);
+}
+
+.footer-text {
+  opacity: 0.8;
+  font-size: 0.9rem;
+}
+
+/* ==== ANIMATION UTILITIES ==== */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ==== MEDIA QUERIES ==== */
+@media (max-width: 1199px) {
+  .sidebar {
+    transform: translateX(-100%);
+    width: var(--sidebar-width);
+  }
+  
+  .main-content {
+    margin-left: 0;
+    width: 100%;
+  }
+  
+  .sidebar.active {
+    transform: translateX(0);
+    box-shadow: 5px 0 25px rgba(0, 0, 0, 0.5);
+  }
+  
+  .hero-section h1 {
+    font-size: 2.5rem;
+  }
+  
+  .hero-subtitle {
+    font-size: 1.2rem;
+  }
+  
+  .hero-description {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 992px) {
+  .skills-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .section-title {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .skills-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .portfolio-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .resume-section .row {
+    flex-direction: column;
+  }
+  
+  .resume-section .col-lg-6 {
+    width: 100%;
+  }
+  
+  /* Asegurar que el selector de idioma sea visible en móviles */
+  .lang-selector {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 576px) {
+  .hero-section h1 {
+    font-size: 2rem;
+  }
+  
+  .filter-btn {
+    padding: 0.4rem 1rem;
+    font-size: 0.9rem;
+  }
+  
+  .skills-section,
+  .resume-section,
+  .portfolio-section,
+  .contact-section {
+    padding: 3rem 0;
+  }
+
+  .career-section {
+    padding: 0 0 2.5rem 0;
+  }
+  
+  .section-title {
+    font-size: 1.8rem;
+  }
+  
+  /* Ajustes específicos para móviles muy pequeños */
+  .sidebar {
+    width: 85%;
+  }
+  
+  .lang-btn {
+    width: 45px;
+    height: 45px;
+    margin: 0.2rem;
+  }
+  
+  .social-icons a {
+    width: 35px;
+    height: 35px;
+  }
+}
+```.
+
+strings.json:
+```
+{
+  "en": {
+    "language": "Language",
+    "nav_home": "Home",
+    "nav_skills": "Skills",
+    "nav_resume": "Resume",
+    "nav_projects": "Projects",
+    "nav_contact": "Contact",
+    "title": "Adrian Guerra - Portfolio",
+    "welcome": "Adrian Guerra",
+    "hero_subtitle": "VR/XR Developer & Game Designer",
+    "intro": "Developer specialized in VR/XR experiences and serious games. Passionate about technology, Japanese culture, and continuous learning.<br/><br/>Expert in Unreal Engine (C++/Blueprints) and Unity (C#), with skills in game design, production, and 3D modeling. Currently focused on improving my skills in Japanese, 3D animation, and artificial intelligence.",
+    "skills_title": "Technical Skills",
+    "vr_skills": "VR Development",
+    "3d_modeling": "3D Modeling",
+    "game_design": "Game Design",
+    "resume-title-experience": "Professional Experience",
+    "resume-title-education": "Education",
+    "resume-vr-intern-title": "VR Developer Intern",
+    "resume-vr-intern-dates": "Jan/2025 - May/2025",
+    "resume-vr-intern-place": "Faculty of Earth Sciences, University of Barcelona, Spain",
+    "resume-vr-intern-li-1": "Defined goals and functionalities for a 3D model viewer and drafted the design document.",
+    "resume-vr-intern-li-2": "Compared game engines and development tools for VR model visualization.",
+    "resume-vr-intern-li-3": "Developed a point cloud to .fbx model converter.",
+    "resume-vr-intern-li-4": "Created an export plugin for Nanite models to .pak format and runtime import support.",
+    "resume-vr-intern-li-5": "Evaluated and documented both proprietary and third-party plugins.",
+    "resume-vr-intern-li-6": "Designed an ergonomic user interface for immersive interaction.",
+    "resume-vr-tech-title": "Virtual Reality Laboratory Technician",
+    "resume-vr-tech-dates": "Nov/2022 - Jul/2024",
+    "resume-vr-tech-place": "ENTI, Barcelona, Spain",
+    "resume-vr-tech-li-1": "Inventory, care and maintenance of equipment.",
+    "resume-vr-tech-li-2": "Reserve and loan management.",
+    "resume-vr-tech-li-3": "Documentation of peripherals and demonstrators/testers.",
+    "resume-jr-prog-title": "Jr. Programmer",
+    "resume-jr-prog-dates": "May/2019 - Sep/2019",
+    "resume-jr-prog-place": "ConsultiaIT, Barcelona, Spain",
+    "resume-jr-prog-li-1": "Helpdesk and incident resolution for Baxi technicians.",
+    "resume-jr-prog-li-2": "Testing and debugging web apps and PDAs used by company staff.",
+    "resume-tech-title": "Computer Technician",
+    "resume-tech-dates": "Jan/2018 - May/2018",
+    "resume-tech-place": "Everis BPO, Barcelona, Spain",
+    "resume-tech-li-1": "On-site technical support and software installations.",
+    "resume-tech-li-2": "Macro development with Visual Basic 6.0.",
+    "resume-tech-li-3": "Access database creation and documentation writing.",
+    "resume-enti-degree-title": "University Degree, Interactive Digital Content Creation",
+    "resume-enti-degree-dates": "2019 - 2025",
+    "resume-enti-degree-place": "ENTI, Barcelona, Spain",
+    "resume-app-dev-title": "Certificate of Higher Education, Multiplatform App Development",
+    "resume-app-dev-dates": "2016 - 2019",
+    "resume-app-dev-place": "Institut Marianao, Sant Boi de Llobregat, Spain",
+    "resume-vet-title": "Vocational Training, Microcomputer and Network Technician",
+    "resume-vet-dates": "2012 - 2015",
+    "resume-vet-place": "Institut Marianao, Sant Boi de Llobregat, Spain",
+    "looking_for": "Looking for opportunities as:",
+    "roles": "Game Designer | Producer | Researcher | Programmer",
+    "focus": "Especially interested in Virtual Reality and small to mid-sized companies",
+    "work_preferences": "Prefer remote work with flexible hours",
+    "projects": "Projects",
+    "play": "Play Now",
+    "visit": "Visit Page",
+    "view_work": "View My Work",
+    "view_resume": "View Full Resume",
+    "contact": "Contact: jagv94@gmail.com",
+    "contact_text": "I'm currently looking for new opportunities as a Game Designer, especially in VR and small to mid-sized companies. Prefer remote work with flexible hours.",
+    "contact_btn": "Get In Touch",
+    "clickanium-desc": "A side-scrolling Tower Defense where archaeologists, military, and aliens clash to dominate vital resources. Strategy and fast decisions are key. I worked on UI/UX, music, credits, game balancing, lore, and Scrum management.",
+    "gng-title": "Ghosts'N Goblins (Educational Project)",
+    "gng-desc": "Unofficial recreation of the classic arcade game Ghosts'N Goblins, developed for educational purposes during a game development degree. All rights to the original game belong to Capcom. Project created using Phaser.",
+    "godlythief-desc": "2D Hack 'n' Slash Roguelite where you steal enemy abilities to escape Thanatos' prison. I handled UI, menus, maps, music selection, wave system logic, Slime design, plus debugging and optimization to ensure smoother gameplay.",
+    "restaurant-desc": "Run your grandfather's restaurant and make it thrive! Fulfill online orders fast, upgrade the place, and manage stock wisely. I worked on scenario design & optimization, mechanics, store system, assets, music, and Scrum Master tasks.",
+    "twistedtail-desc": "Escape the castle by outsmarting guards and solving puzzles! Blend into the environment to stay unseen and trigger mechanisms to move on. Made in 2 days for Zeno Game Jam. I designed the core mechanic, puzzles, and music selection.",
+    "playerent-desc": "Two factions are at war, but you rise as a third force to claim the glory, pushing enemies to unite against you. Made in 21 days for GameArtopia Jam. I worked on mechanics, abilities, map, music adjustment & implementation, and game balancing.",
+    "english_level": "B1 (learning)",
+    "japanese_level": "N4 (learning)",
+    "footer_rights": "All rights reserved.",
+    "footer_quote": "Creating immersive experiences between reality and dreams"
+  },
+  "es": {
+    "language": "Idioma",
+    "nav_home": "Inicio",
+    "nav_skills": "Habilidades",
+    "nav_resume": "Currículum",
+    "nav_projects": "Proyectos",
+    "nav_contact": "Contacto",
+    "title": "Adrian Guerra - Portfolio",
+    "welcome": "Adrian Guerra",
+    "hero_subtitle": "Desarrollador VR/XR y Diseñador de Juegos",
+    "intro": "Desarrollador especializado en experiencias VR/XR y serious games. Apasionado por la tecnología, la cultura japonesa y el aprendizaje continuo.<br/><br/>Experto en Unreal Engine (C++/Blueprints) y Unity (C#), con habilidades en diseño de juegos, producción y modelado 3D. Actualmente enfocado en mejorar mis habilidades en japonés, animación 3D e inteligencia artificial.",
+    "skills_title": "Habilidades Técnicas",
+    "vr_skills": "Desarrollo VR",
+    "3d_modeling": "Modelado 3D",
+    "game_design": "Diseño de Juegos",
+    "resume-title-experience": "Experiencia Profesional",
+    "resume-title-education": "Formación Académica",
+    "resume-vr-intern-title": "Prácticas como Desarrollador VR",
+    "resume-vr-intern-dates": "Ene/2025 - May/2025",
+    "resume-vr-intern-place": "Facultad de Ciencias de la Tierra, Universidad de Barcelona, España",
+    "resume-vr-intern-li-1": "Definición de objetivos y funcionalidades de un visor de modelos 3D y redacción del documento de diseño.",
+    "resume-vr-intern-li-2": "Comparativa de motores de juego y herramientas para visualización de modelos en VR.",
+    "resume-vr-intern-li-3": "Desarrollo de conversor de nubes de puntos (fotogrametría) a modelos .fbx.",
+    "resume-vr-intern-li-4": "Creación de plugin de exportación de modelos Nanite a formato .pak y soporte de importación en tiempo de ejecución.",
+    "resume-vr-intern-li-5": "Evaluación y documentación de plugins propios y de terceros.",
+    "resume-vr-intern-li-6": "Diseño de interfaz ergonómica para interacción inmersiva.",
+    "resume-vr-tech-title": "Técnico de Laboratorio de Realidad Virtual",
+    "resume-vr-tech-dates": "Nov/2022 - Jul/2024",
+    "resume-vr-tech-place": "ENTI, Barcelona, España",
+    "resume-vr-tech-li-1": "Inventario, cuidado y mantenimiento del equipo.",
+    "resume-vr-tech-li-2": "Gestión de reservas y préstamos.",
+    "resume-vr-tech-li-3": "Documentación de periféricos y demostradores/prototipos.",
+    "resume-jr-prog-title": "Programador Junior",
+    "resume-jr-prog-dates": "May/2019 - Sep/2019",
+    "resume-jr-prog-place": "ConsultiaIT, Barcelona, España",
+    "resume-jr-prog-li-1": "Atención al cliente y resolución de incidencias para técnicos de Baxi.",
+    "resume-jr-prog-li-2": "Testeo y detección de errores en apps web y PDAs de la empresa.",
+    "resume-tech-title": "Técnico Informático",
+    "resume-tech-dates": "Ene/2018 - May/2018",
+    "resume-tech-place": "Everis BPO, Barcelona, España",
+    "resume-tech-li-1": "Soporte técnico presencial e instalación de software.",
+    "resume-tech-li-2": "Desarrollo de macros en Visual Basic 6.0.",
+    "resume-tech-li-3": "Creación de bases de datos Access y documentación.",
+    "resume-enti-degree-title": "Grado Universitario en Creación de Contenidos Digitales Interactivos",
+    "resume-enti-degree-dates": "2019 - 2025",
+    "resume-enti-degree-place": "ENTI, Barcelona, España",
+    "resume-app-dev-title": "Técnico Superior en Desarrollo de Aplicaciones Multiplataforma",
+    "resume-app-dev-dates": "2016 - 2019",
+    "resume-app-dev-place": "Institut Marianao, Sant Boi de Llobregat, España",
+    "resume-vet-title": "Formación Profesional en Microinformática y Redes",
+    "resume-vet-dates": "2012 - 2015",
+    "resume-vet-place": "Institut Marianao, Sant Boi de Llobregat, España",
+    "looking_for": "Busco oportunidades como:",
+    "roles": "Diseñador de Juegos | Productor | Investigador | Programador",
+    "focus": "Especial interés en Realidad Virtual y empresas pequeñas/medianas",
+    "work_preferences": "Prefiero trabajo remoto con horario flexible",
+    "projects": "Proyectos",
+    "play": "Jugar",
+    "visit": "Visitar página",
+    "view_work": "Ver Mi Trabajo",
+    "view_resume": "Ver CV completo",
+    "contact": "Contacto: jagv94@gmail.com",
+    "contact_text": "Actualmente busco nuevas oportunidades como Diseñador de Juegos, especialmente en Realidad Virtual y empresas pequeñas/medianas. Prefiero trabajo remoto con horario flexible.",
+    "contact_btn": "Ponerse en Contacto",
+    "clickanium-desc": "Tower Defense con scroll lateral donde arqueólogos, militares y alienígenas luchan por monopolizar un recurso vital. Estrategia, gestión de unidades y torres en batallas dinámicas. Contribuí en UI/UX, música, créditos, balanceo, lore y Scrum.",
+    "gng-title": "Ghosts'N Goblins (Proyecto educativo)",
+    "gng-desc": "Recreación no oficial del clásico juego de arcade Ghosts'N Goblins, desarrollada con fines educativos durante la carrera de desarrollo de videojuegos. Todos los derechos del juego original pertenecen a Capcom. Proyecto creado utilizando Phaser.",
+    "godlythief-desc": "Roguelite Hack 'n' Slash 2D donde robas habilidades a tus enemigos para escapar de la prisión de Thanatos. Me encargué de la UI, menús, mapas, selección de música, sistema de oleadas, diseño del Slime, además de depuración y optimización.",
+    "restaurant-desc": "¡Gestiona el restaurante heredado de tu abuelo y hazlo prosperar! Atiende pedidos online rápido, mejora el local y controla el stock. Contribuí en el diseño y optimización del escenario, mecánicas, tienda, assets, música y Scrum Master.",
+    "twistedtail-desc": "¡Escapa del castillo superando guardias y puzles! Camúflate con los colores del entorno y activa mecanismos para avanzar. Creado en 2 días para la Zeno Game Jam. Diseñé la mecánica principal, los puzles e implementé la música.",
+    "playerent-desc": "En plena guerra entre dos facciones, el jugador irrumpe como tercer poder para reclamar la gloria, obligando a sus enemigos a unirse contra él. Creado en 21 días para la GameArtopia Jam. Contribuí en mecánicas, habilidades, mapa, ajuste e implementación de música y balanceo.",
+    "english_level": "B1 (en curso)",
+    "japanese_level": "N4 (en curso)",
+    "footer_rights": "Todos los derechos reservados.",
+    "footer_quote": "Creando experiencias inmersivas entre la realidad y los sueños"
+  },
+  "jp": {
+    "language": "言語",
+    "nav_home": "ホーム",
+    "nav_skills": "スキル",
+    "nav_resume": "履歴書",
+    "nav_projects": "プロジェクト",
+    "nav_contact": "連絡",
+    "title": "アドリアン・グエッラ - ポートフォリオ",
+    "welcome": "アドリアン・グエッラ",
+    "hero_subtitle": "VR/XR開発者 & ゲームデザイナー",
+    "intro": "VR/XR体験とシリアスゲームを専門とする開発者。技術、日本文化、そして継続的な学習に情熱を持っています。<br/><br/>Unreal Engine（C++／Blueprints）とUnity（C#）のエキスパートであり、ゲームデザイン、プロデュース、3Dモデリングのスキルも備えています。現在は、日本語、3Dアニメーション、人工知能のスキル向上に取り組んでいます。",
+    "skills_title": "技術スキル",
+    "vr_skills": "VR開発",
+    "3d_modeling": "3Dモデリング",
+    "game_design": "ゲームデザイン",
+    "resume-title-experience": "職務経験",
+    "resume-title-education": "学歴",
+    "resume-vr-intern-title": "VR開発インターン",
+    "resume-vr-intern-dates": "2025年1月 - 2025年5月",
+    "resume-vr-intern-place": "バルセロナ大学 地球科学部（スペイン）",
+    "resume-vr-intern-li-1": "3Dモデルビューアの機能と目標を定義し、設計書を作成。",
+    "resume-vr-intern-li-2": "VRモデルの視覚化のためのゲームエンジンとツールの比較。",
+    "resume-vr-intern-li-3": "点群データを.fbx形式に変換するツールを開発。",
+    "resume-vr-intern-li-4": "Naniteモデルを.pak形式にエクスポートするプラグインを作成し、実行時インポートに対応。",
+    "resume-vr-intern-li-5": "自作およびサードパーティ製プラグインの評価とドキュメント作成。",
+    "resume-vr-intern-li-6": "没入型インタラクションのための人間工学に基づいたUIを設計。",
+    "resume-vr-tech-title": "VRラボ技術者",
+    "resume-vr-tech-dates": "2022年11月 - 2024年7月",
+    "resume-vr-tech-place": "ENTI（スペイン・バルセロナ）",
+    "resume-vr-tech-li-1": "機材の在庫管理、保守、メンテナンス。",
+    "resume-vr-tech-li-2": "予約と貸出管理。",
+    "resume-vr-tech-li-3": "周辺機器とデモ装置のドキュメント作成。",
+    "resume-jr-prog-title": "ジュニアプログラマー",
+    "resume-jr-prog-dates": "2019年5月 - 2019年9月",
+    "resume-jr-prog-place": "ConsultiaIT（スペイン・バルセロナ）",
+    "resume-jr-prog-li-1": "Baxi技術者向けのヘルプデスクとトラブル対応。",
+    "resume-jr-prog-li-2": "社内アプリケーションおよびPDAのテストとデバッグ。",
+    "resume-tech-title": "IT技術者",
+    "resume-tech-dates": "2018年1月 - 2018年5月",
+    "resume-tech-place": "Everis BPO（スペイン・バルセロナ）",
+    "resume-tech-li-1": "現地での技術サポートおよびソフトウェアインストール。",
+    "resume-tech-li-2": "Visual Basic 6.0でのマクロ開発。",
+    "resume-tech-li-3": "Accessデータベース作成とガイド作成。",
+    "resume-enti-degree-title": "インタラクティブデジタルコンテンツ制作（学士）",
+    "resume-enti-degree-dates": "2019年 - 2025年",
+    "resume-enti-degree-place": "ENTI（スペイン・バルセロナ）",
+    "resume-app-dev-title": "高等職業教育：マルチプラットフォームアプリ開発",
+    "resume-app-dev-dates": "2016年 - 2019年",
+    "resume-app-dev-place": "Institut Marianao（スペイン・サンボイ）",
+    "resume-vet-title": "職業訓練：マイクロコンピュータとネットワーク技術者",
+    "resume-vet-dates": "2012年 - 2015年",
+    "resume-vet-place": "Institut Marianao（スペイン・サンボイ）",
+    "looking_for": "以下のポジションを探しています：",
+    "roles": "ゲームデザイナー｜プロデューサー｜リサーチャー｜プログラマー",
+    "focus": "特にVR（バーチャルリアリティ）と中小規模の企業に関心があります",
+    "work_preferences": "リモートワークと柔軟な勤務時間を希望しています",
+    "projects": "プロジェクト",
+    "play": "プレイする",
+    "visit": "ページを見る",
+    "view_work": "作品を見る",
+    "view_resume": "履歴書を見る",
+    "contact": "連絡先：jagv94@gmail.com",
+    "contact_text": "現在、ゲームデザイナーとして新しい機会を探しています。特にVRと中小企業に興味があります。リモートワークと柔軟な勤務時間を希望しています。",
+    "contact_btn": "連絡する",
+    "clickanium-desc": "横スクロール型タワーディフェンス！考古学者、軍隊、エイリアンが資源を巡って激突。戦略と瞬時の判断が勝敗を決める。UI/UX、音楽、クレジット、バランス調整、世界観設定、Scrum管理を担当しました。",
+    "gng-title": "Ghosts'N Goblins（教育プロジェクト）",
+    "gng-desc": "アーケードのクラシックゲーム「Ghosts'N Goblins」の非公式リメイク。ゲーム開発の学位取得中に教育目的で制作されました。オリジナルゲームのすべての権利はカプコンに帰属します。Phaserを使用して開発されました。",
+    "godlythief-desc": "2Dハクスラ系ローグライト。敵の力を奪い、タナトスの牢獄から脱出せよ。UIやメニュー、マップ、音楽選定、ウェーブシステムの実装、スライムのデザイン、デバッグと最適化を担当しました。",
+    "restaurant-desc": "祖父から受け継いだレストランを経営し、繁盛させよう！オンライン注書を素早く処理し、店を改良し、在庫を管理。シナリオ設計と最適化、メカニクス、ショップ実装、アセット制作、音楽、Scrum Masterを担当しました。",
+    "twistedtail-desc": "城からの脱出！ガードをかわし、パズルを解き、環境の色に溶け込んで進め。仕掛けを作動させて道を開こう。Zeno Game Jam（2日間）制作。メインメカニクス、パズル設計、音楽選定を担当しました。",
+    "playerent-desc": "二つの勢力が戦争中、その中でプレイヤーが第三の力として介入し、栄光を奪おうとする。敵は団結して立ちはだかる。GameArtopia Jam（21日間）制作。メカニクス、スキル、マップ構築、音楽の調整と実装、バランス調整を担当しました。",
+    "english_level": "B1 (学習中)",
+    "japanese_level": "N4 (学習中)",
+    "footer_rights": "All rights reserved.",
+    "footer_quote": "現実と夢の間に没入型体験を創造する"
+  }
+}
+```.
+
+La estructura de archivos y carpetas es la siguiente:
+```
+/portfolio-site/
+│
+├── index.html             ← Página principal con JS de carga multilingüe
+├── /assets/
+│   ├── /css/
+│   │   └── styles.css     ← estilos globales
+│   ├── /img/              ← logos, screenshots, etc.
+│   └── /fonts/            ← si usas alguna personalizada o anime-style
+├── /js/
+│   └── main.js            ← lógica de la página
+├── /data/
+│   └── strings.json       ← textos traducidos
+└── /GhostNGoblins/
+    ├── GhostNGoblins.html
+    └── ...                ← assets del juego
+```
+
+Por ahora la estoy creando usando Visual Studio Code con Live Server.
+Junto al código de la página también incluyo una recreación del juego Ghosts'N Goblins creada en phaser durante la carrera universitaria junto a compañeros.
+
+A continuación doy información mía para sugerencias de personalización de la página:
+Nombre: Adrián Guerra.
+De: España, Barcelona.
+Graduado en diseño y desarrollo de videojuegos (Contenidos digitales interactivos).
+Más de 10 años estudiando programación en mi formación.
+En busqueda de empleo de un puesto como: Game Designer, preferiblemente en Realidad Virtual o videojuegos en una empresa pequeña-mediana.
+Interes en trabajo remoto y flexibilidad en el horario.
+Entusiasta de la tecnología, especialmente IA y Realidad Virtual. Me formo en ello cuando puedo.
+Suelo formarme en aquello que atrae mi interés.
+Objetivos: aprender japonés (lectura, escritura, habla, cultura), desarrollar un juego estilo anime y/o VR, aprender más sobre IA (como automatización e IA generativa), aprender a modelar y animar personajes y entornos en Blender del estilo que yo quiera (cambiando de aires y distanciándome de la programación, al interesarme de igual forma la parte artística), mantener actualizado mi ordenador si es económicamente posible, mejorando así también mi herramienta de trabajo, estudio y ocio, y (sin mucha motivación, pero necesario y prioritario tras la carrera) aprender inglés (nivel actual: A2 - B1).
+En la carrera aprendí a modelar escenarios y animar personajes en 3DS Max (sin mucha experiencia).
+Música: me gustan los géneros metal, punk, experimental rock, post-rock, alternative rock, j-rock, j-pop, j-dance, j-core, EDM, kawaii EDM, Lo-Fi, future bass speedrun, melodic bass, anison, soundtracks, entre otros.
+
+Dime si lo has recibido correctamente y te pediré ajustar una cosa.
