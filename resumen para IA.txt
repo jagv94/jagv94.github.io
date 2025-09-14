@@ -1,23 +1,4 @@
 Estoy creando un porfolio profesional en una página web alojada en Github Pages y actualmente tengo lo siguiente:
-Estructura de carpetas:
-```
-/portfolio-site/
-│
-├── index.html             ← Página principal con JS de carga multilingüe
-├── /assets/
-│   ├── /css/              ← estilos globales
-│   ├── /img/              ← logos, screenshots, etc.
-│   └── /fonts/            ← si usas alguna personalizada o anime-style
-├── /js/
-│   ├── language-switch.js ← manejo de idiomas
-│   └── main.js            ← lógica de la página
-├── /data/
-│   └── strings.json       ← textos traducidos
-└── /GhostNGoblins/
-    ├── GhostNGoblins.html
-    └── ...                ← assets del juego
-```
-
 index.html:
 ```
 <!DOCTYPE html>
@@ -642,7 +623,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Smooth scrolling para enlaces de navegación
+  // Smooth scrolling para enlaces de navegación - CORREGIDO
   document.querySelectorAll('.sidebar-link, .navbar-nav .nav-link').forEach(link => {
     link.addEventListener('click', function(e) {
       e.preventDefault();
@@ -651,13 +632,32 @@ document.addEventListener("DOMContentLoaded", () => {
       const targetElement = document.querySelector(targetId);
       
       if (targetElement) {
-        const targetPosition = targetElement.offsetTop - (window.innerWidth >= 992 ? 0 : 75);
+        // Calcular la posición considerando el header fijo y posibles offsets
+        const headerOffset = 80;
+        const elementPosition = targetElement.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
         
         window.scrollTo({
-          top: targetPosition,
+          top: offsetPosition,
           behavior: 'smooth'
         });
+        
+        // Cerrar sidebar en móviles después de hacer clic
+        if (window.innerWidth < 1200) {
+          if (sidebar && sidebarOverlay) {
+            sidebar.classList.remove('active');
+            sidebarOverlay.classList.remove('active');
+            document.body.style.overflow = '';
+          }
+        }
       }
+    });
+  });
+
+  // Prevenir el comportamiento por defecto de los enlaces del filtro de portfolio
+  document.querySelectorAll('#portfolio-filters li').forEach(filter => {
+    filter.addEventListener('click', function(e) {
+      e.preventDefault();
     });
   });
 });
@@ -1714,6 +1714,25 @@ strings.json:
 }
 ```.
 
+La estructura de archivos y carpetas es la siguiente:
+```
+/portfolio-site/
+│
+├── index.html             ← Página principal con JS de carga multilingüe
+├── /assets/
+│   ├── /css/
+│   │   └── styles.css     ← estilos globales
+│   ├── /img/              ← logos, screenshots, etc.
+│   └── /fonts/            ← si usas alguna personalizada o anime-style
+├── /js/
+│   └── main.js            ← lógica de la página
+├── /data/
+│   └── strings.json       ← textos traducidos
+└── /GhostNGoblins/
+    ├── GhostNGoblins.html
+    └── ...                ← assets del juego
+```
+
 Por ahora la estoy creando usando Visual Studio Code con Live Server.
 Junto al código de la página también incluyo una recreación del juego Ghosts'N Goblins creada en phaser durante la carrera universitaria junto a compañeros.
 
@@ -1729,3 +1748,5 @@ Suelo formarme en aquello que atrae mi interés.
 Objetivos: aprender japonés (lectura, escritura, habla, cultura), desarrollar un juego estilo anime y/o VR, aprender más sobre IA (como automatización e IA generativa), aprender a modelar y animar personajes y entornos en Blender del estilo que yo quiera (cambiando de aires y distanciándome de la programación, al interesarme de igual forma la parte artística), mantener actualizado mi ordenador si es económicamente posible, mejorando así también mi herramienta de trabajo, estudio y ocio, y (sin mucha motivación, pero necesario y prioritario tras la carrera) aprender inglés (nivel actual: A2 - B1).
 En la carrera aprendí a modelar escenarios y animar personajes en 3DS Max (sin mucha experiencia).
 Música: me gustan los géneros metal, punk, experimental rock, post-rock, alternative rock, j-rock, j-pop, j-dance, j-core, EDM, kawaii EDM, Lo-Fi, future bass speedrun, melodic bass, anison, soundtracks, entre otros.
+
+Dime si lo has recibido correctamente y te pediré ajustar una cosa.

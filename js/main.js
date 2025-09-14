@@ -183,7 +183,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Smooth scrolling para enlaces de navegación
+  // Smooth scrolling para enlaces de navegación - CORREGIDO
   document.querySelectorAll('.sidebar-link, .navbar-nav .nav-link').forEach(link => {
     link.addEventListener('click', function(e) {
       e.preventDefault();
@@ -192,13 +192,32 @@ document.addEventListener("DOMContentLoaded", () => {
       const targetElement = document.querySelector(targetId);
       
       if (targetElement) {
-        const targetPosition = targetElement.offsetTop - (window.innerWidth >= 992 ? 0 : 75);
+        // Calcular la posición considerando el header fijo y posibles offsets
+        const headerOffset = 80;
+        const elementPosition = targetElement.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
         
         window.scrollTo({
-          top: targetPosition,
+          top: offsetPosition,
           behavior: 'smooth'
         });
+        
+        // Cerrar sidebar en móviles después de hacer clic
+        if (window.innerWidth < 1200) {
+          if (sidebar && sidebarOverlay) {
+            sidebar.classList.remove('active');
+            sidebarOverlay.classList.remove('active');
+            document.body.style.overflow = '';
+          }
+        }
       }
+    });
+  });
+
+  // Prevenir el comportamiento por defecto de los enlaces del filtro de portfolio
+  document.querySelectorAll('#portfolio-filters li').forEach(filter => {
+    filter.addEventListener('click', function(e) {
+      e.preventDefault();
     });
   });
 });
