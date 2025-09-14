@@ -1407,7 +1407,7 @@ body::before {
   background: linear-gradient(135deg, var(--accent-light), var(--accent));
 }
 
-/* ==== PORTFOLIO SECTION ==== */
+/* ==== PORTFOLIO SECTION - MEJORADO ==== */
 .portfolio-filters {
   display: flex;
   justify-content: center;
@@ -1470,17 +1470,22 @@ body::before {
 
 .portfolio-overlay {
   position: absolute;
-  bottom: 0;
+  top: 0;
   left: 0;
   right: 0;
-  background: linear-gradient(transparent, rgba(10, 10, 20, 0.9));
+  bottom: 0;
+  background: rgba(10, 10, 20, 0.9); /* Fondo más oscuro para mejor contraste */
   padding: 1.5rem;
-  transform: translateY(100%);
-  transition: transform var(--transition-fast);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* Alinear al inicio */
+  opacity: 0;
+  transition: opacity var(--transition-fast);
+  overflow-y: auto; /* Permitir scroll si el contenido es largo */
 }
 
 .portfolio-item:hover .portfolio-overlay {
-  transform: translateY(0);
+  opacity: 1;
 }
 
 .portfolio-title {
@@ -1488,12 +1493,16 @@ body::before {
   font-weight: 600;
   margin-bottom: 0.5rem;
   color: var(--accent-light);
+  text-shadow: 0 0 5px rgba(0, 0, 0, 0.7); /* Sombra de texto para mejor legibilidad */
 }
 
 .portfolio-desc {
   font-size: 0.9rem;
   margin-bottom: 1rem;
   opacity: 0.9;
+  line-height: 1.5;
+  text-shadow: 0 0 5px rgba(0, 0, 0, 0.7); /* Sombra de texto para mejor legibilidad */
+  flex-grow: 1; /* Permitir que la descripción ocupe espacio disponible */
 }
 
 .portfolio-link {
@@ -1505,6 +1514,7 @@ body::before {
   border-radius: 4px;
   font-weight: 600;
   transition: all var(--transition-fast);
+  align-self: flex-start; /* Alinear a la izquierda */
 }
 
 .portfolio-link:hover {
@@ -1632,6 +1642,12 @@ body::before {
   .resume-section .col-lg-6 {
     width: 100%;
   }
+  
+  /* Asegurar que el selector de idioma sea visible en móviles */
+  .lang-selector {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
 }
 
 @media (max-width: 576px) {
@@ -1652,11 +1668,27 @@ body::before {
   }
 
   .career-section {
-  padding: 0 0 2.5rem 0;
+    padding: 0 0 2.5rem 0;
   }
   
   .section-title {
     font-size: 1.8rem;
+  }
+  
+  /* Ajustes específicos para móviles muy pequeños */
+  .sidebar {
+    width: 85%;
+  }
+  
+  .lang-btn {
+    width: 45px;
+    height: 45px;
+    margin: 0.2rem;
+  }
+  
+  .social-icons a {
+    width: 35px;
+    height: 35px;
   }
 }
 ```.
