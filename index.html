@@ -38,6 +38,10 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
   <!-- Font Awesome (para iconos sociales) -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Zen+Maru+Gothic:wght@400;500;700&display=swap" rel="stylesheet">
+  <!-- Particles.js -->
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
   <!-- Estilos personalizados -->
   <link rel="stylesheet" href="assets/css/styles.css" />
   
@@ -50,6 +54,9 @@
   <div id="loader">
     <div class="loader-animation"></div>
   </div>
+  
+  <!-- Particle Background -->
+  <div id="particles-js"></div>
   
   <!-- Botón hamburguesa para móviles -->
   <button id="sidebarToggle" class="sidebar-toggle d-lg-none">
@@ -90,6 +97,12 @@
             <span data-i18n="nav_projects">Projects</span>
           </a>
         </li>
+        <li class="sidebar-item">
+          <a class="sidebar-link" href="#contact">
+            <i class="fas fa-envelope me-2"></i>
+            <span data-i18n="nav_contact">Contact</span>
+          </a>
+        </li>
       </ul>
 
       <!-- Selector de idiomas en el header - NUEVO DISEÑO -->
@@ -115,14 +128,14 @@
       </div>
       
       <div class="sidebar-footer">
-        <div class="social-icons mt-3">
-          <a href="https://twitter.com/jagv94" target="_blank" class="text-light"><i class="fab fa-twitter"></i></a>
-          <a href="https://www.linkedin.com/in/jagv94/" target="_blank" class="text-light ms-3"><i class="fab fa-linkedin"></i></a>
-          <a href="https://github.com/jagv94" target="_blank" class="text-light ms-3"><i class="fab fa-github"></i></a>
-          <a href="https://shiroi-ookami.itch.io/" target="_blank" class="text-light ms-3"><i class="fab fa-itch-io"></i></a>
+        <div class="social-icons">
+          <a href="https://twitter.com/jagv94" target="_blank"><i class="fab fa-twitter"></i></a>
+          <a href="https://www.linkedin.com/in/jagv94/" target="_blank"><i class="fab fa-linkedin"></i></a>
+          <a href="https://github.com/jagv94" target="_blank"><i class="fab fa-github"></i></a>
+          <a href="https://shiroi-ookami.itch.io/" target="_blank"><i class="fab fa-itch-io"></i></a>
         </div>
         
-        <p class="sidebar-contact mt-3 mb-0 small" data-i18n="contact">Contact: jagv94@gmail.com</p>
+        <p class="sidebar-contact" data-i18n="contact">Contact: jagv94@gmail.com</p>
       </div>
     </div>
   </aside>
@@ -132,120 +145,137 @@
 
   <!-- Contenido principal -->
   <div class="main-content">
-    <header id="home" class="text-center py-5">
-      <div class="container">
+    <!-- Hero Section -->
+    <header id="home" class="hero-section">
+      <div class="hero-content">
         <h1 data-i18n="welcome">Adrian Guerra's Portfolio</h1>
-        <p data-i18n="intro">
+        <p class="hero-subtitle" data-i18n="hero_subtitle">VR/XR Developer & Game Designer</p>
+        <p class="hero-description" data-i18n="intro">
           Developer specialized in VR/XR experiences and serious games. Passionate about technology, Japanese culture, and continuous learning.<br/><br/>
           Expert in Unreal Engine (C++/Blueprints) and Unity (C#), with skills in game design, production, and 3D modeling. Currently focused on improving my skills in Japanese, 3D animation, and artificial intelligence.
         </p>
+        <a href="#portfolio" class="hero-btn" data-i18n="view_work">View My Work</a>
       </div>
     </header>
 
     <main class="pb-5">
       <!-- Technical Skills -->
-      <section id="skills" class="container my-5">
-        <h2 class="text-center mb-4" data-i18n="skills_title">Technical Skills</h2>
-        
-        <div class="row skills-container">
-          <!-- Unity -->
-          <div class="col-md-3 col-6 mb-4">
-            <div class="skill-card text-center p-3">
-              <i class="fab fa-unity fa-3x mb-3"></i>
+      <section id="skills" class="skills-section">
+        <div class="container">
+          <h2 class="section-title" data-i18n="skills_title">Technical Skills</h2>
+          
+          <div class="skills-grid">
+            <!-- Unity -->
+            <div class="skill-card">
+              <div class="skill-icon">
+                <i class="fab fa-unity"></i>
+              </div>
               <h5>Unity Engine</h5>
-              <div class="skill-bar mt-2">
+              <div class="skill-bar">
                 <div class="skill-level" style="width: 85%"></div>
               </div>
             </div>
-          </div>
-          
-          <!-- Unreal Engine -->
-          <div class="col-md-3 col-6 mb-4">
-            <div class="skill-card text-center p-3">
-              <i class="fas fa-gamepad fa-3x mb-3"></i>
+            
+            <!-- Unreal Engine -->
+            <div class="skill-card">
+              <div class="skill-icon">
+                <i class="fas fa-gamepad"></i>
+              </div>
               <h5>Unreal Engine</h5>
-              <div class="skill-bar mt-2">
+              <div class="skill-bar">
                 <div class="skill-level" style="width: 85%"></div>
               </div>
             </div>
-          </div>
-          
-          <!-- VR Development -->
-          <div class="col-md-3 col-6 mb-4">
-            <div class="skill-card text-center p-3">
-              <i class="fas fa-vr-cardboard fa-3x mb-3"></i>
+            
+            <!-- VR Development -->
+            <div class="skill-card">
+              <div class="skill-icon">
+                <i class="fas fa-vr-cardboard"></i>
+              </div>
               <h5 data-i18n="vr_skills">VR Development</h5>
-              <div class="skill-bar mt-2">
+              <div class="skill-bar">
                 <div class="skill-level" style="width: 65%"></div>
               </div>
             </div>
-          </div>
-          
-          <!-- 3D Modeling -->
-          <div class="col-md-3 col-6 mb-4">
-            <div class="skill-card text-center p-3">
-              <i class="fas fa-cube fa-3x mb-3"></i>
+            
+            <!-- 3D Modeling -->
+            <div class="skill-card">
+              <div class="skill-icon">
+                <i class="fas fa-cube"></i>
+              </div>
               <h5 data-i18n="3d_modeling">3D Modeling</h5>
-              <div class="skill-bar mt-2">
+              <div class="skill-bar">
                 <div class="skill-level" style="width: 55%"></div>
               </div>
             </div>
-          </div>
-          
-          <!-- Programming -->
-          <div class="col-md-3 col-6 mb-4">
-            <div class="skill-card text-center p-3">
-              <i class="fas fa-code fa-3x mb-3"></i>
+            
+            <!-- Programming -->
+            <div class="skill-card">
+              <div class="skill-icon">
+                <i class="fas fa-code"></i>
+              </div>
               <h5>Programming</h5>
-              <div class="skill-bar mt-2">
+              <div class="skill-bar">
                 <div class="skill-level" style="width: 92%"></div>
               </div>
             </div>
-          </div>
-          
-          <!-- Game Design -->
-          <div class="col-md-3 col-6 mb-4">
-            <div class="skill-card text-center p-3">
-              <i class="fas fa-dice-d20 fa-3x mb-3"></i>
+            
+            <!-- Game Design -->
+            <div class="skill-card">
+              <div class="skill-icon">
+                <i class="fas fa-dice-d20"></i>
+              </div>
               <h5 data-i18n="game_design">Game Design</h5>
-              <div class="skill-bar mt-2">
+              <div class="skill-bar">
                 <div class="skill-level" style="width: 70%"></div>
               </div>
             </div>
-          </div>
-          
-          <!-- English Language -->
-          <div class="col-md-3 col-6 mb-4">
-            <div class="skill-card text-center p-3">
-              <i class="fas fa-language fa-3x mb-3"></i>
+            
+            <!-- English Language -->
+            <div class="skill-card">
+              <div class="skill-icon">
+                <i class="fas fa-language"></i>
+              </div>
               <h5>English</h5>
-              <div class="d-flex align-items-center justify-content-center mt-2">
+              <div class="skill-level-text">
                 <span data-i18n="english_level" class="badge bg-accent">B1 (learning)</span>
               </div>
             </div>
-          </div>
-          
-          <!-- Japanese Language
-          <div class="col-md-3 col-6 mb-4">
-            <div class="skill-card text-center p-3">
-              <i class="fas fa-language fa-3x mb-3"></i>
-              <h5>Japanese</h5>
-              <div class="d-flex align-items-center justify-content-center mt-2">
-                <span data-i18n="japanese_level" class="badge bg-accent">N4</span>
+            
+            <!-- Japanese Language
+            <div class="skill-card">
+              <div class="skill-icon">
+                <i class="fas fa-language"></i>
               </div>
-            </div>
+              <h5>Japanese</h5>
+              <div class="skill-level-text">
+                <span data-i18n="japanese_level" class="badge bg-accent">N4 (learning)</span>
+              </div>
+            </div> -->
           </div>
         </div>
-      </section> -->
+      </section>
 
       <!-- ======= Resume Section ======= -->
-      <section id="resume" class="resume py-5">
+      <section id="resume" class="resume-section">
         <div class="container">
+          <h2 class="section-title" data-i18n="nav_resume">Resume</h2>
+
+          <section class="career-section text-center">
+              <!-- Botón para descargar CV -->
+              <div class="mt-4">
+                <a href="assets/docs/Adrian_Guerra_CV.pdf" class="btn btn-accent" target="_blank">
+                  <i class="fas fa-download me-2"></i>
+                  <span data-i18n="view_resume">View Full Resume</span>
+                </a>
+              </div>
+          </section>
+
           <div class="row">
 
             <!-- Professional Experience -->
             <div class="col-lg-6">
-              <h3 class="resume-title" data-i18n="resume-title-experience">Professional Experience</h3>
+              <h3 class="resume-category-title" data-i18n="resume-title-experience">Professional Experience</h3>
 
               <div class="resume-item">
                 <h4 data-i18n="resume-vr-intern-title">VR Developer Intern</h4>
@@ -296,7 +326,7 @@
 
             <!-- Education -->
             <div class="col-lg-6">
-              <h3 class="resume-title" data-i18n="resume-title-education">Education</h3>
+              <h3 class="resume-category-title" data-i18n="resume-title-education">Education</h3>
 
               <div class="resume-item">
                 <h4 data-i18n="resume-enti-degree-title">University Degree, Interactive Digital Content Creation</h4>
@@ -321,107 +351,111 @@
       </section>
       <!-- ======= End Resume Section ======= -->
 
-      <!-- Career Info -->
-      <section class="container text-center my-5">
-        <h2 data-i18n="looking_for">Looking for opportunities as:</h2>
-        <p data-i18n="roles">Game Designer | Producer | Researcher | Programmer</p>
-        <p data-i18n="focus">Especially interested in Virtual Reality and small to mid-sized companies</p>
-        <p data-i18n="work_preferences">Prefer remote work with flexible hours</p>
-        
-        <!-- Botón para descargar CV -->
-        <div class="mt-4">
-          <a href="assets/docs/Adrian_Guerra_CV.pdf" class="btn btn-lg" target="_blank">
-            <i class="fas fa-download me-2"></i>
-            <span data-i18n="view_resume">View Full Resume</span>
-          </a>
+      <!-- Portfolio -->
+      <section id="portfolio" class="portfolio-section">
+        <div class="container">
+          <h2 class="section-title" data-i18n="projects">Projects</h2>
+
+          <div class="portfolio-filters">
+            <button class="filter-btn active" data-filter="*">All</button>
+            <button class="filter-btn" data-filter=".filter-action">Action</button>
+            <button class="filter-btn" data-filter=".filter-simulation">Simulation</button>
+            <button class="filter-btn" data-filter=".filter-puzzle">Puzzle</button>
+            <button class="filter-btn" data-filter=".filter-turnBased">Turn-Based</button>
+          </div>
+
+          <div class="portfolio-grid">
+            <!-- Cada tarjeta usa Bootstrap grid y clases de filtro -->
+            <div class="portfolio-item filter-action">
+              <div class="portfolio-card">
+                <img src="assets/img/portfolio/portfolio-1.png" loading="lazy" class="portfolio-img" alt="Godly Thief" />
+                <div class="portfolio-overlay">
+                  <h5 class="portfolio-title">Godly Thief</h5>
+                  <p class="portfolio-desc" data-i18n="godlythief-desc">2D Hack 'n' Slash Roguelite where you steal enemy abilities to escape Thanatos' prison. I handled UI, menus, maps, music selection, wave system logic, Slime design, plus debugging and optimization to ensure smoother gameplay.</p>
+                  <a href="https://marcd419.itch.io/godly-thief" class="portfolio-link" target="_blank" data-i18n="visit">Visit Page</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="portfolio-item filter-action">
+              <div class="portfolio-card">
+                <img src="assets/img/portfolio/ghostngoblins.png" loading="lazy" class="portfolio-img" alt="Ghost'N Goblins" />
+                <div class="portfolio-overlay">
+                  <h5 class="portfolio-title" data-i18n="gng-title">Ghost'N Goblins</h5>
+                  <p class="portfolio-desc" data-i18n="gng-desc">Unofficial recreation of the classic arcade game Ghosts'N Goblins, developed for educational purposes during a game development degree. All rights to the original game belong to Capcom. Project created using Phaser.</p>
+                  <a href="GhostNGoblins/GhostNGoblins.html" class="portfolio-link" target="_blank" data-i18n="play">Play Now</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="portfolio-item filter-action">
+              <div class="portfolio-card">
+                <img src="assets/img/portfolio/portfolio-5.png" loading="lazy" class="portfolio-img" alt="Towers of Clickanium" />
+                <div class="portfolio-overlay">
+                  <h5 class="portfolio-title">Towers of Clickanium</h5>
+                  <p class="portfolio-desc" data-i18n="clickanium-desc">A side-scrolling Tower Defense where archaeologists, military, and aliens clash to dominate vital resources. Strategy and fast decisions are key. I worked on UI/UX, music, credits, game balancing, lore, and Scrum management.</p>
+                  <a href="https://youtu.be/mW7iOPUotSM" class="portfolio-link" target="_blank" data-i18n="visit">Visit Page</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="portfolio-item filter-simulation">
+              <div class="portfolio-card">
+                <img src="assets/img/portfolio/portfolio-2.png" loading="lazy" class="portfolio-img" alt="Restaurant Extravaganzza" />
+                <div class="portfolio-overlay">
+                  <h5 class="portfolio-title">Restaurant Extravaganzza</h5>
+                  <p class="portfolio-desc" data-i18n="restaurant-desc">Run your grandfather's restaurant and grow it into a success! Fulfill online orders fast, upgrade the place, and manage stock wisely. I worked on level design, mechanics, store system, assets, music selection, and Scrum Master duties.</p>
+                  <a href="https://dojap.itch.io/restaurant-extravaganzza" class="portfolio-link" target="_blank" data-i18n="visit">Visit Page</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="portfolio-item filter-puzzle">
+              <div class="portfolio-card">
+                <img src="assets/img/portfolio/portfolio-3.png" loading="lazy" class="portfolio-img" alt="Twisted Tail" />
+                <div class="portfolio-overlay">
+                  <h5 class="portfolio-title">Twisted Tail</h5>
+                  <p class="portfolio-desc" data-i18n="twistedtail-desc">Escape the castle by outsmarting guards and solving puzzles! Blend into the environment to stay unseen and trigger mechanisms to move on. Made in 2 days for Zeno Game Jam. I designed the core mechanic, puzzles, and music selection.</p>
+                  <a href="https://marcd419.itch.io/twisted-tail" class="portfolio-link" target="_blank" data-i18n="visit">Visit Page</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="portfolio-item filter-turnBased">
+              <div class="portfolio-card">
+                <img src="assets/img/portfolio/portfolio-6.png" loading="lazy" class="portfolio-img" alt="Playern't Fantasy" />
+                <div class="portfolio-overlay">
+                  <h5 class="portfolio-title">Playern't Fantasy</h5>
+                  <p class="portfolio-desc" data-i18n="playerent-desc">Two factions are at war, but you rise as a third force to claim the glory, pushing enemies to unite against you. Made in 21 days for GameArtopia Jam. I worked on mechanics, abilities, map, music adjustment & implementation, and game balancing.</p>
+                  <a href="https://nhos.itch.io/playernt-fantasy" class="portfolio-link" target="_blank" data-i18n="visit">Visit Page</a>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
-      <!-- Portfolio -->
-      <section id="portfolio" class="container my-5">
-        <h2 class="text-center mb-4" data-i18n="projects">Projects</h2>
-
-        <div class="text-center mb-4">
-          <ul id="portfolio-filters" class="list-inline">
-            <li class="list-inline-item btn btn-sm btn-outline-light active" data-filter="*">All</li>
-            <li class="list-inline-item btn btn-sm btn-outline-light" data-filter=".filter-action">Action</li>
-            <li class="list-inline-item btn btn-sm btn-outline-light" data-filter=".filter-simulation">Simulation</li>
-            <li class="list-inline-item btn btn-sm btn-outline-light" data-filter=".filter-puzzle">Puzzle</li>
-            <li class="list-inline-item btn btn-sm btn-outline-light" data-filter=".filter-turnBased">Turn-Based</li>
-          </ul>
-        </div>
-
-        <div class="row portfolio-container">
-          <!-- Cada tarjeta usa Bootstrap grid y clases de filtro -->
-          <div class="col-md-6 col-lg-4 portfolio-item filter-action">
-            <div class="card h-100 shadow-sm bg-dark text-light border border-accent">
-              <img src="assets/img/portfolio/portfolio-1.png" loading="lazy" class="card-img-top" alt="Godly Thief" />
-              <div class="card-body d-flex flex-column">
-                <h5 class="card-title">Godly Thief</h5>
-                <p class="card-text" data-i18n="godlythief-desc">2D Hack 'n' Slash Roguelite where you steal enemy abilities to escape Thanatos' prison. I handled UI, menus, maps, music selection, wave system logic, Slime design, plus debugging and optimization to ensure smoother gameplay.</p>
-                <a href="https://marcd419.itch.io/godly-thief" class="btn mt-auto" target="_blank" data-i18n="visit">Visit Page</a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-md-6 col-lg-4 portfolio-item filter-action">
-            <div class="card h-100 shadow-sm bg-dark text-light border border-accent">
-              <img src="assets/img/portfolio/ghostngoblins.png" loading="lazy" class="card-img-top" alt="Ghost'N Goblins" />
-              <div class="card-body d-flex flex-column">
-                <h5 class="card-title"  data-i18n="gng-title">Ghost'N Goblins</h5>
-                <p class="card-text" data-i18n="gng-desc">Unofficial recreation of the classic arcade game Ghosts'N Goblins, developed for educational purposes during a game development degree. All rights to the original game belong to Capcom. Project created using Phaser.</p>
-                <a href="GhostNGoblins/GhostNGoblins.html" class="btn mt-auto" target="_blank" data-i18n="play">Play Now</a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-md-6 col-lg-4 portfolio-item filter-action">
-            <div class="card h-100 shadow-sm bg-dark text-light border border-accent">
-              <img src="assets/img/portfolio/portfolio-5.png" loading="lazy" class="card-img-top" alt="Towers of Clickanium" />
-              <div class="card-body d-flex flex-column">
-                <h5 class="card-title">Towers of Clickanium</h5>
-                <p class="card-text" data-i18n="clickanium-desc">A side-scrolling Tower Defense where archaeologists, military, and aliens clash to dominate vital resources. Strategy and fast decisions are key. I worked on UI/UX, music, credits, game balancing, lore, and Scrum management.</p>
-                <a href="https://youtu.be/mW7iOPUotSM" class="btn mt-auto" target="_blank" data-i18n="visit">Visit Page</a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-md-6 col-lg-4 portfolio-item filter-simulation">
-            <div class="card h-100 shadow-sm bg-dark text-light border border-accent">
-              <img src="assets/img/portfolio/portfolio-2.png" loading="lazy" class="card-img-top" alt="Restaurant Extravaganzza" />
-              <div class="card-body d-flex flex-column">
-                <h5 class="card-title">Restaurant Extravaganzza</h5>
-                <p class="card-text" data-i18n="restaurant-desc">Run your grandfather's restaurant and grow it into a success! Fulfill online orders fast, upgrade the place, and manage stock wisely. I worked on level design, mechanics, store system, assets, music selection, and Scrum Master duties.</p>
-                <a href="https://dojap.itch.io/restaurant-extravaganzza" class="btn mt-auto" target="_blank" data-i18n="visit">Visit Page</a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-md-6 col-lg-4 portfolio-item filter-puzzle">
-            <div class="card h-100 shadow-sm bg-dark text-light border border-accent">
-              <img src="assets/img/portfolio/portfolio-3.png" loading="lazy" class="card-img-top" alt="Twisted Tail" />
-              <div class="card-body d-flex flex-column">
-                <h5 class="card-title">Twisted Tail</h5>
-                <p class="card-text" data-i18n="twistedtail-desc">Escape the castle by outsmarting guards and solving puzzles! Blend into the environment to stay unseen and trigger mechanisms to move on. Made in 2 days for Zeno Game Jam. I designed the core mechanic, puzzles, and music selection.</p>
-                <a href="https://marcd419.itch.io/twisted-tail" class="btn mt-auto" target="_blank" data-i18n="visit">Visit Page</a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-md-6 col-lg-4 portfolio-item filter-turnBased">
-            <div class="card h-100 shadow-sm bg-dark text-light border border-accent">
-              <img src="assets/img/portfolio/portfolio-6.png" loading="lazy" class="card-img-top" alt="Playern't Fantasy" />
-              <div class="card-body d-flex flex-column">
-                <h5 class="card-title">Playern't Fantasy</h5>
-                <p class="card-text" data-i18n="playerent-desc">Two factions are at war, but you rise as a third force to claim the glory, pushing enemies to unite against you. Made in 21 days for GameArtopia Jam. I worked on mechanics, abilities, map, music adjustment & implementation, and game balancing.</p>
-                <a href="https://nhos.itch.io/playernt-fantasy" class="btn mt-auto" target="_blank" data-i18n="visit">Visit Page</a>
-              </div>
-            </div>
+      <!-- Contact Section -->
+      <section id="contact" class="contact-section">
+        <div class="container">
+          <div class="contact-content">
+            <h2 class="section-title" data-i18n="nav_contact">Contact</h2>
+            <p class="contact-text" data-i18n="contact_text">I'm currently looking for new opportunities as a Game Designer, especially in VR and small to mid-sized companies. Prefer remote work with flexible hours.</p>
+            <a href="mailto:jagv94@gmail.com" class="contact-btn">
+              <i class="fas fa-envelope me-2"></i>
+              <span data-i18n="contact_btn">Get In Touch</span>
+            </a>
           </div>
         </div>
       </section>
     </main>
-    <!-- Footer eliminado, ya existe en el aside -->
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <!-- <p class="footer-text">© 2025 Adrian Guerra. <span data-i18n="footer_rights">All rights reserved.</span></p> -->
+      </div>
+    </footer>
   </div>
 
   <!-- Bootstrap JS -->

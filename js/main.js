@@ -4,6 +4,42 @@ document.addEventListener("DOMContentLoaded", () => {
              (new URLSearchParams(window.location.search).get("lang") || 
              defaultLang);
 
+  // Initialize particles.js
+  particlesJS('particles-js', {
+    particles: {
+      number: { value: 80, density: { enable: true, value_area: 800 } },
+      color: { value: "#c084fc" },
+      shape: { type: "circle" },
+      opacity: { value: 0.5, random: true },
+      size: { value: 3, random: true },
+      line_linked: {
+        enable: true,
+        distance: 150,
+        color: "#8e6dc5",
+        opacity: 0.4,
+        width: 1
+      },
+      move: {
+        enable: true,
+        speed: 2,
+        direction: "none",
+        random: true,
+        straight: false,
+        out_mode: "out",
+        bounce: false
+      }
+    },
+    interactivity: {
+      detect_on: "canvas",
+      events: {
+        onhover: { enable: true, mode: "repulse" },
+        onclick: { enable: true, mode: "push" },
+        resize: true
+      }
+    },
+    retina_detect: true
+  });
+
   // Elementos de la navegación lateral
   const sidebar = document.getElementById('sidebar');
   const sidebarToggle = document.getElementById('sidebarToggle');
@@ -51,7 +87,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     setTimeout(() => {
-      const htmlKeys = ["intro", "footer_quote"];
+      const htmlKeys = ["intro", "footer_quote", "hero_description"];
 
       document.querySelectorAll("[data-i18n]").forEach(el => {
         const key = el.getAttribute("data-i18n");
@@ -141,12 +177,27 @@ document.addEventListener("DOMContentLoaded", () => {
             loader.parentNode.removeChild(loader);
           }
         }, { once: true });
-      }, 800);
+      }, 1000);
     });
   }
   
+  // Scroll animations
+  const fadeElements = document.querySelectorAll('.fade-in');
+  
+  const fadeInObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1 });
+  
+  fadeElements.forEach(el => {
+    fadeInObserver.observe(el);
+  });
+
   // Script para filtrado de portfolio con animaciones
-  const portfolioFilters = document.querySelectorAll("#portfolio-filters li");
+  const portfolioFilters = document.querySelectorAll(".filter-btn");
   const portfolioItems = document.querySelectorAll(".portfolio-item");
   
   if(portfolioFilters.length > 0 && portfolioItems.length > 0) {
@@ -183,8 +234,8 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Smooth scrolling para enlaces de navegación - CORREGIDO
-  document.querySelectorAll('.sidebar-link, .navbar-nav .nav-link').forEach(link => {
+  // Smooth scrolling para enlaces de navegación
+  document.querySelectorAll('.sidebar-link').forEach(link => {
     link.addEventListener('click', function(e) {
       e.preventDefault();
       
@@ -192,32 +243,13 @@ document.addEventListener("DOMContentLoaded", () => {
       const targetElement = document.querySelector(targetId);
       
       if (targetElement) {
-        // Calcular la posición considerando el header fijo y posibles offsets
-        const headerOffset = 80;
-        const elementPosition = targetElement.getBoundingClientRect().top;
-        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+        const targetPosition = targetElement.offsetTop - (window.innerWidth >= 992 ? 0 : 75);
         
         window.scrollTo({
-          top: offsetPosition,
+          top: targetPosition,
           behavior: 'smooth'
         });
-        
-        // Cerrar sidebar en móviles después de hacer clic
-        if (window.innerWidth < 1200) {
-          if (sidebar && sidebarOverlay) {
-            sidebar.classList.remove('active');
-            sidebarOverlay.classList.remove('active');
-            document.body.style.overflow = '';
-          }
-        }
       }
-    });
-  });
-
-  // Prevenir el comportamiento por defecto de los enlaces del filtro de portfolio
-  document.querySelectorAll('#portfolio-filters li').forEach(filter => {
-    filter.addEventListener('click', function(e) {
-      e.preventDefault();
     });
   });
 });
