@@ -216,9 +216,13 @@ body::before {
 }
 
 .lang-flag {
-  font-size: 20px;
+  width: 24px;
+  height: 18px;
   margin-bottom: 3px;
   transition: transform var(--transition-fast);
+  display: block;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 30%;
 }
 
 .lang-btn:hover .lang-flag {
@@ -742,14 +746,14 @@ body::before {
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(10, 10, 20, 0.9); /* Fondo más oscuro para mejor contraste */
+  background: rgba(10, 10, 20, 0.9);
   padding: 1.5rem;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start; /* Alinear al inicio */
+  justify-content: flex-start;
   opacity: 0;
   transition: opacity var(--transition-fast);
-  overflow-y: auto; /* Permitir scroll si el contenido es largo */
+  overflow-y: auto;
 }
 
 .portfolio-item:hover .portfolio-overlay {
@@ -761,7 +765,7 @@ body::before {
   font-weight: 600;
   margin-bottom: 0.5rem;
   color: var(--accent-light);
-  text-shadow: 0 0 5px rgba(0, 0, 0, 0.7); /* Sombra de texto para mejor legibilidad */
+  text-shadow: 0 0 5px rgba(0, 0, 0, 0.7);
 }
 
 .portfolio-desc {
@@ -769,8 +773,8 @@ body::before {
   margin-bottom: 1rem;
   opacity: 0.9;
   line-height: 1.5;
-  text-shadow: 0 0 5px rgba(0, 0, 0, 0.7); /* Sombra de texto para mejor legibilidad */
-  flex-grow: 1; /* Permitir que la descripción ocupe espacio disponible */
+  text-shadow: 0 0 5px rgba(0, 0, 0, 0.7);
+  flex-grow: 1;
 }
 
 .portfolio-link {
@@ -782,7 +786,7 @@ body::before {
   border-radius: 4px;
   font-weight: 600;
   transition: all var(--transition-fast);
-  align-self: flex-start; /* Alinear a la izquierda */
+  align-self: flex-start;
 }
 
 .portfolio-link:hover {
@@ -881,6 +885,7 @@ body::before {
   .sidebar {
     transform: translateX(-100%);
     width: var(--sidebar-width);
+    overflow-y: auto;
   }
   
   .main-content {
@@ -937,7 +942,6 @@ body::before {
     width: 100%;
   }
   
-  /* Asegurar que el selector de idioma sea visible en móviles */
   .lang-selector {
     flex-wrap: wrap;
     justify-content: center;
@@ -969,15 +973,32 @@ body::before {
     font-size: 1.8rem;
   }
   
-  /* Ajustes específicos para móviles muy pequeños */
   .sidebar {
     width: 85%;
+    padding: 1rem 0.5rem;
   }
   
   .lang-btn {
     width: 45px;
     height: 45px;
     margin: 0.2rem;
+  }
+  
+  .lang-tooltip {
+    display: none;
+  }
+  
+  .sidebar-content {
+    padding-bottom: 2rem;
+  }
+  
+  .sidebar-nav {
+    margin-bottom: 1rem;
+  }
+  
+  .lang-selector-container {
+    margin: 1rem 0;
+    padding: 0.8rem;
   }
   
   .social-icons a {
@@ -987,5 +1008,13 @@ body::before {
 
   .logo-img {
     max-width: 80px;
+  }
+  
+  .sidebar-footer {
+    position: relative;
+    z-index: 2;
+    background: rgba(10, 10, 20, 0.95);
+    padding-top: 1rem;
+    margin-top: 1rem;
   }
 }
