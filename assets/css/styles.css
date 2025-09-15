@@ -854,6 +854,28 @@ body::before {
   transform: translateY(0);
 }
 
+/* Logo styles */
+.logo-img {
+  max-width: 120px;
+  height: auto;
+  display: block;
+  margin: 0 auto 1.5rem;
+  filter: drop-shadow(0 0 10px rgba(192, 132, 252, 0.6));
+  transition: all var(--transition-fast);
+}
+
+.logo-img:hover {
+  transform: scale(1.05);
+  filter: drop-shadow(0 0 15px rgba(192, 132, 252, 0.8));
+}
+
+/* Ajustar el borde inferior para que coincida con el nuevo logo */
+.sidebar-brand {
+  border-bottom: var(--neon-border);
+  padding-bottom: 1rem;
+  text-align: center;
+}
+
 /* ==== MEDIA QUERIES ==== */
 @media (max-width: 1199px) {
   .sidebar {
@@ -881,6 +903,10 @@ body::before {
   
   .hero-description {
     font-size: 1rem;
+  }
+
+  .logo-img {
+    max-width: 100px;
   }
 }
 
@@ -957,5 +983,9 @@ body::before {
   .social-icons a {
     width: 35px;
     height: 35px;
+  }
+
+  .logo-img {
+    max-width: 80px;
   }
 }
