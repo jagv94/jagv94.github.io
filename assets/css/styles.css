@@ -507,8 +507,18 @@ body::before {
 /* ==== SKILLS SECTION ==== */
 .skills-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
+}
+
+/* Separador visual para las habilidades de idiomas */
+.skills-grid::before {
+  content: '';
+  grid-column: 1 / -1;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--accent), transparent);
+  margin: 1rem 0 2rem;
+  display: none;
 }
 
 .skill-card {
@@ -599,6 +609,20 @@ body::before {
 .skill-level-text {
   margin-top: 0.5rem;
   font-size: 16px;
+}
+
+/* Estilos específicos para habilidades de idiomas */
+.language-skill {
+  border-color: rgba(255, 165, 0, 0.5);
+  background: rgba(255, 165, 0, 0.05);
+}
+
+.language-skill .skill-icon {
+  color: #ffa500;
+}
+
+.language-skill:hover {
+  box-shadow: 0 0 15px rgba(255, 165, 0, 0.4);
 }
 
 /* ==== RESUME SECTION ==== */
@@ -913,13 +937,20 @@ body::before {
   .logo-img {
     max-width: 100px;
   }
-}
-
-@media (max-width: 992px) {
+  
+  /* Ajuste del grid de habilidades para tablets */
   .skills-grid {
     grid-template-columns: repeat(2, 1fr);
   }
   
+  /* Mostrar separador visual en tablets */
+  .skills-grid::before {
+    display: block;
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 992px) {
   .section-title {
     font-size: 2rem;
   }
@@ -945,6 +976,11 @@ body::before {
   .lang-selector {
     flex-wrap: wrap;
     justify-content: center;
+  }
+  
+  /* Reducir padding en móviles para ahorrar espacio */
+  .skill-card {
+    padding: 1.5rem;
   }
 }
 
@@ -1007,7 +1043,8 @@ body::before {
   }
 
   .logo-img {
-    max-width: 80px;
+    max-width: 60px;
+    margin-bottom: -0.5rem;
   }
   
   .sidebar-footer {
