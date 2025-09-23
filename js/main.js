@@ -296,4 +296,33 @@ document.addEventListener("DOMContentLoaded", () => {
       applyTFGTranslations(strings[e.detail.lang]);
     }
   });
+
+  // Función para actualizar favicon según el tema del sistema
+  function updateFaviconForTheme() {
+    const lightFavicon = document.getElementById('light-favicon');
+    const darkFavicon = document.getElementById('dark-favicon');
+    const defaultFavicon = document.getElementById('default-favicon');
+    
+    // Verificar si el navegador soporta prefers-color-scheme
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      // Modo oscuro
+      if (darkFavicon) {
+        defaultFavicon.href = darkFavicon.href;
+      }
+    } else {
+      // Modo claro
+      if (lightFavicon) {
+        defaultFavicon.href = lightFavicon.href;
+      }
+    }
+  }
+
+  // Escuchar cambios en la preferencia de tema
+  if (window.matchMedia) {
+    const colorSchemeQuery = window.matchMedia('(prefers-color-scheme: dark)');
+    colorSchemeQuery.addEventListener('change', updateFaviconForTheme);
+  }
+
+  // Inicializar al cargar la página
+  document.addEventListener('DOMContentLoaded', updateFaviconForTheme);
 });

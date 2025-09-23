@@ -4,7 +4,21 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title data-i18n="title">Adrian Guerra - Portfolio</title>
-  <link rel="icon" type="image/png" href="assets/img/logo.png">
+
+  <!-- Favicon configuration for light/dark mode -->
+  <link rel="icon" href="assets/img/favicon-light.ico" type="image/x-icon" id="default-favicon">
+
+  <!-- Light mode favicon -->
+  <link rel="icon" href="assets/img/favicon-light.ico" type="image/x-icon" media="(prefers-color-scheme: light)" id="light-favicon">
+
+  <!-- Dark mode favicon -->
+  <link rel="icon" href="assets/img/favicon-dark.ico" type="image/x-icon" media="(prefers-color-scheme: dark)" id="dark-favicon">
+
+  <!-- Apple Touch Icon (para dispositivos Apple) -->
+  <link rel="apple-touch-icon" href="assets/img/logo.png">
+
+  <!-- Favicon alternativo para navegadores que no soportan media queries -->
+  <link rel="shortcut icon" href="assets/img/favicon-light.ico" type="image/x-icon">
   
   <!-- Meta tags para SEO -->
   <meta name="description" content="Portfolio of Adrian Guerra - VR/XR Developer & Game Designer specializing in immersive experiences">
