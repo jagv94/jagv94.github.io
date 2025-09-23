@@ -1,5 +1,11 @@
 {
   "en": {
+    "portfolio-title": "Portfolio",
+    "portfolio-subtitle": "My recent projects",
+    "tfg-title": "Guidelines for VR Interaction Design",
+    "tfg-shortdesc": "UX/UI guide and a Unity demo to improve interaction comfort in an Action-RPG VR; validated with user tests (SSQ & SUS). (Available in Spanish only.)",
+    "tfg-link-pdf": "Read TFG (PDF)",
+    "tfg-featured-badge": "Featured",
     "language": "Language",
     "nav_home": "Home",
     "nav_skills": "Skills",
@@ -80,6 +86,12 @@
     "footer_quote": "Creating immersive experiences between reality and dreams"
   },
   "es": {
+    "portfolio-title": "Portfolio",
+    "portfolio-subtitle": "Mis proyectos más recientes",
+    "tfg-title": "Guía para el Desarrollo de Interacciones en VR",
+    "tfg-shortdesc": "Guía de UX/UI y demo en Unity para mejorar la comodidad e interacciones en un Action-RPG en VR; validado con pruebas de usuario (SSQ y SUS). (Disponible solo en español.)",
+    "tfg-link-pdf": "Leer TFG (PDF)",
+    "tfg-featured-badge": "Destacado",
     "language": "Idioma",
     "nav_home": "Inicio",
     "nav_skills": "Habilidades",
@@ -160,6 +172,12 @@
     "footer_quote": "Creando experiencias inmersivas entre la realidad y los sueños"
   },
   "jp": {
+    "portfolio-title": "ポートフォリオ",
+    "portfolio-subtitle": "最近のプロジェクト",
+    "tfg-title": "VRインタラクション設計ガイド",
+    "tfg-shortdesc": "Action-RPG向けVRの操作の快適性とインタラクションを改善するためのUX/UIガイドとUnityデモ。ユーザーテスト（SSQ・SUS）で検証済み。（スペイン語のみで公開）",
+    "tfg-link-pdf": "TFGを読む（PDF）",
+    "tfg-featured-badge": "注目",
     "language": "言語",
     "nav_home": "ホーム",
     "nav_skills": "スキル",

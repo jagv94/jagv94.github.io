@@ -252,4 +252,48 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   });
+
+  // ===============================
+  // FUNCIONALIDADES PARA EL TFG DESTACADO
+  // ===============================
+
+  // Función especial para destacar el TFG con efectos adicionales
+  function highlightTFG() {
+    const tfgItem = document.querySelector('.portfolio-item.highlighted');
+    
+    if (tfgItem) {
+      // Efecto de parpadeo suave cada 10 segundos
+      setInterval(() => {
+        tfgItem.style.animation = 'golden-border 4s ease, pulse 2s ease';
+        setTimeout(() => {
+          tfgItem.style.animation = 'golden-border 4s ease infinite';
+        }, 2000);
+      }, 10000);
+      
+      // Añadir tooltip al pasar el ratón
+      tfgItem.setAttribute('title', 'Trabajo de Fin de Grado - Proyecto Destacado');
+    }
+  }
+
+  // Aplicar traducciones específicas para el TFG
+  function applyTFGTranslations(translations) {
+    const tfgElements = document.querySelectorAll('.portfolio-item.highlighted [data-i18n]');
+    tfgElements.forEach(element => {
+      const key = element.getAttribute('data-i18n');
+      if (translations[key]) {
+        element.textContent = translations[key];
+      }
+    });
+  }
+
+  // Inicializar el TFG destacado
+  highlightTFG();
+
+  // Aplicar traducciones al TFG cuando cambie el idioma
+  document.addEventListener('langChanged', (e) => {
+    const strings = JSON.parse(sessionStorage.getItem("strings"));
+    if (strings && strings[e.detail.lang]) {
+      applyTFGTranslations(strings[e.detail.lang]);
+    }
+  });
 });

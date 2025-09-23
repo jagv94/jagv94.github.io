@@ -904,6 +904,97 @@ body::before {
   text-align: center;
 }
 
+/* ===============================
+   ESTILOS PARA TFG DESTACADO
+   =============================== */
+
+.portfolio-item.highlighted {
+  position: relative;
+  border: 3px solid transparent;
+  border-radius: 15px;
+  background: linear-gradient(45deg, #FFD700, #D4AF37, #FFD700, #D4AF37);
+  background-size: 400% 400%;
+  animation: golden-border 4s ease infinite;
+  padding: 4px;
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+  transition: all 0.3s ease;
+}
+
+.portfolio-item.highlighted::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, #FFD700, #D4AF37, #FFD700, #D4AF37);
+  background-size: 400% 400%;
+  border-radius: 17px;
+  z-index: -1;
+  animation: golden-border 4s ease infinite;
+  opacity: 0.7;
+}
+
+.portfolio-item.highlighted:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 10px 30px rgba(255, 215, 0, 0.5);
+}
+
+.portfolio-item.highlighted .portfolio-card {
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+  border: none;
+}
+
+.portfolio-item.highlighted .portfolio-info {
+  background: linear-gradient(to bottom, rgba(0,0,0,0.7), rgba(0,0,0,0.9));
+}
+
+.portfolio-item.highlighted .portfolio-info h4 {
+  color: #FFD700;
+  font-weight: 700;
+}
+
+.portfolio-item.highlighted .portfolio-links a {
+  background: #FFD700;
+  color: #333;
+  font-weight: 600;
+}
+
+.portfolio-item.highlighted .portfolio-links a:hover {
+  background: #FFA500;
+  color: #000;
+}
+
+@keyframes golden-border {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Badge "Destacado" */
+.portfolio-item.highlighted .portfolio-card::after {
+  content: 'Destacado';
+  position: absolute;
+  top: 15px;
+  right: -30px;
+  background: #FFD700;
+  color: #333;
+  padding: 5px 30px;
+  font-size: 12px;
+  font-weight: 700;
+  transform: rotate(45deg);
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  z-index: 10;
+}
+
 /* ==== MEDIA QUERIES ==== */
 @media (max-width: 1199px) {
   .sidebar {
