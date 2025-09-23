@@ -323,6 +323,6 @@ document.addEventListener("DOMContentLoaded", () => {
     colorSchemeQuery.addEventListener('change', updateFaviconForTheme);
   }
 
-  // Inicializar al cargar la página
-  document.addEventListener('DOMContentLoaded', updateFaviconForTheme);
+  // Inicializar al cargar la página (ya estamos dentro de DOMContentLoaded)
+  updateFaviconForTheme();
 });
