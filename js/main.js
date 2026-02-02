@@ -254,48 +254,43 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // ===============================
-  // FUNCIONALIDADES PARA EL TFG DESTACADO
+  // FUNCIONALIDADES PARA LA GALERÍA DESTACADA
   // ===============================
 
-  // Función especial para destacar el TFG con efectos adicionales
-  function highlightTFG() {
-    const tfgItem = document.querySelector('.portfolio-item.highlighted');
+  // Función para inicializar la galería destacada
+  function initFeaturedGallery() {
+    const panels = document.querySelectorAll('.featured-panel');
+    const gallery = document.querySelector('.featured-gallery');
     
-    if (tfgItem) {
-      // Efecto de parpadeo suave cada 10 segundos
-      setInterval(() => {
-        tfgItem.style.animation = 'golden-border 4s ease, pulse 2s ease';
-        setTimeout(() => {
-          tfgItem.style.animation = 'golden-border 4s ease infinite';
-        }, 2000);
-      }, 10000);
+    if (!panels.length || !gallery) return;
+    
+    // Efecto hover para expandir
+    panels.forEach(panel => {
+      panel.addEventListener('mouseenter', () => {
+        // Asegurar que solo un panel esté expandido a la vez
+        panels.forEach(p => {
+          if (p !== panel) {
+            p.classList.add('other-panel');
+          }
+        });
+      });
       
-      // Añadir tooltip al pasar el ratón
-      tfgItem.setAttribute('title', 'Trabajo de Fin de Grado - Proyecto Destacado');
-    }
-  }
-
-  // Aplicar traducciones específicas para el TFG
-  function applyTFGTranslations(translations) {
-    const tfgElements = document.querySelectorAll('.portfolio-item.highlighted [data-i18n]');
-    tfgElements.forEach(element => {
-      const key = element.getAttribute('data-i18n');
-      if (translations[key]) {
-        element.textContent = translations[key];
-      }
+      panel.addEventListener('mouseleave', () => {
+        // Restaurar todos los paneles
+        panels.forEach(p => {
+          p.classList.remove('other-panel');
+        });
+      });
     });
+    
+    // Añadir clase al cargar para animación de entrada
+    setTimeout(() => {
+      gallery.classList.add('gallery-loaded');
+    }, 500);
   }
 
-  // Inicializar el TFG destacado
-  highlightTFG();
-
-  // Aplicar traducciones al TFG cuando cambie el idioma
-  document.addEventListener('langChanged', (e) => {
-    const strings = JSON.parse(sessionStorage.getItem("strings"));
-    if (strings && strings[e.detail.lang]) {
-      applyTFGTranslations(strings[e.detail.lang]);
-    }
-  });
+  // Inicializar la galería destacada
+  initFeaturedGallery();
 
   // Función para actualizar favicon según el tema del sistema
   function updateFaviconForTheme() {

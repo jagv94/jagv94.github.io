@@ -107,9 +107,15 @@
           </a>
         </li>
         <li class="sidebar-item">
+          <a class="sidebar-link" href="#featured-projects">
+            <i class="fas fa-star me-2"></i>
+            <span data-i18n="featured_projects">Featured Projects</span>
+          </a>
+        </li>
+        <li class="sidebar-item">
           <a class="sidebar-link" href="#portfolio">
             <i class="fas fa-briefcase me-2"></i>
-            <span data-i18n="nav_projects">Projects</span>
+            <span data-i18n="project_archive">Project Archive</span>
           </a>
         </li>
         <li class="sidebar-item">
@@ -170,7 +176,7 @@
 		  <br/><br/>Expert in Unreal Engine (C++/Blueprints) and Unity (C#), with strong skills in VR/XR development. Passionate about creating mechanics that are both technically robust and emotionally satisfying for players.
 		  <br/><br/>Current interests: Japanese language learning, 3D animation, and exploring AI applications.
         </p>
-        <a href="#portfolio" class="hero-btn" data-i18n="view_work">View My Work</a>
+        <a href="#featured-projects" class="hero-btn" data-i18n="view_work">View My Work</a>
       </div>
     </header>
 
@@ -378,10 +384,119 @@
       </section>
       <!-- ======= End Resume Section ======= -->
 
-      <!-- Portfolio -->
+            <!-- Featured Projects Section -->
+      <section id="featured-projects" class="featured-section">
+        <div class="container">
+          <h2 class="section-title" data-i18n="featured_projects">Featured Projects</h2>
+          
+          <div class="featured-gallery">
+            <!-- Proyecto 1: TFG VR Interaction Design -->
+            <div class="featured-panel" data-project="tfg">
+              <div class="panel-base">
+                <div class="panel-image-wrapper">
+                  <img src="assets/img/portfolio/tfg-vr-thumbnail.png" loading="lazy" class="panel-image" alt="VR Interaction Design Guide" />
+                </div>
+                <div class="panel-expanded-content">
+                  <div class="expanded-inner">
+                    <img src="assets/img/portfolio/tfg-hero-wide.jpg" loading="lazy" class="expanded-hero" alt="VR Interaction Guide Hero" />
+                    <div class="project-details">
+                      <h3 class="project-title" data-i18n="tfg-title">VR Interaction Design Guide for Action-RPGs</h3>
+                      <div class="project-meta">
+                        <span class="project-role">Bachelor's Thesis – Unity – VR/XR</span>
+                      </div>
+                      <p class="project-description" data-i18n="featured_tfg_desc">
+                        Bachelor's Thesis - Research-driven UX/UI and interaction design guide focused on improving comfort, readability, and player interaction in VR Action-RPGs. Combines practical implementation with user testing to evaluate and refine interaction systems in virtual reality.
+                      </p>
+                      <div class="project-responsibilities">
+                        <h4 data-i18n="tfg_contributions_title">Key contributions</h4>
+                        <ul>
+                          <li data-i18n="tfg_contribution_1">Design and implementation of VR interaction patterns and UI systems in Unity</li>
+                          <li data-i18n="tfg_contribution_2">Definition of comfort-focused interaction guidelines</li>
+                          <li data-i18n="tfg_contribution_3">User testing and validation using SSQ and SUS methodologies</li>
+                          <li data-i18n="tfg_contribution_4">Analysis of results and iteration based on player feedback</li>
+                        </ul>
+                      </div>
+                      <p class="project-note" data-i18n="tfg_note">(Full thesis available in Spanish.)</p>
+                      <a href="assets/docs/Guia_para_el_Desarrollo_de_Interacciones_en_VR-Guerra_Viudez_Jose_Adrian.pdf" class="project-link" target="_blank" data-i18n="tfg-link-pdf">Read Thesis (PDF)</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Proyecto 2: Godly Thief -->
+            <div class="featured-panel" data-project="godlythief">
+              <div class="panel-base">
+                <div class="panel-image-wrapper">
+                  <img src="assets/img/portfolio/portfolio-1.png" loading="lazy" class="panel-image" alt="Godly Thief" />
+                </div>
+                <div class="panel-expanded-content">
+                  <div class="expanded-inner">
+                    <img src="assets/img/portfolio/godlythief-hero-wide.jpg" loading="lazy" class="expanded-hero" alt="Godly Thief Hero" />
+                    <div class="project-details">
+                      <h3 class="project-title">Godly Thief</h3>
+                      <div class="project-meta">
+                        <span class="project-role">2D Roguelite Hack'n'Slash – Unity</span>
+                      </div>
+                      <p class="project-description" data-i18n="featured_godlythief_desc">
+                        2D Roguelite Hack'n'Slash - Gameplay-focused roguelite where players steal abilities from enemies to escape a mythological prison. Designed and implemented core gameplay systems with focus on pacing, difficulty scaling, and moment-to-moment player feedback.
+                      </p>
+                      <div class="project-responsibilities">
+                        <h4 data-i18n="godlythief_contributions_title">Key contributions</h4>
+                        <ul>
+                          <li data-i18n="godlythief_contribution_1">Design and implementation of the enemy wave system and progression</li>
+                          <li data-i18n="godlythief_contribution_2">Enemy behavior design (Slime enemy)</li>
+                          <li data-i18n="godlythief_contribution_3">Gameplay UI and player feedback systems</li>
+                          <li data-i18n="godlythief_contribution_4">Debugging, optimization, and iteration based on playtesting</li>
+                        </ul>
+                      </div>
+                      <a href="https://marcd419.itch.io/godly-thief" class="project-link" target="_blank" data-i18n="visit">View Project</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Proyecto 3: Twisted Tail -->
+            <div class="featured-panel" data-project="twistedtail">
+              <div class="panel-base">
+                <div class="panel-image-wrapper">
+                  <img src="assets/img/portfolio/portfolio-3.png" loading="lazy" class="panel-image" alt="Twisted Tail" />
+                </div>
+                <div class="panel-expanded-content">
+                  <div class="expanded-inner">
+                    <img src="assets/img/portfolio/twistedtail-hero-wide.jpg" loading="lazy" class="expanded-hero" alt="Twisted Tail Hero" />
+                    <div class="project-details">
+                      <h3 class="project-title">Twisted Tail</h3>
+                      <div class="project-meta">
+                        <span class="project-role">Puzzle / Stealth Game – Unity – Game Jam (48h)</span>
+                      </div>
+                      <p class="project-description" data-i18n="featured_twistedtail_desc">
+                        Puzzle/Stealth Game - Game Jam (48h) - Short-form puzzle game built around a color-based camouflage mechanic, developed during a 48-hour game jam. Focused on rapid iteration, clarity of mechanics, and readable player feedback under tight constraints.
+                      </p>
+                      <div class="project-responsibilities">
+                        <h4 data-i18n="twistedtail_contributions_title">Key contributions</h4>
+                        <ul>
+                          <li data-i18n="twistedtail_contribution_1">Design of the core camouflage mechanic</li>
+                          <li data-i18n="twistedtail_contribution_2">Puzzle design based on visual language and timing</li>
+                          <li data-i18n="twistedtail_contribution_3">Enemy behavior and player state logic</li>
+                          <li data-i18n="twistedtail_contribution_4">Audio implementation and integration</li>
+                        </ul>
+                      </div>
+                      <a href="https://marcd419.itch.io/twisted-tail" class="project-link" target="_blank" data-i18n="visit">View Project</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Portfolio Archive -->
       <section id="portfolio" class="portfolio-section">
         <div class="container">
-          <h2 class="section-title" data-i18n="projects">Projects</h2>
+          <h2 class="section-title" data-i18n="project_archive">Project Archive</h2>
 
           <div class="portfolio-filters">
             <button class="filter-btn active" data-filter="*">All</button>
@@ -393,14 +508,14 @@
           </div>
 
           <div class="portfolio-grid">
-            <!-- TFG: Guía para el Desarrollo de Interacciones en VR -->
-            <div class="portfolio-item filter-vr highlighted">
+                        <!-- TFG: Guía para el Desarrollo de Interacciones en VR -->
+            <div class="portfolio-item filter-vr">
               <div class="portfolio-card">
                 <img src="assets/img/portfolio/tfg-vr-thumbnail.png" loading="lazy" class="portfolio-img" alt="Guía Interacciones VR - thumbnail" />
                 <div class="portfolio-overlay">
-                  <h5 class="portfolio-title" data-i18n="tfg-title">Guidelines for VR Interaction Design</h5>
-                  <p class="portfolio-desc" data-i18n="tfg-shortdesc">UX/UI guide and a Unity demo to improve interaction comfort in an Action-RPG VR; validated with user tests (SSQ & SUS). (Available in Spanish only.)</p>
-                  <a href="assets/docs/Guia_para_el_Desarrollo_de_Interacciones_en_VR-Guerra_Viudez_Jose_Adrian.pdf" class="portfolio-link" target="_blank" data-i18n="tfg-link-pdf">Read TFG (PDF)</a>
+                  <h5 class="portfolio-title" data-i18n="tfg-title">VR Interaction Design Guide for Action-RPGs</h5>
+                  <p class="portfolio-desc" data-i18n="tfg-shortdesc">Bachelor's Thesis - UX/UI guide and Unity demo to improve interaction comfort in VR Action-RPGs; validated with user tests (SSQ & SUS). (Available in Spanish.)</p>
+                  <a href="assets/docs/Guia_para_el_Desarrollo_de_Interacciones_en_VR-Guerra_Viudez_Jose_Adrian.pdf" class="portfolio-link" target="_blank" data-i18n="tfg-link-pdf">Read Thesis (PDF)</a>
                 </div>
               </div>
             </div>
