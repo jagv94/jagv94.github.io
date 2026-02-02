@@ -791,6 +791,7 @@ body::before {
   top: 0;
   left: 0;
   z-index: 1;
+  transition: opacity 0.4s ease;
 }
 
 .panel-image {
@@ -798,11 +799,13 @@ body::before {
   height: 100%;
   object-fit: cover;
   filter: brightness(0.9);
-  transition: filter 0.3s ease;
+  transition: opacity 0.4s ease, transform 0.4s ease;
 }
 
+/* EN DESKTOP: La imagen se desvanece al hacer hover */
 .featured-panel:hover .panel-image {
   opacity: 0;
+  transform: scale(1.05);
 }
 
 .panel-expanded-content {
@@ -815,6 +818,7 @@ body::before {
   transform: translateX(20px);
   transition: all 0.4s ease 0.2s;
   z-index: 2;
+  display: none; /* Oculto por defecto en móvil */
 }
 
 .featured-panel:hover .panel-expanded-content {
@@ -954,6 +958,198 @@ body::before {
 .featured-gallery:hover .featured-panel:not(:hover) {
   opacity: 0.6;
   filter: blur(1px);
+}
+
+/* ===== CORRECCIÓN PARA GALERÍA DESTACADA EN MÓVIL ===== */
+@media (max-width: 992px) {
+  .featured-gallery {
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    perspective: none;
+  }
+  
+  .featured-panel {
+    width: 90%;
+    max-width: 500px;
+    height: 300px;
+    transform: skewY(0) !important;
+    margin: 0;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%) !important;
+    transition: all 0.4s ease;
+  }
+  
+  /* En móvil, mostramos siempre la imagen por defecto */
+  .featured-panel .panel-image-wrapper {
+    opacity: 1;
+    z-index: 1;
+  }
+  
+  .featured-panel .panel-image {
+    opacity: 1 !important;
+    transform: none !important;
+    display: block !important;
+  }
+  
+  /* En móvil, el contenido expandido está oculto por defecto */
+  .featured-panel .panel-expanded-content {
+    display: none;
+    opacity: 0;
+    transform: none;
+  }
+  
+  /* Cuando el panel está expandido en móvil */
+  .featured-panel.mobile-expanded {
+    height: auto;
+    min-height: 500px;
+    z-index: 1000;
+  }
+  
+  .featured-panel.mobile-expanded .panel-image-wrapper {
+    opacity: 0;
+    z-index: 0;
+  }
+  
+  .featured-panel.mobile-expanded .panel-image {
+    opacity: 0 !important;
+    visibility: hidden;
+  }
+  
+  .featured-panel.mobile-expanded .panel-expanded-content {
+    display: block;
+    opacity: 1;
+    transform: none;
+    z-index: 2;
+  }
+  
+  .featured-panel.other-panel {
+    opacity: 1;
+    transform: none;
+    filter: none;
+  }
+  
+  .expanded-inner {
+    flex-direction: column;
+    height: auto;
+    min-height: 500px;
+  }
+  
+  .expanded-hero {
+    width: 100%;
+    height: 200px;
+    border-right: none;
+    border-bottom: 2px solid var(--accent);
+  }
+  
+  .project-details {
+    width: 100%;
+    height: auto;
+    padding: 1.5rem;
+    max-height: 300px;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  /* Botón de cierre para móvil */
+  .mobile-close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 40px;
+    height: 40px;
+    background: var(--accent);
+    color: var(--bg-dark);
+    border: none;
+    border-radius: 50%;
+    z-index: 1001;
+    font-size: 1.2rem;
+    display: none; /* Oculto por defecto, se muestra con JS */
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: var(--accent-glow);
+    transition: all 0.3s ease;
+  }
+  
+  .mobile-close-btn:hover {
+    transform: scale(1.1);
+    background: var(--accent-light);
+  }
+  
+  .d-lg-none {
+    display: none;
+  }
+}
+
+/* En desktop, mostramos el botón de cierre */
+@media (min-width: 993px) {
+  .mobile-close-btn {
+    display: none !important;
+  }
+  
+  .featured-panel:hover .panel-expanded-content {
+    display: block;
+  }
+}
+
+/* Estado activo para móvil */
+.featured-panel.mobile-expanded .panel-base {
+  height: auto;
+  min-height: 500px;
+}
+
+/* Mejorar scroll en móvil */
+@media (max-width: 768px) {
+  .project-details {
+    max-height: 250px;
+  }
+  
+  .project-responsibilities ul {
+    padding-left: 1.5rem;
+  }
+  
+  .project-responsibilities li {
+    margin-bottom: 0.5rem;
+    font-size: 0.95rem;
+  }
+  
+  .featured-panel.mobile-expanded {
+    min-height: 550px;
+  }
+}
+
+/* ===== MEJORAS ESPECÍFICAS PARA MÓVIL PEQUEÑO ===== */
+@media (max-width: 576px) {
+  .featured-panel {
+    height: 250px;
+  }
+  
+  .featured-panel.mobile-expanded {
+    min-height: 500px;
+  }
+  
+  .expanded-inner {
+    min-height: 500px;
+  }
+  
+  .project-title {
+    font-size: 1.4rem;
+  }
+  
+  .project-description {
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+  
+  .project-link {
+    width: 100%;
+    text-align: center;
+    padding: 0.8rem 1rem;
+  }
+  
+  .project-details {
+    max-height: 250px;
+  }
 }
 
 /* ==== PORTFOLIO SECTION - MEJORADO ==== */
@@ -1157,7 +1353,7 @@ body::before {
   text-align: center;
 }
 
-/* ==== MEDIA QUERIES ==== */
+/* ==== MEDIA QUERIES GENERALES ==== */
 @media (max-width: 1199px) {
   .sidebar {
     transform: translateX(-100%);
@@ -1222,43 +1418,9 @@ body::before {
     font-size: 2rem;
   }
   
-  /* Ajustes para la galería destacada en pantallas medianas */
-  .featured-gallery {
-    flex-direction: column;
-    gap: 2rem;
-    perspective: none;
-  }
-  
-  .featured-panel {
-    width: 80%;
-    height: 300px;
-    transform: skewY(0);
-    margin: 0;
-    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
-  }
-  
-  .featured-panel:hover {
-    width: 90%;
-    height: auto;
-    min-height: 500px;
-    transform: skewY(0);
-    margin: 0;
-  }
-  
-  .expanded-inner {
-    flex-direction: column;
-  }
-  
-  .expanded-hero {
-    width: 100%;
-    height: 200px;
-    border-right: none;
-    border-bottom: 2px solid var(--accent);
-  }
-  
-  .project-details {
-    width: 100%;
-    height: auto;
+  /* Mostrar botones de cierre en móvil */
+  .d-lg-none {
+    display: flex !important;
   }
 }
 
@@ -1368,7 +1530,7 @@ body::before {
   }
   
   .featured-panel {
-    width: 90%;
+    width: 95%;
   }
   
   .featured-panel:hover {

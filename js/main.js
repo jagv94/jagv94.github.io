@@ -254,7 +254,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // ===============================
-  // FUNCIONALIDADES PARA LA GALERÍA DESTACADA
+  // FUNCIONALIDADES PARA LA GALERÍA DESTACADA - VERSIÓN MEJORADA
   // ===============================
 
   // Función para inicializar la galería destacada
@@ -264,33 +264,177 @@ document.addEventListener("DOMContentLoaded", () => {
     
     if (!panels.length || !gallery) return;
     
-    // Efecto hover para expandir
-    panels.forEach(panel => {
-      panel.addEventListener('mouseenter', () => {
-        // Asegurar que solo un panel esté expandido a la vez
-        panels.forEach(p => {
-          if (p !== panel) {
-            p.classList.add('other-panel');
-          }
-        });
-      });
-      
-      panel.addEventListener('mouseleave', () => {
-        // Restaurar todos los paneles
-        panels.forEach(p => {
-          p.classList.remove('other-panel');
-        });
-      });
-    });
+    // Detectar si es móvil
+    const isMobile = window.innerWidth < 992;
     
     // Añadir clase al cargar para animación de entrada
     setTimeout(() => {
       gallery.classList.add('gallery-loaded');
     }, 500);
+    
+    if (isMobile) {
+      // COMPORTAMIENTO PARA MÓVIL (clic en lugar de hover)
+      panels.forEach(panel => {
+        // Añadir botón de cierre si no existe
+        let closeBtn = panel.querySelector('.mobile-close-btn');
+        if (!closeBtn) {
+          closeBtn = document.createElement('button');
+          closeBtn.className = 'mobile-close-btn d-lg-none';
+          closeBtn.innerHTML = '<i class="fas fa-times"></i>';
+          closeBtn.setAttribute('aria-label', 'Close');
+          closeBtn.style.display = 'none'; // Oculto por defecto
+          panel.querySelector('.panel-expanded-content').appendChild(closeBtn);
+        }
+        
+        // Evento para expandir el panel
+        panel.addEventListener('click', function(e) {
+          // No hacer nada si se hace clic en el botón de cierre
+          if (e.target.closest('.mobile-close-btn')) return;
+          
+          e.stopPropagation();
+          
+          // Si ya está expandido, no hacer nada
+          if (this.classList.contains('mobile-expanded')) return;
+          
+          // Contraer todos los paneles primero
+          panels.forEach(p => {
+            p.classList.remove('mobile-expanded');
+            const btn = p.querySelector('.mobile-close-btn');
+            if (btn) btn.style.display = 'none';
+          });
+          
+          // Expandir este panel
+          this.classList.add('mobile-expanded');
+          
+          // Mostrar botón de cierre
+          const thisCloseBtn = this.querySelector('.mobile-close-btn');
+          if (thisCloseBtn) {
+            thisCloseBtn.style.display = 'flex';
+          }
+          
+          // Desplazar suavemente para que sea visible
+          setTimeout(() => {
+            this.scrollIntoView({ 
+              behavior: 'smooth', 
+              block: 'nearest',
+              inline: 'nearest'
+            });
+          }, 100);
+        });
+        
+        // Configurar botón de cierre
+        closeBtn.addEventListener('click', function(e) {
+          e.stopPropagation();
+          e.preventDefault();
+          
+          // Remover clase de expansión
+          panel.classList.remove('mobile-expanded');
+          
+          // Ocultar botón de cierre
+          this.style.display = 'none';
+          
+          // Forzar que la imagen vuelva a ser visible
+          const imageWrapper = panel.querySelector('.panel-image-wrapper');
+          const image = panel.querySelector('.panel-image');
+          
+          if (imageWrapper) {
+            imageWrapper.style.opacity = '1';
+            imageWrapper.style.zIndex = '1';
+          }
+          
+          if (image) {
+            image.style.opacity = '1';
+            image.style.visibility = 'visible';
+            image.style.display = 'block';
+          }
+        });
+      });
+      
+      // Cerrar al hacer clic fuera (solo si está expandido)
+      document.addEventListener('click', function(e) {
+        if (!e.target.closest('.featured-panel.mobile-expanded') && 
+            document.querySelector('.featured-panel.mobile-expanded')) {
+          panels.forEach(p => {
+            p.classList.remove('mobile-expanded');
+            const btn = p.querySelector('.mobile-close-btn');
+            if (btn) btn.style.display = 'none';
+            
+            // Restaurar imagen
+            const imageWrapper = p.querySelector('.panel-image-wrapper');
+            const image = p.querySelector('.panel-image');
+            
+            if (imageWrapper) {
+              imageWrapper.style.opacity = '1';
+              imageWrapper.style.zIndex = '1';
+            }
+            
+            if (image) {
+              image.style.opacity = '1';
+              image.style.visibility = 'visible';
+              image.style.display = 'block';
+            }
+          });
+        }
+      });
+      
+    } else {
+      // COMPORTAMIENTO PARA DESKTOP (hover)
+      panels.forEach(panel => {
+        panel.addEventListener('mouseenter', () => {
+          // Asegurar que solo un panel esté expandido a la vez
+          panels.forEach(p => {
+            if (p !== panel) {
+              p.classList.add('other-panel');
+            }
+          });
+        });
+        
+        panel.addEventListener('mouseleave', () => {
+          // Restaurar todos los paneles
+          panels.forEach(p => {
+            p.classList.remove('other-panel');
+          });
+        });
+        
+        // Ocultar botones de cierre en desktop
+        const closeBtn = panel.querySelector('.mobile-close-btn');
+        if (closeBtn) {
+          closeBtn.style.display = 'none';
+        }
+      });
+    }
   }
 
   // Inicializar la galería destacada
   initFeaturedGallery();
+
+  // Re-inicializar la galería al redimensionar la ventana
+  window.addEventListener('resize', function() {
+    initFeaturedGallery();
+    
+    // Si cambiamos a modo desktop, asegurarnos de que no hay paneles expandidos
+    if (window.innerWidth >= 992) {
+      document.querySelectorAll('.featured-panel').forEach(panel => {
+        panel.classList.remove('mobile-expanded');
+        const btn = panel.querySelector('.mobile-close-btn');
+        if (btn) btn.style.display = 'none';
+        
+        // Restaurar imagen
+        const imageWrapper = panel.querySelector('.panel-image-wrapper');
+        const image = panel.querySelector('.panel-image');
+        
+        if (imageWrapper) {
+          imageWrapper.style.opacity = '1';
+          imageWrapper.style.zIndex = '1';
+        }
+        
+        if (image) {
+          image.style.opacity = '1';
+          image.style.visibility = 'visible';
+        }
+      });
+    }
+  });
 
   // Función para actualizar favicon según el tema del sistema
   function updateFaviconForTheme() {
@@ -318,6 +462,6 @@ document.addEventListener("DOMContentLoaded", () => {
     colorSchemeQuery.addEventListener('change', updateFaviconForTheme);
   }
 
-  // Inicializar al cargar la página (ya estamos dentro de DOMContentLoaded)
+  // Inicializar al cargar la página
   updateFaviconForTheme();
 });
