@@ -1,44 +1,58 @@
 document.addEventListener("DOMContentLoaded", () => {
   const defaultLang = "en";
-  let lang = localStorage.getItem("lang") || 
-             (new URLSearchParams(window.location.search).get("lang") || 
-             defaultLang);
+  const supportedLangs = new Set(["en", "es", "ja"]);
+  const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+  let lang = new URLSearchParams(window.location.search).get("lang") || localStorage.getItem("lang") || defaultLang;
 
-  // Initialize particles.js
-  particlesJS('particles-js', {
-    particles: {
-      number: { value: 80, density: { enable: true, value_area: 800 } },
-      color: { value: "#c084fc" },
-      shape: { type: "circle" },
-      opacity: { value: 0.5, random: true },
-      size: { value: 3, random: true },
-      line_linked: {
-        enable: true,
-        distance: 150,
-        color: "#8e6dc5",
-        opacity: 0.4,
-        width: 1
+  if (!supportedLangs.has(lang)) {
+    lang = defaultLang;
+  }
+
+  document.documentElement.lang = lang;
+  localStorage.setItem("lang", lang);
+
+  // Initialize particles.js only on larger screens when motion is allowed
+  const particlesContainer = document.getElementById("particles-js");
+  const shouldEnableParticles = particlesContainer && !prefersReducedMotion.matches && window.innerWidth >= 992;
+
+  if (shouldEnableParticles && typeof particlesJS === "function") {
+    particlesJS('particles-js', {
+      particles: {
+        number: { value: 80, density: { enable: true, value_area: 800 } },
+        color: { value: "#c084fc" },
+        shape: { type: "circle" },
+        opacity: { value: 0.5, random: true },
+        size: { value: 3, random: true },
+        line_linked: {
+          enable: true,
+          distance: 150,
+          color: "#8e6dc5",
+          opacity: 0.4,
+          width: 1
+        },
+        move: {
+          enable: true,
+          speed: 2,
+          direction: "none",
+          random: true,
+          straight: false,
+          out_mode: "out",
+          bounce: false
+        }
       },
-      move: {
-        enable: true,
-        speed: 2,
-        direction: "none",
-        random: true,
-        straight: false,
-        out_mode: "out",
-        bounce: false
-      }
-    },
-    interactivity: {
-      detect_on: "canvas",
-      events: {
-        onhover: { enable: true, mode: "repulse" },
-        onclick: { enable: true, mode: "push" },
-        resize: true
-      }
-    },
-    retina_detect: true
-  });
+      interactivity: {
+        detect_on: "canvas",
+        events: {
+          onhover: { enable: true, mode: "repulse" },
+          onclick: { enable: true, mode: "push" },
+          resize: true
+        }
+      },
+      retina_detect: true
+    });
+  } else if (particlesContainer) {
+    particlesContainer.style.display = "none";
+  }
 
   // Elementos de la navegación lateral
   const sidebar = document.getElementById('sidebar');
@@ -49,14 +63,16 @@ document.addEventListener("DOMContentLoaded", () => {
   // Toggle sidebar en móviles
   if (sidebarToggle && sidebar && sidebarOverlay) {
     sidebarToggle.addEventListener('click', () => {
-      sidebar.classList.toggle('active');
-      sidebarOverlay.classList.toggle('active');
-      document.body.style.overflow = sidebar.classList.contains('active') ? 'hidden' : '';
+      const isActive = sidebar.classList.toggle('active');
+      sidebarOverlay.classList.toggle('active', isActive);
+      sidebarToggle.setAttribute('aria-expanded', String(isActive));
+      document.body.style.overflow = isActive ? 'hidden' : '';
     });
 
     sidebarOverlay.addEventListener('click', () => {
       sidebar.classList.remove('active');
       sidebarOverlay.classList.remove('active');
+      sidebarToggle.setAttribute('aria-expanded', 'false');
       document.body.style.overflow = '';
     });
   }
@@ -67,6 +83,9 @@ document.addEventListener("DOMContentLoaded", () => {
       if (window.innerWidth < 1200) {
         sidebar.classList.remove('active');
         sidebarOverlay.classList.remove('active');
+        if (sidebarToggle) {
+          sidebarToggle.setAttribute('aria-expanded', 'false');
+        }
         document.body.style.overflow = '';
       }
     });
@@ -111,7 +130,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const resumeByLang = {
       es: resumeLink.dataset.cvEs,
       en: resumeLink.dataset.cvEn,
-      jp: resumeLink.dataset.cvJp || resumeLink.dataset.cvEn
+      ja: resumeLink.dataset.cvJa || resumeLink.dataset.cvEn
     };
 
     resumeLink.href = resumeByLang[currentLang] || resumeByLang.en || resumeByLang.es;
@@ -122,11 +141,9 @@ document.addEventListener("DOMContentLoaded", () => {
   // Configurar botones de idioma
   function setupLanguageButtons() {
     document.querySelectorAll(".lang-btn").forEach(button => {
-      if (button.dataset.lang === lang) {
-        button.classList.add("active");
-      } else {
-        button.classList.remove("active");
-      }
+      const isActive = button.dataset.lang === lang;
+      button.classList.toggle("active", isActive);
+      button.setAttribute("aria-pressed", String(isActive));
       
       button.addEventListener("click", () => {
         const selectedLang = button.dataset.lang;
@@ -135,8 +152,10 @@ document.addEventListener("DOMContentLoaded", () => {
         // Actualizar botones activos
         document.querySelectorAll(".lang-btn").forEach(btn => {
           btn.classList.remove("active");
+          btn.setAttribute("aria-pressed", "false");
         });
         button.classList.add("active");
+        button.setAttribute("aria-pressed", "true");
         
         localStorage.setItem("lang", selectedLang);
         lang = selectedLang;
@@ -161,9 +180,10 @@ document.addEventListener("DOMContentLoaded", () => {
   // Precargar traducciones desde sessionStorage si están disponibles
   const stringsCache = sessionStorage.getItem("strings");
   const strings = stringsCache ? JSON.parse(stringsCache) : null;
+  const hasCachedTranslations = Boolean(strings && strings[lang]);
 
   // Si tenemos traducciones en caché, aplicarlas inmediatamente
-  if (strings) {
+  if (hasCachedTranslations) {
     applyTranslations(strings, lang);
     updateResumeLink(lang);
     setupLanguageButtons();
@@ -175,7 +195,7 @@ document.addEventListener("DOMContentLoaded", () => {
     .then(data => {
       sessionStorage.setItem("strings", JSON.stringify(data));
       
-      if (!strings) {
+      if (!hasCachedTranslations) {
         applyTranslations(data, lang);
         updateResumeLink(lang);
         setupLanguageButtons();
@@ -186,7 +206,9 @@ document.addEventListener("DOMContentLoaded", () => {
   // Script para el loader
   const loader = document.getElementById('loader');
   if(loader) {
-    window.addEventListener('load', function() {
+    const hideLoader = () => {
+      const loaderHideDelay = prefersReducedMotion.matches ? 0 : 150;
+
       setTimeout(() => {
         loader.classList.add('loader-hidden');
         
@@ -195,24 +217,36 @@ document.addEventListener("DOMContentLoaded", () => {
             loader.parentNode.removeChild(loader);
           }
         }, { once: true });
-      }, 1000);
-    });
+      }, loaderHideDelay);
+    };
+
+    if (document.readyState === 'complete') {
+      hideLoader();
+    } else {
+      window.addEventListener('load', hideLoader, { once: true });
+    }
   }
   
   // Scroll animations
   const fadeElements = document.querySelectorAll('.fade-in');
   
-  const fadeInObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-      }
+  if (prefersReducedMotion.matches) {
+    fadeElements.forEach(el => {
+      el.classList.add('visible');
     });
-  }, { threshold: 0.1 });
-  
-  fadeElements.forEach(el => {
-    fadeInObserver.observe(el);
-  });
+  } else {
+    const fadeInObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+    
+    fadeElements.forEach(el => {
+      fadeInObserver.observe(el);
+    });
+  }
 
   // Script para filtrado de portfolio con animaciones
   const portfolioFilters = document.querySelectorAll(".filter-btn");
@@ -265,7 +299,7 @@ document.addEventListener("DOMContentLoaded", () => {
         
         window.scrollTo({
           top: targetPosition,
-          behavior: 'smooth'
+          behavior: prefersReducedMotion.matches ? 'auto' : 'smooth'
         });
       }
     });
@@ -288,7 +322,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Añadir clase al cargar para animación de entrada
     setTimeout(() => {
       gallery.classList.add('gallery-loaded');
-    }, 500);
+    }, prefersReducedMotion.matches ? 0 : 500);
     
     if (isMobile) {
       // COMPORTAMIENTO PARA MÓVIL (clic en lugar de hover)
@@ -333,7 +367,7 @@ document.addEventListener("DOMContentLoaded", () => {
           // Desplazar suavemente para que sea visible
           setTimeout(() => {
             this.scrollIntoView({ 
-              behavior: 'smooth', 
+              behavior: prefersReducedMotion.matches ? 'auto' : 'smooth', 
               block: 'nearest',
               inline: 'nearest'
             });

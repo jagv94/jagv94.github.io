@@ -1545,3 +1545,30 @@ body::before {
     font-size: 1.5rem;
   }
 }
+/* Focus styles for keyboard navigation */
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--accent-light);
+  outline-offset: 3px;
+  box-shadow: 0 0 0 4px rgba(233, 213, 255, 0.2);
+}
+
+/* Respect reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  #particles-js {
+    display: none !important;
+  }
+}

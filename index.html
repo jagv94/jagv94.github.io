@@ -21,16 +21,28 @@
   <link rel="shortcut icon" href="assets/img/favicon-light.ico" type="image/x-icon">
   
   <!-- Meta tags para SEO -->
-  <meta name="description" content="Portfolio of Adrian Guerra - VR/XR Developer & Technical Game Designer specializing in immersive experiences">
-  <meta name="keywords" content="game developer, VR, XR, Unreal Engine, Unity, portfolio, Japan, anime">
+  <meta name="description" content="Game Designer and VR/XR developer focused on gameplay systems, interaction design, and technically robust player experiences.">
+  <meta name="keywords" content="game designer, technical designer, systems designer, VR, XR, Unreal Engine, Unity, portfolio">
   <meta name="author" content="Adrián Guerra">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://jagv94.github.io">
   
   <!-- Open Graph -->
-  <meta property="og:title" content="Adrian Guerra - Game Developer Portfolio">
-  <meta property="og:description" content="VR/XR Developer & Game Designer specializing in immersive experiences">
+  <meta property="og:title" content="Adrian Guerra - Game Designer Portfolio">
+  <meta property="og:description" content="Game Designer and VR/XR developer focused on gameplay systems, interaction design, and technically robust player experiences.">
   <meta property="og:type" content="website">
+  <meta property="og:url" content="https://jagv94.github.io">
+  <meta property="og:site_name" content="Adrian Guerra Portfolio">
+  <meta property="og:image" content="https://jagv94.github.io/assets/img/portfolio/tfg-hero-wide.jpg">
+  <meta property="og:image:alt" content="Preview of Adrian Guerra's game design portfolio">
+  
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Adrian Guerra - Game Designer Portfolio">
+  <meta name="twitter:description" content="Game Designer and VR/XR developer focused on gameplay systems, interaction design, and technically robust player experiences.">
+  <meta name="twitter:image" content="https://jagv94.github.io/assets/img/portfolio/tfg-hero-wide.jpg">
+  <meta name="twitter:image:alt" content="Preview of Adrian Guerra's game design portfolio">
+  <meta name="twitter:creator" content="@jagv94">
   
   <!-- Schema.org para perfil profesional -->
   <script type="application/ld+json">
@@ -74,7 +86,7 @@
   <div id="particles-js"></div>
   
   <!-- Botón hamburguesa para móviles -->
-  <button id="sidebarToggle" class="sidebar-toggle d-lg-none">
+  <button id="sidebarToggle" class="sidebar-toggle d-lg-none" type="button" aria-label="Open navigation menu" aria-controls="sidebar" aria-expanded="false">
     <span></span>
     <span></span>
     <span></span>
@@ -130,18 +142,18 @@
       <div class="lang-selector-container">
         <h3 class="lang-title" data-i18n="language">Language</h3>
         <div class="lang-selector">
-          <button class="lang-btn active" data-lang="en">
+          <button class="lang-btn active" data-lang="en" type="button">
             <img class="lang-flag" src="assets/img/flags/gb.png" width="40" alt="English">
             <span class="lang-code">EN</span>
             <span class="lang-tooltip">English</span>
           </button>
-          <button class="lang-btn" data-lang="es">
+          <button class="lang-btn" data-lang="es" type="button">
             <img class="lang-flag" src="assets/img/flags/es.png" width="40" alt="Español">
             <span class="lang-code">ES</span>
             <span class="lang-tooltip">Español</span>
           </button>
-          <button class="lang-btn" data-lang="jp">
-            <img class="lang-flag" src="assets/img/flags/jp.png" width="40" alt="Japanese">
+          <button class="lang-btn" data-lang="ja" type="button">
+            <img class="lang-flag" src="assets/img/flags/jp.png" width="40" alt="日本語">
             <span class="lang-code">JP</span>
             <span class="lang-tooltip">日本語</span>
           </button>
@@ -150,10 +162,10 @@
       
       <div class="sidebar-footer">
         <div class="social-icons">
-          <a href="https://twitter.com/jagv94" target="_blank"><i class="fab fa-twitter"></i></a>
-          <a href="https://www.linkedin.com/in/jagv94/" target="_blank"><i class="fab fa-linkedin"></i></a>
-          <a href="https://github.com/jagv94" target="_blank"><i class="fab fa-github"></i></a>
-          <a href="https://shiroi-ookami.itch.io/" target="_blank"><i class="fab fa-itch-io"></i></a>
+          <a href="https://twitter.com/jagv94" target="_blank" rel="noopener noreferrer" aria-label="X / Twitter profile"><i class="fab fa-twitter" aria-hidden="true"></i></a>
+          <a href="https://www.linkedin.com/in/jagv94/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile"><i class="fab fa-linkedin" aria-hidden="true"></i></a>
+          <a href="https://github.com/jagv94" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile"><i class="fab fa-github" aria-hidden="true"></i></a>
+          <a href="https://shiroi-ookami.itch.io/" target="_blank" rel="noopener noreferrer" aria-label="itch.io profile"><i class="fab fa-itch-io" aria-hidden="true"></i></a>
         </div>
         
         <p class="sidebar-contact" data-i18n="contact">Contact: jagv94@gmail.com</p>
@@ -302,9 +314,9 @@
                   href="assets/docs/Adrian_Guerra_english_CV.pdf"
                   data-cv-es="assets/docs/Adrian_Guerra_CV.pdf"
                   data-cv-en="assets/docs/Adrian_Guerra_english_CV.pdf"
-                  data-cv-jp="assets/docs/Adrian_Guerra_english_CV.pdf"
+                  data-cv-ja="assets/docs/Adrian_Guerra_english_CV.pdf"
                   class="btn btn-accent"
-                  target="_blank"
+                  target="_blank" rel="noopener noreferrer"
                 >
                   <i class="fas fa-download me-2"></i>
                   <span data-i18n="view_resume">View Full Resume</span>
@@ -428,7 +440,7 @@
                         </ul>
                       </div>
                       <p class="project-note" data-i18n="tfg_note">(Full thesis available in Spanish.)</p>
-                      <a href="assets/docs/Guia_para_el_Desarrollo_de_Interacciones_en_VR-Guerra_Viudez_Jose_Adrian.pdf" class="project-link" target="_blank" data-i18n="tfg-link-pdf">Read Thesis (PDF)</a>
+                      <a href="assets/docs/Guia_para_el_Desarrollo_de_Interacciones_en_VR-Guerra_Viudez_Jose_Adrian.pdf" class="project-link" target="_blank" rel="noopener noreferrer" data-i18n="tfg-link-pdf">Read Thesis (PDF)</a>
                     </div>
                   </div>
                 </div>
@@ -464,7 +476,7 @@
                           <li data-i18n="godlythief_contribution_4">Debugging, optimization, and iteration based on playtesting</li>
                         </ul>
                       </div>
-                      <a href="https://marcd419.itch.io/godly-thief" class="project-link" target="_blank" data-i18n="visit">View Project</a>
+                      <a href="https://marcd419.itch.io/godly-thief" class="project-link" target="_blank" rel="noopener noreferrer" data-i18n="visit">View Project</a>
                     </div>
                   </div>
                 </div>
@@ -500,7 +512,7 @@
                           <li data-i18n="twistedtail_contribution_4">Audio implementation and integration</li>
                         </ul>
                       </div>
-                      <a href="https://marcd419.itch.io/twisted-tail" class="project-link" target="_blank" data-i18n="visit">View Project</a>
+                      <a href="https://marcd419.itch.io/twisted-tail" class="project-link" target="_blank" rel="noopener noreferrer" data-i18n="visit">View Project</a>
                     </div>
                   </div>
                 </div>
@@ -532,7 +544,7 @@
                 <div class="portfolio-overlay">
                   <h5 class="portfolio-title" data-i18n="tfg-title">VR Interaction Design Guide for Action-RPGs</h5>
                   <p class="portfolio-desc" data-i18n="tfg-shortdesc">Bachelor's Thesis - UX/UI guide and Unity demo to improve interaction comfort in VR Action-RPGs; validated with user tests (SSQ & SUS). (Available in Spanish.)</p>
-                  <a href="assets/docs/Guia_para_el_Desarrollo_de_Interacciones_en_VR-Guerra_Viudez_Jose_Adrian.pdf" class="portfolio-link" target="_blank" data-i18n="tfg-link-pdf">Read Thesis (PDF)</a>
+                  <a href="assets/docs/Guia_para_el_Desarrollo_de_Interacciones_en_VR-Guerra_Viudez_Jose_Adrian.pdf" class="portfolio-link" target="_blank" rel="noopener noreferrer" data-i18n="tfg-link-pdf">Read Thesis (PDF)</a>
                 </div>
               </div>
             </div>
@@ -544,7 +556,7 @@
                 <div class="portfolio-overlay">
                   <h5 class="portfolio-title">Godly Thief</h5>
                   <p class="portfolio-desc" data-i18n="godlythief-desc">2D Hack 'n' Slash Roguelite where you steal enemy abilities to escape Thanatos' prison. I handled UI, menus, maps, music selection, wave system logic, Slime design, plus debugging and optimization to ensure smoother gameplay.</p>
-                  <a href="https://marcd419.itch.io/godly-thief" class="portfolio-link" target="_blank" data-i18n="visit">Visit Page</a>
+                  <a href="https://marcd419.itch.io/godly-thief" class="portfolio-link" target="_blank" rel="noopener noreferrer" data-i18n="visit">Visit Page</a>
                 </div>
               </div>
             </div>
@@ -555,7 +567,7 @@
                 <div class="portfolio-overlay">
                   <h5 class="portfolio-title" data-i18n="gng-title">Ghost'N Goblins</h5>
                   <p class="portfolio-desc" data-i18n="gng-desc">Unofficial recreation of the classic arcade game Ghosts'N Goblins, developed for educational purposes during a game development degree. All rights to the original game belong to Capcom. Project created using Phaser.</p>
-                  <a href="GhostNGoblins/GhostNGoblins.html" class="portfolio-link" target="_blank" data-i18n="play">Play Now</a>
+                  <a href="GhostNGoblins/GhostNGoblins.html" class="portfolio-link" target="_blank" rel="noopener noreferrer" data-i18n="play">Play Now</a>
                 </div>
               </div>
             </div>
@@ -566,7 +578,7 @@
                 <div class="portfolio-overlay">
                   <h5 class="portfolio-title">Towers of Clickanium</h5>
                   <p class="portfolio-desc" data-i18n="clickanium-desc">A side-scrolling Tower Defense where archaeologists, military, and aliens clash to dominate vital resources. Strategy and fast decisions are key. I worked on UI/UX, music, credits, game balancing, lore, and Scrum management.</p>
-                  <a href="https://youtu.be/mW7iOPUotSM" class="portfolio-link" target="_blank" data-i18n="visit">Visit Page</a>
+                  <a href="https://youtu.be/mW7iOPUotSM" class="portfolio-link" target="_blank" rel="noopener noreferrer" data-i18n="visit">Visit Page</a>
                 </div>
               </div>
             </div>
@@ -577,7 +589,7 @@
                 <div class="portfolio-overlay">
                   <h5 class="portfolio-title">Restaurant Extravaganzza</h5>
                   <p class="portfolio-desc" data-i18n="restaurant-desc">Run your grandfather's restaurant and grow it into a success! Fulfill online orders fast, upgrade the place, and manage stock wisely. I worked on level design, mechanics, store system, assets, music selection, and Scrum Master duties.</p>
-                  <a href="https://dojap.itch.io/restaurant-extravaganzza" class="portfolio-link" target="_blank" data-i18n="visit">Visit Page</a>
+                  <a href="https://dojap.itch.io/restaurant-extravaganzza" class="portfolio-link" target="_blank" rel="noopener noreferrer" data-i18n="visit">Visit Page</a>
                 </div>
               </div>
             </div>
@@ -588,7 +600,7 @@
                 <div class="portfolio-overlay">
                   <h5 class="portfolio-title">Twisted Tail</h5>
                   <p class="portfolio-desc" data-i18n="twistedtail-desc">Escape the castle by outsmarting guards and solving puzzles! Blend into the environment to stay unseen and trigger mechanisms to move on. Made in 2 days for Zeno Game Jam. I designed the core mechanic, puzzles, and music selection.</p>
-                  <a href="https://marcd419.itch.io/twisted-tail" class="portfolio-link" target="_blank" data-i18n="visit">Visit Page</a>
+                  <a href="https://marcd419.itch.io/twisted-tail" class="portfolio-link" target="_blank" rel="noopener noreferrer" data-i18n="visit">Visit Page</a>
                 </div>
               </div>
             </div>
@@ -599,7 +611,7 @@
                 <div class="portfolio-overlay">
                   <h5 class="portfolio-title">Playern't Fantasy</h5>
                   <p class="portfolio-desc" data-i18n="playerent-desc">Two factions are at war, but you rise as a third force to claim the glory, pushing enemies to unite against you. Made in 21 days for GameArtopia Jam. I worked on mechanics, abilities, map, music adjustment & implementation, and game balancing.</p>
-                  <a href="https://nhos.itch.io/playernt-fantasy" class="portfolio-link" target="_blank" data-i18n="visit">Visit Page</a>
+                  <a href="https://nhos.itch.io/playernt-fantasy" class="portfolio-link" target="_blank" rel="noopener noreferrer" data-i18n="visit">Visit Page</a>
                 </div>
               </div>
             </div>
