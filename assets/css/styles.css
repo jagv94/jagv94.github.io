@@ -722,7 +722,7 @@ body::before {
   perspective: 1200px;
   opacity: 0;
   transform: translateY(30px);
-  transition: opacity 0.8s ease, transform 0.8s ease;
+  transition: opacity 0.8s ease, transform 0.8s ease, padding-bottom 0.4s ease;
 }
 
 .featured-gallery.gallery-loaded {
@@ -756,17 +756,19 @@ body::before {
   z-index: 2;
 }
 
-.featured-panel:hover::before {
+.featured-panel.is-active::before {
   opacity: 1;
 }
 
-.featured-panel:hover {
-  width: 700px;
-  transform: skewY(0deg);
-  z-index: 10;
-  margin: 0 20px;
-  clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5), 0 0 30px rgba(192, 132, 252, 0.3);
+.featured-panel.is-active {
+  transform: skewY(-2deg) translateY(-14px);
+  z-index: 20;
+  clip-path: none;
+}
+
+.featured-panel.is-active:hover {
+  transform: skewY(-2deg) translateY(-20px) scale(1.02);
+  z-index: 24;
 }
 
 /* Estilo para paneles no activos */
@@ -782,6 +784,25 @@ body::before {
   height: 100%;
   overflow: hidden;
   border-radius: 4px;
+  border: 1px solid transparent;
+  transition: border-color 0.35s ease, box-shadow 0.35s ease;
+}
+
+.featured-panel.is-active .panel-base {
+  overflow: visible;
+  border-color: rgba(192, 132, 252, 0.85);
+  box-shadow:
+    0 0 0 1px rgba(233, 213, 255, 0.3),
+    0 0 22px rgba(192, 132, 252, 0.45),
+    0 20px 40px rgba(0, 0, 0, 0.45);
+}
+
+.featured-panel.is-active:hover .panel-base {
+  border-color: rgba(233, 213, 255, 0.95);
+  box-shadow:
+    0 0 0 1px rgba(233, 213, 255, 0.5),
+    0 0 28px rgba(192, 132, 252, 0.7),
+    0 24px 48px rgba(0, 0, 0, 0.5);
 }
 
 .panel-image-wrapper {
@@ -803,7 +824,7 @@ body::before {
 }
 
 /* EN DESKTOP: La imagen se desvanece al hacer hover */
-.featured-panel:hover .panel-image {
+.featured-panel.is-active .panel-image {
   opacity: 0;
   transform: scale(1.05);
 }
@@ -818,12 +839,14 @@ body::before {
   transform: translateX(20px);
   transition: all 0.4s ease 0.2s;
   z-index: 2;
-  display: none; /* Oculto por defecto en móvil */
+  pointer-events: none;
+  display: none;
 }
 
-.featured-panel:hover .panel-expanded-content {
+.featured-panel.is-active .panel-expanded-content {
   opacity: 1;
   transform: translateX(0);
+  pointer-events: auto;
 }
 
 .expanded-inner {
@@ -832,6 +855,22 @@ body::before {
   height: 100%;
   background: rgba(10, 10, 20, 0.95);
   backdrop-filter: blur(10px);
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1px solid transparent;
+  transition: border-color 0.35s ease, box-shadow 0.35s ease;
+}
+
+.featured-panel.is-active .expanded-inner {
+  border-color: rgba(192, 132, 252, 0.7);
+  box-shadow: 0 0 30px rgba(192, 132, 252, 0.2);
+}
+
+.featured-panel.is-active:hover .expanded-inner {
+  border-color: rgba(233, 213, 255, 0.92);
+  box-shadow:
+    0 0 0 1px rgba(233, 213, 255, 0.25),
+    0 0 40px rgba(192, 132, 252, 0.35);
 }
 
 .expanded-hero {
@@ -955,7 +994,7 @@ body::before {
 }
 
 /* Ajuste para mantener contexto cuando un panel está expandido */
-.featured-gallery:hover .featured-panel:not(:hover) {
+.featured-gallery.has-active-panel .featured-panel:not(.is-active) {
   opacity: 0.6;
   filter: blur(1px);
 }
@@ -1086,9 +1125,33 @@ body::before {
   .mobile-close-btn {
     display: none !important;
   }
-  
-  .featured-panel:hover .panel-expanded-content {
+
+  .featured-gallery.has-active-panel {
+    padding-bottom: 30rem;
+  }
+
+  .featured-panel:not(.is-active):hover {
+    z-index: 22;
+  }
+
+  .featured-panel.is-active .panel-expanded-content {
     display: block;
+    width: 700px;
+    top: calc(100% + 1.5rem);
+    left: 0;
+    transform: translateX(0);
+    z-index: 16;
+  }
+
+  .featured-panel[data-project="godlythief"].is-active .panel-expanded-content {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .featured-panel[data-project="twistedtail"].is-active .panel-expanded-content {
+    left: auto;
+    right: 0;
+    transform: translateX(0);
   }
 }
 
@@ -1408,7 +1471,7 @@ body::before {
     height: 350px;
   }
   
-  .featured-panel:hover {
+  .featured-panel.is-active .panel-expanded-content {
     width: 600px;
   }
 }
@@ -1533,7 +1596,7 @@ body::before {
     width: 95%;
   }
   
-  .featured-panel:hover {
+  .featured-panel.is-active .panel-expanded-content {
     width: 95%;
   }
   
@@ -1572,3 +1635,4 @@ button:focus-visible {
     display: none !important;
   }
 }
+

@@ -315,6 +315,32 @@ document.addEventListener("DOMContentLoaded", () => {
     const gallery = document.querySelector('.featured-gallery');
     
     if (!panels.length || !gallery) return;
+
+    if (gallery._featuredGalleryClickHandler) {
+      gallery.removeEventListener('click', gallery._featuredGalleryClickHandler);
+      gallery._featuredGalleryClickHandler = null;
+    }
+
+    if (gallery._featuredGalleryDocumentClickHandler) {
+      document.removeEventListener('click', gallery._featuredGalleryDocumentClickHandler);
+      gallery._featuredGalleryDocumentClickHandler = null;
+    }
+
+    if (gallery._featuredGalleryPointerMoveHandler) {
+      gallery.removeEventListener('pointermove', gallery._featuredGalleryPointerMoveHandler);
+      gallery._featuredGalleryPointerMoveHandler = null;
+    }
+
+    if (gallery._featuredGalleryMouseLeaveHandler) {
+      gallery.removeEventListener('mouseleave', gallery._featuredGalleryMouseLeaveHandler);
+      gallery._featuredGalleryMouseLeaveHandler = null;
+    }
+
+    gallery.classList.remove('has-active-panel');
+    panels.forEach(panel => {
+      panel.classList.remove('is-active');
+      panel.classList.remove('other-panel');
+    });
     
     // Detectar si es móvil
     const isMobile = window.innerWidth < 992;
@@ -430,30 +456,66 @@ document.addEventListener("DOMContentLoaded", () => {
       });
       
     } else {
-      // COMPORTAMIENTO PARA DESKTOP (hover)
+      // COMPORTAMIENTO PARA DESKTOP: abrir por clic y mantener el panel expandido sin empujar el resto del layout
+      let activeDesktopPanel = null;
+
+      const setActivePanel = (activePanel) => {
+        if (activeDesktopPanel === activePanel) return;
+
+        activeDesktopPanel = activePanel;
+        gallery.classList.add('has-active-panel');
+
+        panels.forEach(panel => {
+          const isActive = panel === activePanel;
+          panel.classList.toggle('is-active', isActive);
+          panel.classList.toggle('other-panel', !isActive);
+        });
+      };
+
+      const clearActivePanel = () => {
+        activeDesktopPanel = null;
+        gallery.classList.remove('has-active-panel');
+        panels.forEach(panel => {
+          panel.classList.remove('is-active');
+          panel.classList.remove('other-panel');
+        });
+      };
+
+      const handleDesktopPanelClick = (event) => {
+        const clickedPanel = event.target.closest('.featured-panel');
+        if (!clickedPanel || !gallery.contains(clickedPanel)) return;
+
+        if (event.target.closest('a, button')) return;
+
+        event.preventDefault();
+        event.stopPropagation();
+
+        if (activeDesktopPanel === clickedPanel) {
+          return;
+        }
+
+        setActivePanel(clickedPanel);
+      };
+
+      const handleDesktopDocumentClick = (event) => {
+        if (!gallery.contains(event.target)) {
+          clearActivePanel();
+        }
+      };
+
+      gallery._featuredGalleryClickHandler = handleDesktopPanelClick;
+      gallery._featuredGalleryDocumentClickHandler = handleDesktopDocumentClick;
+
       panels.forEach(panel => {
-        panel.addEventListener('mouseenter', () => {
-          // Asegurar que solo un panel esté expandido a la vez
-          panels.forEach(p => {
-            if (p !== panel) {
-              p.classList.add('other-panel');
-            }
-          });
-        });
-        
-        panel.addEventListener('mouseleave', () => {
-          // Restaurar todos los paneles
-          panels.forEach(p => {
-            p.classList.remove('other-panel');
-          });
-        });
-        
         // Ocultar botones de cierre en desktop
         const closeBtn = panel.querySelector('.mobile-close-btn');
         if (closeBtn) {
           closeBtn.style.display = 'none';
         }
       });
+
+      gallery.addEventListener('click', handleDesktopPanelClick);
+      document.addEventListener('click', handleDesktopDocumentClick);
     }
   }
 
