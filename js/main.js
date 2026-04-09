@@ -44,6 +44,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const sidebar = document.getElementById('sidebar');
   const sidebarToggle = document.getElementById('sidebarToggle');
   const sidebarOverlay = document.getElementById('sidebarOverlay');
+  const resumeLink = document.getElementById("resume-link");
 
   // Toggle sidebar en móviles
   if (sidebarToggle && sidebar && sidebarOverlay) {
@@ -104,6 +105,20 @@ document.addEventListener("DOMContentLoaded", () => {
     }, 150);
   }
 
+  function updateResumeLink(currentLang) {
+    if (!resumeLink) return;
+
+    const resumeByLang = {
+      es: resumeLink.dataset.cvEs,
+      en: resumeLink.dataset.cvEn,
+      jp: resumeLink.dataset.cvJp || resumeLink.dataset.cvEn
+    };
+
+    resumeLink.href = resumeByLang[currentLang] || resumeByLang.en || resumeByLang.es;
+  }
+
+  updateResumeLink(lang);
+
   // Configurar botones de idioma
   function setupLanguageButtons() {
     document.querySelectorAll(".lang-btn").forEach(button => {
@@ -134,6 +149,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const strings = JSON.parse(sessionStorage.getItem("strings"));
         if (strings) {
           applyTranslations(strings, lang);
+          updateResumeLink(lang);
         } else {
           // Si no hay cached, recargar
           location.reload();
@@ -149,6 +165,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // Si tenemos traducciones en caché, aplicarlas inmediatamente
   if (strings) {
     applyTranslations(strings, lang);
+    updateResumeLink(lang);
     setupLanguageButtons();
   }
 
@@ -160,6 +177,7 @@ document.addEventListener("DOMContentLoaded", () => {
       
       if (!strings) {
         applyTranslations(data, lang);
+        updateResumeLink(lang);
         setupLanguageButtons();
       }
     })
