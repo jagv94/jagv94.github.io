@@ -101,7 +101,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     document.documentElement.lang = lang;
 
-    // Añadir clase de transición a todos los elementos traducibles
     document.querySelectorAll("[data-i18n]").forEach(el => {
       el.classList.add("i18n-changing");
     });
@@ -122,10 +121,8 @@ document.addEventListener("DOMContentLoaded", () => {
         el.classList.remove("i18n-changing");
       });
       
-      // Actualizar también el texto del botón de toggle de skills si existe
       updateToggleButtonText(strings, lang);
       
-      // Si el popover del timeline está abierto, refrescarlo con el nuevo idioma
       if (typeof updateOpenPopover === 'function') updateOpenPopover();
     }, 150);
   }
@@ -155,7 +152,6 @@ document.addEventListener("DOMContentLoaded", () => {
         const selectedLang = button.dataset.lang;
         if (selectedLang === lang) return;
         
-        // Actualizar botones activos
         document.querySelectorAll(".lang-btn").forEach(btn => {
           btn.classList.remove("active");
           btn.setAttribute("aria-pressed", "false");
@@ -170,32 +166,28 @@ document.addEventListener("DOMContentLoaded", () => {
         url.searchParams.set("lang", selectedLang);
         history.replaceState(null, "", url);
         
-        // Aplicar traducciones sin recargar
         const strings = JSON.parse(sessionStorage.getItem("strings"));
         if (strings) {
           applyTranslations(strings, lang);
           updateResumeLink(lang);
         } else {
-          // Si no hay cached, recargar
           location.reload();
         }
       });
     });
   }
 
-  // Precargar traducciones desde sessionStorage si están disponibles
+  // Precargar traducciones
   const stringsCache = sessionStorage.getItem("strings");
   const strings = stringsCache ? JSON.parse(stringsCache) : null;
   const hasCachedTranslations = Boolean(strings && strings[lang]);
 
-  // Si tenemos traducciones en caché, aplicarlas inmediatamente
   if (hasCachedTranslations) {
     applyTranslations(strings, lang);
     updateResumeLink(lang);
     setupLanguageButtons();
   }
 
-  // Cargar las traducciones desde el archivo JSON
   fetch("data/strings.json")
     .then(res => res.json())
     .then(data => {
@@ -209,7 +201,7 @@ document.addEventListener("DOMContentLoaded", () => {
     })
     .catch(err => console.error("Error loading translations:", err));
 
-  // Script para el loader
+  // Loader
   const loader = document.getElementById('loader');
   if(loader) {
     const hideLoader = () => {
@@ -254,7 +246,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Script para filtrado de portfolio con animaciones
+  // Filtrado de portfolio
   const portfolioFilters = document.querySelectorAll(".filter-btn");
   const portfolioItems = document.querySelectorAll(".portfolio-item");
   
@@ -292,7 +284,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Smooth scrolling para enlaces de navegación
+  // Smooth scrolling
   document.querySelectorAll('.sidebar-link, .hero-btn').forEach(link => {
     link.addEventListener('click', function(e) {
       const href = this.getAttribute('href');
@@ -445,6 +437,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const handleDesktopPanelClick = (event) => {
         const clickedPanel = event.target.closest('.featured-panel');
         if (!clickedPanel || !gallery.contains(clickedPanel)) return;
+        // No interferir con clics en enlaces o botones
         if (event.target.closest('a, button')) return;
         event.preventDefault();
         event.stopPropagation();
@@ -453,6 +446,8 @@ document.addEventListener("DOMContentLoaded", () => {
       };
 
       const handleDesktopDocumentClick = (event) => {
+        // No cerrar si el clic fue dentro del contenido expandido
+        if (event.target.closest('.panel-expanded-content')) return;
         if (!gallery.contains(event.target)) {
           clearActivePanel();
         }
@@ -507,9 +502,12 @@ document.addEventListener("DOMContentLoaded", () => {
     const moreText = translations.more_skills || 'more';
     const lessText = translations.less_skills || 'less';
     const isExpanded = toggleSecondaryBtn.getAttribute('aria-expanded') === 'true';
-    toggleSecondaryBtn.innerHTML = isExpanded 
-      ? `<i class="fas fa-minus"></i> ${lessText}` 
-      : `<i class="fas fa-plus"></i> ${moreText}`;
+    const span = toggleSecondaryBtn.querySelector('span');
+    const icon = toggleSecondaryBtn.querySelector('i');
+    if (span) span.textContent = isExpanded ? lessText : moreText;
+    if (icon) {
+      icon.className = isExpanded ? 'fas fa-minus' : 'fas fa-plus';
+    }
   }
   
   if (toggleSecondaryBtn && secondarySkillsList) {
@@ -524,9 +522,12 @@ document.addEventListener("DOMContentLoaded", () => {
       } else {
         const moreText = toggleSecondaryBtn.getAttribute('data-i18n-more') || 'more';
         const lessText = toggleSecondaryBtn.getAttribute('data-i18n-less') || 'less';
-        toggleSecondaryBtn.innerHTML = isExpanded 
-          ? `<i class="fas fa-plus"></i> ${moreText}` 
-          : `<i class="fas fa-minus"></i> ${lessText}`;
+        const span = toggleSecondaryBtn.querySelector('span');
+        const icon = toggleSecondaryBtn.querySelector('i');
+        if (span) span.textContent = isExpanded ? lessText : moreText;
+        if (icon) {
+          icon.className = isExpanded ? 'fas fa-minus' : 'fas fa-plus';
+        }
       }
     });
   }
@@ -613,7 +614,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  // Función para actualizar favicon según el tema del sistema
+  // Favicon dinámico
   function updateFaviconForTheme() {
     const lightFavicon = document.getElementById('light-favicon');
     const darkFavicon = document.getElementById('dark-favicon');
@@ -633,15 +634,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
   updateFaviconForTheme();
 
-  // ==== SCROLL INDICATOR (Flecha hacia abajo en hero) ====
+  // Scroll indicator
   const scrollIndicator = document.getElementById('scrollIndicator');
   if (scrollIndicator) {
     scrollIndicator.addEventListener('click', () => {
       const featuredSection = document.getElementById('featured-projects');
       if (featuredSection) {
-        const offset = window.innerWidth >= 992 ? 0 : 75;
+        const yOffset = window.innerWidth >= 992 ? 0 : 75;
+        const y = featuredSection.getBoundingClientRect().top + window.scrollY - yOffset;
         window.scrollTo({
-          top: featuredSection.offsetTop - offset,
+          top: y,
           behavior: prefersReducedMotion.matches ? 'auto' : 'smooth'
         });
       }
