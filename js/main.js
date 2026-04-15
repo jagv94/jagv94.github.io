@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
   document.documentElement.lang = lang;
   localStorage.setItem("lang", lang);
 
-  // Initialize particles.js only on larger screens when motion is allowed
+  // Initialize particles.js
   const particlesContainer = document.getElementById("particles-js");
   const shouldEnableParticles = particlesContainer && !prefersReducedMotion.matches && window.innerWidth >= 992;
 
@@ -107,7 +107,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     setTimeout(() => {
-      const htmlKeys = ["intro", "footer_quote", "hero_description"];
+      const htmlKeys = ["intro", "footer_quote"];
 
       document.querySelectorAll("[data-i18n]").forEach(el => {
         const key = el.getAttribute("data-i18n");
@@ -121,6 +121,12 @@ document.addEventListener("DOMContentLoaded", () => {
         }
         el.classList.remove("i18n-changing");
       });
+      
+      // Actualizar también el texto del botón de toggle de skills si existe
+      updateToggleButtonText(strings, lang);
+      
+      // Si el popover del timeline está abierto, refrescarlo con el nuevo idioma
+      if (typeof updateOpenPopover === 'function') updateOpenPopover();
     }, 150);
   }
 
@@ -287,29 +293,27 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // Smooth scrolling para enlaces de navegación
-  document.querySelectorAll('.sidebar-link').forEach(link => {
+  document.querySelectorAll('.sidebar-link, .hero-btn').forEach(link => {
     link.addEventListener('click', function(e) {
-      e.preventDefault();
-      
-      const targetId = this.getAttribute('href');
-      const targetElement = document.querySelector(targetId);
-      
-      if (targetElement) {
-        const targetPosition = targetElement.offsetTop - (window.innerWidth >= 992 ? 0 : 75);
-        
-        window.scrollTo({
-          top: targetPosition,
-          behavior: prefersReducedMotion.matches ? 'auto' : 'smooth'
-        });
+      const href = this.getAttribute('href');
+      if (href && href.startsWith('#')) {
+        e.preventDefault();
+        const targetElement = document.querySelector(href);
+        if (targetElement) {
+          const targetPosition = targetElement.offsetTop - (window.innerWidth >= 992 ? 0 : 75);
+          window.scrollTo({
+            top: targetPosition,
+            behavior: prefersReducedMotion.matches ? 'auto' : 'smooth'
+          });
+        }
       }
     });
   });
 
   // ===============================
-  // FUNCIONALIDADES PARA LA GALERÍA DESTACADA - VERSIÓN MEJORADA
+  // FUNCIONALIDADES PARA LA GALERÍA DESTACADA
   // ===============================
 
-  // Función para inicializar la galería destacada
   function initFeaturedGallery() {
     const panels = document.querySelectorAll('.featured-panel');
     const gallery = document.querySelector('.featured-gallery');
@@ -326,71 +330,45 @@ document.addEventListener("DOMContentLoaded", () => {
       gallery._featuredGalleryDocumentClickHandler = null;
     }
 
-    if (gallery._featuredGalleryPointerMoveHandler) {
-      gallery.removeEventListener('pointermove', gallery._featuredGalleryPointerMoveHandler);
-      gallery._featuredGalleryPointerMoveHandler = null;
-    }
-
-    if (gallery._featuredGalleryMouseLeaveHandler) {
-      gallery.removeEventListener('mouseleave', gallery._featuredGalleryMouseLeaveHandler);
-      gallery._featuredGalleryMouseLeaveHandler = null;
-    }
-
     gallery.classList.remove('has-active-panel');
     panels.forEach(panel => {
       panel.classList.remove('is-active');
       panel.classList.remove('other-panel');
     });
     
-    // Detectar si es móvil
     const isMobile = window.innerWidth < 992;
     
-    // Añadir clase al cargar para animación de entrada
     setTimeout(() => {
       gallery.classList.add('gallery-loaded');
     }, prefersReducedMotion.matches ? 0 : 500);
     
     if (isMobile) {
-      // COMPORTAMIENTO PARA MÓVIL (clic en lugar de hover)
       panels.forEach(panel => {
-        // Añadir botón de cierre si no existe
         let closeBtn = panel.querySelector('.mobile-close-btn');
         if (!closeBtn) {
           closeBtn = document.createElement('button');
           closeBtn.className = 'mobile-close-btn d-lg-none';
           closeBtn.innerHTML = '<i class="fas fa-times"></i>';
           closeBtn.setAttribute('aria-label', 'Close');
-          closeBtn.style.display = 'none'; // Oculto por defecto
+          closeBtn.style.display = 'none';
           panel.querySelector('.panel-expanded-content').appendChild(closeBtn);
         }
         
-        // Evento para expandir el panel
         panel.addEventListener('click', function(e) {
-          // No hacer nada si se hace clic en el botón de cierre
           if (e.target.closest('.mobile-close-btn')) return;
-          
           e.stopPropagation();
-          
-          // Si ya está expandido, no hacer nada
           if (this.classList.contains('mobile-expanded')) return;
           
-          // Contraer todos los paneles primero
           panels.forEach(p => {
             p.classList.remove('mobile-expanded');
             const btn = p.querySelector('.mobile-close-btn');
             if (btn) btn.style.display = 'none';
           });
           
-          // Expandir este panel
           this.classList.add('mobile-expanded');
-          
-          // Mostrar botón de cierre
           const thisCloseBtn = this.querySelector('.mobile-close-btn');
-          if (thisCloseBtn) {
-            thisCloseBtn.style.display = 'flex';
-          }
+          if (thisCloseBtn) thisCloseBtn.style.display = 'flex';
           
-          // Desplazar suavemente para que sea visible
           setTimeout(() => {
             this.scrollIntoView({ 
               behavior: prefersReducedMotion.matches ? 'auto' : 'smooth', 
@@ -400,26 +378,17 @@ document.addEventListener("DOMContentLoaded", () => {
           }, 100);
         });
         
-        // Configurar botón de cierre
         closeBtn.addEventListener('click', function(e) {
           e.stopPropagation();
           e.preventDefault();
-          
-          // Remover clase de expansión
           panel.classList.remove('mobile-expanded');
-          
-          // Ocultar botón de cierre
           this.style.display = 'none';
-          
-          // Forzar que la imagen vuelva a ser visible
           const imageWrapper = panel.querySelector('.panel-image-wrapper');
           const image = panel.querySelector('.panel-image');
-          
           if (imageWrapper) {
             imageWrapper.style.opacity = '1';
             imageWrapper.style.zIndex = '1';
           }
-          
           if (image) {
             image.style.opacity = '1';
             image.style.visibility = 'visible';
@@ -428,7 +397,6 @@ document.addEventListener("DOMContentLoaded", () => {
         });
       });
       
-      // Cerrar al hacer clic fuera (solo si está expandido)
       document.addEventListener('click', function(e) {
         if (!e.target.closest('.featured-panel.mobile-expanded') && 
             document.querySelector('.featured-panel.mobile-expanded')) {
@@ -436,16 +404,12 @@ document.addEventListener("DOMContentLoaded", () => {
             p.classList.remove('mobile-expanded');
             const btn = p.querySelector('.mobile-close-btn');
             if (btn) btn.style.display = 'none';
-            
-            // Restaurar imagen
             const imageWrapper = p.querySelector('.panel-image-wrapper');
             const image = p.querySelector('.panel-image');
-            
             if (imageWrapper) {
               imageWrapper.style.opacity = '1';
               imageWrapper.style.zIndex = '1';
             }
-            
             if (image) {
               image.style.opacity = '1';
               image.style.visibility = 'visible';
@@ -456,15 +420,12 @@ document.addEventListener("DOMContentLoaded", () => {
       });
       
     } else {
-      // COMPORTAMIENTO PARA DESKTOP: abrir por clic y mantener el panel expandido sin empujar el resto del layout
       let activeDesktopPanel = null;
 
       const setActivePanel = (activePanel) => {
         if (activeDesktopPanel === activePanel) return;
-
         activeDesktopPanel = activePanel;
         gallery.classList.add('has-active-panel');
-
         panels.forEach(panel => {
           const isActive = panel === activePanel;
           panel.classList.toggle('is-active', isActive);
@@ -484,16 +445,10 @@ document.addEventListener("DOMContentLoaded", () => {
       const handleDesktopPanelClick = (event) => {
         const clickedPanel = event.target.closest('.featured-panel');
         if (!clickedPanel || !gallery.contains(clickedPanel)) return;
-
         if (event.target.closest('a, button')) return;
-
         event.preventDefault();
         event.stopPropagation();
-
-        if (activeDesktopPanel === clickedPanel) {
-          return;
-        }
-
+        if (activeDesktopPanel === clickedPanel) return;
         setActivePanel(clickedPanel);
       };
 
@@ -507,11 +462,8 @@ document.addEventListener("DOMContentLoaded", () => {
       gallery._featuredGalleryDocumentClickHandler = handleDesktopDocumentClick;
 
       panels.forEach(panel => {
-        // Ocultar botones de cierre en desktop
         const closeBtn = panel.querySelector('.mobile-close-btn');
-        if (closeBtn) {
-          closeBtn.style.display = 'none';
-        }
+        if (closeBtn) closeBtn.style.display = 'none';
       });
 
       gallery.addEventListener('click', handleDesktopPanelClick);
@@ -519,34 +471,145 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  // Inicializar la galería destacada
   initFeaturedGallery();
 
-  // Re-inicializar la galería al redimensionar la ventana
   window.addEventListener('resize', function() {
     initFeaturedGallery();
-    
-    // Si cambiamos a modo desktop, asegurarnos de que no hay paneles expandidos
     if (window.innerWidth >= 992) {
       document.querySelectorAll('.featured-panel').forEach(panel => {
         panel.classList.remove('mobile-expanded');
         const btn = panel.querySelector('.mobile-close-btn');
         if (btn) btn.style.display = 'none';
-        
-        // Restaurar imagen
         const imageWrapper = panel.querySelector('.panel-image-wrapper');
         const image = panel.querySelector('.panel-image');
-        
         if (imageWrapper) {
           imageWrapper.style.opacity = '1';
           imageWrapper.style.zIndex = '1';
         }
-        
         if (image) {
           image.style.opacity = '1';
           image.style.visibility = 'visible';
         }
       });
+    }
+  });
+
+  // ===============================
+  // TOGGLE DE HABILIDADES SECUNDARIAS
+  // ===============================
+  const toggleSecondaryBtn = document.getElementById('toggleSecondarySkills');
+  const secondarySkillsList = document.getElementById('secondarySkillsList');
+  
+  function updateToggleButtonText(strings, currentLang) {
+    if (!toggleSecondaryBtn) return;
+    const translations = strings[currentLang];
+    if (!translations) return;
+    const moreText = translations.more_skills || 'more';
+    const lessText = translations.less_skills || 'less';
+    const isExpanded = toggleSecondaryBtn.getAttribute('aria-expanded') === 'true';
+    toggleSecondaryBtn.innerHTML = isExpanded 
+      ? `<i class="fas fa-minus"></i> ${lessText}` 
+      : `<i class="fas fa-plus"></i> ${moreText}`;
+  }
+  
+  if (toggleSecondaryBtn && secondarySkillsList) {
+    toggleSecondaryBtn.addEventListener('click', () => {
+      const isExpanded = toggleSecondaryBtn.getAttribute('aria-expanded') === 'true';
+      secondarySkillsList.style.display = isExpanded ? 'none' : 'flex';
+      toggleSecondaryBtn.setAttribute('aria-expanded', !isExpanded);
+      
+      const cachedStrings = JSON.parse(sessionStorage.getItem('strings'));
+      if (cachedStrings) {
+        updateToggleButtonText(cachedStrings, lang);
+      } else {
+        const moreText = toggleSecondaryBtn.getAttribute('data-i18n-more') || 'more';
+        const lessText = toggleSecondaryBtn.getAttribute('data-i18n-less') || 'less';
+        toggleSecondaryBtn.innerHTML = isExpanded 
+          ? `<i class="fas fa-plus"></i> ${moreText}` 
+          : `<i class="fas fa-minus"></i> ${lessText}`;
+      }
+    });
+  }
+
+  // ===============================
+  // TIMELINE POPOVER MULTILINGÜE
+  // ===============================
+  const popover = document.getElementById('timelinePopover');
+  const popoverLogo = document.getElementById('popoverLogo');
+  const popoverEntity = document.getElementById('popoverEntity');
+  const popoverRole = document.getElementById('popoverRole');
+  const popoverBullets = document.getElementById('popoverBullets');
+  const popoverTechTags = document.getElementById('popoverTechTags');
+  const popoverCloseBtn = popover?.querySelector('.popover-close');
+
+  const timelineLogos = {
+    ub: 'assets/img/logos/ub-logo.png',
+    enti_work: 'assets/img/logos/enti-logo.png',
+    enti_edu: 'assets/img/logos/enti-logo.png',
+    consultia: 'assets/img/logos/consultia-logo.png',
+    everis: 'assets/img/logos/everis-logo.png',
+    marianao_dam: 'assets/img/logos/marianao-logo.png',
+    marianao_smr: 'assets/img/logos/marianao-logo.png'
+  };
+
+  function showTimelinePopover(entityKey) {
+    if (!popover) return;
+    
+    const currentStrings = JSON.parse(sessionStorage.getItem('strings'));
+    if (!currentStrings || !currentStrings[lang] || !currentStrings[lang].timeline) {
+      console.warn('No hay traducciones para el timeline');
+      return;
+    }
+    
+    const timelineData = currentStrings[lang].timeline[entityKey];
+    if (!timelineData) return;
+    
+    popoverLogo.src = timelineLogos[entityKey] || 'assets/img/logo-placeholder.png';
+    popoverEntity.textContent = timelineData.entity;
+    popoverRole.textContent = timelineData.role;
+    popoverBullets.innerHTML = timelineData.bullets.map(b => `<li>${b}</li>`).join('');
+    popoverTechTags.innerHTML = timelineData.tech.map(t => `<span class="tech-tag">${t}</span>`).join('');
+    
+    popover.dataset.currentEntity = entityKey;
+    popover.hidden = false;
+  }
+
+  function updateOpenPopover() {
+    if (popover && !popover.hidden) {
+      const currentEntity = popover.dataset.currentEntity;
+      if (currentEntity) {
+        showTimelinePopover(currentEntity);
+      }
+    }
+  }
+
+  document.querySelectorAll('.timeline-item').forEach(item => {
+    item.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const entityKey = item.dataset.entity;
+      if (entityKey) {
+        showTimelinePopover(entityKey);
+      }
+    });
+  });
+
+  if (popoverCloseBtn) {
+    popoverCloseBtn.addEventListener('click', () => {
+      popover.hidden = true;
+    });
+  }
+
+  document.addEventListener('click', (e) => {
+    if (popover && !popover.hidden) {
+      if (!e.target.closest('.timeline-popover') && !e.target.closest('.timeline-item')) {
+        popover.hidden = true;
+      }
+    }
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && popover && !popover.hidden) {
+      popover.hidden = true;
     }
   });
 
@@ -556,26 +619,32 @@ document.addEventListener("DOMContentLoaded", () => {
     const darkFavicon = document.getElementById('dark-favicon');
     const defaultFavicon = document.getElementById('default-favicon');
     
-    // Verificar si el navegador soporta prefers-color-scheme
     if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-      // Modo oscuro
-      if (darkFavicon) {
-        defaultFavicon.href = darkFavicon.href;
-      }
+      if (darkFavicon) defaultFavicon.href = darkFavicon.href;
     } else {
-      // Modo claro
-      if (lightFavicon) {
-        defaultFavicon.href = lightFavicon.href;
-      }
+      if (lightFavicon) defaultFavicon.href = lightFavicon.href;
     }
   }
 
-  // Escuchar cambios en la preferencia de tema
   if (window.matchMedia) {
     const colorSchemeQuery = window.matchMedia('(prefers-color-scheme: dark)');
     colorSchemeQuery.addEventListener('change', updateFaviconForTheme);
   }
 
-  // Inicializar al cargar la página
   updateFaviconForTheme();
+
+  // ==== SCROLL INDICATOR (Flecha hacia abajo en hero) ====
+  const scrollIndicator = document.getElementById('scrollIndicator');
+  if (scrollIndicator) {
+    scrollIndicator.addEventListener('click', () => {
+      const featuredSection = document.getElementById('featured-projects');
+      if (featuredSection) {
+        const offset = window.innerWidth >= 992 ? 0 : 75;
+        window.scrollTo({
+          top: featuredSection.offsetTop - offset,
+          behavior: prefersReducedMotion.matches ? 'auto' : 'smooth'
+        });
+      }
+    });
+  }
 });

@@ -7,17 +7,9 @@
 
   <!-- Favicon configuration for light/dark mode -->
   <link rel="icon" href="assets/img/favicon-light.ico" type="image/x-icon" id="default-favicon">
-
-  <!-- Light mode favicon -->
   <link rel="icon" href="assets/img/favicon-light.ico" type="image/x-icon" media="(prefers-color-scheme: light)" id="light-favicon">
-
-  <!-- Dark mode favicon -->
   <link rel="icon" href="assets/img/favicon-dark.ico" type="image/x-icon" media="(prefers-color-scheme: dark)" id="dark-favicon">
-
-  <!-- Apple Touch Icon (para dispositivos Apple) -->
   <link rel="apple-touch-icon" href="assets/img/logo.png">
-
-  <!-- Favicon alternativo para navegadores que no soportan media queries -->
   <link rel="shortcut icon" href="assets/img/favicon-light.ico" type="image/x-icon">
   
   <!-- Meta tags para SEO -->
@@ -44,13 +36,13 @@
   <meta name="twitter:image:alt" content="Preview of Adrian Guerra's game design portfolio">
   <meta name="twitter:creator" content="@jagv94">
   
-  <!-- Schema.org para perfil profesional -->
+  <!-- Schema.org -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "Person",
     "name": "Adrián Guerra",
-    "jobTitle": "VR/XR Developer & Technical Game Designer",
+    "jobTitle": "Technical Game Designer & VR Interaction Specialist",
     "url": "https://jagv94.github.io",
     "sameAs": [
       "https://linkedin.com/in/jagv94",
@@ -63,7 +55,7 @@
   
   <!-- Bootstrap 5 -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
-  <!-- Font Awesome (para iconos sociales) -->
+  <!-- Font Awesome -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Zen+Maru+Gothic:wght@400;500;700&display=swap" rel="stylesheet">
@@ -72,7 +64,6 @@
   <!-- Estilos personalizados -->
   <link rel="stylesheet" href="assets/css/styles.css" />
   
-  <!-- Precarga de fuentes -->
   <link rel="preload" href="assets/fonts/Sawarabi/SawarabiGothic-Regular.ttf" as="font" type="font/ttf" crossorigin>
   <link rel="preload" href="assets/fonts/ZenMaru/ZenMaruGothic-Regular.ttf" as="font" type="font/ttf" crossorigin>
 </head>
@@ -85,326 +76,109 @@
   <!-- Particle Background -->
   <div id="particles-js"></div>
   
-  <!-- Botón hamburguesa para móviles -->
+  <!-- Botón hamburguesa móvil -->
   <button id="sidebarToggle" class="sidebar-toggle d-lg-none" type="button" aria-label="Open navigation menu" aria-controls="sidebar" aria-expanded="false">
     <span></span>
     <span></span>
     <span></span>
   </button>
   
-  <!-- Navigation Aside -->
+  <!-- Sidebar -->
   <aside id="sidebar" class="sidebar">
     <div class="sidebar-content">
-    <a class="sidebar-brand" href="#home">
-      <img src="assets/img/logo.png" alt="Adrian Guerra" class="logo-img">
-    </a>
+      <a class="sidebar-brand" href="#home">
+        <img src="assets/img/logo.png" alt="Adrian Guerra" class="logo-img">
+      </a>
       
       <ul class="sidebar-nav">
-        <li class="sidebar-item">
-          <a class="sidebar-link" href="#home">
-            <i class="fas fa-home me-2"></i>
-            <span data-i18n="nav_home">Home</span>
-          </a>
-        </li>
-        <li class="sidebar-item">
-          <a class="sidebar-link" href="#skills">
-            <i class="fas fa-code me-2"></i>
-            <span data-i18n="nav_skills">Skills</span>
-          </a>
-        </li>
-        <li class="sidebar-item">
-          <a class="sidebar-link" href="#resume">
-            <i class="fas fa-file-alt me-2"></i>
-            <span data-i18n="nav_resume">Resume</span>
-          </a>
-        </li>
-        <li class="sidebar-item">
-          <a class="sidebar-link" href="#featured-projects">
-            <i class="fas fa-star me-2"></i>
-            <span data-i18n="featured_projects">Featured Projects</span>
-          </a>
-        </li>
-        <li class="sidebar-item">
-          <a class="sidebar-link" href="#portfolio">
-            <i class="fas fa-briefcase me-2"></i>
-            <span data-i18n="project_archive">Project Archive</span>
-          </a>
-        </li>
-        <li class="sidebar-item">
-          <a class="sidebar-link" href="#contact">
-            <i class="fas fa-envelope me-2"></i>
-            <span data-i18n="nav_contact">Contact</span>
-          </a>
-        </li>
+        <li class="sidebar-item"><a class="sidebar-link" href="#home"><i class="fas fa-home me-2"></i><span data-i18n="nav_home">Home</span></a></li>
+        <li class="sidebar-item"><a class="sidebar-link" href="#featured-projects"><i class="fas fa-star me-2"></i><span data-i18n="featured_projects">Featured Projects</span></a></li>
+        <li class="sidebar-item"><a class="sidebar-link" href="#timeline"><i class="fas fa-history me-2"></i><span data-i18n="nav_resume">Resume</span></a></li>
+        <li class="sidebar-item"><a class="sidebar-link" href="#portfolio"><i class="fas fa-briefcase me-2"></i><span data-i18n="project_archive">Project Archive</span></a></li>
+        <li class="sidebar-item"><a class="sidebar-link" href="#contact"><i class="fas fa-envelope me-2"></i><span data-i18n="nav_contact">Contact</span></a></li>
       </ul>
 
-      <!-- Selector de idiomas en el header -->
+      <!-- Selector de idiomas -->
       <div class="lang-selector-container">
         <h3 class="lang-title" data-i18n="language">Language</h3>
         <div class="lang-selector">
-          <button class="lang-btn active" data-lang="en" type="button">
-            <img class="lang-flag" src="assets/img/flags/gb.png" width="40" alt="English">
-            <span class="lang-code">EN</span>
-            <span class="lang-tooltip">English</span>
-          </button>
-          <button class="lang-btn" data-lang="es" type="button">
-            <img class="lang-flag" src="assets/img/flags/es.png" width="40" alt="Español">
-            <span class="lang-code">ES</span>
-            <span class="lang-tooltip">Español</span>
-          </button>
-          <button class="lang-btn" data-lang="ja" type="button">
-            <img class="lang-flag" src="assets/img/flags/jp.png" width="40" alt="日本語">
-            <span class="lang-code">JP</span>
-            <span class="lang-tooltip">日本語</span>
-          </button>
+          <button class="lang-btn active" data-lang="en" type="button"><img class="lang-flag" src="assets/img/flags/gb.png" width="40" alt="English"><span class="lang-code">EN</span><span class="lang-tooltip">English</span></button>
+          <button class="lang-btn" data-lang="es" type="button"><img class="lang-flag" src="assets/img/flags/es.png" width="40" alt="Español"><span class="lang-code">ES</span><span class="lang-tooltip">Español</span></button>
+          <button class="lang-btn" data-lang="ja" type="button"><img class="lang-flag" src="assets/img/flags/jp.png" width="40" alt="日本語"><span class="lang-code">JP</span><span class="lang-tooltip">日本語</span></button>
         </div>
       </div>
       
       <div class="sidebar-footer">
         <div class="social-icons">
-          <a href="https://twitter.com/jagv94" target="_blank" rel="noopener noreferrer" aria-label="X / Twitter profile"><i class="fab fa-twitter" aria-hidden="true"></i></a>
-          <a href="https://www.linkedin.com/in/jagv94/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile"><i class="fab fa-linkedin" aria-hidden="true"></i></a>
-          <a href="https://github.com/jagv94" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile"><i class="fab fa-github" aria-hidden="true"></i></a>
-          <a href="https://shiroi-ookami.itch.io/" target="_blank" rel="noopener noreferrer" aria-label="itch.io profile"><i class="fab fa-itch-io" aria-hidden="true"></i></a>
+          <a href="https://twitter.com/jagv94" target="_blank" rel="noopener noreferrer" aria-label="X / Twitter"><i class="fab fa-twitter" aria-hidden="true"></i></a>
+          <a href="https://www.linkedin.com/in/jagv94/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin" aria-hidden="true"></i></a>
+          <a href="https://github.com/jagv94" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github" aria-hidden="true"></i></a>
+          <a href="https://shiroi-ookami.itch.io/" target="_blank" rel="noopener noreferrer" aria-label="itch.io"><i class="fab fa-itch-io" aria-hidden="true"></i></a>
         </div>
-        
         <p class="sidebar-contact" data-i18n="contact">Contact: jagv94@gmail.com</p>
       </div>
     </div>
   </aside>
   
-  <!-- Overlay para móviles -->
   <div id="sidebarOverlay" class="sidebar-overlay"></div>
 
   <!-- Contenido principal -->
   <div class="main-content">
-    <!-- Hero Section -->
+    <!-- Hero Section (nueva intro) -->
     <header id="home" class="hero-section">
       <div class="hero-content">
-        <h1 data-i18n="welcome">Adrian Guerra's Portfolio</h1>
-        <p class="hero-subtitle" data-i18n="hero_subtitle">Technical Game Designer</p>
+        <h1 data-i18n="welcome">Adrian Guerra</h1>
+        <p class="hero-subtitle" data-i18n="hero_subtitle">Technical Game Designer | Gameplay Systems & VR/XR</p>
         <p class="hero-description" data-i18n="intro">
-          Technical Game Designer with over 10 years of programming training, starting in vocational education and developed through higher studies and professional experience. Specialized in gameplay systems architecture and player experience refinement.
-		  <br/><br/>Expert in Unreal Engine (C++/Blueprints) and Unity (C#), with strong skills in VR/XR development. Passionate about creating mechanics that are both technically robust and emotionally satisfying for players.
-		  <br/><br/>Current interests: Japanese language learning, 3D animation, and exploring AI applications.
+          Technical Game Designer with 10+ years of programming foundation, specialized in designing, prototyping, and iterating mechanics aligned with the game vision. I add value both in <strong>immediate gameplay</strong> (interaction, game feel) and in <strong>deep structure</strong> (balance, progression, and systems economy).<br><br>
+          Capable of implementing solutions directly in <strong>Unreal (C++/BP)</strong> and <strong>Unity (C#)</strong>, creating tooling when necessary, and analyzing player behavior to optimize the experience in a practical and measurable way within multidisciplinary teams.
         </p>
+        <!-- Technical Skills (píldoras compactas) -->
+        <section id="skills" class="skills-section-compact">
+          <div class="container">
+            <!-- No título visible, solo las píldoras -->
+            <div class="skills-pills-container">
+              <div class="pills-primary">
+                <span class="skill-pill">Unity</span>
+                <span class="skill-pill">Unreal Engine</span>
+                <span class="skill-pill">C++</span>
+                <span class="skill-pill">C#</span>
+                <span class="skill-pill">Gameplay Systems</span>
+                <span class="skill-pill">VR/XR</span>
+                <span class="skill-pill">Game Feel</span>
+              </div>
+              <div class="pills-secondary-wrapper">
+                <button class="pill-toggle" id="toggleSecondarySkills" aria-expanded="false" aria-controls="secondarySkillsList">
+                  <i class="fas fa-plus"></i> <span data-i18n="more_skills">more</span>
+                </button>
+                <div id="secondarySkillsList" class="pills-secondary" style="display: none;">
+                  <span class="skill-pill secondary">System Architecture</span>
+                  <span class="skill-pill secondary">Blueprints</span>
+                  <span class="skill-pill secondary">UI/UX</span>
+                  <span class="skill-pill secondary">Git</span>
+                  <span class="skill-pill secondary">Jira</span>
+                  <span class="skill-pill secondary">Blender</span>
+                  <span class="skill-pill secondary">OpenXR</span>
+                </div>
+              </div>
+            </div>
+            <!-- Idiomas separados -->
+            <div class="languages-pills">
+              <span class="lang-pill"><i class="fas fa-comment"></i> <span data-i18n="language_spanish">Spanish</span> <span class="lang-level">(Native)</span></span>
+              <span class="lang-pill"><i class="fas fa-comment"></i> <span data-i18n="language_english">English</span> <span class="lang-level">(B1+)</span></span>
+              <span class="lang-pill"><i class="fas fa-comment"></i> <span data-i18n="language_japanese">Japanese</span> <span class="lang-level">(N4 planned)</span></span>
+            </div>
+          </div>
+        </section>
         <a href="#featured-projects" class="hero-btn" data-i18n="view_work">View My Work</a>
+        <div class="scroll-indicator" id="scrollIndicator" aria-label="Scroll down">
+          <i class="fas fa-chevron-down"></i>
+        </div>
       </div>
     </header>
 
     <main class="pb-5">
-      <!-- Technical Skills -->
-      <section id="skills" class="skills-section">
-        <div class="container">
-          <h2 class="section-title" data-i18n="skills_title">Technical Skills</h2>
-          
-          <div class="skills-grid">
-            <!-- Unity -->
-            <div class="skill-card">
-              <div class="skill-icon">
-                <i class="fab fa-unity"></i>
-              </div>
-              <h5>Unity Engine</h5>
-              <div class="skill-bar">
-                <div class="skill-level" style="width: 85%"></div>
-              </div>
-            </div>
-            
-            <!-- Unreal Engine -->
-            <div class="skill-card">
-              <div class="skill-icon">
-                <i class="fas fa-gamepad"></i>
-              </div>
-              <h5>Unreal Engine</h5>
-              <div class="skill-bar">
-                <div class="skill-level" style="width: 85%"></div>
-              </div>
-            </div>
-            
-            <!-- VR Development -->
-            <div class="skill-card">
-              <div class="skill-icon">
-                <i class="fas fa-vr-cardboard"></i>
-              </div>
-              <h5 data-i18n="vr_xr_development">VR/XR Development</h5>
-              <div class="skill-bar">
-                <div class="skill-level" style="width: 75%"></div>
-              </div>
-            </div>
-            
-            <!-- Programming -->
-            <div class="skill-card">
-              <div class="skill-icon">
-                <i class="fas fa-code"></i>
-              </div>
-              <h5 data-i18n="programming">Programming</h5>
-              <div class="skill-bar">
-                <div class="skill-level" style="width: 92%"></div>
-              </div>
-            </div>
-            
-            <!-- Technical Design -->
-            <div class="skill-card">
-			  <div class="skill-icon">
-				<i class="fas fa-code-branch"></i>
-			  </div>
-			  <h5 data-i18n="technical_design">Technical Design</h5>
-			  <div class="skill-bar">
-				<div class="skill-level" style="width: 92%"></div>
-			  </div>
-			</div>
-			
-            <!-- 3D Modeling -->
-            <div class="skill-card">
-              <div class="skill-icon">
-                <i class="fas fa-cube"></i>
-              </div>
-              <h5 data-i18n="3d_modeling">3D Modeling</h5>
-              <div class="skill-bar">
-                <div class="skill-level" style="width: 55%"></div>
-              </div>
-            </div>
-
-            <!-- Spanish Language -->
-            <div class="skill-card language-skill">
-              <div class="skill-icon">
-                <i class="fas fa-language"></i>
-              </div>
-              <h5 data-i18n="language_spanish">Spanish</h5>
-              <div class="skill-level-text">
-                <span data-i18n="spanish_level">Native</span>
-              </div>
-            </div>
-            
-            <!-- English Language -->
-            <div class="skill-card language-skill">
-              <div class="skill-icon">
-                <i class="fas fa-language"></i>
-              </div>
-              <h5 data-i18n="language_english">English</h5>
-              <div class="skill-level-text">
-                <span data-i18n="english_level">B1 (learning)</span>
-              </div>
-            </div>
-            
-            <!-- Japanese Language -->
-            <div class="skill-card language-skill">
-              <div class="skill-icon">
-                <i class="fas fa-language"></i>
-              </div>
-              <h5 data-i18n="language_japanese">Japanese</h5>
-              <div class="skill-level-text">
-                <span data-i18n="japanese_level">N4 (planned)</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- ======= Resume Section ======= -->
-      <section id="resume" class="resume-section">
-        <div class="container">
-          <h2 class="section-title" data-i18n="nav_resume">Resume</h2>
-
-          <section class="career-section text-center">
-              <!-- Botón para descargar CV -->
-              <div class="mt-4">
-                <a
-                  id="resume-link"
-                  href="assets/docs/Adrian_Guerra_english_CV.pdf"
-                  data-cv-es="assets/docs/Adrian_Guerra_CV.pdf"
-                  data-cv-en="assets/docs/Adrian_Guerra_english_CV.pdf"
-                  data-cv-ja="assets/docs/Adrian_Guerra_english_CV.pdf"
-                  class="btn btn-accent"
-                  target="_blank" rel="noopener noreferrer"
-                >
-                  <i class="fas fa-download me-2"></i>
-                  <span data-i18n="view_resume">View Full Resume</span>
-                </a>
-              </div>
-          </section>
-
-          <div class="row">
-
-            <!-- Professional Experience -->
-            <div class="col-lg-6">
-              <h3 class="resume-category-title" data-i18n="resume-title-experience">Professional Experience</h3>
-
-              <div class="resume-item">
-                <h4 data-i18n="resume-vr-intern-title">VR Developer Intern</h4>
-                <h5 data-i18n="resume-vr-intern-dates">Jan/2025 - May/2025</h5>
-                <p><em data-i18n="resume-vr-intern-place">Faculty of Earth Sciences, University of Barcelona, Spain</em></p>
-                <ul>
-                  <li data-i18n="resume-vr-intern-li-1">Defined goals and functionalities for a 3D model viewer and drafted the design document.</li>
-                  <li data-i18n="resume-vr-intern-li-2">Compared game engines and development tools for VR model visualization.</li>
-                  <li data-i18n="resume-vr-intern-li-3">Developed a point cloud to .fbx model converter.</li>
-                  <li data-i18n="resume-vr-intern-li-4">Created an export plugin for Nanite models to .pak format and runtime import support.</li>
-                  <li data-i18n="resume-vr-intern-li-5">Evaluated and documented both proprietary and third-party plugins.</li>
-                  <li data-i18n="resume-vr-intern-li-6">Designed an ergonomic user interface for immersive interaction.</li>
-                </ul>
-              </div>
-
-              <div class="resume-item">
-                <h4 data-i18n="resume-vr-tech-title">Virtual Reality Laboratory Technician</h4>
-                <h5 data-i18n="resume-vr-tech-dates">Nov/2022 - Jul/2024</h5>
-                <p><em data-i18n="resume-vr-tech-place">ENTI, Barcelona, Spain</em></p>
-                <ul>
-                  <li data-i18n="resume-vr-tech-li-1">Inventory, care and maintenance of equipment.</li>
-                  <li data-i18n="resume-vr-tech-li-2">Reserve and loan management.</li>
-                  <li data-i18n="resume-vr-tech-li-3">Documentation of peripherals and demonstrators/testers.</li>
-                </ul>
-              </div>
-
-              <div class="resume-item">
-                <h4 data-i18n="resume-jr-prog-title">Jr. Programmer</h4>
-                <h5 data-i18n="resume-jr-prog-dates">May/2019 - Sep/2019</h5>
-                <p><em data-i18n="resume-jr-prog-place">ConsultiaIT, Barcelona, Spain</em></p>
-                <ul>
-                  <li data-i18n="resume-jr-prog-li-1">Helpdesk and incident resolution for Baxi technicians.</li>
-                  <li data-i18n="resume-jr-prog-li-2">Testing and debugging web apps and PDAs used by company staff.</li>
-                </ul>
-              </div>
-
-              <div class="resume-item">
-                <h4 data-i18n="resume-tech-title">Computer Technician</h4>
-                <h5 data-i18n="resume-tech-dates">Jan/2018 - May/2018</h5>
-                <p><em data-i18n="resume-tech-place">Everis BPO, Barcelona, Spain</em></p>
-                <ul>
-                  <li data-i18n="resume-tech-li-1">On-site technical support and software installations.</li>
-                  <li data-i18n="resume-tech-li-2">Macro development with Visual Basic 6.0.</li>
-                  <li data-i18n="resume-tech-li-3">Access database creation and documentation writing.</li>
-                </ul>
-              </div>
-            </div>
-
-            <!-- Education -->
-            <div class="col-lg-6">
-              <h3 class="resume-category-title" data-i18n="resume-title-education">Education</h3>
-
-              <div class="resume-item">
-                <h4 data-i18n="resume-enti-degree-title">University Degree, Interactive Digital Content Creation</h4>
-                <h5 data-i18n="resume-enti-degree-dates">2019 - Currently</h5>
-                <p><em data-i18n="resume-enti-degree-place">ENTI, Barcelona, Spain</em></p>
-              </div>
-
-              <div class="resume-item">
-                <h4 data-i18n="resume-app-dev-title">Certificate of Higher Education, Multiplatform App Development</h4>
-                <h5 data-i18n="resume-app-dev-dates">2016 - 2019</h5>
-                <p><em data-i18n="resume-app-dev-place">Institut Marianao, Sant Boi de Llobregat, Spain</em></p>
-              </div>
-
-              <div class="resume-item">
-                <h4 data-i18n="resume-vet-title">Vocational Training, Microcomputer and Network Technician</h4>
-                <h5 data-i18n="resume-vet-dates">2012 - 2015</h5>
-                <p><em data-i18n="resume-vet-place">Institut Marianao, Sant Boi de Llobregat, Spain</em></p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-      <!-- ======= End Resume Section ======= -->
-
-      <!-- Featured Projects Section -->
+      <!-- Featured Projects (movido arriba) -->
       <section id="featured-projects" class="featured-section">
         <div class="container">
           <h2 class="section-title" data-i18n="featured_projects">Featured Projects</h2>
@@ -417,19 +191,13 @@
                   <img src="assets/img/portfolio/tfg-vr-thumbnail.png" loading="lazy" class="panel-image" alt="VR Interaction Design Guide" />
                 </div>
                 <div class="panel-expanded-content">
-                  <button class="mobile-close-btn d-lg-none" aria-label="Close">
-                    <i class="fas fa-times"></i>
-                  </button>
+                  <button class="mobile-close-btn d-lg-none" aria-label="Close"><i class="fas fa-times"></i></button>
                   <div class="expanded-inner">
                     <img src="assets/img/portfolio/tfg-hero-wide.jpg" loading="lazy" class="expanded-hero" alt="VR Interaction Guide Hero" />
                     <div class="project-details">
                       <h3 class="project-title" data-i18n="tfg-title">VR Interaction Design Guide for Action-RPGs</h3>
-                      <div class="project-meta">
-                        <span class="project-role">Bachelor's Thesis – Unity – VR/XR</span>
-                      </div>
-                      <p class="project-description" data-i18n="featured_tfg_desc">
-                        Bachelor's Thesis - Research-driven UX/UI and interaction design guide focused on improving comfort, readability, and player interaction in VR Action-RPGs. Combines practical implementation with user testing to evaluate and refine interaction systems in virtual reality.
-                      </p>
+                      <div class="project-meta"><span class="project-role">Bachelor's Thesis – Unity – VR/XR</span></div>
+                      <p class="project-description" data-i18n="featured_tfg_desc">Bachelor's Thesis - Research-driven UX/UI and interaction design guide focused on improving comfort, readability, and player interaction in VR Action-RPGs. Combines practical implementation with user testing to evaluate and refine interaction systems in virtual reality.</p>
                       <div class="project-responsibilities">
                         <h4 data-i18n="tfg_contributions_title">Key contributions</h4>
                         <ul>
@@ -454,19 +222,13 @@
                   <img src="assets/img/portfolio/portfolio-1.png" loading="lazy" class="panel-image" alt="Godly Thief" />
                 </div>
                 <div class="panel-expanded-content">
-                  <button class="mobile-close-btn d-lg-none" aria-label="Close">
-                    <i class="fas fa-times"></i>
-                  </button>
+                  <button class="mobile-close-btn d-lg-none" aria-label="Close"><i class="fas fa-times"></i></button>
                   <div class="expanded-inner">
                     <img src="assets/img/portfolio/godlythief-hero-wide.jpg" loading="lazy" class="expanded-hero" alt="Godly Thief Hero" />
                     <div class="project-details">
                       <h3 class="project-title">Godly Thief</h3>
-                      <div class="project-meta">
-                        <span class="project-role">2D Roguelite Hack'n'Slash – Unity</span>
-                      </div>
-                      <p class="project-description" data-i18n="featured_godlythief_desc">
-                        2D Roguelite Hack'n'Slash - Gameplay-focused roguelite where players steal abilities from enemies to escape a mythological prison. Designed and implemented core gameplay systems with focus on pacing, difficulty scaling, and moment-to-moment player feedback.
-                      </p>
+                      <div class="project-meta"><span class="project-role">2D Roguelite Hack'n'Slash – Unity</span></div>
+                      <p class="project-description" data-i18n="featured_godlythief_desc">2D Roguelite Hack'n'Slash - Gameplay-focused roguelite where players steal abilities from enemies to escape a mythological prison. Designed and implemented core gameplay systems with focus on pacing, difficulty scaling, and moment-to-moment player feedback.</p>
                       <div class="project-responsibilities">
                         <h4 data-i18n="godlythief_contributions_title">Key contributions</h4>
                         <ul>
@@ -490,19 +252,13 @@
                   <img src="assets/img/portfolio/portfolio-3.png" loading="lazy" class="panel-image" alt="Twisted Tail" />
                 </div>
                 <div class="panel-expanded-content">
-                  <button class="mobile-close-btn d-lg-none" aria-label="Close">
-                    <i class="fas fa-times"></i>
-                  </button>
+                  <button class="mobile-close-btn d-lg-none" aria-label="Close"><i class="fas fa-times"></i></button>
                   <div class="expanded-inner">
                     <img src="assets/img/portfolio/twistedtail-hero-wide.jpg" loading="lazy" class="expanded-hero" alt="Twisted Tail Hero" />
                     <div class="project-details">
                       <h3 class="project-title">Twisted Tail</h3>
-                      <div class="project-meta">
-                        <span class="project-role">Puzzle / Stealth Game – Unity – Game Jam (48h)</span>
-                      </div>
-                      <p class="project-description" data-i18n="featured_twistedtail_desc">
-                        Puzzle/Stealth Game - Game Jam (48h) - Short-form puzzle game built around a color-based camouflage mechanic, developed during a 48-hour game jam. Focused on rapid iteration, clarity of mechanics, and readable player feedback under tight constraints.
-                      </p>
+                      <div class="project-meta"><span class="project-role">Puzzle / Stealth Game – Unity – Game Jam (48h)</span></div>
+                      <p class="project-description" data-i18n="featured_twistedtail_desc">Puzzle/Stealth Game - Game Jam (48h) - Short-form puzzle game built around a color-based camouflage mechanic, developed during a 48-hour game jam. Focused on rapid iteration, clarity of mechanics, and readable player feedback under tight constraints.</p>
                       <div class="project-responsibilities">
                         <h4 data-i18n="twistedtail_contributions_title">Key contributions</h4>
                         <ul>
@@ -522,6 +278,127 @@
         </div>
       </section>
 
+      <!-- Timeline Section (Reemplaza Resume) -->
+      <section id="timeline" class="timeline-section">
+        <div class="container">
+          <h2 class="section-title" data-i18n="nav_resume">Resume</h2>
+          
+          <!-- Botón descarga CV -->
+          <div class="text-center mb-5">
+            <a id="resume-link" href="assets/docs/Adrian_Guerra_english_CV.pdf" class="btn btn-accent" target="_blank" rel="noopener noreferrer">
+              <i class="fas fa-download me-2"></i><span data-i18n="view_resume">View Full Resume</span>
+            </a>
+          </div>
+
+          <!-- Timeline horizontal -->
+          <div class="timeline-horizontal">
+            <!-- UB - VR Developer Intern -->
+            <div class="timeline-item" data-entity="ub" data-type="work">
+              <div class="timeline-logo-wrapper">
+                <img src="assets/img/logos/ub-logo.png" alt="UB" class="timeline-logo" loading="lazy" onerror="this.src='assets/img/logo-placeholder.png'">
+              </div>
+              <div class="timeline-content">
+                <h4 data-i18n="timeline_ub_title">VR Developer Intern</h4>
+                <h5 data-i18n="timeline_ub_dates">Jan/2025 - May/2025</h5>
+                <p class="timeline-place" data-i18n="timeline_ub_place">Faculty of Earth Sciences, UB</p>
+              </div>
+            </div>
+            
+            <!-- ENTI - VR Lab Technician -->
+            <div class="timeline-item" data-entity="enti_work" data-type="work">
+              <div class="timeline-logo-wrapper">
+                <img src="assets/img/logos/enti-logo.png" alt="ENTI" class="timeline-logo" loading="lazy" onerror="this.src='assets/img/logo-placeholder.png'">
+              </div>
+              <div class="timeline-content">
+                <h4 data-i18n="timeline_enti_work_title">VR Lab Technician</h4>
+                <h5 data-i18n="timeline_enti_work_dates">Nov/2022 - Jul/2024</h5>
+                <p class="timeline-place" data-i18n="timeline_enti_work_place">ENTI, Barcelona</p>
+              </div>
+            </div>
+            
+            <!-- Consultia IT - Jr. Programmer -->
+            <div class="timeline-item" data-entity="consultia" data-type="work">
+              <div class="timeline-logo-wrapper">
+                <img src="assets/img/logos/consultia-logo.png" alt="ConsultiaIT" class="timeline-logo" loading="lazy" onerror="this.src='assets/img/logo-placeholder.png'">
+              </div>
+              <div class="timeline-content">
+                <h4 data-i18n="timeline_consultia_title">Jr. Programmer</h4>
+                <h5 data-i18n="timeline_consultia_dates">May/2019 - Sep/2019</h5>
+                <p class="timeline-place" data-i18n="timeline_consultia_place">ConsultiaIT, Barcelona</p>
+              </div>
+            </div>
+            
+            <!-- Everis - Computer Technician -->
+            <div class="timeline-item" data-entity="everis" data-type="work">
+              <div class="timeline-logo-wrapper">
+                <img src="assets/img/logos/everis-logo.png" alt="Everis" class="timeline-logo" loading="lazy" onerror="this.src='assets/img/logo-placeholder.png'">
+              </div>
+              <div class="timeline-content">
+                <h4 data-i18n="timeline_everis_title">Computer Technician</h4>
+                <h5 data-i18n="timeline_everis_dates">Jan/2018 - May/2018</h5>
+                <p class="timeline-place" data-i18n="timeline_everis_place">Everis BPO, Barcelona</p>
+              </div>
+            </div>
+
+            <!-- ENTI - University Degree -->
+            <div class="timeline-item" data-entity="enti_edu" data-type="education">
+              <div class="timeline-logo-wrapper">
+                <img src="assets/img/logos/enti-logo.png" alt="ENTI" class="timeline-logo" loading="lazy" onerror="this.src='assets/img/logo-placeholder.png'">
+              </div>
+              <div class="timeline-content">
+                <h4 data-i18n="timeline_enti_edu_title">University Degree, Interactive Digital Content</h4>
+                <h5 data-i18n="timeline_enti_edu_dates">2019 - 2025</h5>
+                <p class="timeline-place" data-i18n="timeline_enti_edu_place">ENTI, Barcelona</p>
+              </div>
+            </div>
+            
+            <!-- Marianao - DAM -->
+            <div class="timeline-item" data-entity="marianao_dam" data-type="education">
+              <div class="timeline-logo-wrapper">
+                <img src="assets/img/logos/marianao-logo.png" alt="Institut Marianao" class="timeline-logo" loading="lazy" onerror="this.src='assets/img/logo-placeholder.png'">
+              </div>
+              <div class="timeline-content">
+                <h4 data-i18n="timeline_marianao_dam_title">Multiplatform App Development</h4>
+                <h5 data-i18n="timeline_marianao_dam_dates">2016 - 2019</h5>
+                <p class="timeline-place" data-i18n="timeline_marianao_dam_place">Institut Marianao</p>
+              </div>
+            </div>
+            
+            <!-- Marianao - SMR -->
+            <div class="timeline-item" data-entity="marianao_smr" data-type="education">
+              <div class="timeline-logo-wrapper">
+                <img src="assets/img/logos/marianao-logo.png" alt="Institut Marianao" class="timeline-logo" loading="lazy" onerror="this.src='assets/img/logo-placeholder.png'">
+              </div>
+              <div class="timeline-content">
+                <h4 data-i18n="timeline_marianao_smr_title">Microcomputer and Network Technician</h4>
+                <h5 data-i18n="timeline_marianao_smr_dates">2012 - 2015</h5>
+                <p class="timeline-place" data-i18n="timeline_marianao_smr_place">Institut Marianao</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Popover Glassmorphism para detalles (se inserta dinámicamente vía JS) -->
+      <div id="timelinePopover" class="timeline-popover" role="dialog" aria-modal="true" aria-label="Experience details" hidden>
+        <div class="popover-content glass">
+          <button class="popover-close" aria-label="Close">&times;</button>
+          <div class="popover-header">
+            <img id="popoverLogo" src="" alt="" class="popover-logo">
+            <div>
+              <h4 id="popoverEntity"></h4>
+              <p id="popoverRole"></p>
+            </div>
+          </div>
+          <ul id="popoverBullets" class="popover-bullets">
+            <!-- Bullet points insertados por JS -->
+          </ul>
+          <div id="popoverTechTags" class="popover-tech-tags">
+            <!-- Tags de tecnologías -->
+          </div>
+        </div>
+      </div>
+
       <!-- Portfolio Archive -->
       <section id="portfolio" class="portfolio-section">
         <div class="container">
@@ -537,10 +414,10 @@
           </div>
 
           <div class="portfolio-grid">
-            <!-- TFG: Guía para el Desarrollo de Interacciones en VR -->
+            <!-- TFG -->
             <div class="portfolio-item filter-vr">
               <div class="portfolio-card">
-                <img src="assets/img/portfolio/tfg-vr-thumbnail.png" loading="lazy" class="portfolio-img" alt="Guía Interacciones VR - thumbnail" />
+                <img src="assets/img/portfolio/tfg-vr-thumbnail.png" loading="lazy" class="portfolio-img" alt="TFG VR" />
                 <div class="portfolio-overlay">
                   <h5 class="portfolio-title" data-i18n="tfg-title">VR Interaction Design Guide for Action-RPGs</h5>
                   <p class="portfolio-desc" data-i18n="tfg-shortdesc">Bachelor's Thesis - UX/UI guide and Unity demo to improve interaction comfort in VR Action-RPGs; validated with user tests (SSQ & SUS). (Available in Spanish.)</p>
@@ -548,8 +425,7 @@
                 </div>
               </div>
             </div>
-
-            <!-- Cada tarjeta usa Bootstrap grid y clases de filtro -->
+            <!-- Godly Thief -->
             <div class="portfolio-item filter-action">
               <div class="portfolio-card">
                 <img src="assets/img/portfolio/portfolio-1.png" loading="lazy" class="portfolio-img" alt="Godly Thief" />
@@ -560,7 +436,7 @@
                 </div>
               </div>
             </div>
-
+            <!-- Ghosts'N Goblins -->
             <div class="portfolio-item filter-action">
               <div class="portfolio-card">
                 <img src="assets/img/portfolio/ghostngoblins.png" loading="lazy" class="portfolio-img" alt="Ghost'N Goblins" />
@@ -571,7 +447,7 @@
                 </div>
               </div>
             </div>
-
+            <!-- Towers of Clickanium -->
             <div class="portfolio-item filter-action">
               <div class="portfolio-card">
                 <img src="assets/img/portfolio/portfolio-5.png" loading="lazy" class="portfolio-img" alt="Towers of Clickanium" />
@@ -582,7 +458,7 @@
                 </div>
               </div>
             </div>
-
+            <!-- Restaurant Extravaganzza -->
             <div class="portfolio-item filter-simulation">
               <div class="portfolio-card">
                 <img src="assets/img/portfolio/portfolio-2.png" loading="lazy" class="portfolio-img" alt="Restaurant Extravaganzza" />
@@ -593,7 +469,7 @@
                 </div>
               </div>
             </div>
-
+            <!-- Twisted Tail -->
             <div class="portfolio-item filter-puzzle">
               <div class="portfolio-card">
                 <img src="assets/img/portfolio/portfolio-3.png" loading="lazy" class="portfolio-img" alt="Twisted Tail" />
@@ -604,7 +480,7 @@
                 </div>
               </div>
             </div>
-
+            <!-- Playern't Fantasy -->
             <div class="portfolio-item filter-turnBased">
               <div class="portfolio-card">
                 <img src="assets/img/portfolio/portfolio-6.png" loading="lazy" class="portfolio-img" alt="Playern't Fantasy" />
@@ -634,17 +510,13 @@
       </section>
     </main>
 
-    <!-- Footer -->
     <footer class="footer">
-      <div class="container">
-        <!-- <p class="footer-text">© 2025 Adrian Guerra. <span data-i18n="footer_rights">All rights reserved.</span></p> -->
-      </div>
+      <div class="container"></div>
     </footer>
   </div>
 
   <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-  
   <!-- Scripts personalizados -->
   <script src="js/main.js"></script>
 </body>
