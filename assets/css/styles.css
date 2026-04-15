@@ -544,6 +544,58 @@ body::before {
   .expanded-hero { width: 100%; height: 200px; }
   .project-details { width: 100%; }
   .mobile-close-btn { display: flex; }
+
+  /* ===== Ajustes SIDEBAR en móvil ===== */
+  .logo-img {
+    max-width: 45px;
+    margin-bottom: 0.5rem;
+  }
+  .lang-selector-container {
+    margin: 0.5rem 0;
+    padding: 0.5rem;
+  }
+  .lang-title {
+    font-size: 0.75rem;
+    margin-bottom: 0.5rem;
+  }
+  .lang-btn {
+    width: 48px;
+    height: 48px;
+  }
+  .lang-flag {
+    width: 20px;
+    height: 15px;
+    margin-bottom: 2px;
+  }
+  .lang-code {
+    font-size: 9px;
+  }
+  .lang-tooltip {
+    display: none;
+  }
+  .sidebar-nav {
+    margin: 0.5rem 0;
+  }
+  .sidebar-item {
+    margin-bottom: 0.25rem;
+  }
+  .sidebar-link {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.9rem;
+  }
+  .sidebar-footer {
+    padding-top: 0.5rem;
+    margin-top: 0.5rem;
+  }
+  .social-icons a {
+    width: 32px;
+    height: 32px;
+    font-size: 0.8rem;
+  }
+  .sidebar-contact {
+    font-size: 0.7rem;
+    margin-top: 0.5rem;
+  }
 }
 
 /* ==== TIMELINE HORIZONTAL ==== */
@@ -711,7 +763,7 @@ body::before {
 }
 .btn-accent:hover { transform: translateY(-3px); box-shadow: 0 6px 15px rgba(192, 132, 252, 0.4); }
 
-/* ==== RESPONSIVE ==== */
+/* ==== RESPONSIVE GENERAL (ya cubierto por media queries específicas) ==== */
 @media (max-width: 1199px) {
   .sidebar { transform: translateX(-100%); }
   .main-content { margin-left: 0; width: 100%; }
