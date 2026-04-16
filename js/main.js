@@ -303,190 +303,155 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // ===============================
-  // FUNCIONALIDADES PARA LA GALERÍA DESTACADA
+  // FUNCIONALIDADES PARA LA GALERÍA DESTACADA (CORREGIDA)
   // ===============================
 
   function initFeaturedGallery() {
-    const panels = document.querySelectorAll('.featured-panel');
     const gallery = document.querySelector('.featured-gallery');
-    
-    if (!panels.length || !gallery) return;
+    const panels = document.querySelectorAll('.featured-panel');
+    if (!gallery || !panels.length) return;
 
-    if (gallery._featuredGalleryClickHandler) {
-      gallery.removeEventListener('click', gallery._featuredGalleryClickHandler);
-      gallery._featuredGalleryClickHandler = null;
-    }
-
-    if (gallery._featuredGalleryDocumentClickHandler) {
-      document.removeEventListener('click', gallery._featuredGalleryDocumentClickHandler);
-      gallery._featuredGalleryDocumentClickHandler = null;
-    }
-
+    // Limpiar estado previo
     gallery.classList.remove('has-active-panel');
-    panels.forEach(panel => {
-      panel.classList.remove('is-active');
-      panel.classList.remove('other-panel');
+    panels.forEach(p => {
+      p.classList.remove('is-active', 'other-panel', 'mobile-expanded');
+      const closeBtn = p.querySelector('.mobile-close-btn');
+      if (closeBtn) closeBtn.style.display = 'none';
     });
-    
-    const isMobile = window.innerWidth < 992;
-    
-    setTimeout(() => {
-      gallery.classList.add('gallery-loaded');
-    }, prefersReducedMotion.matches ? 0 : 500);
-    
-    if (isMobile) {
-      panels.forEach(panel => {
-        let closeBtn = panel.querySelector('.mobile-close-btn');
-        if (!closeBtn) {
-          closeBtn = document.createElement('button');
-          closeBtn.className = 'mobile-close-btn d-lg-none';
-          closeBtn.innerHTML = '<i class="fas fa-times"></i>';
-          closeBtn.setAttribute('aria-label', 'Close');
-          closeBtn.style.display = 'none';
-          panel.querySelector('.panel-expanded-content').appendChild(closeBtn);
-        }
-        
-        panel.addEventListener('click', function(e) {
-          if (e.target.closest('.mobile-close-btn')) return;
-          e.stopPropagation();
-          if (this.classList.contains('mobile-expanded')) return;
-          
-          panels.forEach(p => {
-            p.classList.remove('mobile-expanded');
-            const btn = p.querySelector('.mobile-close-btn');
-            if (btn) btn.style.display = 'none';
-          });
-          
-          this.classList.add('mobile-expanded');
-          const thisCloseBtn = this.querySelector('.mobile-close-btn');
-          if (thisCloseBtn) thisCloseBtn.style.display = 'flex';
-          
-          setTimeout(() => {
-            this.scrollIntoView({ 
-              behavior: prefersReducedMotion.matches ? 'auto' : 'smooth', 
-              block: 'nearest',
-              inline: 'nearest'
-            });
-          }, 100);
-        });
-        
-        closeBtn.addEventListener('click', function(e) {
-          e.stopPropagation();
-          e.preventDefault();
-          panel.classList.remove('mobile-expanded');
-          this.style.display = 'none';
-          const imageWrapper = panel.querySelector('.panel-image-wrapper');
-          const image = panel.querySelector('.panel-image');
-          if (imageWrapper) {
-            imageWrapper.style.opacity = '1';
-            imageWrapper.style.zIndex = '1';
-          }
-          if (image) {
-            image.style.opacity = '1';
-            image.style.visibility = 'visible';
-            image.style.display = 'block';
-          }
-        });
-      });
-      
-      document.addEventListener('click', function(e) {
-        if (!e.target.closest('.featured-panel.mobile-expanded') && 
-            document.querySelector('.featured-panel.mobile-expanded')) {
-          panels.forEach(p => {
-            p.classList.remove('mobile-expanded');
-            const btn = p.querySelector('.mobile-close-btn');
-            if (btn) btn.style.display = 'none';
-            const imageWrapper = p.querySelector('.panel-image-wrapper');
-            const image = p.querySelector('.panel-image');
-            if (imageWrapper) {
-              imageWrapper.style.opacity = '1';
-              imageWrapper.style.zIndex = '1';
-            }
-            if (image) {
-              image.style.opacity = '1';
-              image.style.visibility = 'visible';
-              image.style.display = 'block';
-            }
-          });
-        }
-      });
-      
-    } else {
-      let activeDesktopPanel = null;
 
-      const setActivePanel = (activePanel) => {
-        if (activeDesktopPanel === activePanel) return;
-        activeDesktopPanel = activePanel;
-        gallery.classList.add('has-active-panel');
-        panels.forEach(panel => {
-          const isActive = panel === activePanel;
-          panel.classList.toggle('is-active', isActive);
-          panel.classList.toggle('other-panel', !isActive);
-        });
-      };
+    // Crear botones de cierre para móvil si no existen
+    panels.forEach(panel => {
+      let closeBtn = panel.querySelector('.mobile-close-btn');
+      if (!closeBtn) {
+        closeBtn = document.createElement('button');
+        closeBtn.type = 'button';
+        closeBtn.className = 'mobile-close-btn d-lg-none';
+        closeBtn.innerHTML = '<i class="fas fa-times"></i>';
+        closeBtn.setAttribute('aria-label', 'Close');
+        panel.querySelector('.panel-expanded-content').appendChild(closeBtn);
+      }
+    });
 
-      const clearActivePanel = () => {
-        activeDesktopPanel = null;
-        gallery.classList.remove('has-active-panel');
-        panels.forEach(panel => {
-          panel.classList.remove('is-active');
-          panel.classList.remove('other-panel');
-        });
-      };
-
-      const handleDesktopPanelClick = (event) => {
-        const clickedPanel = event.target.closest('.featured-panel');
-        if (!clickedPanel || !gallery.contains(clickedPanel)) return;
-        // No interferir con clics en enlaces o botones
-        if (event.target.closest('a, button')) return;
-        event.preventDefault();
-        event.stopPropagation();
-        if (activeDesktopPanel === clickedPanel) return;
-        setActivePanel(clickedPanel);
-      };
-
-      const handleDesktopDocumentClick = (event) => {
-        // No cerrar si el clic fue dentro del contenido expandido
-        if (event.target.closest('.panel-expanded-content')) return;
-        if (!gallery.contains(event.target)) {
-          clearActivePanel();
-        }
-      };
-
-      gallery._featuredGalleryClickHandler = handleDesktopPanelClick;
-      gallery._featuredGalleryDocumentClickHandler = handleDesktopDocumentClick;
-
-      panels.forEach(panel => {
-        const closeBtn = panel.querySelector('.mobile-close-btn');
-        if (closeBtn) closeBtn.style.display = 'none';
-      });
-
-      gallery.addEventListener('click', handleDesktopPanelClick);
-      document.addEventListener('click', handleDesktopDocumentClick);
+    // Eliminar listeners antiguos
+    if (gallery._featuredGalleryHandler) {
+      gallery.removeEventListener('click', gallery._featuredGalleryHandler);
     }
+    if (gallery._featuredDocumentHandler) {
+      document.removeEventListener('click', gallery._featuredDocumentHandler);
+    }
+    if (gallery._mobileOutsideHandler) {
+      document.removeEventListener('click', gallery._mobileOutsideHandler);
+    }
+
+    const isMobile = window.innerWidth < 992;
+    let activeDesktopPanel = null;
+
+    // Handler único para clics en la galería
+    const galleryClickHandler = (e) => {
+      // Prioridad: botón de cierre (móvil)
+      const closeBtn = e.target.closest('.mobile-close-btn');
+      if (closeBtn) {
+        e.preventDefault();
+        e.stopPropagation();
+        const panel = closeBtn.closest('.featured-panel');
+        if (panel) {
+          panel.classList.remove('mobile-expanded');
+          closeBtn.style.display = 'none';
+        }
+        return;
+      }
+
+      const panel = e.target.closest('.featured-panel');
+      if (!panel) return;
+
+      // Si es un enlace o botón interno, no expandir
+      if (e.target.closest('a, button')) return;
+
+      if (isMobile) {
+        // Móvil: expandir/colapsar
+        e.stopPropagation();
+        if (panel.classList.contains('mobile-expanded')) return;
+
+        panels.forEach(p => {
+          p.classList.remove('mobile-expanded');
+          const btn = p.querySelector('.mobile-close-btn');
+          if (btn) btn.style.display = 'none';
+        });
+
+        panel.classList.add('mobile-expanded');
+        const btn = panel.querySelector('.mobile-close-btn');
+        if (btn) btn.style.display = 'flex';
+
+        setTimeout(() => {
+          panel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }, 100);
+      } else {
+        // Escritorio: activar panel
+        e.stopPropagation();
+        if (activeDesktopPanel === panel) return;
+
+        panels.forEach(p => {
+          p.classList.remove('is-active', 'other-panel');
+        });
+        panel.classList.add('is-active');
+        panels.forEach(p => {
+          if (p !== panel) p.classList.add('other-panel');
+        });
+        gallery.classList.add('has-active-panel');
+        activeDesktopPanel = panel;
+      }
+    };
+
+    // Handler para cerrar en escritorio al hacer clic fuera
+    const documentClickHandler = (e) => {
+      if (isMobile) return;
+      if (!gallery.contains(e.target)) {
+        panels.forEach(p => p.classList.remove('is-active', 'other-panel'));
+        gallery.classList.remove('has-active-panel');
+        activeDesktopPanel = null;
+      }
+    };
+
+    gallery.addEventListener('click', galleryClickHandler);
+    document.addEventListener('click', documentClickHandler);
+
+    gallery._featuredGalleryHandler = galleryClickHandler;
+    gallery._featuredDocumentHandler = documentClickHandler;
+
+    // En móvil, cerrar al hacer clic fuera
+    if (isMobile) {
+      const mobileOutsideHandler = (e) => {
+        if (!e.target.closest('.featured-panel.mobile-expanded')) {
+          panels.forEach(p => {
+            p.classList.remove('mobile-expanded');
+            const btn = p.querySelector('.mobile-close-btn');
+            if (btn) btn.style.display = 'none';
+          });
+        }
+      };
+      document.addEventListener('click', mobileOutsideHandler);
+      gallery._mobileOutsideHandler = mobileOutsideHandler;
+    }
+
+    gallery.classList.add('gallery-loaded');
   }
 
   initFeaturedGallery();
 
-  window.addEventListener('resize', function() {
-    initFeaturedGallery();
-    if (window.innerWidth >= 992) {
-      document.querySelectorAll('.featured-panel').forEach(panel => {
-        panel.classList.remove('mobile-expanded');
-        const btn = panel.querySelector('.mobile-close-btn');
-        if (btn) btn.style.display = 'none';
-        const imageWrapper = panel.querySelector('.panel-image-wrapper');
-        const image = panel.querySelector('.panel-image');
-        if (imageWrapper) {
-          imageWrapper.style.opacity = '1';
-          imageWrapper.style.zIndex = '1';
-        }
-        if (image) {
-          image.style.opacity = '1';
-          image.style.visibility = 'visible';
-        }
-      });
-    }
+  let resizeTimer;
+  window.addEventListener('resize', () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(() => {
+      initFeaturedGallery();
+      // Restaurar estado visual si es necesario
+      if (window.innerWidth >= 992) {
+        document.querySelectorAll('.featured-panel').forEach(panel => {
+          panel.classList.remove('mobile-expanded');
+          const btn = panel.querySelector('.mobile-close-btn');
+          if (btn) btn.style.display = 'none';
+        });
+      }
+    }, 150);
   });
 
   // ===============================
