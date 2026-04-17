@@ -339,27 +339,17 @@ document.addEventListener("DOMContentLoaded", () => {
     if (gallery._featuredDocumentHandler) {
       document.removeEventListener('click', gallery._featuredDocumentHandler);
     }
-    if (gallery._mobileOutsideHandler) {
-      document.removeEventListener('click', gallery._mobileOutsideHandler);
+    if (gallery._mobileCloseHandler) {
+      document.removeEventListener('click', gallery._mobileCloseHandler);
     }
 
     const isMobile = window.innerWidth < 992;
     let activeDesktopPanel = null;
 
-    // Handler único para clics en la galería
+    // Handler para clics en la galería (expandir paneles)
     const galleryClickHandler = (e) => {
-      // Prioridad: botón de cierre (móvil)
-      const closeBtn = e.target.closest('.mobile-close-btn');
-      if (closeBtn) {
-        e.preventDefault();
-        e.stopPropagation();
-        const panel = closeBtn.closest('.featured-panel');
-        if (panel) {
-          panel.classList.remove('mobile-expanded');
-          closeBtn.style.display = 'none';
-        }
-        return;
-      }
+      // Si el clic fue en el botón de cierre móvil, lo manejamos aparte
+      if (e.target.closest('.mobile-close-btn')) return;
 
       const panel = e.target.closest('.featured-panel');
       if (!panel) return;
@@ -368,16 +358,14 @@ document.addEventListener("DOMContentLoaded", () => {
       if (e.target.closest('a, button')) return;
 
       if (isMobile) {
-        // Móvil: expandir/colapsar
         e.stopPropagation();
-        if (panel.classList.contains('mobile-expanded')) return;
-
+        // Cerrar cualquier otro panel móvil expandido
         panels.forEach(p => {
           p.classList.remove('mobile-expanded');
           const btn = p.querySelector('.mobile-close-btn');
           if (btn) btn.style.display = 'none';
         });
-
+        // Expandir el panel actual
         panel.classList.add('mobile-expanded');
         const btn = panel.querySelector('.mobile-close-btn');
         if (btn) btn.style.display = 'flex';
@@ -402,6 +390,19 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     };
 
+    // Handler para cerrar paneles móviles mediante el botón X
+    const mobileCloseHandler = (e) => {
+      const closeBtn = e.target.closest('.mobile-close-btn');
+      if (!closeBtn) return;
+      e.preventDefault();
+      e.stopPropagation();
+      const panel = closeBtn.closest('.featured-panel');
+      if (panel) {
+        panel.classList.remove('mobile-expanded');
+        closeBtn.style.display = 'none';
+      }
+    };
+
     // Handler para cerrar en escritorio al hacer clic fuera
     const documentClickHandler = (e) => {
       if (isMobile) return;
@@ -413,25 +414,12 @@ document.addEventListener("DOMContentLoaded", () => {
     };
 
     gallery.addEventListener('click', galleryClickHandler);
+    document.addEventListener('click', mobileCloseHandler);
     document.addEventListener('click', documentClickHandler);
 
     gallery._featuredGalleryHandler = galleryClickHandler;
+    gallery._mobileCloseHandler = mobileCloseHandler;
     gallery._featuredDocumentHandler = documentClickHandler;
-
-    // En móvil, cerrar al hacer clic fuera
-    if (isMobile) {
-      const mobileOutsideHandler = (e) => {
-        if (!e.target.closest('.featured-panel.mobile-expanded')) {
-          panels.forEach(p => {
-            p.classList.remove('mobile-expanded');
-            const btn = p.querySelector('.mobile-close-btn');
-            if (btn) btn.style.display = 'none';
-          });
-        }
-      };
-      document.addEventListener('click', mobileOutsideHandler);
-      gallery._mobileOutsideHandler = mobileOutsideHandler;
-    }
 
     gallery.classList.add('gallery-loaded');
   }
