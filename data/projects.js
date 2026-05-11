@@ -249,8 +249,7 @@
           "Implemented player movement, input handling and core gameplay interactions",
           "Implemented map structure, background composition and gameplay collision flow",
           "Implemented multi-layer level structure, ladders and moving platform mechanics",
-          "Designed and implemented collision systems for environments and traversal",
-          "Moving platform programming"
+          "Designed and implemented collision systems for environments and traversal"
         ],
         [
           "Integración de sistemas de audio y música ligados al gameplay",
@@ -258,8 +257,7 @@
           "Implementación de movimiento del jugador, gestión de input e interacciones nucleares",
           "Implementación de estructura de mapa, composición de fondos y flujo de colisiones de gameplay",
           "Implementación de estructura multinivel, escaleras y mecánicas de plataformas móviles",
-          "Diseño e implementación de sistemas de colisión para entornos y traversal",
-          "Programación de plataformas móviles"
+          "Diseño e implementación de sistemas de colisión para entornos y traversal"
         ],
         [
           "ゲームプレイ連動のオーディオと音楽システムを統合",
@@ -267,8 +265,7 @@
           "プレイヤー移動、入力処理、コアインタラクションを実装",
           "マップ構造、背景構成、ゲームプレイ上の衝突フローを実装",
           "多層レベル構造、はしご、移動床のメカニクスを実装",
-          "環境と移動のための衝突システムを設計・実装",
-          "移動床のプログラミング"
+          "環境と移動のための衝突システムを設計・実装"
         ]
       ),
       link: {
