@@ -652,6 +652,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (shouldEnableParticles && typeof particlesJS === "function") {
     particlesJS("particles-js", {
+    particlesJS("particles-js", {
       particles: {
         number: { value: 80, density: { enable: true, value_area: 800 } },
         color: { value: "#c084fc" },
@@ -695,8 +696,18 @@ document.addEventListener("DOMContentLoaded", () => {
       sidebarOverlay.classList.toggle("active", isActive);
       sidebarToggle.setAttribute("aria-expanded", String(isActive));
       document.body.style.overflow = isActive ? "hidden" : "";
+    sidebarToggle.addEventListener("click", () => {
+      const isActive = sidebar.classList.toggle("active");
+      sidebarOverlay.classList.toggle("active", isActive);
+      sidebarToggle.setAttribute("aria-expanded", String(isActive));
+      document.body.style.overflow = isActive ? "hidden" : "";
     });
 
+    sidebarOverlay.addEventListener("click", () => {
+      sidebar.classList.remove("active");
+      sidebarOverlay.classList.remove("active");
+      sidebarToggle.setAttribute("aria-expanded", "false");
+      document.body.style.overflow = "";
     sidebarOverlay.addEventListener("click", () => {
       sidebar.classList.remove("active");
       sidebarOverlay.classList.remove("active");
@@ -707,7 +718,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
   document.querySelectorAll(".sidebar-link").forEach((link) => {
     link.addEventListener("click", () => {
+  document.querySelectorAll(".sidebar-link").forEach((link) => {
+    link.addEventListener("click", () => {
       if (window.innerWidth < 1200) {
+        sidebar?.classList.remove("active");
+        sidebarOverlay?.classList.remove("active");
+        sidebarToggle?.setAttribute("aria-expanded", "false");
+        document.body.style.overflow = "";
         sidebar?.classList.remove("active");
         sidebarOverlay?.classList.remove("active");
         sidebarToggle?.setAttribute("aria-expanded", "false");
@@ -734,20 +751,30 @@ document.addEventListener("DOMContentLoaded", () => {
   fetch("data/strings.json")
     .then((response) => response.json())
     .then((data) => {
+    .then((response) => response.json())
+    .then((data) => {
       sessionStorage.setItem("strings", JSON.stringify(data));
+
 
       if (!hasCachedTranslations) {
         applyTranslations(data, lang);
       }
     })
     .catch((error) => console.error("Error loading translations:", error));
+    .catch((error) => console.error("Error loading translations:", error));
 
+  const loader = document.getElementById("loader");
+  if (loader) {
   const loader = document.getElementById("loader");
   if (loader) {
     const hideLoader = () => {
       const loaderHideDelay = prefersReducedMotion.matches ? 0 : 150;
 
       setTimeout(() => {
+        loader.classList.add("loader-hidden");
+
+        loader.addEventListener("transitionend", () => {
+          if (loader.parentNode) {
         loader.classList.add("loader-hidden");
 
         loader.addEventListener("transitionend", () => {
@@ -759,23 +786,41 @@ document.addEventListener("DOMContentLoaded", () => {
     };
 
     if (document.readyState === "complete") {
+    if (document.readyState === "complete") {
       hideLoader();
     } else {
+      window.addEventListener("load", hideLoader, { once: true });
       window.addEventListener("load", hideLoader, { once: true });
     }
   }
 
   const fadeElements = document.querySelectorAll(".fade-in");
+
+  const fadeElements = document.querySelectorAll(".fade-in");
   if (prefersReducedMotion.matches) {
+    fadeElements.forEach((element) => element.classList.add("visible"));
     fadeElements.forEach((element) => element.classList.add("visible"));
   } else {
     const fadeInObserver = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
+      entries.forEach((entry) => {
         if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
           entry.target.classList.add("visible");
         }
       });
     }, { threshold: 0.1 });
+
+    fadeElements.forEach((element) => fadeInObserver.observe(element));
+  }
+
+  initPortfolioFilters();
+
+  document.querySelectorAll(".sidebar-link, .hero-btn").forEach((link) => {
+    link.addEventListener("click", function (event) {
+      const href = this.getAttribute("href");
+      if (href && href.startsWith("#")) {
+        event.preventDefault();
 
     fadeElements.forEach((element) => fadeInObserver.observe(element));
   }
@@ -793,13 +838,21 @@ document.addEventListener("DOMContentLoaded", () => {
           window.scrollTo({
             top: targetPosition,
             behavior: prefersReducedMotion.matches ? "auto" : "smooth"
+            behavior: prefersReducedMotion.matches ? "auto" : "smooth"
           });
         }
       }
     });
   });
 
+
   if (toggleSecondaryBtn && secondarySkillsList) {
+    toggleSecondaryBtn.addEventListener("click", () => {
+      const isExpanded = toggleSecondaryBtn.getAttribute("aria-expanded") === "true";
+      secondarySkillsList.style.display = isExpanded ? "none" : "flex";
+      toggleSecondaryBtn.setAttribute("aria-expanded", String(!isExpanded));
+
+      const cachedStrings = JSON.parse(sessionStorage.getItem("strings"));
     toggleSecondaryBtn.addEventListener("click", () => {
       const isExpanded = toggleSecondaryBtn.getAttribute("aria-expanded") === "true";
       secondarySkillsList.style.display = isExpanded ? "none" : "flex";
@@ -809,6 +862,10 @@ document.addEventListener("DOMContentLoaded", () => {
       if (cachedStrings) {
         updateToggleButtonText(cachedStrings, lang);
       } else {
+        const span = toggleSecondaryBtn.querySelector("span");
+        const icon = toggleSecondaryBtn.querySelector("i");
+        if (span) span.textContent = isExpanded ? "more" : "less";
+        if (icon) icon.className = isExpanded ? "fas fa-plus" : "fas fa-minus";
         const span = toggleSecondaryBtn.querySelector("span");
         const icon = toggleSecondaryBtn.querySelector("i");
         if (span) span.textContent = isExpanded ? "more" : "less";
@@ -823,6 +880,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  document.addEventListener("click", (event) => {
   document.addEventListener("click", (event) => {
     if (popover && !popover.hidden) {
       if (event.target.closest(".lang-btn")) {
@@ -844,12 +902,17 @@ document.addEventListener("DOMContentLoaded", () => {
   if (window.matchMedia) {
     const colorSchemeQuery = window.matchMedia("(prefers-color-scheme: dark)");
     colorSchemeQuery.addEventListener("change", updateFaviconForTheme);
+    const colorSchemeQuery = window.matchMedia("(prefers-color-scheme: dark)");
+    colorSchemeQuery.addEventListener("change", updateFaviconForTheme);
   }
 
   updateFaviconForTheme();
 
   const scrollIndicator = document.getElementById("scrollIndicator");
+  const scrollIndicator = document.getElementById("scrollIndicator");
   if (scrollIndicator) {
+    scrollIndicator.addEventListener("click", () => {
+      const featuredSection = document.getElementById("featured-projects");
     scrollIndicator.addEventListener("click", () => {
       const featuredSection = document.getElementById("featured-projects");
       if (featuredSection) {
@@ -858,10 +921,33 @@ document.addEventListener("DOMContentLoaded", () => {
         window.scrollTo({
           top: y,
           behavior: prefersReducedMotion.matches ? "auto" : "smooth"
+          behavior: prefersReducedMotion.matches ? "auto" : "smooth"
         });
       }
     });
   }
+
+  let resizeTimer;
+  window.addEventListener("resize", () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(() => {
+      const nextMode = getFeaturedViewportMode();
+      const widthDelta = Math.abs(window.innerWidth - featuredViewportState.width);
+
+      if (nextMode === featuredViewportState.mode && widthDelta < 8) {
+        return;
+      }
+
+      const activeProjectId = getActiveFeaturedProjectId();
+      initFeaturedGallery({ preserveProjectId: activeProjectId });
+      applyPortfolioFilter(getActivePortfolioFilter(), { animated: false });
+
+      featuredViewportState.mode = nextMode;
+      featuredViewportState.width = window.innerWidth;
+    }, 150);
+  });
+});
+
 
   let resizeTimer;
   window.addEventListener("resize", () => {
