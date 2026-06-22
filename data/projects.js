@@ -225,6 +225,69 @@
       }
     },
     {
+      id: "starabyss",
+      featured: false,
+      archive: true,
+      categories: ["filter-systems"],
+      title: t("Star Abyss (Systems Prototype)", "Star Abyss (Prototipo de Sistemas)", "Star Abyss（システムプロトタイプ）"),
+      images: {
+        thumbnail: "assets/img/portfolio/portfolio-7.png"
+      },
+      featuredMeta: t(
+        "Technical Gameplay Systems Prototype - Unity",
+        "Prototipo de sistemas de gameplay - Unity",
+        "ゲームプレイシステムプロトタイプ - Unity"
+      ),
+      featuredDescription: t(
+        "Systems-driven arcade prototype focused on gameplay architecture, risk/reward loops, and runtime tuning. Designed as a configurable gameplay sandbox with emphasis on iteration speed, debug tooling, and emergent interaction systems.",
+        "Prototipo arcade centrado en sistemas de gameplay, loops de riesgo/recompensa y tuning en tiempo de ejecución. Diseñado como un sandbox configurable con énfasis en iteración rápida, tooling de debug y sistemas emergentes de interacción.",
+        "ゲームプレイアーキテクチャ、リスク/リワードループ、ランタイムチューニングに焦点を当てたシステム駆動型アーケードプロトタイプ。高速な反復、デバッグツール、創発的なインタラクションシステムを重視した構成。"
+      ),
+      featuredContributions: t(
+      [
+        "Designed a heat-based risk system driving player failure conditions and feedback loops",
+        "Built FireMode economy system with charge accumulation and timed reward states",
+        "Implemented procedural infinite level generation with difficulty scaling over depth",
+        "Created modular segment behavior system with distinct gameplay modifiers",
+        "Developed runtime debug tooling for real-time gameplay tuning and iteration",
+        "Balanced core gameplay loops through rapid parameter iteration and testing"
+      ]),
+      archiveSummary: t(
+        "Arcade systems prototype focused on risk/reward gameplay loops, procedural difficulty scaling, and runtime tuning tools.",
+        "Prototipo arcade centrado en loops de riesgo/recompensa, escalado procedural de dificultad y herramientas de tuning en tiempo de ejecución.",
+        "アーケード型システムプロトタイプ。リスク/リワードループ、プロシージャル難易度スケーリング、ランタイム調整ツールにフォーカス。"
+      ),
+      archiveContributions: t(
+      [
+        "Designed the core arcade gameplay loop combining rotation-based navigation and physics-driven falling mechanics",
+        "Implemented a heat-based risk system that links player mistakes to failure conditions and feedback intensity",
+        "Built FireMode as a reward economy system with charge accumulation and temporary power state activation",
+        "Developed procedural level generation with infinite progression and difficulty scaling over depth",
+        "Created a modular segment system introducing distinct gameplay modifiers and interaction rules",
+        "Implemented runtime debug tools to support real-time tuning and iteration of gameplay systems"
+      ],
+      [
+        "Diseño del bucle principal de gameplay arcade combinando navegación por rotación y caída basada en físicas",
+        "Implementación de un sistema de riesgo basado en temperatura que vincula los errores del jugador con condiciones de fallo y nivel de feedback",
+        "Desarrollo de FireMode como sistema de economía de recompensa con acumulación de carga y activación de estado de poder temporal",
+        "Desarrollo de generación procedural de niveles con progresión infinita y escalado de dificultad según la profundidad",
+        "Creación de un sistema modular de segmentos con distintos modificadores de gameplay y reglas de interacción",
+        "Implementación de herramientas de debug en runtime para facilitar el tuning y la iteración de sistemas de gameplay"
+      ],
+      [
+        "回転操作と物理ベースの落下を組み合わせたアーケード型ゲームプレイループの設計",
+        "プレイヤーのミスが失敗条件とフィードバック強度に直結する温度ベースのリスクシステムの実装",
+        "チャージ蓄積と一時的な強化状態を持つリワード経済システムとしてのFireModeの構築",
+        "無限進行と深度に応じた難易度スケーリングを持つプロシージャルレベル生成の開発",
+        "異なるゲームプレイ修飾とインタラクションルールを導入するモジュラー型セグメントシステムの構築",
+        "リアルタイムでのゲームプレイ調整と反復を支援するデバッグツールの実装"
+      ]),
+      link: {
+        href: "https://shiroi-ookami.itch.io/star-abyss",
+        labelKey: "visit"
+      }
+    },
+    {
       id: "ghostngoblins",
       featured: false,
       archive: true,
