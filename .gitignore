@@ -1,2 +1,4 @@
 CLAUDE.local.md
 .claude/settings.local.json
+# Documentación interna del proceso (solo en local; copia en ../docs_backup)
+/docs/

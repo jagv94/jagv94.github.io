@@ -17,24 +17,27 @@
       bullets: t(
         [
           "Defined goals and drafted design document for a 3D model viewer.",
-          "Developed a point cloud to .fbx converter.",
-          "Created an export plugin for Nanite models to .pak format."
+          "Evaluated Unreal/Nanite against Unity and Cesium for viewing photogrammetry models of over 64 million triangles in VR.",
+          "Python tool and custom C++ plugins (AI-assisted): point cloud → FBX via CloudCompare (FBXCloudConverter), FBX → Nanite Static Mesh with an import commandlet (NaniteConverter) and runtime .pak loading.",
+          "VR model-selection UI (lazy-follow menu, laser pointer, submenus). Cooking and .pak loading were left unfinished and documented."
         ],
         [
           "Definición de objetivos y redacción del documento de diseño para un visor 3D.",
-          "Desarrollo de un conversor de nubes de puntos a .fbx.",
-          "Creación de un plugin de exportación de modelos Nanite a formato .pak."
+          "Evaluación de Unreal/Nanite frente a Unity y Cesium para visualizar en VR modelos fotogramétricos de más de 64 M de triángulos.",
+          "Herramienta en Python y plugins propios en C++ (con asistencia de IA): nubes de puntos → FBX con CloudCompare (FBXCloudConverter), FBX → Static Mesh con Nanite y commandlet de importación (NaniteConverter) y carga de .pak en runtime.",
+          "Interfaz VR para elegir modelos (menú lazy follow, láser, submenús). El cocinado y la carga de .pak quedaron sin completar y documentados."
         ],
         [
           "3Dモデルビューア向けの目標定義とデザインドキュメント作成。",
-          "点群から .fbx へのコンバータを開発。",
-          "Naniteモデルを .pak 形式へ書き出すプラグインを作成。"
+          "6,400万を超える三角形からなるフォトグラメトリモデルをVRで表示するため、Unreal/NaniteをUnityおよびCesiumと比較評価。",
+          "PythonツールとC++の独自プラグイン（AI支援）：CloudCompareを使った点群→FBX変換（FBXCloudConverter）、インポート用コマンドレットによるFBX→Nanite Static Mesh変換（NaniteConverter）、ランタイムでの .pak 読み込み。",
+          "VRモデル選択UI（レイジーフォローメニュー、レーザーポインター、サブメニュー）。アセットのクックと .pak の読み込みは未完成のままとなり、その状態をドキュメント化。"
         ]
       ),
       tech: t(
-        ["Unreal Engine", "C++", "VR", "Point Cloud", "Blueprint"],
-        ["Unreal Engine", "C++", "VR", "Nube de Puntos", "Blueprint"],
-        ["Unreal Engine", "C++", "VR", "点群", "Blueprint"]
+        ["Unreal Engine", "C++", "Python", "Nanite", "VR", "Point Cloud", "Blueprint"],
+        ["Unreal Engine", "C++", "Python", "Nanite", "VR", "Nube de Puntos", "Blueprint"],
+        ["Unreal Engine", "C++", "Python", "Nanite", "VR", "点群", "Blueprint"]
       )
     },
     {
@@ -44,8 +47,8 @@
         src: "assets/img/logos/enti-logo.png",
         alt: t("ENTI logo", "Logo de ENTI", "ENTIのロゴ")
       },
-      title: t("VR Lab Technician", "Técnico de Laboratorio VR", "VRラボ技術者"),
-      role: t("Virtual Reality Lab Technician", "Técnico de Laboratorio de Realidad Virtual", "VRラボ技術者"),
+      title: t("VR Lab Technician Intern", "Técnico de Laboratorio VR en Prácticas", "VRラボ技術者インターン"),
+      role: t("Virtual Reality Lab Technician Intern", "Técnico de Laboratorio de Realidad Virtual en Prácticas", "VRラボ技術者インターン"),
       date: t("Nov/2022 - Jul/2024", "Nov/2022 - Jul/2024", "2022年11月 - 2024年7月"),
       place: t("ENTI, Barcelona", "ENTI, Barcelona", "ENTI, バルセロナ"),
       entity: t(
@@ -55,25 +58,28 @@
       ),
       bullets: t(
         [
-          "Managed inventory, care and maintenance of VR/AR equipment.",
-          "Handled reserve and loan logistics.",
-          "Documented peripherals and demonstrators."
+          "Designed the hub level of a Unity VR prototype for Virtuix Omni treadmills (team of 5): a hexagonal nexus with elemental doors, a symbol-rotation column puzzle and gem pedestals. Wrote its design document, built the layout, torches, baked lighting and audio transition, and programmed the pedestal puzzle that drains the water.",
+          "Built the lava zone: programmed platforms that sink into the lava in random order, moving platforms usable by the player and the enemy, and editor gizmos to preview their path and final height; integrated the rock-melting sounds. The prototype was shown at the Saló de l'Ensenyament.",
+          "Technical documentation for the lab (Meta Quest, Virtuix Omni, OBS) and a VR/AR hardware comparison report.",
+          "Inventory, testing, maintenance and cataloging of headsets, consoles and peripherals, plus equipment loan forms."
         ],
         [
-          "Gestión de inventario, cuidado y mantenimiento de equipos VR/AR.",
-          "Gestión de reservas y préstamos.",
-          "Documentación de periféricos y demostradores."
+          "Diseño del nivel central de un prototipo VR en Unity para cintas Virtuix Omni (equipo de 5): un nexo hexagonal con puertas elementales, un puzle de columnas con símbolos que se rotan y pedestales para gemas. Documento de diseño propio; layout, antorchas, iluminación bakeada y transición de audio, y programación del puzle de los pedestales que vacía el agua.",
+          "Zona de lava: programación de plataformas que se hunden en la lava en orden aleatorio, plataformas móviles que usan el jugador y el enemigo, y gizmos de editor para previsualizar su recorrido y su altura final; integración de los sonidos de roca fundiéndose. El prototipo se mostró en el Saló de l'Ensenyament.",
+          "Documentación técnica del laboratorio (Meta Quest, Virtuix Omni, OBS) e informe comparativo de hardware VR/AR.",
+          "Inventario, pruebas, mantenimiento y catalogación de visores, consolas y periféricos, y formularios de préstamo."
         ],
         [
-          "VR/AR機器の在庫管理、保守、メンテナンスを担当。",
-          "予約と貸出の運用を管理。",
-          "周辺機器とデモ機材のドキュメントを整備。"
+          "Virtuix Omni向けUnity製VRプロトタイプ（5人チーム）のハブレベルを設計：属性ごとの扉、シンボルを回転させる柱のパズル、宝石の台座を備えた六角形のネクサス。デザインドキュメントを作成し、レイアウト、松明、ベイクドライティング、オーディオの切り替えを実装。水を抜く台座パズルもプログラム。",
+          "溶岩ゾーンを構築：ランダムな順番で溶岩に沈む足場、プレイヤーと敵が使える移動床、経路と最終的な高さを確認できるエディタ用ギズモをプログラムし、岩が溶ける効果音を組み込み。プロトタイプはSaló de l'Ensenyamentで展示。",
+          "ラボの技術ドキュメント（Meta Quest、Virtuix Omni、OBS）とVR/ARハードウェア比較レポートを作成。",
+          "ヘッドセット、ゲーム機、周辺機器の在庫管理・動作確認・メンテナンス・機材の台帳登録と、機材貸出用フォームの作成。"
         ]
       ),
       tech: t(
-        ["VR Hardware", "Unity", "Unreal", "Documentation"],
-        ["Hardware VR", "Unity", "Unreal", "Documentación"],
-        ["VRハードウェア", "Unity", "Unreal", "ドキュメンテーション"]
+        ["VR Hardware", "Virtuix Omni", "Unity", "Unreal", "Documentation"],
+        ["Hardware VR", "Virtuix Omni", "Unity", "Unreal", "Documentación"],
+        ["VRハードウェア", "Virtuix Omni", "Unity", "Unreal", "ドキュメント作成"]
       )
     },
     {
@@ -90,22 +96,22 @@
       entity: t("Consultia IT", "Consultia IT", "Consultia IT"),
       bullets: t(
         [
-          "Resolved incidents and helpdesk requests for Baxi technicians.",
-          "Tested and debugged web apps and PDAs."
+          "Tested the company's web platform and the PDA system (devices and software) used by field technicians; reported bugs.",
+          "Phone support for field technicians: reproduced their PDA issues on an office device using their account, fixed their databases and synced the fix back."
         ],
         [
-          "Resolución de incidencias y soporte helpdesk para técnicos de Baxi.",
-          "Pruebas y depuración de aplicaciones web y PDAs."
+          "Pruebas de la web de la empresa y del sistema de PDA (dispositivos y software) de los técnicos de campo; reporte de errores.",
+          "Soporte telefónico a técnicos de campo: reproducción de sus incidencias en una PDA de la oficina con su cuenta, corrección de su base de datos y sincronización del arreglo con su dispositivo."
         ],
         [
-          "Baxi技術者向けのインシデント対応とヘルプデスクを実施。",
-          "WebアプリとPDAのテストおよびデバッグを担当。"
+          "自社Webプラットフォームと、現場技術者が使用するPDAシステム（端末・ソフトウェア）のテストおよび不具合報告。",
+          "現場技術者への電話サポート。事務所のPDAで技術者のアカウントを使用して不具合を再現し、データベースを修正したうえで、修正内容を技術者の端末に同期。"
         ]
       ),
       tech: t(
-        ["Web Apps", "Debugging", "Helpdesk"],
-        ["Aplicaciones Web", "Depuración", "Soporte"],
-        ["Webアプリ", "デバッグ", "ヘルプデスク"]
+        ["Web Apps", "Testing", "Helpdesk", "Databases"],
+        ["Aplicaciones Web", "Pruebas", "Soporte", "Bases de datos"],
+        ["Webアプリ", "テスト", "ヘルプデスク", "データベース"]
       )
     },
     {
@@ -151,29 +157,29 @@
         alt: t("ENTI logo", "Logo de ENTI", "ENTIのロゴ")
       },
       title: t(
-        "University Degree, Interactive Digital Content",
-        "Grado Universitario, Creación de Contenidos Digitales",
-        "インタラクティブデジタルコンテンツ制作（学士）"
+        "Bachelor's Degree in Interactive Digital Content",
+        "Grado en Contenidos Digitales Interactivos",
+        "インタラクティブデジタルコンテンツ学士課程"
       ),
       role: t(
-        "Interactive Digital Content Creation",
-        "Creación de Contenidos Digitales Interactivos",
-        "インタラクティブデジタルコンテンツ制作"
+        "Bachelor's Degree in Interactive Digital Content",
+        "Grado en Contenidos Digitales Interactivos",
+        "インタラクティブデジタルコンテンツ学士課程"
       ),
       date: t("2019 - 2025", "2019 - 2025", "2019年 - 2025年"),
       place: t("ENTI, Barcelona", "ENTI, Barcelona", "ENTI, バルセロナ"),
-      entity: t("ENTI - University Degree", "ENTI - Grado Universitario", "ENTI - 大学学位"),
+      entity: t("ENTI - University of Barcelona", "ENTI-UB", "ENTI（バルセロナ大学）"),
       bullets: t(
         [
-          "Specialized in Technical Game Design and VR/XR development.",
+          "Projects focused on game design and VR/XR.",
           "Bachelor's Thesis focused on VR Interaction Design."
         ],
         [
-          "Especialización en Diseño Técnico de Juego y desarrollo VR/XR.",
+          "Proyectos centrados en diseño de juego y VR/XR.",
           "Trabajo de Fin de Grado centrado en Diseño de Interacción en VR."
         ],
         [
-          "テクニカルゲームデザインとVR/XR開発を専攻。",
+          "ゲームデザインとVR/XRを中心としたプロジェクト。",
           "VRインタラクションデザインに関する卒業論文を制作。"
         ]
       ),
@@ -191,36 +197,36 @@
         alt: t("Institut Marianao logo", "Logo del Institut Marianao", "Institut Marianaoのロゴ")
       },
       title: t(
-        "Multiplatform App Development",
-        "Desarrollo de Aplicaciones Multiplataforma",
-        "マルチプラットフォームアプリ開発"
+        "Higher Vocational Diploma in Multiplatform Application Development",
+        "CFGS Desarrollo de Aplicaciones Multiplataforma",
+        "マルチプラットフォームアプリケーション開発 上級職業課程（CFGS）"
       ),
       role: t(
-        "Multiplatform App Development",
-        "Desarrollo de Aplicaciones Multiplataforma",
-        "マルチプラットフォームアプリ開発"
+        "Higher Vocational Diploma in Multiplatform Application Development",
+        "CFGS Desarrollo de Aplicaciones Multiplataforma",
+        "マルチプラットフォームアプリケーション開発 上級職業課程（CFGS）"
       ),
       date: t("2016 - 2019", "2016 - 2019", "2016年 - 2019年"),
       place: t("Institut Marianao", "Institut Marianao", "Institut Marianao"),
       entity: t("Institut Marianao", "Institut Marianao", "Institut Marianao"),
       bullets: t(
         [
-          "Higher education focused on software development.",
-          "Project-based learning in C++ and Java."
+          "Higher vocational training in software development, combining guided exercises with complete projects built from a brief with set goals and constraints.",
+          "Coursework in C, C++, Java and Python, web development (HTML/CSS/PHP), databases (PostgreSQL, MySQL, MongoDB) and Android."
         ],
         [
-          "Formación superior centrada en desarrollo de software.",
-          "Aprendizaje basado en proyectos con C++ y Java."
+          "Formación profesional de grado superior en desarrollo de software: ejercicios guiados y proyectos completos desarrollados a partir de un enunciado con objetivos y restricciones.",
+          "Formación en C, C++, Java y Python, desarrollo web (HTML/CSS/PHP), bases de datos (PostgreSQL, MySQL, MongoDB) y Android."
         ],
         [
-          "ソフトウェア開発を中心とした高等教育課程。",
-          "C++とJavaによるプロジェクトベース学習。"
+          "ソフトウェア開発の上級職業課程（CFGS）。指導に沿った演習に加え、目標と制約条件が設定された課題に基づき、プロジェクトを一から開発。",
+          "C、C++、Java、Python、Web開発（HTML/CSS/PHP）、データベース（PostgreSQL、MySQL、MongoDB）、Android。"
         ]
       ),
       tech: t(
-        ["C++", "Java", "SQL", "Android", "iOS"],
-        ["C++", "Java", "SQL", "Android", "iOS"],
-        ["C++", "Java", "SQL", "Android", "iOS"]
+        ["C++", "Java", "Python", "SQL", "MongoDB", "Android"],
+        ["C++", "Java", "Python", "SQL", "MongoDB", "Android"],
+        ["C++", "Java", "Python", "SQL", "MongoDB", "Android"]
       )
     },
     {
@@ -231,29 +237,29 @@
         alt: t("Institut Marianao logo", "Logo del Institut Marianao", "Institut Marianaoのロゴ")
       },
       title: t(
-        "Microcomputer and Network Technician",
-        "Técnico en Microinformática y Redes",
-        "マイクロコンピュータ・ネットワーク技術者"
+        "Intermediate Vocational Diploma in Microcomputer Systems and Networks",
+        "CFGM Sistemas Microinformáticos y Redes",
+        "マイクロコンピュータシステム・ネットワーク 中級職業課程（CFGM）"
       ),
       role: t(
-        "Microcomputer and Network Technician",
-        "Técnico en Microinformática y Redes",
-        "マイクロコンピュータ・ネットワーク技術者"
+        "Intermediate Vocational Diploma in Microcomputer Systems and Networks",
+        "CFGM Sistemas Microinformáticos y Redes",
+        "マイクロコンピュータシステム・ネットワーク 中級職業課程（CFGM）"
       ),
       date: t("2012 - 2015", "2012 - 2015", "2012年 - 2015年"),
       place: t("Institut Marianao", "Institut Marianao", "Institut Marianao"),
       entity: t("Institut Marianao", "Institut Marianao", "Institut Marianao"),
       bullets: t(
         [
-          "Vocational training in IT systems and networks.",
+          "Intermediate vocational training in IT systems and networks.",
           "Hardware maintenance and network configuration."
         ],
         [
-          "Formación profesional en sistemas informáticos y redes.",
+          "Formación profesional de grado medio en sistemas informáticos y redes.",
           "Mantenimiento de hardware y configuración de redes."
         ],
         [
-          "ITシステムとネットワークに関する職業訓練。",
+          "ITシステムとネットワークに関する中級職業課程。",
           "ハードウェア保守とネットワーク設定を学習。"
         ]
       ),

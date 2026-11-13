@@ -23,28 +23,31 @@
         "卒業研究 - Unity - VR/XR"
       ),
       featuredDescription: t(
-        "Bachelor's Thesis - Research-driven UX/UI and interaction design guide focused on improving comfort, readability, and player interaction in VR Action-RPGs. Combines practical Unity implementation with user testing to evaluate and iterate on VR interaction systems.",
-        "Trabajo de Fin de Grado - Guía de diseño de UX/UI e interacciones basada en investigación, centrada en mejorar la comodidad, la legibilidad y la interacción del jugador en Action-RPGs de VR. Combina implementación práctica en Unity con pruebas de usuario para evaluar e iterar sistemas de interacción en realidad virtual.",
-        "卒業研究 - VRアクションRPGにおける快適性、可読性、プレイヤーインタラクションの向上を目的とした、研究主導のUX/UIおよびインタラクションデザインガイド。Unityでの実装とユーザーテストを組み合わせ、VRインタラクションシステムの評価と反復改善を行いました。"
+        "Bachelor's Thesis - Research-driven UX/UI and interaction design guide focused on improving comfort, readability, and player interaction in VR Action-RPGs. Combines a Unity demo for Meta Quest 3 with user testing to evaluate VR interaction and comfort.",
+        "Trabajo de Fin de Grado - Guía de diseño de UX/UI e interacciones basada en investigación, centrada en mejorar la comodidad, la legibilidad y la interacción del jugador en Action-RPGs de VR. Combina una demo en Unity para Meta Quest 3 con pruebas de usuario para evaluar la interacción y el confort en VR.",
+        "卒業研究 - VRアクションRPGにおける快適性、可読性、プレイヤーインタラクションの向上を目的とした、研究に基づくUX/UIおよびインタラクションデザインガイドです。Meta Quest 3向けのUnityデモとユーザーテストを組み合わせ、VRにおけるインタラクションと快適性を評価しました。"
       ),
       featuredContributions: t(
         [
-          "Designed and implemented VR interaction patterns and UI systems in Unity",
+          "Designed VR interaction patterns and UI and built them into a Meta Quest 3 demo in Unity (AI-assisted)",
+          "Configurable locomotion: teleport, continuous with vignette, and hybrid",
           "Defined comfort-focused interaction guidelines for action-RPG use cases",
-          "Ran SSQ and SUS user tests to validate usability and comfort",
-          "Analyzed findings and iterated systems based on player feedback"
+          "Tested with 19 participants (pre/post SSQ, SUS): median SUS of 77.5",
+          "Found motion-sensitive users and proposed comfort adjustments"
         ],
         [
-          "Diseño e implementación de patrones de interacción VR y sistemas UI en Unity",
+          "Diseño de patrones de interacción y UI en VR, construidos con asistencia de IA en una demo de Unity para Meta Quest 3",
+          "Locomoción configurable: teletransporte, continua con viñeta e híbrida",
           "Definición de guías de interacción centradas en la comodidad para casos de uso Action-RPG",
-          "Realización de pruebas de usuario con SSQ y SUS para validar usabilidad y comodidad",
-          "Análisis de resultados e iteración de sistemas a partir del feedback del jugador"
+          "Pruebas con 19 participantes (SSQ antes y después, SUS): mediana SUS de 77,5",
+          "Detección de usuarios sensibles al mareo y propuesta de ajustes de confort"
         ],
         [
-          "UnityにおけるVRインタラクションパターンとUIシステムの設計・実装",
+          "VRのインタラクションパターンとUIを設計し、AIの支援を受けてUnityでMeta Quest 3向けデモとして構築",
+          "移動方式を選択可能：テレポート、視野制限付きの連続移動、ハイブリッド",
           "Action-RPG向けに快適性を重視したインタラクションガイドラインを定義",
-          "SSQおよびSUSのユーザーテストで操作性と快適性を検証",
-          "プレイヤーフィードバックを分析し、システムを反復改善"
+          "19名の参加者でテストを実施（SSQ事前・事後、SUS）：SUSの中央値77.5",
+          "VR酔いしやすいユーザーを特定し、快適性の改善案を提示"
         ]
       ),
       note: t(
@@ -61,17 +64,17 @@
         [
           "Designed VR interaction patterns and UI systems in Unity",
           "Defined comfort-focused design guidelines",
-          "Validated the work with SSQ and SUS user testing"
+          "Tested with 19 participants (SSQ, SUS): median SUS of 77.5"
         ],
         [
           "Diseño de patrones de interacción VR y sistemas UI en Unity",
           "Definición de guías de diseño centradas en la comodidad",
-          "Validación del trabajo mediante pruebas de usuario con SSQ y SUS"
+          "Pruebas con 19 participantes (SSQ, SUS): mediana SUS de 77,5"
         ],
         [
           "UnityでVRインタラクションパターンとUIシステムを設計",
           "快適性重視のデザインガイドラインを定義",
-          "SSQおよびSUSのユーザーテストで検証"
+          "19名でテストを実施（SSQ、SUS）：SUSの中央値77.5"
         ]
       ),
       link: {
@@ -96,59 +99,56 @@
         "2Dローグライト・ハックアンドスラッシュ - Unity"
       ),
       featuredDescription: t(
-        "2D Roguelite Hack'n'Slash centered on a systemic ability-stealing mechanic. Players acquire and upgrade enemy abilities, while enemy strength scales in parallel, creating a dynamic auto-balancing combat loop. Core gameplay systems were designed and implemented with focus on progression, pacing, and combat readability.",
-        "Roguelite Hack'n'Slash 2D centrado en un sistema de robo de habilidades. El jugador adquiere y mejora habilidades de enemigos mientras estos escalan en paralelo, creando un bucle de combate autoequilibrado. Diseño e implementación de sistemas principales de gameplay con foco en progresión, ritmo y legibilidad del combate.",
-        "敵から能力を奪うシステムを軸にした2Dローグライト・ハックアンドスラッシュ。敵の強さとプレイヤーの能力が並行してスケールし、動的にバランスが取れる戦闘ループを構築。進行、ペーシング、戦闘の視認性を重視してコアゲームプレイシステムを設計・実装しました。"
+        "2D roguelite hack'n'slash made by a team of 3, centered on a systemic ability-stealing mechanic. Players take and upgrade enemy abilities while enemies scale with the player's progress, creating a self-balancing combat loop. I came up with and designed the ability stealing and the enemy scaling, and programmed the wave and level flow, menus and adaptive audio.",
+        "Roguelite hack'n'slash 2D hecho en un equipo de 3, centrado en una mecánica sistémica de robo de habilidades. El jugador roba y mejora habilidades enemigas mientras los enemigos escalan con su progreso, lo que crea un bucle de combate autoequilibrado. Ideé y diseñé el robo de habilidades y el escalado de enemigos, y programé el flujo de oleadas y niveles, los menús y el audio adaptativo.",
+        "3人チームで制作した2Dローグライト・ハックアンドスラッシュです。敵の能力を奪うシステムを軸に、プレイヤーは奪った能力を強化し、敵はプレイヤーの成長に合わせて強くなることで、自動的にバランスが取れる戦闘ループを生み出します。能力奪取と敵スケーリングの発案・設計を担当し、ウェーブとレベルの進行、メニュー、状況に応じて変化するオーディオシステムをプログラムしました。"
       ),
       featuredContributions: t(
         [
-          "Designed and implemented the core ability-stealing system",
-          "Designed a combat loop with dynamic auto-balancing between player power and enemy scaling",
-          "Defined progression pacing through enemy wave design and difficulty scaling",
-          "Balanced the ability economy to regulate power growth and decision-making",
-          "Designed kill-based constraints to enforce combat engagement and prevent ability spam",
-          "Improved combat readability through gameplay UI and real-time feedback",
-          "Iterated through playtesting to refine balance and remove conflicting mechanics"
+          "Conceived and designed the core mechanic (ability stealing) and enemy scaling tied to player progression",
+          "Designed kill-count requirements for stealing abilities, to keep the mechanic balanced",
+          "Programmed room-based enemy waves and level flow (spawns, doors, boss) and the game menus",
+          "All audio programming and integration: adaptive calm/combat music (royalty-free tracks, edited into loops), mixers and a low-pass filter in the pause and shop menus",
+          "Level design for the first area and enemy tuning (slime splitting, rebalancing)",
+          "Co-designed the ability economy and iterated on balance with the team through playtesting"
         ],
         [
-          "Diseño e implementación del sistema central de robo de habilidades",
-          "Diseño de un bucle de combate con autoequilibrado dinámico entre poder del jugador y escalado enemigo",
-          "Definición del ritmo de progresión mediante diseño de oleadas y escalado de dificultad",
-          "Balanceo de la economía de habilidades para regular crecimiento de poder y toma de decisiones",
-          "Diseño de restricciones basadas en eliminaciones para forzar engagement y evitar spam",
-          "Mejora de la legibilidad del combate mediante UI de gameplay y feedback en tiempo real",
-          "Iteración mediante playtesting para refinar balance y eliminar mecánicas en conflicto"
+          "Idea y diseño de la mecánica central (robo de habilidades) y del escalado de enemigos ligado al progreso del jugador",
+          "Diseño de las restricciones por número de eliminaciones para poder robar habilidades, para equilibrar el robo",
+          "Programación de las oleadas por salas y del flujo de niveles (spawns, puertas, jefe) y de los menús",
+          "Programación e integración de todo el audio: música adaptativa calma/combate (pistas libres de derechos, editadas en bucle), mixers y filtro paso bajo en los menús de pausa y tienda",
+          "Level design de la primera zona y ajuste de enemigos (división de slimes, rebalanceo)",
+          "Codiseño de la economía de habilidades e iteración del balance en equipo mediante playtesting"
         ],
         [
-          "コアとなる能力奪取システムを設計・実装",
-          "プレイヤー強化と敵スケーリングが噛み合う動的バランスの戦闘ループを設計",
-          "敵ウェーブ設計と難易度スケーリングで進行ペーシングを定義",
-          "能力経済を調整し、パワー成長と意思決定をコントロール",
-          "撃破数ベースの制限で戦闘参加を促進し、スパムを防止",
-          "ゲームプレイUIとリアルタイムフィードバックで戦闘の視認性を改善",
-          "プレイテストを通じてバランスを調整し、競合する要素を整理"
+          "コアメカニック（能力奪取）と、プレイヤーの成長に連動する敵スケーリングを発案・設計",
+          "能力を奪うための撃破数条件を設計し、奪取メカニクスのバランスを調整",
+          "部屋単位の敵ウェーブとレベル進行（スポーン、ドア、ボス）、各種メニューをプログラム",
+          "オーディオ全般のプログラムと組み込み：平常時と戦闘時で切り替わるBGM（ロイヤリティフリー楽曲をループ用に編集）、ミキサー、ポーズ画面とショップでのローパスフィルター",
+          "第1エリアのレベルデザインと敵の調整（スライムの分裂、リバランス）",
+          "能力に関するゲーム内経済を共同設計し、チームでのプレイテストを通じてバランス調整を繰り返し実施"
         ]
       ),
       archiveSummary: t(
-        "2D roguelite hack'n'slash built around stealing and evolving enemy abilities to escape Thanatos' prison.",
-        "Roguelite Hack'n'Slash 2D construido alrededor del robo y evolucion de habilidades enemigas para escapar de la prision de Thanatos.",
-        "タナトスの牢獄から脱出するために、敵の能力を奪って成長させることを軸にした2Dローグライト。"
+        "2D roguelite hack'n'slash made in Unity by a team of 3 for a university course, built around stealing and evolving enemy abilities to escape Thanatos' prison.",
+        "Roguelite hack'n'slash 2D hecho en Unity por un equipo de 3 para una asignatura, construido alrededor del robo y la evolución de habilidades enemigas para escapar de la prisión de Thanatos.",
+        "タナトスの牢獄から脱出するために、敵の能力を奪って成長させることを軸にした2Dローグライト（大学の授業課題・3人チーム）。"
       ),
       archiveContributions: t(
         [
-          "Designed and implemented the ability-stealing core system",
-          "Tuned combat loop, enemy scaling and progression pacing",
-          "Improved readability through gameplay UI and feedback systems"
+          "Conceived and designed the ability stealing (with kill-count requirements) and enemy scaling",
+          "Programmed enemy waves, level flow, menus and the audio system (royalty-free music)",
+          "Level design for the first area and enemy tuning"
         ],
         [
-          "Diseño e implementación del sistema central de robo de habilidades",
-          "Ajuste del bucle de combate, el escalado enemigo y el ritmo de progresión",
-          "Mejora de la legibilidad mediante UI de gameplay y sistemas de feedback"
+          "Idea y diseño del robo de habilidades (con requisito de eliminaciones) y del escalado de enemigos",
+          "Programación de oleadas, flujo de niveles, menús y del sistema de audio (música libre de derechos)",
+          "Level design de la primera zona y ajuste de enemigos"
         ],
         [
-          "能力奪取のコアシステムを設計・実装",
-          "戦闘ループ、敵スケーリング、進行ペーシングを調整",
-          "ゲームプレイUIとフィードバックで視認性を改善"
+          "撃破数条件付きの能力奪取と敵スケーリングを発案・設計",
+          "敵ウェーブ、レベル進行、メニュー、オーディオシステム（ロイヤリティフリー楽曲を使用）をプログラム",
+          "第1エリアのレベルデザインと敵の調整"
         ]
       ),
       link: {
@@ -158,8 +158,7 @@
     },
     {
       id: "twistedtail",
-      featured: true,
-      featuredOrder: 3,
+      featured: false,
       archive: true,
       categories: ["filter-puzzle"],
       title: t("Twisted Tail", "Twisted Tail", "Twisted Tail"),
@@ -173,50 +172,53 @@
         "パズル / ステルスゲーム - Unity - ゲームジャム（48時間）"
       ),
       featuredDescription: t(
-        "Puzzle/Stealth Game - Game Jam (48h) - Short-form puzzle game built around a color-based camouflage mechanic. Developed under tight time constraints with focus on rapid iteration, mechanical clarity, and readable player feedback.",
-        "Juego de Puzles/Stealth - Game Jam (48h) - Juego de corta duración basado en una mecánica de camuflaje por colores. Desarrollado bajo fuertes restricciones de tiempo, con enfoque en iteración rápida, claridad mecánica y feedback legible para el jugador.",
-        "パズル／ステルスゲーム - ゲームジャム（48時間）- 色によるカモフラージュメカニックを中心に構築された短編ゲーム。厳しい時間制約の中で、迅速な反復、メカニクスの明確さ、読みやすいプレイヤーフィードバックに焦点を当てて開発しました。"
+        "Puzzle/stealth game made in 48 hours by a team of 4 for ZenoJam (December 2020), built around a color-based camouflage mechanic. Developed under tight time constraints with focus on rapid iteration, mechanical clarity and readable player feedback.",
+        "Juego de puzles/stealth hecho en 48 horas por un equipo de 4 para la ZenoJam (diciembre de 2020), basado en una mecánica de camuflaje por colores. Desarrollado con fuertes restricciones de tiempo, con foco en la iteración rápida, la claridad mecánica y un feedback legible para el jugador.",
+        "ZenoJam（2020年12月）で4人チームが48時間で制作した、色によるカモフラージュを軸にしたパズル／ステルスゲームです。厳しい時間制約の中で、素早い反復、メカニクスの分かりやすさ、プレイヤーに伝わりやすいフィードバックを重視して開発しました。"
       ),
       featuredContributions: t(
         [
-          "Designed the core camouflage mechanic",
-          "Built puzzle structure around visual language and timing",
-          "Implemented enemy behavior and player state logic",
-          "Integrated audio under jam production constraints"
+          "Designed the core color-camouflage mechanic",
+          "Programmed most of the enemy AI: line-of-sight detection, chasing, moving to the last known position and \"!\"/\"?\" alert feedback",
+          "Programmed the respawn system and set up the player, enemy and respawn prefabs",
+          "Selected and integrated all the audio from licensed libraries (AudioManager, mixers, music and SFX)",
+          "Animated door prefab, reworked pause menu and app icon"
         ],
         [
-          "Diseño de la mecánica central de camuflaje",
-          "Construcción de la estructura de puzles alrededor del lenguaje visual y el timing",
-          "Implementación de comportamiento enemigo y lógica de estados del jugador",
-          "Integración de audio bajo restricciones de producción de game jam"
+          "Diseño de la mecánica central de camuflaje por colores",
+          "Programación de la mayor parte de la IA enemiga: detección por línea de visión, persecución, ir a la última posición conocida y aviso «!»/«?»",
+          "Programación del sistema de respawn y configuración de los prefabs de jugador, enemigo y respawn",
+          "Selección e integración de todo el audio a partir de bibliotecas con licencia (AudioManager, mixers, música y efectos)",
+          "Prefab animado de la puerta, menú de pausa rehecho e icono de la app"
         ],
         [
-          "コアのカモフラージュメカニックを設計",
-          "視覚言語とタイミングを軸にパズル構造を構築",
-          "敵の挙動とプレイヤー状態ロジックを実装",
-          "ゲームジャム制約下でオーディオを統合"
+          "色によるカモフラージュのコアメカニクスを設計",
+          "敵AIの大部分をプログラム：視線による検知、追跡、最終目撃地点への移動、「！」「？」による警戒状態の表示",
+          "リスポーンシステムをプログラムし、プレイヤー・敵・リスポーン用プレハブを設定",
+          "ライセンス済みライブラリから全オーディオを選定・統合（AudioManager、ミキサー、BGM、効果音）",
+          "ドアのアニメーション付きプレハブ、ポーズメニューの作り直し、アプリアイコン"
         ]
       ),
       archiveSummary: t(
-        "48-hour puzzle/stealth jam project built around a color camouflage mechanic and fast iteration.",
-        "Proyecto de game jam de 48 horas de puzles/stealth construido alrededor de una mecánica de camuflaje por color e iteración rápida.",
-        "色カモフラージュのメカニックと高速な反復を軸にした、48時間のパズル／ステルスのゲームジャム作品。"
+        "48-hour puzzle/stealth jam game (team of 4) built around a color camouflage mechanic.",
+        "Juego de puzles/stealth hecho en 48 horas para una game jam (equipo de 4), basado en una mecánica de camuflaje por colores.",
+        "4人チームで48時間のゲームジャムで制作した、色によるカモフラージュを軸にしたパズル／ステルスゲーム。"
       ),
       archiveContributions: t(
         [
-          "Designed the core camouflage mechanic and puzzle logic",
-          "Implemented enemy behavior and player state logic",
-          "Integrated audio while supporting rapid iteration"
+          "Designed the core color-camouflage mechanic",
+          "Programmed most of the enemy AI (line of sight, chase, last known position, alert feedback) and the respawn system",
+          "Selected and integrated all the audio from licensed libraries"
         ],
         [
-          "Diseño de la mecánica central de camuflaje y la lógica de puzles",
-          "Implementación de comportamiento enemigo y lógica de estados del jugador",
-          "Integración de audio mientras se sostenía la iteración rápida"
+          "Diseño de la mecánica central de camuflaje por colores",
+          "La mayor parte de la IA enemiga (línea de visión, persecución, última posición conocida, aviso de alerta) y sistema de respawn",
+          "Selección e integración de todo el audio a partir de bibliotecas con licencia"
         ],
         [
-          "コアのカモフラージュメカニックとパズルロジックを設計",
-          "敵の挙動とプレイヤー状態ロジックを実装",
-          "高速な反復を支えながらオーディオを統合"
+          "色によるカモフラージュのコアメカニクスを設計",
+          "敵AIの大部分（視線検知、追跡、最終目撃地点への移動、警戒状態の表示）とリスポーンシステムをプログラム",
+          "ライセンス済みライブラリから全オーディオを選定・統合"
         ]
       ),
       link: {
@@ -226,65 +228,80 @@
     },
     {
       id: "starabyss",
-      featured: false,
+      featured: true,
+      featuredOrder: 3,
       archive: true,
       categories: ["filter-systems"],
       title: t("Star Abyss (Systems Prototype)", "Star Abyss (Prototipo de Sistemas)", "Star Abyss（システムプロトタイプ）"),
       images: {
-        thumbnail: "assets/img/portfolio/portfolio-7.png"
+        thumbnail: "assets/img/portfolio/portfolio-7.jpg",
+        hero: "assets/img/portfolio/StarAbyss-hero-wide.jpg"
       },
       featuredMeta: t(
-        "Technical Gameplay Systems Prototype - Unity",
-        "Prototipo de sistemas de gameplay - Unity",
-        "ゲームプレイシステムプロトタイプ - Unity"
+        "Solo Systems Prototype - Unity - 12 days - Android & Web",
+        "Prototipo de sistemas en solitario - Unity - 12 días - Android y Web",
+        "個人制作のシステムプロトタイプ - Unity - 12日間 - Android／Web"
       ),
       featuredDescription: t(
-        "Systems-driven arcade prototype focused on gameplay architecture, risk/reward loops, and runtime tuning. Designed as a configurable gameplay sandbox with emphasis on iteration speed, debug tooling, and emergent interaction systems.",
-        "Prototipo arcade centrado en sistemas de gameplay, loops de riesgo/recompensa y tuning en tiempo de ejecución. Diseñado como un sandbox configurable con énfasis en iteración rápida, tooling de debug y sistemas emergentes de interacción.",
-        "ゲームプレイアーキテクチャ、リスク/リワードループ、ランタイムチューニングに焦点を当てたシステム駆動型アーケードプロトタイプ。高速な反復、デバッグツール、創発的なインタラクションシステムを重視した構成。"
+        "Solo, 12-day reinterpretation of Helix Jump, published on itch.io for Android and Web. I designed every mechanic added to the original formula — a heat system that makes each bounce a risk, a manually activated FireMode, six segment types, rotating sectors and endless generation with a guaranteed safe path — and wrote the design document. The code was built with AI assistance (ChatGPT, DeepSeek) from that document; I directed, integrated and debugged it, composed the music and SFX, and shipped the builds.",
+        "Reinterpretación de Helix Jump hecha en solitario en 12 días y publicada en itch.io para Android y Web. Diseñé todas las mecánicas que añadí a la fórmula original —un sistema de calor que convierte cada rebote en un riesgo, un FireMode de activación manual, seis tipos de segmento, sectores rotatorios y una generación infinita con pasillo de seguridad— y escribí el documento de diseño. El código se construyó con asistencia de IA (ChatGPT y DeepSeek) a partir de ese documento: yo lo dirigí, lo integré y lo depuré, compuse la música y los efectos de sonido y publiqué las builds.",
+        "Helix Jumpを再解釈した個人制作作品で、12日間で開発し、itch.ioでAndroid版とWeb版を公開しました。元の仕組みに加えたメカニクス――バウンドするたびに熱が蓄積し、リスクが高まるヒートシステム、手動で発動するFireMode、6種類のセグメント、回転するセクター、安全な通路を必ず確保する無限生成――をすべて設計し、デザインドキュメントを作成しました。そのドキュメントをもとにAI（ChatGPT、DeepSeek）に指示してコードを生成させ、私は統合とデバッグを担当しました。BGMと効果音の制作、ビルドの公開も担当しました。"
       ),
       featuredContributions: t(
-      [
-        "Designed a heat-based risk system driving player failure conditions and feedback loops",
-        "Built FireMode economy system with charge accumulation and timed reward states",
-        "Implemented procedural infinite level generation with difficulty scaling over depth",
-        "Created modular segment behavior system with distinct gameplay modifiers",
-        "Developed runtime debug tooling for real-time gameplay tuning and iteration",
-        "Balanced core gameplay loops through rapid parameter iteration and testing"
-      ]),
+        [
+          "Designed a heat system: every bounce adds heat, at 100% the ball explodes, and clean ring passes cool it down",
+          "Designed FireMode with cumulative charge and manual activation (it started automatic; I made it a player choice)",
+          "Designed 6 segment types (Normal, Hazard, Boost, Fragile, Ice, Charge), rotating sectors and the clean-break rule",
+          "Designed endless procedural generation with a safe path, difficulty rising up to ring 200, and a Zen mode",
+          "Tuned game feel (hit-stop, screenshake); composed the music (Vital, Surge XT) and 9 SFX",
+          "AI-assisted implementation (ChatGPT, DeepSeek) from my design document: integration, debugging and Android/Web release. Shaders were AI-generated and tuned by me"
+        ],
+        [
+          "Diseño del sistema de calor: cada rebote suma temperatura, al 100 % la bola explota y pasar anillos limpios la enfría",
+          "Diseño de FireMode con carga acumulativa y activación manual (empezó siendo automático; lo cambié para que fuera decisión del jugador)",
+          "Diseño de 6 tipos de segmento (Normal, Hazard, Boost, Fragile, Ice, Charge), sectores rotatorios y la rotura limpia",
+          "Diseño de la generación procedural infinita con pasillo de seguridad, dificultad creciente hasta el anillo 200 y modo Zen",
+          "Ajuste del game feel (hit-stop, screenshake); música (Vital, Surge XT) y 9 efectos de sonido propios",
+          "Implementación asistida por IA (ChatGPT y DeepSeek) a partir de mi documento de diseño: integración, depuración y publicación en Android y Web. Los shaders los generó la IA y yo ajusté sus valores"
+        ],
+        [
+          "ヒートシステムを設計：バウンドごとに熱が上昇し100％でボールが爆発、リングをきれいに通過すると冷却",
+          "チャージが蓄積するFireModeを設計し、自動発動からプレイヤーが選んで発動する手動方式へ変更",
+          "6種類のセグメント（Normal、Hazard、Boost、Fragile、Ice、Charge）、回転セクター、クリーンブレイクのルールを設計",
+          "安全な通路を確保し200リング目まで難易度が上がる無限プロシージャル生成と、Zenモードを設計",
+          "ヒットストップと画面揺れでゲームフィールを調整。BGM（Vital、Surge XT）と効果音9種を自作",
+          "自作のデザインドキュメントをもとにAI（ChatGPT、DeepSeek）でコードを生成し、統合・デバッグ・Android／Web版の公開を担当。シェーダーはAIが生成し、パラメータは自分で調整"
+        ]
+      ),
       archiveSummary: t(
-        "Arcade systems prototype focused on risk/reward gameplay loops, procedural difficulty scaling, and runtime tuning tools.",
-        "Prototipo arcade centrado en loops de riesgo/recompensa, escalado procedural de dificultad y herramientas de tuning en tiempo de ejecución.",
-        "アーケード型システムプロトタイプ。リスク/リワードループ、プロシージャル難易度スケーリング、ランタイム調整ツールにフォーカス。"
+        "Solo 12-day reinterpretation of Helix Jump with a heat-based risk system, published for Android and Web.",
+        "Reinterpretación de Helix Jump hecha en solitario en 12 días, con un sistema de riesgo por calor; publicada para Android y Web.",
+        "12日間で個人制作したHelix Jumpの再解釈作品。ヒートによるリスクシステムを搭載し、Android版とWeb版を公開。"
       ),
       archiveContributions: t(
-      [
-        "Designed the core arcade gameplay loop combining rotation-based navigation and physics-driven falling mechanics",
-        "Implemented a heat-based risk system that links player mistakes to failure conditions and feedback intensity",
-        "Built FireMode as a reward economy system with charge accumulation and temporary power state activation",
-        "Developed procedural level generation with infinite progression and difficulty scaling over depth",
-        "Created a modular segment system introducing distinct gameplay modifiers and interaction rules",
-        "Implemented runtime debug tools to support real-time tuning and iteration of gameplay systems"
-      ],
-      [
-        "Diseño del bucle principal de gameplay arcade combinando navegación por rotación y caída basada en físicas",
-        "Implementación de un sistema de riesgo basado en temperatura que vincula los errores del jugador con condiciones de fallo y nivel de feedback",
-        "Desarrollo de FireMode como sistema de economía de recompensa con acumulación de carga y activación de estado de poder temporal",
-        "Desarrollo de generación procedural de niveles con progresión infinita y escalado de dificultad según la profundidad",
-        "Creación de un sistema modular de segmentos con distintos modificadores de gameplay y reglas de interacción",
-        "Implementación de herramientas de debug en runtime para facilitar el tuning y la iteración de sistemas de gameplay"
-      ],
-      [
-        "回転操作と物理ベースの落下を組み合わせたアーケード型ゲームプレイループの設計",
-        "プレイヤーのミスが失敗条件とフィードバック強度に直結する温度ベースのリスクシステムの実装",
-        "チャージ蓄積と一時的な強化状態を持つリワード経済システムとしてのFireModeの構築",
-        "無限進行と深度に応じた難易度スケーリングを持つプロシージャルレベル生成の開発",
-        "異なるゲームプレイ修飾とインタラクションルールを導入するモジュラー型セグメントシステムの構築",
-        "リアルタイムでのゲームプレイ調整と反復を支援するデバッグツールの実装"
-      ]),
+        [
+          "Designed the heat system, manual FireMode, 6 segment types and safe-path endless generation",
+          "AI-assisted implementation from my design document; integration, debugging and release",
+          "Composed the music and 9 SFX; tuned hit-stop and screenshake"
+        ],
+        [
+          "Diseño del sistema de calor, el FireMode manual, 6 tipos de segmento y la generación infinita con pasillo de seguridad",
+          "Implementación asistida por IA a partir de mi documento de diseño; integración, depuración y publicación",
+          "Música y 9 efectos de sonido propios; ajuste de hit-stop y screenshake"
+        ],
+        [
+          "ヒートシステム、手動FireMode、6種類のセグメント、安全通路付きの無限生成を設計",
+          "自作のデザインドキュメントをもとにAI支援で実装し、統合・デバッグ・公開を担当",
+          "BGMと効果音9種を自作し、ヒットストップと画面揺れを調整"
+        ]
+      ),
       link: {
         href: "https://shiroi-ookami.itch.io/star-abyss",
         labelKey: "visit"
+      },
+      video: {
+        href: "https://youtu.be/2HD6Agupr30",
+        labelKey: "watch_gameplay"
       }
     },
     {
@@ -301,34 +318,28 @@
         thumbnail: "assets/img/portfolio/ghostngoblins.png"
       },
       archiveSummary: t(
-        "Educational recreation of the classic arcade game, developed in Phaser and linked here as a playable local build.",
-        "Recreación educativa del clásico arcade, desarrollada en Phaser y enlazada aquí como build local jugable.",
-        "Phaserで開発したクラシックアーケード作品の教育用リメイクで、ここからローカルのプレイアブル版を起動できます。"
+        "Educational recreation of the classic arcade game, made in Phaser by a team of 3 for a university course and playable here.",
+        "Recreación educativa del clásico arcade, hecha en Phaser por un equipo de 3 para una asignatura y jugable aquí.",
+        "Phaserで開発したクラシックアーケードゲームの学習目的の再現作品（大学の授業課題・3人チーム）。ここからプレイ可能。"
       ),
       archiveContributions: t(
         [
-          "Integrated gameplay-related audio and music systems",
-          "Developed enemy behaviors and gameplay logic",
-          "Implemented player movement, input handling and core gameplay interactions",
-          "Implemented map structure, background composition and gameplay collision flow",
-          "Implemented multi-layer level structure, ladders and moving platform mechanics",
-          "Designed and implemented collision systems for environments and traversal"
+          "Built the level: tilemap layers, backgrounds, two-floor hill and all environment collisions",
+          "Ladders, moving platform and door",
+          "Reworked player movement and health; implemented Arthur's attack, jump, hit and death",
+          "Enemy respawning and SFX with preloading"
         ],
         [
-          "Integración de sistemas de audio y música ligados al gameplay",
-          "Desarrollo de comportamientos enemigos y lógica de gameplay",
-          "Implementación de movimiento del jugador, gestión de input e interacciones nucleares",
-          "Implementación de estructura de mapa, composición de fondos y flujo de colisiones de gameplay",
-          "Implementación de estructura multinivel, escaleras y mecánicas de plataformas móviles",
-          "Diseño e implementación de sistemas de colisión para entornos y traversal"
+          "Construcción del nivel: capas de tilemap, fondos, colina con segundo piso y todas las colisiones del entorno",
+          "Escaleras, plataforma móvil y puerta",
+          "Reestructuración del movimiento y la salud del jugador; ataque, salto, golpe y muerte de Arthur",
+          "Reaparición de enemigos y efectos de sonido con precarga"
         ],
         [
-          "ゲームプレイ連動のオーディオと音楽システムを統合",
-          "敵の挙動とゲームプレイロジックを開発",
-          "プレイヤー移動、入力処理、コアインタラクションを実装",
-          "マップ構造、背景構成、ゲームプレイ上の衝突フローを実装",
-          "多層レベル構造、はしご、移動床のメカニクスを実装",
-          "環境と移動のための衝突システムを設計・実装"
+          "レベル構築：タイルマップのレイヤー、背景、2階層の丘、環境のすべての当たり判定",
+          "はしご、移動床、ドア",
+          "プレイヤーの移動と体力処理を再構成し、アーサーの攻撃・ジャンプ・被弾・死亡を実装",
+          "敵のリスポーンと効果音（プリロード含む）"
         ]
       ),
       link: {
@@ -346,25 +357,25 @@
         thumbnail: "assets/img/portfolio/portfolio-5.png"
       },
       archiveSummary: t(
-        "Side-scrolling tower defense where archaeologists, military and aliens fight over a vital resource.",
-        "Tower Defense con scroll lateral donde arqueólogos, militares y alienígenas luchan por un recurso vital.",
-        "考古学者、軍隊、エイリアンが重要資源を巡って争う横スクロール型タワーディフェンス。"
+        "Side-scrolling tower defense made in Unity by a team of 3 for a university course, where archaeologists, military and aliens fight over a vital resource.",
+        "Tower defense con scroll lateral hecho en Unity por un equipo de 3 para una asignatura, en el que arqueólogos, militares y alienígenas luchan por un recurso vital.",
+        "考古学者、軍隊、エイリアンが重要資源を巡って争う横スクロール型タワーディフェンス（大学の授業課題・3人チーム）。"
       ),
       archiveContributions: t(
         [
-          "Contributed UI/UX flows and credits integration",
-          "Curated music and supported balancing and lore tuning",
-          "Coordinated Scrum process across production"
+          "Main maintainer of the GDD: narrative, unit stat tables and economy",
+          "Faction selection screen, menu navigation, hover tooltips and credits scene",
+          "Audio setup (SoundController, AudioMixer, SFX) and shared Scrum coordination"
         ],
         [
-          "Contribución en flujos de UI/UX e integración de créditos",
-          "Curaduría musical y apoyo en balanceo y ajuste de lore",
-          "Coordinación del proceso Scrum durante la producción"
+          "Principal mantenedor del GDD: narrativa, tablas de estadísticas de unidades y economía",
+          "Pantalla de selección de facción, navegación entre menús, mensajes al pasar el ratón y escena de créditos",
+          "Audio (SoundController, AudioMixer, efectos) y coordinación Scrum compartida"
         ],
         [
-          "UI/UXフローとクレジット実装に貢献",
-          "音楽選定を行い、バランス調整と世界観調整を支援",
-          "制作全体でScrum進行を調整"
+          "GDDの主担当として、ストーリー、ユニットのステータス表、経済設計を管理",
+          "陣営選択画面、メニュー間の遷移、マウスオーバー時のメッセージ表示、クレジット画面",
+          "オーディオ（SoundController、AudioMixer、効果音）と、チームで分担したスクラム進行"
         ]
       ),
       link: {
@@ -382,25 +393,25 @@
         thumbnail: "assets/img/portfolio/portfolio-2.png"
       },
       archiveSummary: t(
-        "Restaurant management/simulation project about fulfilling online orders, upgrading the venue and managing stock.",
-        "Proyecto de gestión/simulación de restaurante sobre pedidos online, mejoras del local y control de stock.",
-        "オンライン注文処理、店舗アップグレード、在庫管理を軸にしたレストラン経営シミュレーション。"
+        "Restaurant management sim made in Unreal Engine 4 (Blueprints) by a team of 5: fulfilling online orders, cooking dishes, upgrading the venue and managing stock.",
+        "Simulación de gestión de restaurante hecha en Unreal Engine 4 (Blueprints) por un equipo de 5: pedidos online, cocina, mejoras del local y control de stock.",
+        "オンライン注文処理、調理、店舗アップグレード、在庫管理を軸にしたレストラン経営シミュレーション（UE4・5人チーム）。"
       ),
       archiveContributions: t(
         [
-          "Designed and optimized level layout and scenario flow",
-          "Implemented mechanics, store system and supporting assets",
-          "Supported music selection and Scrum Master coordination"
+          "Built the full cooking system (appliance parent Blueprint, dishes and cooking phases), orders and save game",
+          "Map, lighting, NavMesh and level optimization",
+          "Scrum Master; zone-based audio and library music selection"
         ],
         [
-          "Diseño y optimización del layout de nivel y del flujo del escenario",
-          "Implementación de mecánicas, sistema de tienda y assets de apoyo",
-          "Apoyo en selección musical y coordinación como Scrum Master"
+          "Sistema de cocina completo (blueprint padre de electrodomésticos, platos y fases de cocinado), pedidos y partida guardada",
+          "Mapa, iluminación, NavMesh y optimización del nivel",
+          "Scrum Master; audio por zonas y selección de música de biblioteca"
         ],
         [
-          "レベルレイアウトとシナリオフローを設計・最適化",
-          "メカニクス、ショップシステム、補助アセットを実装",
-          "音楽選定とScrum Master的な進行調整を支援"
+          "調理システム全体（調理器具の親Blueprint、料理、調理フェーズ）、注文処理、セーブ機能を実装",
+          "マップ、ライティング、NavMesh、レベルの最適化",
+          "スクラムマスターを担当。エリアごとのオーディオとライブラリ楽曲の選定"
         ]
       ),
       link: {
@@ -418,25 +429,28 @@
         thumbnail: "assets/img/portfolio/portfolio-6.png"
       },
       archiveSummary: t(
-        "21-day jam project where a third faction disrupts a war between two armies and forces a new combat balance.",
-        "Proyecto de game jam de 21 días donde una tercera facción rompe el equilibrio de una guerra entre dos ejércitos.",
-        "二つの軍勢の戦争に第三勢力が介入し、新しい戦闘バランスを生み出す21日間のゲームジャム作品。"
+        "21-day jam game made in Unity by a team of 4 (2 programmers, an artist and a composer), where a third faction disrupts a war between two armies and forces a new combat balance.",
+        "Juego de game jam de 21 días hecho en Unity por un equipo de 4 (2 programadores, un artista y un compositor), en el que una tercera facción irrumpe en una guerra entre dos ejércitos y fuerza un nuevo equilibrio de combate.",
+        "二つの軍勢の戦争に第三勢力が介入し、新しい戦闘バランスを生み出す21日間のゲームジャム作品（Unity・4人チーム：プログラマー2名、アーティスト1名、作曲者1名）。"
       ),
       archiveContributions: t(
         [
-          "Implemented mechanics, abilities and map structure",
-          "Adjusted and integrated music into gameplay flow",
-          "Balanced encounter flow and combat pacing"
+          "Programmed the turn-based combat logic (turn order, damage, healing), characters, stats, leveling and ability implementation",
+          "Balanced encounters and combat pacing",
+          "Scene work: camera, map and dungeon backgrounds, lighting and set dressing; sourced missing 3D models with verified licenses",
+          "Edited the team composer's music into loops in Audacity and integrated music and SFX"
         ],
         [
-          "Implementación de mecánicas, habilidades y estructura del mapa",
-          "Ajuste e integración de música dentro del flujo de gameplay",
-          "Balanceo del flujo de encuentros y del ritmo de combate"
+          "Programación de la lógica del combate por turnos (orden de turnos, daño y curación), personajes, estadísticas y subida de nivel; implementación de habilidades",
+          "Balanceo de los encuentros y del ritmo de combate",
+          "Escena: cámara, fondos del mapa y la mazmorra, iluminación y decoración; búsqueda de los modelos 3D que faltaban, con licencias comprobadas",
+          "Edición en bucle con Audacity de la música del compositor del equipo e integración de música y SFX"
         ],
         [
-          "メカニクス、能力、マップ構造を実装",
-          "音楽を調整し、ゲームプレイフローへ統合",
-          "遭遇フローと戦闘ペーシングをバランス調整"
+          "ターン制戦闘のロジック（ターン順、ダメージ、回復）、キャラクター、ステータス、レベルアップをプログラムし、スキルを実装",
+          "エンカウントと戦闘テンポのバランス調整",
+          "シーン制作：カメラ、マップとダンジョンの背景、ライティング、装飾。不足していた3Dモデルをライセンスを確認したうえで調達",
+          "チームの作曲者による楽曲をAudacityでループ用に編集し、BGMと効果音を組み込み"
         ]
       ),
       link: {

@@ -12,7 +12,8 @@ document.addEventListener("DOMContentLoaded", () => {
       "timeline_close_label": "Close details",
       "tfg-link-pdf": "Read Thesis (PDF)",
       "visit": "Visit Page",
-      "play": "Play Now"
+      "play": "Play Now",
+      "watch_gameplay": "Watch Gameplay"
     },
     es: {
       "project_contributions_title": "Contribuciones clave",
@@ -21,7 +22,8 @@ document.addEventListener("DOMContentLoaded", () => {
       "timeline_close_label": "Cerrar detalles",
       "tfg-link-pdf": "Leer TFG (PDF)",
       "visit": "Visitar página",
-      "play": "Jugar"
+      "play": "Jugar",
+      "watch_gameplay": "Ver gameplay"
     },
     ja: {
       "project_contributions_title": "主要な貢献",
@@ -30,7 +32,8 @@ document.addEventListener("DOMContentLoaded", () => {
       "timeline_close_label": "詳細を閉じる",
       "tfg-link-pdf": "卒業研究を読む（PDF）",
       "visit": "ページを見る",
-      "play": "プレイする"
+      "play": "プレイする",
+      "watch_gameplay": "プレイ動画を見る"
     }
   };
   const escapeMap = {
@@ -155,6 +158,9 @@ document.addEventListener("DOMContentLoaded", () => {
         const note = getLocalizedValue(project.note, currentLang);
         const contributions = getLocalizedValue(project.featuredContributions, currentLang);
         const ctaLabel = escapeHtml(getUiLabel(strings, currentLang, project.link.labelKey));
+        const videoMarkup = project.video?.href
+          ? `<a href="${escapeHtml(project.video.href)}" class="project-link project-link-secondary" target="_blank" rel="noopener noreferrer">${escapeHtml(getUiLabel(strings, currentLang, project.video.labelKey))}</a>`
+          : "";
         const contributionsMarkup = Array.isArray(contributions)
           ? contributions.map((item) => `<li>${escapeHtml(item)}</li>`).join("")
           : "";
@@ -181,6 +187,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     </div>
                     ${note ? `<p class="project-note">${escapeHtml(note)}</p>` : ""}
                     <a href="${escapeHtml(project.link.href)}" class="project-link" target="_blank" rel="noopener noreferrer">${ctaLabel}</a>
+                    ${videoMarkup}
                   </div>
                 </div>
               </div>
@@ -200,6 +207,9 @@ document.addEventListener("DOMContentLoaded", () => {
         const contributions = getLocalizedValue(project.archiveContributions, currentLang);
         const ctaLabel = escapeHtml(getUiLabel(strings, currentLang, project.link.labelKey));
         const categories = Array.isArray(project.categories) ? project.categories.join(" ") : "";
+        const videoMarkup = project.video?.href
+          ? `<a href="${escapeHtml(project.video.href)}" class="portfolio-link portfolio-link-secondary" target="_blank" rel="noopener noreferrer">${escapeHtml(getUiLabel(strings, currentLang, project.video.labelKey))}</a>`
+          : "";
         const summaryMarkup = summary
           ? `<p class="portfolio-desc portfolio-summary">${escapeHtml(summary)}</p>`
           : "";
@@ -219,7 +229,10 @@ document.addEventListener("DOMContentLoaded", () => {
                 <h5 class="portfolio-title">${title}</h5>
                 ${summaryMarkup}
                 ${contributionsMarkup}
-                <a href="${escapeHtml(project.link.href)}" class="portfolio-link" target="_blank" rel="noopener noreferrer">${ctaLabel}</a>
+                <div class="portfolio-actions">
+                  <a href="${escapeHtml(project.link.href)}" class="portfolio-link" target="_blank" rel="noopener noreferrer">${ctaLabel}</a>
+                  ${videoMarkup}
+                </div>
               </div>
             </div>
           </div>

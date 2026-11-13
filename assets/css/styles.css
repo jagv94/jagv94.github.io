@@ -421,6 +421,9 @@ body::before {
   font-size: 0.9rem;
 }
 .lang-level { opacity: 0.8; font-size: 0.8rem; }
+/* Aviso de traducción al japonés: oculto salvo con <html lang="ja"> o "ja-*" (main.js actualiza el atributo) */
+.translation-note { display: none; margin: 0.75rem 0 0; text-align: center; font-size: 0.8rem; opacity: 0.8; }
+html[lang|="ja"] .translation-note { display: block; }
 
 /* ==== SECTION TITLES ==== */
 .section-title {
@@ -494,6 +497,8 @@ body::before {
 .project-responsibilities li { padding-left: 1.8rem; position: relative; margin-bottom: 0.8rem; }
 .project-responsibilities li::before { content: '▸'; position: absolute; left: 0; color: var(--accent); }
 .project-link { display: inline-block; padding: 0.7rem 1.5rem; background: linear-gradient(135deg, var(--accent), var(--accent-dark)); color: var(--bg-dark); text-decoration: none; border-radius: 4px; font-weight: 600; margin-top: 1rem; }
+.project-details .project-link { margin-right: 0.75rem; }
+.project-link-secondary { background: transparent; color: var(--accent-light); border: 1px solid var(--accent); }
 .project-link,
 .portfolio-link,
 .contact-btn,
@@ -545,14 +550,14 @@ body::before {
     pointer-events: auto;
   }
 
-  /* Panel central (Godly Thief) se centra */
-  .featured-panel[data-project="godlythief"].is-active .panel-expanded-content {
+  /* Panel central (2.º destacado) se centra */
+  .featured-panel:nth-child(2).is-active .panel-expanded-content {
     left: 50%;
     transform: translateX(-50%);
   }
 
-  /* Panel derecho (Twisted Tail) se alinea a la derecha */
-  .featured-panel[data-project="twistedtail"].is-active .panel-expanded-content {
+  /* Panel derecho (3.er destacado) se alinea a la derecha */
+  .featured-panel:nth-child(3).is-active .panel-expanded-content {
     left: auto;
     right: 0;
     transform: translateX(0);
@@ -805,6 +810,10 @@ body::before {
   color: var(--accent);
 }
 .portfolio-link { display: inline-block; padding: 0.5rem 1rem; background: var(--accent); color: var(--bg-dark); text-decoration: none; border-radius: 4px; font-weight: 600; align-self: flex-start; }
+.portfolio-link-secondary { background: transparent; color: var(--accent-light); border: 1px solid var(--accent); }
+/* Botones fijos al pie de la tarjeta: siguen visibles aunque el texto del overlay tenga scroll.
+   bottom/margin negativos = padding del .portfolio-overlay (1.35rem). */
+.portfolio-actions { position: sticky; bottom: -1.35rem; margin: auto -1.35rem -1.35rem; padding: 0.75rem 1.35rem 1.35rem; background: rgba(10, 10, 20, 0.96); display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: flex-start; }
 
 @media (hover: none), (pointer: coarse) {
   .portfolio-item:hover {
