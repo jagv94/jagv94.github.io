@@ -889,6 +889,10 @@ html[lang|="ja"] .translation-note { display: block; }
   .skills-pills-container { gap: 0.3rem 0.6rem; }
   .skill-pill { font-size: 0.8rem; padding: 3px 10px; }
   .scroll-indicator { bottom: 15px; font-size: 1.5rem; }
+  /* Pastillas de idioma: si no caben, el nivel baja entero debajo del nombre (que nunca se parte) */
+  .lang-pill { flex-wrap: wrap; justify-content: center; }
+  .lang-pill > span:not(.lang-level) { white-space: nowrap; }
+  .lang-level { word-break: keep-all; }
 }
 
 /* Ajuste específico para tablet en horizontal (evita solapamiento de flecha) */

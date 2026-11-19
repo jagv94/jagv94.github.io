@@ -58,19 +58,19 @@
       ),
       bullets: t(
         [
-          "Designed the hub level of a Unity VR prototype for Virtuix Omni treadmills (team of 5): a hexagonal nexus with elemental doors, a symbol-rotation column puzzle and gem pedestals. Wrote its design document, built the layout, torches, baked lighting and audio transition, and programmed the pedestal puzzle that drains the water.",
+          "Designed the hub level of a Unity VR prototype for Virtuix Omni treadmills (team of 5): a hexagonal nexus with elemental doors, a symbol-rotation column puzzle (later cut for time) and gem pedestals. Wrote its design document, built the layout, torches, baked lighting and audio transition, and programmed the pedestal puzzle that drains the water.",
           "Built the lava zone: programmed platforms that sink into the lava in random order, moving platforms usable by the player and the enemy, and editor gizmos to preview their path and final height; integrated the rock-melting sounds. The prototype was shown at the Saló de l'Ensenyament.",
           "Technical documentation for the lab (Meta Quest, Virtuix Omni, OBS) and a VR/AR hardware comparison report.",
           "Inventory, testing, maintenance and cataloging of headsets, consoles and peripherals, plus equipment loan forms."
         ],
         [
-          "Diseño del nivel central de un prototipo VR en Unity para cintas Virtuix Omni (equipo de 5): un nexo hexagonal con puertas elementales, un puzle de columnas con símbolos que se rotan y pedestales para gemas. Documento de diseño propio; layout, antorchas, iluminación bakeada y transición de audio, y programación del puzle de los pedestales que vacía el agua.",
+          "Diseño del nivel central de un prototipo VR en Unity para cintas Virtuix Omni (equipo de 5): un nexo hexagonal con puertas elementales, un puzle de columnas con símbolos que se rotan (recortado después por falta de tiempo) y pedestales para gemas. Documento de diseño propio; layout, antorchas, iluminación bakeada y transición de audio, y programación del puzle de los pedestales que vacía el agua.",
           "Zona de lava: programación de plataformas que se hunden en la lava en orden aleatorio, plataformas móviles que usan el jugador y el enemigo, y gizmos de editor para previsualizar su recorrido y su altura final; integración de los sonidos de roca fundiéndose. El prototipo se mostró en el Saló de l'Ensenyament.",
           "Documentación técnica del laboratorio (Meta Quest, Virtuix Omni, OBS) e informe comparativo de hardware VR/AR.",
           "Inventario, pruebas, mantenimiento y catalogación de visores, consolas y periféricos, y formularios de préstamo."
         ],
         [
-          "Virtuix Omni向けUnity製VRプロトタイプ（5人チーム）のハブレベルを設計：属性ごとの扉、シンボルを回転させる柱のパズル、宝石の台座を備えた六角形のネクサス。デザインドキュメントを作成し、レイアウト、松明、ベイクドライティング、オーディオの切り替えを実装。水を抜く台座パズルもプログラム。",
+          "Virtuix Omni向けUnity製VRプロトタイプ（5人チーム）のハブレベルを設計：属性ごとの扉、シンボルを回転させる柱のパズル（後に時間不足のためカット）、宝石の台座を備えた六角形のネクサス。デザインドキュメントを作成し、レイアウト、松明、ベイクドライティング、オーディオの切り替えを実装。水を抜く台座パズルもプログラム。",
           "溶岩ゾーンを構築：ランダムな順番で溶岩に沈む足場、プレイヤーと敵が使える移動床、経路と最終的な高さを確認できるエディタ用ギズモをプログラムし、岩が溶ける効果音を組み込み。プロトタイプはSaló de l'Ensenyamentで展示。",
           "ラボの技術ドキュメント（Meta Quest、Virtuix Omni、OBS）とVR/ARハードウェア比較レポートを作成。",
           "ヘッドセット、ゲーム機、周辺機器の在庫管理・動作確認・メンテナンス・機材の台帳登録と、機材貸出用フォームの作成。"
